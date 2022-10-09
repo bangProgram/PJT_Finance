@@ -1,0 +1,15 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
+<html>
+ <head>
+  <title>메인화면</title>
+ </head>
+ <body>
+  <h1>사업장 조회하기</h1>
+  <form method="POST">
+   <p>년도 : <input type="text" name="pStartYear" /> ~ <input type="text" name="pEndYear" /></p>
+   <p>구분 : <input type="radio" name="category" /> 분기보고서 / <input type="radio" name="category" /> 사업보고서</p>
+   <p>가격 : <input type="text" name="price" /></p>
+   <p><input type="submit" value="저장" />
+  </form>
+ </body>
+</html>
