@@ -5,7 +5,21 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-10-06T20:57:00Z</updated>
+  <updated>2022-10-10T07:00:00Z</updated>
+  <entry>
+    <title>Spring Tips: Spring Boot &amp; Apache Kafka</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/10/spring-tips-spring-boot-apache-kafka" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-10-10:4939</id>
+    <updated>2022-10-10T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment of Spring Tips, I look at the venerable Apache Kafka broker and its integrations at various level of abstraction in the Spring Boot ecosystem.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/DJHUNSGh3K0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Want to learn more about event driven architectures, AOT and GraalVM, Apache Kafka, and Spring Boot? SpringOne 2022 is almost here! If you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud 2022.0.0-M5 is now available</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/06/spring-cloud-2022-0-0-m5-is-now-available" />
@@ -1059,20 +1073,6 @@ Artem&lt;/p&gt;
   &lt;li&gt;Spring Session JDBC &lt;code&gt;3.0.0-M4&lt;/code&gt; - &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/3.0.0-M4"&gt;release notes&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Session Hazelcast &lt;code&gt;3.0.0-M4&lt;/code&gt; - &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/3.0.0-M4"&gt;release notes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Cloud Dataflow 2.10.0-M2 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/20/spring-cloud-dataflow-2-10-0-m2-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Chris Bono</name>
-    </author>
-    <id>tag:spring.io,2022-09-20:4917</id>
-    <updated>2022-09-20T19:00:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I¡¯m happy to announce that Spring Cloud Dataflow &lt;code&gt;2.10.0-M2&lt;/code&gt; has been released and is now available from &lt;a href="https://repo.spring.io/milestone"&gt;https://repo.spring.io/milestone&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This release contains an update of the Spring Boot version and adds back in support for MySQL. See the &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/releases/tag/v2.10.0-M2"&gt;release notes&lt;/a&gt; for more information.&lt;/p&gt;&lt;h2&gt;&lt;a href="#stay-in-touch-hellip" class="anchor" name="stay-in-touch-hellip"&gt;&lt;/a&gt;Stay in touch&amp;hellip;&lt;/h2&gt;
-&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
