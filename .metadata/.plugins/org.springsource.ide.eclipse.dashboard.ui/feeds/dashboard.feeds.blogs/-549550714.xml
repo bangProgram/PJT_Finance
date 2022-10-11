@@ -5,7 +5,178 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-10-10T07:00:00Z</updated>
+  <updated>2022-10-11T07:32:00Z</updated>
+  <entry>
+    <title>Embracing Virtual Threads</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/11/embracing-virtual-threads" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Mark Paluch</name>
+    </author>
+    <id>tag:spring.io,2022-10-07:4938</id>
+    <updated>2022-10-11T07:32:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Project Loom has made it into the JDK through &lt;a href="https://openjdk.org/jeps/425"&gt;JEP 425&lt;/a&gt;. It&amp;#8217;s available since Java 19 in September 2022 as a preview feature.
+Its goal is to dramatically reduce the effort of writing, maintaining, and observing high-throughput concurrent applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="where-virtual-threads-make-sense"&gt;&lt;a class="anchor" href="#where-virtual-threads-make-sense"&gt;&lt;/a&gt;Where Virtual Threads make sense&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This makes lightweight Virtual Threads an exciting approach for application developers and the Spring Framework. Past years indicated a trend towards applications that communicate over the network with each other. Many applications make use of data stores, message brokers, and remote services. I/O-intensive applications are the primary ones that benefit from Virtual Threads if they were built to use blocking I/O facilities such as &lt;code&gt;InputStream&lt;/code&gt; and synchronous HTTP, database, and message broker clients.
+Running such workloads on Virtual Threads helps reduce the memory footprint compared to Platform Threads and in certain situations, Virtual Threads can increase concurrency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Higher concurrency can be achieved if the system has additional resources necessary for concurrency. Specifically, these are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;Available connections in a connection pool&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sufficient memory to serve the increased load&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unused CPU time&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Use of Virtual Threads clearly is not limited to the direct reduction of memory footprints or an increase in concurrency. The introduction of Virtual Threads also prompts a broader revisit of decisions made for a runtime when only Platform Threads were available.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="revision-of-concurrency-utilities"&gt;&lt;a class="anchor" href="#revision-of-concurrency-utilities"&gt;&lt;/a&gt;Revision of Concurrency Utilities&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Framework&amp;#8217;s &lt;code&gt;SimpleAsyncTaskExecutor&lt;/code&gt; uses a new Platform Thread for each runnable submitted if no &lt;code&gt;ThreadFactory&lt;/code&gt; is configured. Such an arrangement requires Platform Thread creation resulting in lower throughput and higher memory consumption.
+&lt;code&gt;SimpleAsyncTaskExecutor&lt;/code&gt; could be revised to use Virtual Threads by default to reduce the memory footprint and increase throughput in its default configuration. (In the meantime, a custom &lt;code&gt;TaskExecutor&lt;/code&gt; variant can be used to the same effect.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="revision-of-programming-models"&gt;&lt;a class="anchor" href="#revision-of-programming-models"&gt;&lt;/a&gt;Revision of Programming Models&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Virtual Threads can change our perspective on asynchronous programming interfaces.
+The reasons to use asynchronous programming models go away in many cases if we start with the assumption that our code runs on Virtual Threads.
+Virtual Threads are much more lightweight to allocate, and the number of threads is no longer a primary limitation for scalability.
+To make things more clear, asynchronous programming models do not remove the latency of e.g. a network call.
+The asynchronous Apache HTTP Client or netty simply switches tasks if a network call cannot progress instead of blocking a Thread.
+And the same happens with Virtual Threads: They effectively yield towards another &lt;code&gt;Runnable&lt;/code&gt; that can progress with its work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Project Loom has revisited all areas in the Java runtime libraries that can block and updated the code to yield if the code encounters blocking.
+Java&amp;#8217;s concurrency utils (e.g. &lt;code&gt;ReentrantLock&lt;/code&gt;, &lt;code&gt;CountDownLatch&lt;/code&gt;, &lt;code&gt;CompletableFuture&lt;/code&gt;) can be used on Virtual Threads without blocking underlying Platform Threads.
+This change makes &lt;code&gt;Future&lt;/code&gt;'s &lt;code&gt;.get()&lt;/code&gt; and &lt;code&gt;.get(Long, TimeUnit)&lt;/code&gt; good citizens on Virtual Threads and removes the need for callback-driven usage of Futures.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Assumptions leading to the asynchronous Servlet API are subject to be invalidated with the introduction of Virtual Threads.
+The async Servlet API was introduced to release server threads so the server could continue serving requests while a worker thread continues working on the request.
+Running servlet request and response processing on a Virtual Thread removes the need to release server threads leading to the question, why to use &lt;code&gt;ServletRequest.startAsync()&lt;/code&gt; at all, as asynchronous forking involves a lot of state-saving that could be eliminated as it would be no longer required.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="mitigating-limitations"&gt;&lt;a class="anchor" href="#mitigating-limitations"&gt;&lt;/a&gt;Mitigating Limitations&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Our team has been experimenting with Virtual Threads since they were called Fibers. Since then and still with the release of Java 19, a limitation was prevalent, leading to Platform Thread pinning, effectively reducing concurrency when using &lt;code&gt;synchronized&lt;/code&gt;. The use of &lt;code&gt;synchronized&lt;/code&gt; code blocks is not in of itself a problem; only when those blocks contain blocking code, generally speaking I/O operations. These arrangements can be problematic as carrier Platform Threads are a limited resource and Platform Thread pinning can lead to application performance degradation when running code on Virtual Threads without careful inspection of the workload. In fact, the same blocking code in synchronized blocks can lead to performance issues even without Virtual Threads.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Framework makes a lot of use of &lt;code&gt;synchronized&lt;/code&gt; to implement locking, mostly around local data structures. Over the years, before Virtual Threads were available, we have revised &lt;code&gt;synchronized&lt;/code&gt; blocks which might potentially interact with third-party resources, removing lock contention in highly concurrent applications. So Spring is in pretty good shape already owing to its large community and extensive feedback from existing concurrent applications. On the path to becoming the best possible citizen in a Virtual Thread scenario, we will further revisit &lt;code&gt;synchronized&lt;/code&gt; usage in the context of I/O or other blocking code to avoid Platform Thread pinning in hot code paths so that your application can get the most out of Project Loom.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="running-spring-applications-on-virtual-threads"&gt;&lt;a class="anchor" href="#running-spring-applications-on-virtual-threads"&gt;&lt;/a&gt;Running Spring Applications on Virtual Threads&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With the most recent versions of Spring Framework, Spring Boot and Apache Tomcat, you can start experimenting on your own.
+You start analyzing how Virtual Threads impact your application workloads and benchmark Virtual Threads usage vs. Platform Threads usage.
+To customize your Spring Boot application to process servlet requests on Virtual Threads, apply the following customization:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@Bean(TaskExecutionAutoConfiguration.APPLICATION_TASK_EXECUTOR_BEAN_NAME)
+public AsyncTaskExecutor asyncTaskExecutor() {
+  return new TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor());
+}
+
+@Bean
+public TomcatProtocolHandlerCustomizer&amp;lt;?&amp;gt; protocolHandlerVirtualThreadExecutorCustomizer() {
+  return protocolHandler -&amp;gt; {
+    protocolHandler.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+  };
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are doing everything we can to make the preview experience as seamless as possible for the time being, and we expect to provide first-class configuration options once Loom goes out of preview in a new OpenJDK release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If we learn about the concrete potential for virtual-thread-oriented optimizations in the core framework, be it certain &lt;code&gt;synchronized&lt;/code&gt; usage points or certain &lt;code&gt;ThreadLocal&lt;/code&gt; usage, we&amp;#8217;ll try to roll corresponding refinements into upcoming Spring Framework and Spring Boot maintenance releases as far as possible, even before Loom&amp;#8217;s general availability.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Virtual Threads impact not only Spring Framework but all surrounding integrations, such as database drivers, messaging systems, HTTP clients, and many more. Many of these projects are aware of the need to improve their &lt;code&gt;synchronized&lt;/code&gt; behavior to unleash the full potential of Project Loom.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="will-your-application-benefit-from-virtual-threads"&gt;&lt;a class="anchor" href="#will-your-application-benefit-from-virtual-threads"&gt;&lt;/a&gt;Will your application benefit from Virtual Threads?&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;It is a more specific question than &lt;em&gt;will there be benefit&lt;/em&gt;, and one harder to answer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;What we can say is that the most likely scenario in which you can benefit without almost any change, is if you&amp;#8217;re currently not doing anything asynchronous at all (not even Servlet 3.1 style async requests, or otherwise you&amp;#8217;ll probably need to make some revisions to align better).
+And of course, there would have to be some actual I/O or other thread parking for Loom to bring benefits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We also believe that ReactiveX-style APIs remain a powerful way to compose concurrent logic and a natural way for dealing with streams. We see Virtual Threads complementing reactive programming models in removing barriers of blocking I/O while processing infinite streams using Virtual Threads purely remains a challenge.
+ReactiveX is the right approach for concurrent scenarios in which declarative concurrency (such as scatter-gather) matters.
+The underlying Reactive Streams specification defines a protocol for demand, back pressure, and cancellation of data pipelines without limiting itself to non-blocking API or specific Thread usage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We very much look forward to our collective experience and feedback from applications. Our focus currently is to make sure that you are enabled to begin experimenting on your own. If you encounter specific issues in your own early experiments with Virtual Threads, please report them to the corresponding project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;em&gt;Give virtual threads a try with your Spring-based applications, and let us know how it goes!&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - October 11th, 2022</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/11/this-week-in-spring-october-11th-2022" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-10-11:4940</id>
+    <updated>2022-10-11T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! I write this installment as I pack and prepare for my trip to Antwerp, Belgium, for the always-amazing Devoxx show in Antwerp, Belgium. I&amp;rsquo;ve so missed this show over the pandemic and am so looking forward to returning. I hope to catch any and all of you there, too! I&amp;rsquo;ll be copresenting with my pal James Ward about some of the new and novel in Spring Boot 3 and Kotlin. It&amp;rsquo;s going to be awesome - join us and we&amp;rsquo;ll have some fun together! &lt;/p&gt;
+&lt;p&gt;Now, we&amp;rsquo;ve got a ton to cover so let&amp;rsquo;s dive right into it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/10/spring-tips-spring-boot-apache-kafka"&gt;Spring Tips: Spring Boot &amp;amp; Apache Kafka&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/05/spring-batch-5-0-0-m7-available-now"&gt;Spring Batch 5.0.0-M7 available now!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/06/spring-cloud-2022-0-0-m5-is-now-available"&gt;Spring Cloud 2022.0.0-M5 is now available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/05/spring-shell-2-1-2-and-3-0-0-m1-are-now-available"&gt;Spring Shell 2.1.2 and 3.0.0-M1 are now available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://dimensionalresearch.co1.qualtrics.com/jfe/form/SV_9TrBJxjPcA68kQK"&gt;The State of Spring Survey&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I put the updated code for my latest incarnation of &lt;em&gt;Cloud Native Java&lt;/em&gt; - online in Github &lt;a href="https://github.com/joshlong/cloud-native-java-2022/tree/main/e2e5"&gt;&lt;code&gt;cloud-native-java-2022/e2e5&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/06/a-bootiful-podcast-spring-and-java-community-legend-marten-deinum"&gt;A Bootiful Podcast: Spring and Java community legend Marten Deinum&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/714588576/0/baeldung~Difference-Between-Flux-and-Mono"&gt;Difference Between &lt;code&gt;Flux&lt;/code&gt; and &lt;code&gt;Mono&lt;/code&gt; in Project Reactor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Hey - Baeldung.com (yes, &lt;a href="https://baeldung.com"&gt;&lt;em&gt;that&lt;/em&gt; Baeldung.com&lt;/a&gt;!) is using Spring, and they&amp;rsquo;re looking &lt;a href="https://feeds.feedblitz.com/~/714616498/0/baeldung~Looking-for-a-Java-Team-Lead-with-Spring-Experience-Remote-Part-Time"&gt;for a Java Team Lead with Spring Experience (Remote) (Part Time)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/714708710/0/baeldung~Patterns-for-Iterating-Over-Large-Result-Sets-With-Spring-Data-JPA"&gt;Patterns for Iterating Over Large Result Sets With Spring Data JPA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/rdehuyss/status/1577208092890046465"&gt;JobRunr&amp;rsquo;s already been upgraded to Spring Boot 3 for the JRE&lt;/a&gt; - and perhaps Spring Boot 3 AOT support is on the way?&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/714448448/0/baeldung~JMeter-Latency-vs-Load-Time/"&gt;JMeter: Latency vs. Load Time&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Want to learn more about Spring Boot and the wider ecosystem? &lt;a href="https://springone.io/"&gt;SpringOne 2022&lt;/a&gt; is almost here! If you want a chance to learn from the source, I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Tips: Spring Boot &amp; Apache Kafka</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/10/spring-tips-spring-boot-apache-kafka" />
@@ -17,7 +188,7 @@
     <updated>2022-10-10T07:00:00Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! In this installment of Spring Tips, I look at the venerable Apache Kafka broker and its integrations at various level of abstraction in the Spring Boot ecosystem.&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/DJHUNSGh3K0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;Want to learn more about event driven architectures, AOT and GraalVM, Apache Kafka, and Spring Boot? SpringOne 2022 is almost here! If you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
+&lt;p&gt;Want to learn more about event driven architectures, AOT and GraalVM, Apache Kafka, and Spring Boot? &lt;a href="https://springone.io"&gt;SpringOne 2022&lt;/a&gt; is almost here! If you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
   <entry>
@@ -1020,59 +1191,6 @@ Artem&lt;/p&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Authorization Server 0.4.0-M2 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/21/spring-authorization-server-0-4-0-m2-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Joe Grandja</name>
-    </author>
-    <id>tag:spring.io,2022-09-20:4919</id>
-    <updated>2022-09-21T14:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the general availability of Spring Authorization Server 0.4.0-M2.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;You can download it from &lt;a href="https://repo.spring.io/milestone"&gt;repo.spring.io&lt;/a&gt; milestone repository by using the module coordinates:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;implementation 'org.springframework.security:spring-security-oauth2-authorization-server:0.4.0-M2'&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-authorization-server/releases/tag/0.4.0-M2"&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href="https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html"&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href="https://github.com/spring-projects/spring-authorization-server/tree/0.4.x/samples"&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We would love to gather your feedback as we strive to improve and build upon this release.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Session 2022.0.0-M3 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/20/spring-session-2022-0-0-m3-released" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2022-09-20:4918</id>
-    <updated>2022-09-21T04:06:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team, I¡¯m pleased to announce the release of Spring Session &lt;code&gt;2022.0.0-M3&lt;/code&gt;. These releases deliver, enhancements, bug fixes, and dependency upgrades.&lt;br/&gt;For your convenience, Spring Boot will pick up these artifacts with its upcoming releases.&lt;/p&gt;
-&lt;p&gt;The following modules were updated as part of &lt;code&gt;2022.0.0-M3&lt;/code&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring Session Core &lt;code&gt;3.0.0-M4&lt;/code&gt; - &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/3.0.0-M4"&gt;release notes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Session Data Redis &lt;code&gt;3.0.0-M4&lt;/code&gt; - &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/3.0.0-M4"&gt;release notes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Session JDBC &lt;code&gt;3.0.0-M4&lt;/code&gt; - &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/3.0.0-M4"&gt;release notes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Session Hazelcast &lt;code&gt;3.0.0-M4&lt;/code&gt; - &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/3.0.0-M4"&gt;release notes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
