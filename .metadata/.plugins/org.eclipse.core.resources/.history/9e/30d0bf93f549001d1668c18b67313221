@@ -1,0 +1,10 @@
+package src.main.finance.cms.report.service;
+
+import java.util.Map;
+
+public interface ReportService {
+
+	String create(Map<String, Object> map);
+
+	
+}

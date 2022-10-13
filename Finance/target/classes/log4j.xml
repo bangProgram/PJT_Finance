@@ -38,4 +38,9 @@
 		<appender-ref ref="console" />
 	</root>
 	
+	<!-- 20221013_쿼리 로그 -->
+	<logger name="jdbc.sqltiming">
+	    <level value="info" />
+	</logger>
+	
 </log4j:configuration>

@@ -6,3 +6,22 @@
 1665398847988	Rename type 'MainController'
 1665477446694	Rename type 'ReportDAO'
 1665477649520	Delete element
+1665554237381	Rename package 'src.main.finance.main'
+1665554262226	Copy package
+1665554281116	Copy package
+1665554293093	Delete element
+1665554298511	Delete element
+1665554349506	Copy package
+1665554359072	Delete element
+1665554385348	Copy compilation unit
+1665554388899	Delete element
+1665643881310	Copy compilation units
+1665643905493	Rename type 'ReportServiceImpl'
+1665643916179	Rename type 'ReportService'
+1665645637878	Move file
+1665645684954	Delete element
+1665645744245	Copy package
+1665645785818	Delete element
+1665645786947	Copy file
+1665645790931	Delete element
+1665645802872	Rename resource 'report_SQL.xml'
