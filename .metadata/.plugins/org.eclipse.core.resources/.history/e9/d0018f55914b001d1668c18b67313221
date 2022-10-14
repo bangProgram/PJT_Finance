@@ -22,7 +22,7 @@ public class PortfolioController {
 		List<Map<String, Object>> resultList = portfolioService.getPortFolioList(commandMap);
 	    
 	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "portfolio/portfolioList";
+	    String resultURL = "port/portfolioList";
 	    mav.addObject("resultList", resultList);
 	    mav.setViewName(resultURL);
 	    

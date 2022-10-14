@@ -25,3 +25,14 @@
 1665645786947	Copy file
 1665645790931	Delete element
 1665645802872	Rename resource 'report_SQL.xml'
+1665710185771	Rename resource 'reportView.jsp'
+1665710194143	Rename resource 'bplcView.jsp'
+1665710204410	Rename resource 'workplace'
+1665710212120	Rename resource 'bplcList.jsp'
+1665710283925	Rename package 'src.main.finance.cms.workplace'
+1665710300023	Rename type 'WorkplaceController'
+1665710329300	Copy compilation units
+1665710350889	Rename type 'PortfolioService'
+1665710357970	Rename type 'PortfolioServiceImpl'
+1665710434802	Rename resource 'port'
+1665732322084	Copy file
