@@ -29,6 +29,14 @@ public class ReportServiceImpl implements ReportService {
 	}
 	
 	@Override
+	public List<Map<String, Object>> getReportSearch(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getReportSearch");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
+	
+	@Override
 	public List<Map<String, Object>> getReportList(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getReportList");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
