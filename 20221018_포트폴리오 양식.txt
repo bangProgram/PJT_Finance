@@ -1,8 +1,28 @@
-평균 per : 11.48
-추정 eps : 2,450 / per : 13.8
-연 평균 매출성장률 : 7.4
-연 평균 영익성장률 : 23.7
-연 평균 순익성장률 : 328
-성장률 삼각 : 15.5 / 1.5 = 10.33
-매수 : 25,308 ~ 28,126
-매도 : 43000 ~ 49000
+ifrs-full_Revenue									수익(매출액)
+ifrs-full_CostOfSales									매출원가
+ifrs-full_GrossProfit									매출총이익
+dart_TotalSellingGeneralAdministrativeExpenses						판매비와관리비
+dart_OperatingIncomeLoss								영업이익(손실)
+
+ifrs-full_ProfitLossBeforeTax								법인세비용차감전순이익(손실)
+ifrs-full_IncomeTaxExpenseContinuingOperations						법인세비용
+ifrs-full_ProfitLossFromContinuingOperations						계속영업이익(손실)
+ifrs-full_ProfitLossFromDiscontinuedOperations						중단영업이익(손실)
+ifrs-full_ProfitLoss									당기순이익(손실)
+
+
+ifrs-full_EarningsPerShareAbstract							주당이익 [abstract]
+ifrs-full_BasicEarningsLossPerShare	   						기본주당이익(손실)
+
+
+ifrs-full_OtherComprehensiveIncome							기타포괄손익
+dart_OtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLossNetOfTax	   	당기손익으로 재분류되지 않는항목(세후기타포괄손익)
+dart_OtherComprehensiveIncomeThatWillBeReclassifiedToProfitOrLossNetOfTax	   	당기손익으로 재분류될 수 있는 항목(세후기타포괄손익)
+ifrs-full_ComprehensiveIncome								총포괄손익
+ifrs-full_ComprehensiveIncomeAttributableToAbstract					총 포괄손익의 귀속 [abstract]
+ifrs-full_ComprehensiveIncomeAttributableToOwnersOfParent	   			총 포괄손익, 지배기업의 소유주에게 귀속되는 지분
+ifrs-full_ComprehensiveIncomeAttributableToNoncontrollingInterests	   		총 포괄손익, 비지배지분
+
+
+
+

@@ -11,7 +11,10 @@
    <p>보고서 구분 : <input type="radio" name="pReportGb" value="11011" /> 사업보고서 / <input type="radio" name="pReportGb" value="11012" checked="checked"/>반기보고서</p>
    <p>연결 구분 : <input type="radio" name="pConnectGb" value="CFS" checked="checked"/> 연결 / <input type="radio" name="pConnectGb" value="OFS"/> 개별</p>
    <p>연결 구분 : <input type="radio" name="pConnectGb" value="CFS" checked="checked"/> 연결 / <input type="radio" name="pConnectGb" value="OFS"/> 개별</p>
-   <p><input type="submit" value="조회" />
+   <p><input type="submit" value="조회123" />
+   <p>
+   <a href="/report">목록으로</a>
+  </p>
   </form>
  </body>
 </html>

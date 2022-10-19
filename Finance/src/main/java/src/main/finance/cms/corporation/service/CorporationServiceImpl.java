@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import common.mapper.CommonMapper;
 
-@Service("portfolioService")
+@Service("corporationService")
 public class CorporationServiceImpl implements CorporationService {
 	
 	private CommonMapper commonMapper;

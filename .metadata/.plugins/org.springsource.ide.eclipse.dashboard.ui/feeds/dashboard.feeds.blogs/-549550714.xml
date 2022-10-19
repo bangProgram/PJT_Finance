@@ -5,7 +5,195 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-10-17T08:23:00Z</updated>
+  <updated>2022-10-18T19:00:00Z</updated>
+  <entry>
+    <title>This Week in Spring - October 18th, 2022</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/18/this-week-in-spring-october-18th-2022" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-10-18:4955</id>
+    <updated>2022-10-18T19:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! How&amp;rsquo;re you doin&amp;rsquo;? I&amp;rsquo;m doin&amp;rsquo; alright! Last week I was in Antwerp, Belgium, for the amazing Devoxx BE show. I did a presentation with my friend and hero &lt;a href="https://www.youtube.com/watch?v=2MYSLP2vgps&amp;t=1680s"&gt;James Ward on Spring and Kotlin&lt;/a&gt; (that was voted third most-liked talk at a show with more than 250 speakers!) That was a personal career highlight for me - it&amp;rsquo;s not often you get to win and have fun in life. And, as if that wasn&amp;rsquo;t awesome enough, this week I am in Las Vegas, NV, for JavaOne! Fingers crossed, this week will go smoothly, too! Both Devoxx and JavaOne are the first such shows since at least before the pandemic. It&amp;rsquo;s been a very long time in coming and I&amp;rsquo;m elated, overjoyed, to be able to be here.&lt;/p&gt;
+&lt;p&gt;And, of course, I&amp;rsquo;m super excited about &lt;a href="https://springone.io"&gt;SpringOne 2022&lt;/a&gt;! Also, the first in-person show of its kind since before the pandemic! It&amp;rsquo;s going to be amazing. Have you registered? If not, you might consider using this registration code - &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;And this week&amp;rsquo;s busy roundup reflects the usual flurry of activity on the Spring team as we ready releases for our end-of-November timelines for Spring Framework 6 and Spring Boot 3, which means we&amp;rsquo;ve got a &lt;em&gt;ton&lt;/em&gt; of stuff to get into this week, so let&amp;rsquo;s!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/12/spring-framework-6-0-goes-rc1"&gt;Spring Framework 6.0 goes RC1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/12/observability-with-spring-boot-3"&gt;Observability with Spring Boot 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/12/a-bootiful-podcast-google-mad-scientist-josh-suereth-on-observability-with-opentelemetry-building-better-build-tools-and-so-much-more"&gt;A Bootiful Podcast: Google mad scientist Josh Suereth on Observability with OpenTelemetry, building better build tools, and so much more &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/13/spring-batch-5-0-0-m8-is-out"&gt;Spring Batch 5.0.0-M8 is out!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/13/spring-batch-5-0-0-m8-is-out"&gt;Learn more about Spring Framework 6 and Spring Boot 3 in these two great talks from Devoxx 2022&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/13/spring-batch-5-0-0-m8-is-out"&gt;Spring at JavaOne 2022&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/17/spring-data-2022-0-0-rc1-2021-2-5-and-2021-1-8-available"&gt;Spring Data 2022.0.0-RC1, 2021.2.5, and 2021.1.8 available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-security-6-0-0-rc1-and-5-8-0-rc1-are-released"&gt;Spring Security 6.0.0-RC1 and 5.8.0-RC1 are released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-security-5-7-4-and-5-6-8-available-now"&gt;Spring Security 5.7.4 and 5.6.8 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-for-graphql-1-1-0-rc1-released"&gt;Spring for GraphQL 1.1.0-RC1 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-web-services-4-0-0-rc1-is-out"&gt;Spring Web Services 4.0.0-RC1 is out!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Web Services 4.0.0-RC1 is out!</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/18/spring-web-services-4-0-0-rc1-is-out" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Greg L. Turnquist</name>
+    </author>
+    <id>tag:spring.io,2022-10-18:4954</id>
+    <updated>2022-10-18T19:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Greetings Spring community,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Spring Web Services team has released &lt;strong&gt;4.0.0-RC1&lt;/strong&gt;. This is the last planned release candidate that supports Spring Boot 3.0. The final GA release is coming next month in anticipation of Spring Boot 3.0 going GA.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;4.0.x&lt;/strong&gt; is the generation of Spring Web Services that works with Jakarta EE 9, the version where the enterprise specs (JAX-WS, etc.) migrate from &lt;code&gt;javax.&lt;strong&gt;&lt;/code&gt; to &lt;code&gt;jakarta.&lt;/strong&gt;&lt;/code&gt;. See &lt;a href="https://spring.io/blog/2022/10/12/spring-framework-6-0-goes-rc1"&gt;Juergen Holler&amp;#8217;s blog post&lt;/a&gt; for more details about that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Being based upon Spring Framework 6.0, this is also the generation of Spring Web Services that is rebased on top of Java 17 (LTS). So check it out!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;For more details, read the following release notes for each version:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="release-notes-spring-web-services-version-4-0-0-rc1"&gt;&lt;a class="anchor" href="#release-notes-spring-web-services-version-4-0-0-rc1"&gt;&lt;/a&gt;Release Notes - Spring Web Services - Version 4.0.0-RC1&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1284 - Upgrade to Spring Security 6.0.0-RC1. dependenciesPull requests that update a dependency file&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1283 - Upgrade to Spring Framework 6.0.0-RC1. dependenciesPull requests that update a dependency file&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;There were also a LOT of 3rd party library upgrades that were merged from other baselines into this one (and tracked on other tickets).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1281 - Upgrade to xmlsec 3.0.1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1280 - Upgrade to woodstox 4.4.1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1274 - Remove old log4j dependency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1278 - Upgrade to Smack 4.3.5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1277 - Upgrade to slf4j 2.0.3.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1274 - Upgrade to log4j2 2.19.0.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1272 - Upgrade to jdom2 2.0.6.1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1271 - Upgrade to jaxen 1.1.6.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1268 - Upgrade to ehcache 2.10.9.2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;#1267 - Upgrade to Commons IO 2.11.0.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock note"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+This is to ensure Spring WS is running against the latest versions of libraries that are tied to Jakarta EE 9 (and NOT Jakarta EE 10, for which some are already supporting!)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Links: &lt;a href="https://spring.io/projects/spring-ws/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-ws"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-ws/issues"&gt;Issues&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The artifacts are located on Maven Central. Get it while it&amp;#8217;s hot!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="its-not-too-late-to-register-for-springone-2022"&gt;&lt;a class="anchor" href="#its-not-too-late-to-register-for-springone-2022"&gt;&lt;/a&gt;It&amp;#8217;s not too late to register for SpringOne 2022!&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you want the chance to meet up at the world&amp;#8217;s most popular Spring event, this is it. You can register at &lt;a href="https://springone.io/register" class="bare"&gt;https://springone.io/register&lt;/a&gt;. It&amp;#8217;s not too late.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;I&amp;#8217;ll be giving a talk on It&amp;#8217;s 10 PM: Where Is Your Relational Data Store? on Spring&amp;#8217;s various approaches approaches to tame relational data stores. But that&amp;#8217;s not all. There will be a plethora of talks ranging from beginner to advanced across the spectrum of Spring portfolio projects.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;And&amp;#8230;&amp;#8203;it&amp;#8217;s in San Francisco. Don&amp;#8217;t miss this chance to see your favorite Spring teammate (even if it&amp;#8217;s not me!)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring for GraphQL 1.1.0-RC1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/18/spring-for-graphql-1-1-0-rc1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Brian Clozel</name>
+    </author>
+    <id>tag:spring.io,2022-10-18:4950</id>
+    <updated>2022-10-18T16:40:00Z</updated>
+    <content type="html">&lt;p&gt;I&amp;rsquo;m pleased to announce that the first release candidate of Spring for GraphQL 1.1.0 is now available from our &lt;a href="https://repo.spring.io/milestone"&gt;Milestone repository&lt;/a&gt;. This version will be shipped with Spring Boot 3.0.0-RC1 due for release later this week.&lt;/p&gt;
+&lt;p&gt;This release candidate is the last stop for shipping new features; from that point, we&amp;rsquo;ll be focusing on bug fixes and documentation improvements. Our goal is to stabilize the current branch for &lt;a href="https://github.com/spring-projects/spring-graphql/milestone/14"&gt;our GA release scheduled next month&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;With RC1, we&amp;rsquo;re shipping our new Observability support in Spring for GraphQL. Based on the &lt;a href="https://spring.io/blog/2022/10/12/observability-with-spring-boot-3"&gt;new Micrometer Observation work&lt;/a&gt;, this infrastructure replaces &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.metrics.supported.spring-graphql"&gt;the former GraphQL Metrics support in Spring Boot 2.7&lt;/a&gt;. GraphQL is a good use case for Observability in general, as the GraphQL engine can distribute the data fetching operations over caches, databases, REST APIs and more. It&amp;rsquo;s important not only to keep track of performance metrics for your GraphQL API, but also to be able to explore traces and investigate production issues.&lt;/p&gt;
+&lt;p&gt;We didn&amp;rsquo;t have time to tackle features like &lt;a href="https://github.com/spring-projects/spring-graphql/issues/103"&gt;Pagination/Relay&lt;/a&gt; or &lt;a href="https://github.com/spring-projects/spring-graphql/issues/495"&gt;AOT/Native support&lt;/a&gt;, but we&amp;rsquo;re listening to the community. We&amp;rsquo;re working on our roadmap for the next feature version, so now is the time to vote on existing issues to show your interest!&lt;/p&gt;
+&lt;p&gt;The annual &lt;a href="https://spring.io/survey"&gt;Spring survey is here&lt;/a&gt;, it&amp;rsquo;s a great way to let us know what you think!&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-graphql"&gt;&lt;code&gt;spring-graphql&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-graphql/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-graphql/docs/1.1.0-RC1/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-graphql"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Security 5.7.4 and 5.6.8 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/18/spring-security-5-7-4-and-5-6-8-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Steve Riesenberg</name>
+    </author>
+    <id>tag:spring.io,2022-10-18:4952</id>
+    <updated>2022-10-18T12:54:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Security 5.7.4 and 5.6.8 are available now. In both cases the releases are largely composed of dependency upgrades and minor fixes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To learn more, please visit the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.7.4"&gt;5.7.4&lt;/a&gt; and
+ &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.6.8"&gt;5.6.8&lt;/a&gt; release summaries.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-security/reference/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Security 6.0.0-RC1 and 5.8.0-RC1 are released</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/18/spring-security-6-0-0-rc1-and-5-8-0-rc1-are-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Steve Riesenberg</name>
+    </author>
+    <id>tag:spring.io,2022-10-18:4951</id>
+    <updated>2022-10-18T12:54:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Security 6.0.0-RC1 and 5.8.0-RC1 are available now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/6.0.0-RC1"&gt;6.0.0-RC1&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.8.0-RC1"&gt;5.8.0-RC1&lt;/a&gt; release notes for more details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-security/reference/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Data 2022.0.0-RC1, 2021.2.5, and 2021.1.8 available</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/17/spring-data-2022-0-0-rc1-2021-2-5-and-2021-1-8-available" />
@@ -540,7 +728,7 @@ class MyConfiguration {
     // You must set this manually until this is registered in Boot
     @Bean
     FilterRegistrationBean observationWebFilter(ObservationRegistry observationRegistry) {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new HttpRequestsObservationFilter(observationRegistry));
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new ServerHttpObservationFilter(observationRegistry));
         filterRegistrationBean.setDispatcherTypes(DispatcherType.ASYNC, DispatcherType.ERROR, DispatcherType.FORWARD,
                 DispatcherType.INCLUDE, DispatcherType.REQUEST);
         filterRegistrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
@@ -1465,356 +1653,6 @@ dependencies {&#xD;
 &lt;p&gt;I would like to thank all contributors who had a role in this release! As we continue our work on Spring Batch 5, we look forward to your feedback on &lt;a href="https://github.com/spring-projects/spring-batch/issues"&gt;Github&lt;/a&gt;, &lt;a href="https://twitter.com/springbatch"&gt;Twitter&lt;/a&gt; and &lt;a href="https://stackoverflow.com/questions/tagged/spring-batch"&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt;|&lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on Github&lt;/a&gt;|&lt;a href="https://docs.spring.io/spring-batch/docs/5.0.0-M7/reference/html/index-single.html"&gt;Reference documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - October 4th, 2022</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/04/this-week-in-spring-october-4th-2022" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-10-04:4933</id>
-    <updated>2022-10-04T08:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! It&amp;rsquo;s October 4th, 2022, and I&amp;rsquo;m in Austin, TX, for the new version of show formerly known as the Kafka Summit, here to talk to folks about the amazing opportunities for Spring Boot and Apache Kafka. On the 12th, I&amp;rsquo;ll be in Antwerp, Belgium, for the amazing Devoxx show. On October 17-20th, I&amp;rsquo;ll be in Las Vegas, for the new version of JavaOne. And, well, there&amp;rsquo;s more but I can&amp;rsquo;t say exactly. Stay tuned!&lt;/p&gt;
-&lt;p&gt;And as for now, well, I&amp;rsquo;m excited to be here! We&amp;rsquo;ve got a ton of cool stuff to cover this week, so let&amp;rsquo;s dive right into it!&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/29/a-bootiful-podcast-thought-leader-chris-richardson-and-no-i-m-not-using-that-title-ironically"&gt;A Bootiful Podcast: thought leader Chris Richardson (and no, I&amp;rsquo;m not using that title ironically!)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/713846988/0/baeldung~Getting-a-URL-Attribute-Value-in-Thymeleaf"&gt;Getting a URL Attribute Value in Thymeleaf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blog.rabbitmq.com/posts/2022/07/rabbitmq-3-11-feature-preview-super-streams/"&gt;RabbitMQ 3.11 Feature Preview: Super Streams&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/rdehuyss/status/1577208092890046465"&gt;Did you see that JobRunr has already been updated to work with Spring Boot 3.0? Now, obviously, Spring Boot 3.0 hasn&amp;rsquo;t gone GA yet, and obviouslyt there&amp;rsquo;s no word on whether the new support includes Spring Boot 3&amp;rsquo;s AOT engine, but seeing as how they already have working Spring Native support, I&amp;rsquo;d be surprised if this isn&amp;rsquo;t coming soon&amp;hellip;!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/713419496/0/baeldung~SEDA-With-Spring-Integration-and-Apache-Camel"&gt;SEDA (Staged Event Driven Architecture) with Spring Integration and Apache Camel&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.infoq.com/articles/java-virtual-threads/"&gt;Virtual Threads: New Foundations for High-Scale Java Applications&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/sam_brannen/status/1575815833972273152?s=12&amp;t=BKhmm4L_Ff0IpnP_sZ6vkA"&gt;&lt;code&gt;start.junit.org&lt;/code&gt;&lt;/a&gt; is my &lt;em&gt;fourth&lt;/em&gt; favorite place on the internet!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.infoq.com/news/2022/09/spring-boot-migrator/?itm_source=infoq&amp;itm_medium=popular_widget&amp;itm_campaign=popular_content_list&amp;itm_content="&gt;Introducing Spring Boot Migrator&lt;/a&gt; - this looks like a thoughtful, well-laid out introduction!&lt;/li&gt;
-  &lt;li&gt;I&amp;rsquo;ve been really enjoying the niceties of Spring Boot 3&amp;rsquo;s robust AOT engine, making it dead simple to convert a Spring Boot application work with GraalVM native images. Check out this Git repository for a pretty detailed example using &lt;a href="https://github.com/spring-tips/kafka/tree/main/producer"&gt;Spring Boot, Apache Kafka, Spring Integration, and Spring Cloud Stream with GraalVM&lt;/a&gt;. You can git clone that and then run &lt;code&gt;mvn -Pnative -DskipTests clean package&lt;/code&gt; to get the application as a native binary. there are still months yet before Spring Boot 3 GA, so the fact that everything works as well as it does is amazing!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Want to meet more amazing people in our ecosystem, like Chris? SpringOne 2022 is almost here! I feel like it¡¯s that anxious, exciting time before, sort of important holiday where you get given gifts! And with it, Spring Boot 3 and Spring Framework 6. We¡¯re going to be announcing everything right here on the Spring blog, of course, but if you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA, and my hometown. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast:   thought leader Chris Richardson (and no, I'm not using that title ironically!)</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/29/a-bootiful-podcast-thought-leader-chris-richardson-and-no-i-m-not-using-that-title-ironically" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-09-29:4932</id>
-    <updated>2022-09-29T07:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long (@starbuxman) talks to his friend Chris Richardson (@crichardson), who helped articulate and advance cloud computing, reactive programming, microservices, domain-driven design, event sourcing, and so much more years before the zeitgeist. Also, we used to work together! &lt;/p&gt;
-&lt;iframe title="Thought leader Chris Richardson (and no, I¡¯m not using that title ironically!) " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=na55b-12d71f6-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;p&gt;Want to meet more amazing people in our ecosystem, like Chris? SpringOne 2022 is almost here! I feel like it¡¯s that anxious, exciting time before, sort of important holiday where you get given gifts! And with it, Spring Boot 3 and Spring Framework 6. We¡¯re going to be announcing everything right here on the Spring blog, of course, but if you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA, and my hometown. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Delete Passwords: Passwordless Connections for Spring Boot  Apps to Azure Services</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/27/delete-passwords-passwordless-connections-for-spring-boot-apps-to-azure-services" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-09-27:4930</id>
-    <updated>2022-09-27T09:22:00Z</updated>
-    <content type="html">&lt;p&gt; &#xD;
-    Using username/password credentials to access one application from another presents a huge security risk for many&#xD;
-    reasons. Today, we are announcing the preview of passwordless connections for Java applications to Azure database&#xD;
-    and eventing services, letting you finally shift away from using passwords. &lt;/p&gt;
-&lt;h2&gt;Security Challenges with Passwords&lt;/h2&gt;
-&lt;p&gt;Passwords should be used with caution, and developers must never place passwords in an unsecure location. Many Java&#xD;
-    applications connect to backend data, cache, messaging, and eventing services using usernames and passwords, &lt;span&gt;or other sensitive credentials such as access tokens or connection strings&lt;/span&gt;.&#xD;
-    If exposed, the passwords could be used to gain unauthorized access to sensitive information such as a sales catalog&#xD;
-    that you built for an upcoming campaign, or simply all customer data that must be private.&lt;/p&gt;
-&lt;p&gt;Embedding passwords in an application itself presents a huge security risk for many reasons, including discovery&#xD;
-    through a code repository (see Figure 1 below). Many developers externalize such passwords using environment&#xD;
-    variables so that applications can load them from different environments. However, this only shifts the risk from&#xD;
-    the code itself to an execution environment. Anyone who gains access to the environment can steal passwords, which&#xD;
-    in turn, increases your data exfiltration risk.&lt;/p&gt;
-&lt;p&gt;&lt;span&gt; &lt;img width=540 height=304 src="https://raw.githubusercontent.com/joshlong/blog-images/master/passwordless-connections-2022-09-27/1.jpg"&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;Figure 1 ? shows Java code with an embedded username and password to connect to a database&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;Our customers can have strict security requirements to connect to Azure services without exposing passwords to&#xD;
-    developers, operators, or anyone else. They often use a vault to store and load passwords into applications, and&#xD;
-    they further reduce the risk by adding password-rotation requirements and procedures. This, in turn, increases the&#xD;
-    operational complexity and can lead to application connection outages.&lt;/p&gt;
-&lt;h2&gt;Passwordless Connections ? Zero-Trust&lt;/h2&gt;
-&lt;p&gt;Now you can use passwordless connections in your apps to connect to Azure-based services with a code-free&#xD;
-    configuration. You no longer need to rotate passwords. Using the principle of "never trust, always verify and&#xD;
-    credential-free", Zero-Trust helps to secure all communications by trusting machines or users only after verifying&#xD;
-    identity before granting them access to backend services.&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/X6nR3AjIwJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;!--  --&gt;
-&lt;div&gt; &lt;EM&gt;&#xD;
-"Every password and every Key Vault we have is a potential liability, which adds more overhead and management cost. I'm always happy to see more of the authentication and authorization handled for us and shipped as simple integrations into the Java and Spring ecosystem on Azure. And I won't shed any tears when I delete our Key Vault, now PostgreSQL supports passwordless connections." &lt;/EM&gt;&#xD;
- &lt;/div&gt;
-&lt;p&gt;&lt;div style  = "margin-left: 1em"&gt;-Jonathan Jones, Lead Solutions Architect, &lt;strong&gt;Swiss Re Management Ltd&lt;/strong&gt;. (Switzerland) &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!--  --&gt;&lt;/p&gt;
-&lt;p&gt;Using managed identities and Azure RBAC (role-based access control) combination is the recommended authentication&#xD;
-    option for secure, passwordless connections from Java applications to Azure services. Developers or operators do not&#xD;
-    need to manually track and manage many different secrets for managed identities because these tasks are securely&#xD;
-    handled internally by Azure.&lt;/p&gt;
-&lt;p&gt;You can configure passwordless connections to Azure services using &lt;a&#xD;
-        href="https://learn.microsoft.com/azure/service-connector/overview"&gt;Service Connector&lt;/a&gt; (see Figure 2 below),&#xD;
-    or you can manually configure them. Service Connector enables managed identities in app hosting services like Azure&#xD;
-    Spring Apps, App Service and Azure Container Apps. It configures backend services with passwordless connections&#xD;
-    using managed identities and Azure RBAC, and supplies applications with necessary connection information ? no more&#xD;
-    passwords.&lt;/p&gt;
-&lt;p&gt;&lt;img border=0 width=540 height=182 src="https://raw.githubusercontent.com/joshlong/blog-images/master/passwordless-connections-2022-09-27/3.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;Figure 2 ? Service Connector configures passwordless connection for a Java app to a PostgreSQL database&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;If you inspect the running environment of an application configured for passwordless connections, you can see the&#xD;
-    full connection string. For example, Figure 3 shows how it carries database server address, database name, and an&#xD;
-    instruction to delegate authentication to Microsoft¡¯s Azure¡¯s JDBC authentication plugin.&lt;/p&gt;
-&lt;p&gt;&lt;img border=0 width=540 height=306 src="https://raw.githubusercontent.com/joshlong/blog-images/master/passwordless-connections-2022-09-27/4.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;Figure 3 ? datasource configuration ¡°spring.datasource.url¡± shows passwordless connection&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;Let¡¯s consider a Spring Boot application that connects to a PostgreSQL database that uses Spring Cloud Azure starter.&#xD;
-    The starter composes a connection string without password for a Spring Data JPA module. From the connection string,&#xD;
-    the driver understands that it must load the Azure¡¯s JDBC authentication plugin which uses the Azure Identity Client&#xD;
-    Library to get an access token. The driver logs into a database using the token as password - no more&#xD;
-    passwords. &lt;/p&gt;
-&lt;p&gt;For local development and testing, developers can use the same arrangement to connect to services without using&#xD;
-    passwords. You will authenticate through Azure CLI, IntelliJ or any development tool and use that identity to secure&#xD;
-    access for the application to connect with Azure services without passwords. &lt;/p&gt;
-&lt;h2&gt;Learn More and Delete Passwords!&lt;/h2&gt;
-&lt;p&gt;You can shift away from using passwords in your apps. Migrate your existing Java applications to use passwordless&#xD;
-    connections for Azure services today!&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;Read more about passwordless connections ? &lt;/span&gt;&lt;a href="https://aka.ms/Delete-Passwords"&gt;&lt;span&gt;https://aka.ms/Delete-Passwords&lt;/span&gt;&lt;/a&gt;&#xD;
-&lt;/p&gt;
-&lt;h2&gt;Resources&lt;/h2&gt;
-&lt;table&gt;&#xD;
-&#xD;
-    &lt;tbody&gt;&#xD;
-&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt;Azure Service&lt;/td&gt;&#xD;
-        &lt;td&gt;Java Quickstart&lt;/td&gt;&#xD;
-        &lt;td&gt;Spring Quickstart&lt;/td&gt;&#xD;
-        &lt;td&gt;Migration Guide&lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-&#xD;
-&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt; Azure Database for MySQL&lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-        &lt;a href="https://learn.microsoft.com/en-us/azure/mysql/single-server/connect-java?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=passwordless"&gt;JDBC&lt;/a&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?tabs=passwordless&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-                Data JDBC&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&#xD;
-                &lt;a href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?tabs=passwordless&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-                    Data JPA&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/migrate-mysql-to-passwordless-connection?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=sign-in-azure-cli%2Cjava%2Capp-service%2Capp-service-identity"&gt;Delete&#xD;
-                passwords&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-&#xD;
-&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;Azure Database for PostgreSQL&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-           &lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/postgresql/single-server/connect-java?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=passwordless"&gt;JDBC&lt;/a&gt;&#xD;
-&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?tabs=passwordless&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-                Data JDBC&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&#xD;
-                &lt;a href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?tabs=passwordless&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-                    Data JPA&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cservice-connector-identity%2Cassign-role-service-connector"&gt;Delete&#xD;
-                passwords&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt; Azure SQL Database&lt;/td&gt;&#xD;
-        &lt;td&gt; JDBC ? coming soon&lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=sqlserver&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-                Data JDBC&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&#xD;
-                &lt;a href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=sqlserver&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-                    Data JPA&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=java%2Cservice-connector%2Cservice-connector-identity%2Cassign-role-service-connector"&gt;Delete&#xD;
-                passwords&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt; Event Hubs ? Kafka &lt;/td&gt;&#xD;
-        &lt;td&gt; &lt;a&#xD;
-                href="https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?tabs=passwordless"&gt;Apache&#xD;
-            Kafka&lt;/a&gt; &lt;/td&gt;&#xD;
-        &lt;td&gt; &lt;a&#xD;
-                href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub?tabs=passwordless&amp;amp;toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Spring&#xD;
-            Cloud Stream Binder for Kafka&lt;/a&gt; &lt;/td&gt;&#xD;
-        &lt;td&gt; &lt;a&#xD;
-                href="https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/migrate-kafka-to-passwordless-connection?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=azure-portal%2Csign-in-azure-cli%2Cjava-kafka%2Cservice-connector%2Cservice-connector-identity%2Cassign-role-service-connector"&gt;Delete&#xD;
-            passwords&lt;/a&gt; &lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td colspan=4&gt;&#xD;
-&#xD;
-            &lt;a&#xD;
-                href="https://learn.microsoft.com/en-us/azure/storage/common/multiple-identity-scenarios?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=java"&gt;Developer&#xD;
-            guide&lt;/a&gt;&#xD;
-&#xD;
-        &lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-&lt;/table&gt;
-&lt;p&gt;You can use Service Connector to configure passwordless connections from Azure ¡°compute¡± services such as Azure&#xD;
-    Spring Apps, App Service, Azure Container Apps, Azure Kubernetes Service and Virtual Machines to backend&#xD;
-    services:&lt;/p&gt;
-&lt;table&gt;&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt; Service Connector&lt;/td&gt;&#xD;
-        &lt;td&gt; Azure Spring Apps&lt;/td&gt;&#xD;
-        &lt;td&gt; App Service&lt;/td&gt;&#xD;
-        &lt;td&gt; Azure Container Apps&lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-    &lt;tr&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a href="https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-sql-database"&gt;Azure&#xD;
-                SQL Database&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&lt;a href="https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-mysql"&gt;Azure&#xD;
-                Database&#xD;
-                for MySQL&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&lt;a href="https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres"&gt;Azure&#xD;
-                Database for PostgreSQL&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/spring-apps/connect-managed-identity-to-azure-sql?tabs=service-connector"&gt;Integrate&#xD;
-                with SQL Database&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&lt;a href="https://learn.microsoft.com/en-us/azure/spring-apps/how-to-bind-mysql?tabs=Passwordless"&gt;Integrate&#xD;
-                with MySQL&lt;/a&gt;&lt;/div&gt;&#xD;
-            &lt;div&gt;&#xD;
-                &lt;a href="https://learn.microsoft.com/en-us/azure/spring-apps/how-to-bind-postgres?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json&amp;amp;tabs=Passwordless"&gt;Integrate&#xD;
-                    with PostgreSQL&lt;/a&gt;&lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Tutorial&lt;/a&gt;&#xD;
-            &lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-        &lt;td&gt;&#xD;
-            &lt;div&gt;&lt;a&#xD;
-                    href="https://learn.microsoft.com/en-us/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=%2Fazure%2Fdeveloper%2Fintro%2Ftoc.json&amp;amp;bc=%2Fazure%2Fdeveloper%2Fintro%2Fbreadcrumb%2Ftoc.json"&gt;Tutorial&lt;/a&gt;&#xD;
-            &lt;/div&gt;&#xD;
-        &lt;/td&gt;&#xD;
-    &lt;/tr&gt;&#xD;
-    &lt;/tbody&gt;&#xD;
-&lt;/table&gt;
-&lt;p&gt;Check out this ready-to-deploy sample code for &lt;a&#xD;
-        href="https://github.com/Azure-Samples/Passwordless-Connections-for-Java-Apps/tree/main/SpringBoot"&gt;Spring&#xD;
-    Boot&lt;/a&gt;&lt;/p&gt;
-&lt;P&gt;
-&lt;p&gt;Want to learn more about Azure Spring Apps and the ways you can leverage Spring on Microsoft Azure? &lt;strong&gt;SpringOne 2022&lt;/strong&gt; is almost here! I feel like it¡¯s that anxious, exciting time before sort of important holiday where you get given gifts! And with it, Spring Boot 3 and Spring Framework 6. We¡¯re going to be announcing everything right here on the Spring blog, of course, but if you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December, 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA, and my hometown. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - September 27th, 2022</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/27/this-week-in-spring-september-27th-2022" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-09-27:4931</id>
-    <updated>2022-09-27T07:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;!&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s the last week of &lt;em&gt;September&lt;/em&gt;, already! The year&amp;rsquo;s more done than not. The days are receding into darkness earlier. And the Pumpkin Spice Lattes are upon us. The darker and colder days are kind of a bummer, but I&amp;rsquo;m stil excited and overjoyed this time of year. You know why?&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://springone.io"&gt;SpringOne 2022&lt;/a&gt; is almost here! I feel like it&amp;rsquo;s that anxious, exciting time before sort of important holiday where you get given gifts! And with it, &lt;a href="https://spring.io/blog/2022/09/26/native-support-in-spring-boot-3-0-0-m5"&gt;Spring Boot 3 and Spring Framework 6&lt;/a&gt;. We&amp;rsquo;re going to be announcing everything right here on the Spring blog, of course, but if you want a chance to learn from the &lt;em&gt;source&lt;/em&gt;, then I hope you&amp;rsquo;ll join us 6-8 December, 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA, and my hometown. )Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
-&lt;p&gt;Anyway, my friends, we&amp;rsquo;ve got a ton to cover, so let&amp;rsquo;s dive right into it.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=GF5IJGwpY5k"&gt;I was interviewed ahead of my appearance at SpringOne&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/java/status/1574417393119641602?s=12&amp;t=dDhCaAwDcxLyFxDGDA2Lkg"&gt;I was interviewed ahead of my appearance at JavaOne&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/22/a-bootiful-podcast-couchbase-and-cloud-legend-laurent-doguin"&gt;A Bootiful Podcast: Couchbase and Cloud legend Laurent Doguin&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blog.codecentric.de/en/2022/09/spring-boot-flyio/"&gt;Heroku is dead: Let&amp;rsquo;s deploy Spring Boot containers on fly.io!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I spoke at the Microsoft event &lt;a href="https://live.csdn.net/room/MicrosoftReactor/xLa9RJC8"&gt;&amp;ldquo;Microsoft Love Java Developer Day-CSDN òÁ÷ë&amp;rdquo;&lt;/a&gt; and gave my talk &lt;em&gt;Kubernetes Native Java&lt;/em&gt;, introducing Spring Boot 3 and Spring Framework 6, as well.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/23/my-springone-2022"&gt;My SpringOne 2022&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/26/native-support-in-spring-boot-3-0-0-m5"&gt;Native Support in Spring Boot 3.0.0-M5&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/21/spring-authorization-server-0-4-0-m2-available-now"&gt;Spring Authorization Server 0.4.0-M2 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/21/spring-authorization-server-1-0-0-m2-available-now"&gt;Spring Authorization Server 1.0.0-M2 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/22/spring-batch-5-0-0-m6-and-4-3-7-are-out"&gt;Spring Batch 5.0.0-M6 and 4.3.7 are out!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/22/spring-boot-2-6-12-available-now"&gt;Spring Boot 2.6.12 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/22/spring-boot-2-7-4-available-now"&gt;Spring Boot 2.7.4 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/22/spring-boot-3-0-0-m5-available-now"&gt;Spring Boot 3.0.0-M5 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/20/spring-cloud-dataflow-2-10-0-m2-released"&gt;Spring Cloud Dataflow 2.10.0-M2 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/21/spring-integration-6-0-0-m5-and-5-5-15-available"&gt;Spring Integration 6.0.0-M5 and 5.5.15 Available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/20/spring-session-2022-0-0-m3-released"&gt;Spring Session 2022.0.0-M3 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/20/spring-for-apache-pulsar-0-1-0-m1-is-now-available"&gt;Spring for Apache Pulsar 0.1.0-M1 is now available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/20/spring-for-graphql-1-0-2-released"&gt;Spring for GraphQL 1.0.2 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/20/spring-for-graphql-1-1-0-m1-released"&gt;Spring for GraphQL 1.1.0-M1 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Want to learn how to use JRealeaser to build an GraalVM-powered command line application with Spring Boot? Check out this amazing example: &lt;a href="https://github.com/aalmiray/sb-cli-jlink"&gt;aalmiray/sb-cli-jlink: Sample Spring Boot CLI application&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Native Support in Spring Boot 3.0.0-M5</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/26/native-support-in-spring-boot-3-0-0-m5" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2022-09-23:4928</id>
-    <updated>2022-09-26T11:33:00Z</updated>
-    <content type="html">&lt;p&gt;The Spring Team has been working on native image support for Spring Applications for quite some time. After 3+ years of incubation in the &lt;a href="https://github.com/spring-projects-experimental/spring-native"&gt;Spring Native&lt;/a&gt; experimental project with Spring Boot 2, native support is moving to General Availability with Spring Framework 6 and Spring Boot 3!&lt;/p&gt;
-&lt;p&gt;Native images provide almost instant startup time and reduced memory consumption for Java applications. The recent Spring Boot &lt;code&gt;3.0.0-M5&lt;/code&gt; release marks the first time we¡¯re asking for broader community feedback on our native story. If you need to catch-up on the basics, please refer to the &lt;a href="https://spring.io/blog/2022/03/22/initial-aot-support-in-spring-framework-6-0-0-m3"&gt;Ahead Of Time basics blog post&lt;/a&gt; from late March. You can also learn &lt;a href="https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0"&gt;how to prepare your applications for Spring Boot 3.0&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;A lot has happened since March! We¡¯ve improved compatibility with a larger number of use cases and libraries, fixing and improving our native support in the process. This blog post details what you need to know to get started.&lt;/p&gt;&lt;h1&gt;&lt;a href="#building-your-first-native-image" class="anchor" name="building-your-first-native-image"&gt;&lt;/a&gt;Building Your First Native Image&lt;/h1&gt;
-&lt;p&gt;The easiest way to get started is to create a new project from &lt;a href="https://start.spring.io"&gt;https://start.spring.io&lt;/a&gt;. Make sure to select Spring Boot 3.0.0-M5 (or later) and your favorite build tool. Once you¡¯ve done that, one way to build a native image is by using the &lt;a href="https://graalvm.github.io/native-build-tools/latest/index.html"&gt;Native Build Tools plugin&lt;/a&gt; and a local GraalVM installation.&lt;/p&gt;
-&lt;p&gt;Follow the &lt;a href="https://www.graalvm.org/java/quickstart/"&gt;instructions to install GraalVM&lt;/a&gt;, or invoke the following if you have SDKMan! installed:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;$ sdk install java 22.2.r17-nik
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can check that things are working as expected by making sure &lt;code&gt;native-image&lt;/code&gt; is on your path. Spring Boot has specific integrations for Maven and Gradle. If you¡¯re using Maven, enabling the native profile triggers the necessary infrastructure to build the native image:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;$ ./mvnw -Pnative package
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For Gradle, our plugin reacts to the presence of the Native Build Tools plugin so we need to apply it:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;plugins {&#xD;
-  ..&#xD;
-  id &amp;#39;org.graalvm.buildtools.native&amp;#39; version &amp;#39;0.9.14&amp;#39;&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once that¡¯s done, this triggers the necessary infrastructure to build the native image:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;$ ./gradlew nativeCompile
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This generates a native binary for your local OS/CPU located in &lt;code&gt;target/&lt;/code&gt; and &lt;code&gt;build/native/nativeCompile&lt;/code&gt; respectively. You can start your app like with any other binary. For instance with Maven:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;$ target/demo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src="https://static.spring.io/blog/snicoll/20220923/native-image-spring-boot-3.0.0-M5.png" /&gt;&lt;/p&gt;&lt;h1&gt;&lt;a href="#optimizing-applications-at-build-time" class="anchor" name="optimizing-applications-at-build-time"&gt;&lt;/a&gt;Optimizing Applications at Build-Time&lt;/h1&gt;
-&lt;p&gt;In 3.0, our build plugins have an additional goal that triggers ahead-of-time processing of the application. During that phase, the application is inspected and some of the decisions we usually take at runtime are evaluated and recorded.&lt;/p&gt;
-&lt;p&gt;While Spring Boot ships with a wide number of auto-configurations, these are ¡°dormant¡± until at least a classpath condition matches. When building a native image, such evaluation has to happen before the image is built, otherwise all the combinations will be included in it.&lt;/p&gt;
-&lt;p&gt;We also need to detect the use cases that GraalVM won¡¯t be able to infer, such as proxying, the use of reflection and serialization, and resource loading. The result of this detection forms what is called reachability metadata. The whole Spring portfolio has been updated to detect such use cases and generate the relevant metadata automatically.&lt;/p&gt;
-&lt;p&gt;We¡¯ve made the decision to generate source code with Javadoc and an easy-to-browse structure. This allows the code generated at build-time to be inspected and easily debugged if necessary. It also means that we only feed regular compiled Java to &lt;code&gt;native-image&lt;/code&gt; as a result.&lt;/p&gt;&lt;h1&gt;&lt;a href="#reachability-metadata-repository" class="anchor" name="reachability-metadata-repository"&gt;&lt;/a&gt;Reachability Metadata Repository&lt;/h1&gt;
-&lt;p&gt;While the preferred option for native compatibility is that each library ships the extra reachability metadata hints that they need, this is not always possible. Recently, Oracle Labs announced a shared repository for &lt;a href="https://medium.com/graalvm/enhancing-3rd-party-library-support-in-graalvm-native-image-with-shared-metadata-9eeae1651da4"&gt;third-party reachability metadata&lt;/a&gt;. This repository is open for contributions to gather reachability metadata for the entire JVM ecosystem. Each entry is tested in isolation against a range of versions.&lt;/p&gt;
-&lt;p&gt;If your favorite library does not provide the necessary metadata, consider contributing to this repository. The Spring Team is actively contributing based on the third-party library integration that we provide.&lt;/p&gt;&lt;h1&gt;&lt;a href="#testing-support" class="anchor" name="testing-support"&gt;&lt;/a&gt;Testing Support&lt;/h1&gt;
-&lt;p&gt;Our support for native images is about optimizing the application based on its dependencies and configuration, and inferring the need for reflection, proxying, and so on. This may miss something that is specific to your application such as its use of custom libraries or frameworks. To help you with that, this milestone also provides an easy way to run your existing tests in a native image, allowing you to verify that your application and its dependency work as expected.&lt;/p&gt;
-&lt;p&gt;To run your test suite in a native environment, we rely on the testing support of the Native Build Tools plugin. First, make sure that &lt;code&gt;native-image&lt;/code&gt; is available in your path (see above for setup instructions).&lt;/p&gt;
-&lt;p&gt;With Maven, this can be invoked as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;$ ./mvnw -PnativeTest test
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With Gradle, the command is as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;$ ./gradlew nativeTest
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For tests that are using an ApplicationContext, this applies the same process of optimizing it and inferring the necessary reachability metadata.&lt;/p&gt;&lt;h1&gt;&lt;a href="#your-application-does-not-work-now-what" class="anchor" name="your-application-does-not-work-now-what"&gt;&lt;/a&gt;Your Application Does Not Work: Now What?&lt;/h1&gt;
-&lt;p&gt;If your application does not work as a native image, we¡¯d love to hear about it and improve our support before the release candidate, scheduled in late October. Support varies depending on the error:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Build failure during the ahead-of-time optimization phase, please report to the &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Spring Framework issue tracker&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Build failure during the generation of the native image can have various root causes. Please use the usual support channel such as Gitter or StackOverflow&lt;/li&gt;
-  &lt;li&gt;If the application builds successfully but fails to start, it is likely that some reachability metadata is missing. The need for it can come from your own code, or from a third-party library.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Spring Framework 6 ships with a new API that lets you record hints programmatically. If the missing hint is from your own code, consider implementing &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-M6/javadoc-api/org/springframework/aot/hint/RuntimeHintsRegistrar.html"&gt;&lt;code&gt;RuntimeHintsRegistrar&lt;/code&gt;&lt;/a&gt;. See this &lt;a href="https://github.com/snicoll/demo-aot-native"&gt;sample application&lt;/a&gt; for a concrete example.&lt;/p&gt;&lt;h1&gt;&lt;a href="#next-steps" class="anchor" name="next-steps"&gt;&lt;/a&gt;Next Steps&lt;/h1&gt;
-&lt;p&gt;Based on the community feedback, we will continue to improve our AOT engine and update the reference guide to provide more details about the new APIs we¡¯ve introduced. We intend to go GA in November this year.&lt;/p&gt;
-&lt;p&gt;This is an exciting time for us. We would like to thank again everyone who has contributed and reported feedback already, and we are looking forward to further feedback coming!&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

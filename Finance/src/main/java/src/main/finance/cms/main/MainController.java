@@ -13,7 +13,7 @@ public class MainController {
 	    return new ModelAndView("main/main");
 	}
 	
-	@RequestMapping(value={"/bplc/report","/"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/bplc/report"} , method = RequestMethod.GET)
 	public ModelAndView goReport() {
 	    return new ModelAndView("report/reportView");
 	}
