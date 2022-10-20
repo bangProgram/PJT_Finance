@@ -3,17 +3,20 @@ package src.main.finance.cms.report.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import common.mapper.CommonMapper;
 
-@Service("reportService")
+@Service("ReportService")
 public class ReportServiceImpl implements ReportService {
 	
 	@Autowired
  	ReportDao reportDao;
 	
+	@Resource(name="CommonMapper")
 	private CommonMapper commonMapper;
 	
 	private String namespace = "reportMapper.";

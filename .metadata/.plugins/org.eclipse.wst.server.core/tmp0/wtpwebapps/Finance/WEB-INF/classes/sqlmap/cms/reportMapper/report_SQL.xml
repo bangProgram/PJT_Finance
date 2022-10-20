@@ -29,7 +29,8 @@
 	    (#{title}, #{category}, #{price})
 	</insert>
 	
-	<select id="getReportSearch" parameterType="hashMap" resultType="HashMap">  
+	<!-- 
+	<select id="getReportSearchTest" parameterType="hashMap" resultType="HashMap">  
 	    SELECT * FROM (
 		    SELECT CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE,
 		    sj_div, account_id, account_nm, 
@@ -65,8 +66,39 @@
 		)
 		where 1=1
 		<include refid = "whereReport"/>
-		<!-- and account_id in ('ifrs-full_Revenue','dart_OperatingIncomeLoss','ifrs-full_ProfitLoss') -->
+		and account_id in ('ifrs-full_Revenue','dart_OperatingIncomeLoss','ifrs-full_ProfitLoss')
 		order by corp_code, account_id, bsns_year desc, reprt_code asc
+	</select>
+	 -->
+	 
+	<select id="getReportSearch" parameterType="hashMap" resultType="HashMap">  
+	    SELECT * FROM (
+			select rank () over(partition by corp_code order by account_id) as rnk, a.* from (
+				SELECT 
+					<foreach collection="pYearList" item="item" >
+						sum(DECODE(bsns_year ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))) AS ${item}_RATE,
+					</foreach>
+				    corp_code , corp_name , account_id
+				FROM (
+					select NVL(A.NET_AMOUNT,0) AS NET_AMOUNT, LEAD(NVL(A.NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_NET_AMOUNT,
+					        NVL(A.ACCUMULATED_NET_AMOUNT,0) AS ACC_NET_AMOUNT, LEAD(NVL(A.ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_ACC_NET_AMOUNT,
+					        NVL(A.BEF_NET_AMOUNT,0) AS BEF_NET_AMOUNT,  LEAD(NVL(A.BEF_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_NET_AMOUNT,
+					        NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0) AS BEF_ACC_NET_AMOUNT, LEAD(NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_ACC_NET_AMOUNT,
+					        a.corp_code , b.corp_name , REPLACE(a.ACCOUNT_ID,'ifrs_','ifrs-full_') as ACCOUNT_ID, a.bsns_year
+					from tb_Bplc_cis a inner join tb_Bplc b
+					on a.corp_code = b.stock_code
+				)
+				where 1=1
+					<include refid = "whereReport"/>
+				group by corp_code , corp_name , account_id
+			) a
+			where  1=1 
+		)
+		where 1=1
+		<foreach collection="chkYearList" item="item" >
+				${item}_RATE > #{chkAccRate},
+		</foreach>
+		and rnk = #{pAccountCnt}
 	</select>
 	
 	

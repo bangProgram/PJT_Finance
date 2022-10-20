@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import src.main.finance.cms.report.service.ReportService;
 @Controller
 public class ReportController {
 	
+	@Autowired
 	private ReportService reportService;
 
 	@RequestMapping(value={"/report"} , method = RequestMethod.GET)
@@ -42,55 +44,29 @@ public class ReportController {
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
 		
-		System.out.println("JB : "+curYear);
-		Integer pStartYear = (Integer) commandMap.get("pStartYear");
-		Integer pEndYear = (Integer) commandMap.get("pEndYear");
-		Integer chkYear = pEndYear;
-		List<Integer> pYearList = new ArrayList<Integer>();
+		System.out.println("JB1 : "+commandMap.toString());
+		System.out.println("JB2 : "+commandMap.get("pAccountIds").toString());
+		System.out.println("JB3 : "+commandMap.get("pYearList").toString());
 		
-		for(int i=1; pStartYear <= chkYear; i++ ) {
-			pYearList.add(chkYear);
-			chkYear -= i;
-		}
+		String[] pAccountIds = commandMap.get("pAccountIds").toString().split(",");
+		String[] pYearList = commandMap.get("pYearList").toString().split(",");
+		String[] chkYearList = commandMap.get("chkYearList").toString().split(",");
 		
+		commandMap.put("pAccountCnt", pAccountIds.length);
+		commandMap.put("pAccountIds", pAccountIds);
 		commandMap.put("pYearList", pYearList);
-		
-		Integer chkAccRate = (Integer) commandMap.get("chkAccRate");
+		commandMap.put("chkYearList", chkYearList);
 		
 		List<Map<String, Object>> searchList = reportService.getReportSearch(commandMap);
 		List<String> chkCorpList = new ArrayList<String>();
 		
-		String corpCode = "";
-		int amountRate = 0;
-		boolean chkResult = false;
-		
-		for(int i=0; i<searchList.size(); i++) {
-			
-			if(searchList.get(i).get("ACC_NET_AMOUNT_RATE") != null) amountRate = (int) searchList.get(i).get("ACC_NET_AMOUNT_RATE");
-			
-			if(corpCode == "") {
-				if(amountRate >= chkAccRate) {
-					chkResult = true;
-				}else {
-					corpCode = (String) searchList.get(i).get("CORP_CODE");
-					chkResult = false;
-					break;
-				}
-			} else {
-				chkResult = false;
-				break;
-			}
-
-			chkCorpList.add((String) searchList.get(i).get("CORP_CODE"));
-			corpCode = "";
-		}
-		
-		commandMap.put("chkCorpList", chkCorpList);
-		List<Map<String, Object>> resultList = reportService.getReportList(commandMap);
-	    
+		/*
+		 * commandMap.put("chkCorpList", chkCorpList); List<Map<String, Object>>
+		 * resultList = reportService.getReportList(commandMap);
+		 */
 	    ModelAndView mav = new ModelAndView();
 	    String resultURL = "report/reportList";
-	    mav.addObject("resultList", resultList);
+	   // mav.addObject("resultList", resultList);
 	    mav.setViewName(resultURL);
 	    
 	    return mav;

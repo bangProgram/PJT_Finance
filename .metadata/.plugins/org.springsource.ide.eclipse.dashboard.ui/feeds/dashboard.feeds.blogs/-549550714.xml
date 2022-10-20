@@ -115,7 +115,7 @@ This is to ensure Spring WS is running against the latest versions of libraries 
 &lt;p&gt;Links: &lt;a href="https://spring.io/projects/spring-ws/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-ws"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-ws/issues"&gt;Issues&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
-&lt;p&gt;The artifacts are located on Maven Central. Get it while it&amp;#8217;s hot!&lt;/p&gt;
+&lt;p&gt;The artifacts are located on repo.spring.io. Get it while it&amp;#8217;s hot!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
