@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<!--mapper에서 매칭할 parmeter Type 별칭 설정-->
+	<typeAliases>
+		<typeAlias type="java.util.Map" alias="Map"/>
+		<typeAlias type="java.util.HashMap" alias="HashMap"/>
+		<typeAlias type="java.lang.Integer" alias="int"/>
+	</typeAliases>
+	
+	
+	<environments default="development">
+	
+		<!-- environment id를 구분하여 연결할 DB를 여려개 구성할 수 도 있음 -->
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+				<dataSource type="POOLED">
+					<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+	    			<property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe" />
+	    			<property name="username" value="FINUSER" />
+	    			<property name="password" value="FINPASS"/>
+				</dataSource>
+		</environment>
+		
+	</environments>
+	
+	<mappers>
+		<mapper resource="/student/student-mapper.xml"/> 
+	</mappers>
+	
+	
+</configuration>

@@ -1,6 +1,0 @@
-package src.main.finance.main.report.service;
-
-public interface ReportService {
-
-	
-}
