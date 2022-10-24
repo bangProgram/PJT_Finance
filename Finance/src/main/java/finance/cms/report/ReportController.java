@@ -39,7 +39,7 @@ public class ReportController {
 	    return mav;
 	}
 	
-	@RequestMapping(value={"/report/select"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/report/select"} , method = RequestMethod.POST)
 	public ModelAndView getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{
 		
 		LocalDate now = LocalDate.now();
@@ -60,14 +60,18 @@ public class ReportController {
 		
 		List<Map<String, Object>> searchList = reportService.getReportSearch(commandMap);
 		List<String> chkCorpList = new ArrayList<String>();
+		for(int i=0; i<searchList.size(); i++) {
+			chkCorpList.add(searchList.get(i).get("CORP_CODE").toString());
+		}
+		System.out.println("JB 확인 : "+chkCorpList.toString());
 		
-		/*
-		 * commandMap.put("chkCorpList", chkCorpList); List<Map<String, Object>>
-		 * resultList = reportService.getReportList(commandMap);
-		 */
+		commandMap.put("chkCorpList", chkCorpList); List<Map<String, Object>>
+		resultList = reportService.getReportList(commandMap);
+		System.out.println("JB 확인 : "+resultList.size());
+		
 	    ModelAndView mav = new ModelAndView();
 	    String resultURL = "report/reportList";
-	   // mav.addObject("resultList", resultList);
+	    mav.addObject("resultList", resultList);
 	    mav.setViewName(resultURL);
 	    
 	    return mav;

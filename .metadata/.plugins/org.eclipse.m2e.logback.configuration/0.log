@@ -1784,3 +1784,830 @@
 2022-10-21 17:40:16,228 [Worker-7388: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2022-10-21 17:40:16,229 [Worker-7388: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-10-21 17:40:16,230 [Worker-7388: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:24:18,990 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-10-24 10:24:19,593 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2022-10-24 10:24:24,966 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:24:24,974 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 10:24:25,011 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:24:25,012 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 10:30:38,488 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:30:38,491 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:30:38,495 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:30:38,496 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:34:47,544 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:34:47,554 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:34:47,556 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:34:47,557 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:41:29,499 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:41:29,514 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 10:41:29,517 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:41:29,518 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:41:30,578 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:41:30,581 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 10:41:30,582 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:41:30,583 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:42:11,311 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:42:11,314 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 10:42:11,316 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:42:11,317 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:42:15,409 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:42:15,410 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 10:42:15,413 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:42:15,414 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 10:43:17,259 [Worker-29: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:43:17,263 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 10:43:17,266 [Worker-29: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 10:43:17,267 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 11:05:00,976 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-10-24 11:05:05,296 [Worker-1: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 11:05:05,305 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 11:05:05,332 [Worker-1: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 11:05:05,334 [Worker-1: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 11:18:50,992 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 11:18:50,997 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 11:18:51,000 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 11:18:51,002 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 11:20:48,461 [Worker-23: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 11:20:48,463 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 11:20:48,468 [Worker-23: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 11:20:48,469 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 14:54:29,012 [Worker-97: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 14:54:29,026 [Worker-97: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 14:54:29,028 [Worker-97: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 14:54:29,029 [Worker-97: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:05:08,794 [Worker-98: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:05:08,795 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:05:08,797 [Worker-98: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:05:08,797 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:05:53,821 [Worker-104: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:05:53,825 [Worker-104: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 15:05:53,829 [Worker-104: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:05:53,832 [Worker-104: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:06:57,699 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:06:57,700 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 15:06:57,705 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:06:57,706 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:06:59,890 [Worker-98: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:06:59,893 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 15:06:59,896 [Worker-98: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:06:59,897 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:07:23,487 [Worker-94: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:07:23,489 [Worker-94: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 15:07:23,491 [Worker-94: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:07:23,492 [Worker-94: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:13:57,756 [Worker-105: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:13:57,757 [Worker-105: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 15:13:57,761 [Worker-105: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:13:57,762 [Worker-105: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:20:59,736 [Worker-94: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:20:59,737 [Worker-94: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 15:20:59,741 [Worker-94: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:20:59,742 [Worker-94: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:22:59,525 [Worker-108: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:22:59,527 [Worker-108: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 15:22:59,531 [Worker-108: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:22:59,532 [Worker-108: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 15:26:44,099 [Worker-98: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:26:44,102 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2022-10-24 15:26:44,103 [Worker-98: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 15:26:44,104 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:01:27,300 [Worker-94: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:01:27,316 [Worker-94: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 67 resources
+2022-10-24 16:01:27,491 [Worker-94: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:01:27,493 [Worker-94: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:08:16,034 [Worker-126: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:08:16,045 [Worker-126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 67 resources
+2022-10-24 16:08:16,056 [Worker-126: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:08:16,057 [Worker-126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:08:43,547 [Worker-126: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:08:43,567 [Worker-126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 67 resources
+2022-10-24 16:08:43,583 [Worker-126: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:08:43,585 [Worker-126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:08:55,636 [Worker-123: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:08:55,655 [Worker-123: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 67 resources
+2022-10-24 16:08:55,670 [Worker-123: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:08:55,671 [Worker-123: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:09:10,202 [Worker-125: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:09:10,204 [Worker-125: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:09:10,207 [Worker-125: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:09:10,208 [Worker-125: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:09:22,091 [Worker-125: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:09:22,093 [Worker-125: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:09:22,097 [Worker-125: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:09:22,099 [Worker-125: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:09:30,537 [Worker-128: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:09:30,538 [Worker-128: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:09:30,541 [Worker-128: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:09:30,542 [Worker-128: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:11:21,208 [Worker-123: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:11:21,209 [Worker-123: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:11:21,213 [Worker-123: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:11:21,214 [Worker-123: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:13:03,757 [Worker-129: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:13:03,758 [Worker-129: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:13:03,762 [Worker-129: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:13:03,764 [Worker-129: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:13:13,936 [Worker-129: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:13:13,938 [Worker-129: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:13:13,942 [Worker-129: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:13:13,943 [Worker-129: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:13:23,906 [Worker-132: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:13:23,907 [Worker-132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 16:13:23,910 [Worker-132: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:13:23,910 [Worker-132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:17:05,220 [Worker-132: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:17:05,221 [Worker-132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:17:05,223 [Worker-132: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:17:05,224 [Worker-132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:24:45,910 [Worker-132: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:24:45,912 [Worker-132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:24:45,914 [Worker-132: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:24:45,914 [Worker-132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:25:44,445 [Worker-139: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:25:44,639 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1926 resources
+2022-10-24 16:25:57,953 [Worker-139: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:25:57,954 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:26:33,533 [Worker-136: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:33,562 [Worker-136: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 195 resources
+2022-10-24 16:26:33,767 [Worker-136: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:33,768 [Worker-136: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:26:40,382 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:40,413 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 191 resources
+2022-10-24 16:26:40,448 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:40,449 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:26:44,937 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:44,980 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 188 resources
+2022-10-24 16:26:45,009 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:45,011 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:26:46,166 [Worker-142: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:46,203 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 181 resources
+2022-10-24 16:26:46,255 [Worker-142: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:46,258 [Worker-142: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:26:55,037 [Worker-138: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:55,065 [Worker-138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 175 resources
+2022-10-24 16:26:55,092 [Worker-138: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:55,096 [Worker-138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:26:58,492 [Worker-143: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:58,515 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 169 resources
+2022-10-24 16:26:58,535 [Worker-143: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:26:58,536 [Worker-143: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:27:07,925 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:07,945 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 161 resources
+2022-10-24 16:27:07,966 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:07,966 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:27:09,784 [Worker-136: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:09,785 [Worker-136: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:27:09,799 [Worker-136: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:09,800 [Worker-136: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:27:14,672 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:14,691 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 90 resources
+2022-10-24 16:27:14,711 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:14,712 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:27:16,516 [Worker-139: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:16,534 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 72 resources
+2022-10-24 16:27:16,554 [Worker-139: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:16,559 [Worker-139: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:27:17,737 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:17,759 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 71 resources
+2022-10-24 16:27:17,778 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:27:17,779 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:28:49,930 [Worker-140: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:28:49,931 [Worker-140: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:28:49,932 [Worker-140: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:28:49,933 [Worker-140: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:29:01,121 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:29:01,122 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:29:01,123 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:29:01,124 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:31:10,009 [Worker-138: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:31:10,011 [Worker-138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:31:10,012 [Worker-138: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:31:10,013 [Worker-138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:33:28,665 [Worker-141: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:33:28,669 [Worker-141: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:33:28,670 [Worker-141: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:33:28,671 [Worker-141: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:18,781 [Worker-141: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:18,785 [Worker-141: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:18,787 [Worker-141: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:18,788 [Worker-141: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:33,466 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:33,468 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:33,469 [Worker-134: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:33,470 [Worker-134: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:48,094 [Worker-147: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:48,099 [Worker-147: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:48,100 [Worker-147: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:48,101 [Worker-147: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:51,302 [Worker-138: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:51,303 [Worker-138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:34:51,304 [Worker-138: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:34:51,305 [Worker-138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:40:07,899 [Worker-148: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:40:07,901 [Worker-148: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:40:07,903 [Worker-148: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:40:07,904 [Worker-148: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:43:34,111 [Worker-150: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:43:34,112 [Worker-150: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:43:34,113 [Worker-150: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:43:34,114 [Worker-150: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:43:35,135 [Worker-148: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:43:35,136 [Worker-148: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:43:35,138 [Worker-148: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:43:35,139 [Worker-148: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:46:09,855 [Worker-147: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:46:09,856 [Worker-147: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:46:09,857 [Worker-147: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:46:09,858 [Worker-147: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:47:43,364 [Worker-151: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:47:43,365 [Worker-151: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:47:43,367 [Worker-151: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:47:43,368 [Worker-151: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:48:26,183 [Worker-151: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:48:26,184 [Worker-151: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:48:26,185 [Worker-151: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:48:26,186 [Worker-151: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:54:06,641 [Worker-154: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:54:06,643 [Worker-154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:54:06,644 [Worker-154: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:54:06,645 [Worker-154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:58:52,925 [Worker-158: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:58:52,926 [Worker-158: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:58:52,927 [Worker-158: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:58:52,928 [Worker-158: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:59:30,293 [Worker-159: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:59:30,294 [Worker-159: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 16:59:30,295 [Worker-159: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 16:59:30,296 [Worker-159: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:03:31,912 [Worker-161: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:03:31,914 [Worker-161: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:03:31,915 [Worker-161: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:03:31,916 [Worker-161: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:03:45,641 [Worker-161: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:03:45,642 [Worker-161: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:03:45,643 [Worker-161: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:03:45,644 [Worker-161: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:03:59,554 [Worker-167: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:03:59,556 [Worker-167: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:03:59,557 [Worker-167: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:03:59,558 [Worker-167: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:04:07,118 [Worker-167: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:04:07,119 [Worker-167: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:04:07,120 [Worker-167: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:04:07,121 [Worker-167: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:14:53,977 [Worker-172: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: src.main:finance:1.0.0-BUILD-SNAPSHOT @ C:\PJT_Finance\Finance\pom.xml.
+2022-10-24 17:14:58,398 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3.pom
+2022-10-24 17:14:59,404 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3.pom
+2022-10-24 17:14:59,729 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3.pom
+2022-10-24 17:15:00,642 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-parent/3.0.3/tiles-parent-3.0.3.pom
+2022-10-24 17:15:00,813 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-parent/3.0.3/tiles-parent-3.0.3.pom
+2022-10-24 17:15:01,016 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-parent/3.0.3/tiles-parent-3.0.3.pom
+2022-10-24 17:15:01,890 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-master/6/tiles-master-6.pom
+2022-10-24 17:15:02,059 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-master/6/tiles-master-6.pom
+2022-10-24 17:15:02,245 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-master/6/tiles-master-6.pom
+2022-10-24 17:15:02,942 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3.pom
+2022-10-24 17:15:03,129 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3.pom
+2022-10-24 17:15:03,320 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3.pom
+2022-10-24 17:15:04,446 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3.pom
+2022-10-24 17:15:04,630 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3.pom
+2022-10-24 17:15:04,829 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3.pom
+2022-10-24 17:15:05,525 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request/1.0.3/tiles-request-1.0.3.pom
+2022-10-24 17:15:05,843 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request/1.0.3/tiles-request-1.0.3.pom
+2022-10-24 17:15:06,032 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request/1.0.3/tiles-request-1.0.3.pom
+2022-10-24 17:15:06,778 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-master/4/tiles-master-4.pom
+2022-10-24 17:15:07,270 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-master/4/tiles-master-4.pom
+2022-10-24 17:15:07,476 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-master/4/tiles-master-4.pom
+2022-10-24 17:15:08,159 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0.pom
+2022-10-24 17:15:08,331 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0.pom
+2022-10-24 17:15:08,526 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0.pom
+2022-10-24 17:15:09,245 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/commons/commons-parent/11/commons-parent-11.pom
+2022-10-24 17:15:09,424 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/11/commons-parent-11.pom
+2022-10-24 17:15:09,659 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/11/commons-parent-11.pom
+2022-10-24 17:15:10,682 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+2022-10-24 17:15:10,852 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+2022-10-24 17:15:11,038 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+2022-10-24 17:15:11,733 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/slf4j/jcl-over-slf4j/1.5.8/jcl-over-slf4j-1.5.8.pom
+2022-10-24 17:15:11,949 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/jcl-over-slf4j/1.5.8/jcl-over-slf4j-1.5.8.pom
+2022-10-24 17:15:12,151 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/jcl-over-slf4j/1.5.8/jcl-over-slf4j-1.5.8.pom
+2022-10-24 17:15:13,104 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/slf4j/slf4j-parent/1.5.8/slf4j-parent-1.5.8.pom
+2022-10-24 17:15:13,331 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.5.8/slf4j-parent-1.5.8.pom
+2022-10-24 17:15:13,541 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.5.8/slf4j-parent-1.5.8.pom
+2022-10-24 17:15:14,369 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.pom
+2022-10-24 17:15:14,544 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.pom
+2022-10-24 17:15:14,740 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.pom
+2022-10-24 17:15:15,439 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3.pom
+2022-10-24 17:15:15,692 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3.pom
+2022-10-24 17:15:15,897 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3.pom
+2022-10-24 17:15:16,951 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3.pom
+2022-10-24 17:15:17,118 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3.pom
+2022-10-24 17:15:17,305 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3.pom
+2022-10-24 17:15:18,247 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3.pom
+2022-10-24 17:15:18,421 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3.pom
+2022-10-24 17:15:18,603 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3.pom
+2022-10-24 17:15:19,490 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3.pom
+2022-10-24 17:15:19,675 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3.pom
+2022-10-24 17:15:19,843 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3.pom
+2022-10-24 17:15:20,905 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0.pom
+2022-10-24 17:15:21,072 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0.pom
+2022-10-24 17:15:21,262 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0.pom
+2022-10-24 17:15:21,937 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-autotag/1.1.0/tiles-autotag-1.1.0.pom
+2022-10-24 17:15:22,109 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag/1.1.0/tiles-autotag-1.1.0.pom
+2022-10-24 17:15:22,302 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag/1.1.0/tiles-autotag-1.1.0.pom
+2022-10-24 17:15:23,327 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3.pom
+2022-10-24 17:15:23,483 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3.pom
+2022-10-24 17:15:23,668 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3.pom
+2022-10-24 17:15:24,951 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3.pom
+2022-10-24 17:15:25,124 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3.pom
+2022-10-24 17:15:25,303 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3.pom
+2022-10-24 17:15:26,527 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3.pom
+2022-10-24 17:15:26,698 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3.pom
+2022-10-24 17:15:26,876 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3.pom
+2022-10-24 17:15:28,142 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/springframework/spring-web/3.2.0.RELEASE/spring-web-3.2.0.RELEASE.pom
+2022-10-24 17:15:28,312 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-web/3.2.0.RELEASE/spring-web-3.2.0.RELEASE.pom
+2022-10-24 17:15:28,528 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-web/3.2.0.RELEASE/spring-web-3.2.0.RELEASE.pom
+2022-10-24 17:15:29,407 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/springframework/spring-context/3.2.0.RELEASE/spring-context-3.2.0.RELEASE.pom
+2022-10-24 17:15:29,578 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-context/3.2.0.RELEASE/spring-context-3.2.0.RELEASE.pom
+2022-10-24 17:15:29,760 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-context/3.2.0.RELEASE/spring-context-3.2.0.RELEASE.pom
+2022-10-24 17:15:31,011 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/springframework/spring-core/3.2.0.RELEASE/spring-core-3.2.0.RELEASE.pom
+2022-10-24 17:15:31,239 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-core/3.2.0.RELEASE/spring-core-3.2.0.RELEASE.pom
+2022-10-24 17:15:31,418 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-core/3.2.0.RELEASE/spring-core-3.2.0.RELEASE.pom
+2022-10-24 17:15:32,307 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/springframework/spring-aop/3.2.0.RELEASE/spring-aop-3.2.0.RELEASE.pom
+2022-10-24 17:15:32,468 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-aop/3.2.0.RELEASE/spring-aop-3.2.0.RELEASE.pom
+2022-10-24 17:15:32,658 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-aop/3.2.0.RELEASE/spring-aop-3.2.0.RELEASE.pom
+2022-10-24 17:15:33,589 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/springframework/spring-beans/3.2.0.RELEASE/spring-beans-3.2.0.RELEASE.pom
+2022-10-24 17:15:33,758 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-beans/3.2.0.RELEASE/spring-beans-3.2.0.RELEASE.pom
+2022-10-24 17:15:33,949 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-beans/3.2.0.RELEASE/spring-beans-3.2.0.RELEASE.pom
+2022-10-24 17:15:35,167 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/springframework/spring-expression/3.2.0.RELEASE/spring-expression-3.2.0.RELEASE.pom
+2022-10-24 17:15:35,422 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-expression/3.2.0.RELEASE/spring-expression-3.2.0.RELEASE.pom
+2022-10-24 17:15:35,611 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-expression/3.2.0.RELEASE/spring-expression-3.2.0.RELEASE.pom
+2022-10-24 17:15:36,522 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3.pom
+2022-10-24 17:15:36,693 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3.pom
+2022-10-24 17:15:36,880 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3.pom
+2022-10-24 17:15:37,744 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4.pom
+2022-10-24 17:15:37,918 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4.pom
+2022-10-24 17:15:38,138 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4.pom
+2022-10-24 17:15:38,985 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/github/spullara/mustache/java/mustache.java/0.8.4/mustache.java-0.8.4.pom
+2022-10-24 17:15:39,169 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/mustache.java/0.8.4/mustache.java-0.8.4.pom
+2022-10-24 17:15:39,350 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/mustache.java/0.8.4/mustache.java-0.8.4.pom
+2022-10-24 17:15:40,285 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/guava/guava/12.0/guava-12.0.pom
+2022-10-24 17:15:40,584 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0/guava-12.0.pom
+2022-10-24 17:15:40,878 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0/guava-12.0.pom
+2022-10-24 17:15:41,566 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/guava/guava-parent/12.0/guava-parent-12.0.pom
+2022-10-24 17:15:41,737 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/12.0/guava-parent-12.0.pom
+2022-10-24 17:15:41,924 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/12.0/guava-parent-12.0.pom
+2022-10-24 17:15:43,165 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+2022-10-24 17:15:43,344 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+2022-10-24 17:15:43,531 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+2022-10-24 17:15:44,470 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3.pom
+2022-10-24 17:15:44,665 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3.pom
+2022-10-24 17:15:44,887 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3.pom
+2022-10-24 17:15:46,047 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3.pom
+2022-10-24 17:15:46,217 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3.pom
+2022-10-24 17:15:46,402 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3.pom
+2022-10-24 17:15:47,647 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15.pom
+2022-10-24 17:15:47,824 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15.pom
+2022-10-24 17:15:48,011 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15.pom
+2022-10-24 17:15:49,247 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3.pom
+2022-10-24 17:15:49,418 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3.pom
+2022-10-24 17:15:49,607 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3.pom
+2022-10-24 17:15:50,578 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+2022-10-24 17:15:50,748 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+2022-10-24 17:15:51,016 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+2022-10-24 17:15:51,806 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/oro/oro/2.0.8/oro-2.0.8.pom
+2022-10-24 17:15:51,964 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.pom
+2022-10-24 17:15:52,139 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.pom
+2022-10-24 17:15:53,110 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom
+2022-10-24 17:15:53,298 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom
+2022-10-24 17:15:53,495 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom
+2022-10-24 17:15:54,201 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3.pom
+2022-10-24 17:15:54,382 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3.pom
+2022-10-24 17:15:54,599 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3.pom
+2022-10-24 17:15:55,347 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3.pom
+2022-10-24 17:15:55,638 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3.pom
+2022-10-24 17:15:55,823 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3.pom
+2022-10-24 17:15:56,605 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3.pom
+2022-10-24 17:15:56,761 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3.pom
+2022-10-24 17:15:56,937 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3.pom
+2022-10-24 17:15:58,206 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11.pom
+2022-10-24 17:15:58,379 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11.pom
+2022-10-24 17:15:58,559 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11.pom
+2022-10-24 17:15:59,501 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3.pom
+2022-10-24 17:15:59,676 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3.pom
+2022-10-24 17:15:59,861 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3.pom
+2022-10-24 17:16:00,690 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3.pom
+2022-10-24 17:16:00,862 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3.pom
+2022-10-24 17:16:01,127 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3.pom
+2022-10-24 17:16:02,366 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga.pom
+2022-10-24 17:16:02,575 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga.pom
+2022-10-24 17:16:02,758 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga.pom
+2022-10-24 17:16:03,665 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3.pom
+2022-10-24 17:16:03,862 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3.pom
+2022-10-24 17:16:04,037 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3.pom
+2022-10-24 17:16:04,748 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1.pom
+2022-10-24 17:16:04,919 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1.pom
+2022-10-24 17:16:05,125 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1.pom
+2022-10-24 17:16:05,925 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/guava/guava-parent/12.0.1/guava-parent-12.0.1.pom
+2022-10-24 17:16:06,206 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/12.0.1/guava-parent-12.0.1.pom
+2022-10-24 17:16:06,391 [Worker-172: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/12.0.1/guava-parent-12.0.1.pom
+2022-10-24 17:16:07,202 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3.jar
+2022-10-24 17:16:07,680 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0.jar
+2022-10-24 17:16:08,052 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3.jar
+2022-10-24 17:16:08,052 [AetherRepositoryConnector-maven.jahia.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3.jar
+2022-10-24 17:16:08,052 [AetherRepositoryConnector-maven.jahia.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+2022-10-24 17:16:08,393 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3.jar
+2022-10-24 17:16:08,393 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3.jar
+2022-10-24 17:16:08,765 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3.jar
+2022-10-24 17:16:08,766 [AetherRepositoryConnector-maven.jahia.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3.jar
+2022-10-24 17:16:08,766 [AetherRepositoryConnector-maven.jahia.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0.jar
+2022-10-24 17:16:09,109 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3.jar
+2022-10-24 17:16:09,469 [AetherRepositoryConnector-maven.jahia.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3.jar
+2022-10-24 17:16:09,469 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3.jar
+2022-10-24 17:16:09,470 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3.jar
+2022-10-24 17:16:09,470 [AetherRepositoryConnector-maven.jahia.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4.jar
+2022-10-24 17:16:10,047 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3.jar
+2022-10-24 17:16:10,394 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15.jar
+2022-10-24 17:16:10,781 [AetherRepositoryConnector-maven.jahia.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3.jar
+2022-10-24 17:16:10,781 [AetherRepositoryConnector-maven.jahia.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+2022-10-24 17:16:10,781 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3.jar
+2022-10-24 17:16:11,362 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+2022-10-24 17:16:11,966 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/oro/oro/2.0.8/oro-2.0.8.jar
+2022-10-24 17:16:12,307 [AetherRepositoryConnector-maven.jahia.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3.jar
+2022-10-24 17:16:12,309 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3.jar
+2022-10-24 17:16:12,309 [AetherRepositoryConnector-maven.jahia.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.jar
+2022-10-24 17:16:12,640 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3.jar
+2022-10-24 17:16:13,267 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11.jar
+2022-10-24 17:16:13,268 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3.jar
+2022-10-24 17:16:13,268 [AetherRepositoryConnector-maven.jahia.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga.jar
+2022-10-24 17:16:13,268 [AetherRepositoryConnector-maven.jahia.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3.jar
+2022-10-24 17:16:13,621 [AetherRepositoryConnector-maven.jahia.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3.jar
+2022-10-24 17:16:14,206 [AetherRepositoryConnector-maven.jahia.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+2022-10-24 17:16:14,207 [AetherRepositoryConnector-maven.jahia.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1.jar
+2022-10-24 17:16:14,457 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3.jar
+2022-10-24 17:16:14,637 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+2022-10-24 17:16:14,673 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0.jar
+2022-10-24 17:16:14,673 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3.jar
+2022-10-24 17:16:14,673 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3.jar
+2022-10-24 17:16:15,042 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3.jar
+2022-10-24 17:16:15,195 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3.jar
+2022-10-24 17:16:15,198 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3.jar
+2022-10-24 17:16:15,198 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3.jar
+2022-10-24 17:16:15,277 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0.jar
+2022-10-24 17:16:15,352 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+2022-10-24 17:16:15,398 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3.jar
+2022-10-24 17:16:15,398 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3.jar
+2022-10-24 17:16:15,426 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3.jar
+2022-10-24 17:16:15,500 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3.jar
+2022-10-24 17:16:15,572 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0.jar
+2022-10-24 17:16:15,582 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3.jar
+2022-10-24 17:16:15,582 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3.jar
+2022-10-24 17:16:15,662 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3.jar
+2022-10-24 17:16:15,824 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3.jar
+2022-10-24 17:16:15,824 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3.jar
+2022-10-24 17:16:15,827 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0.jar
+2022-10-24 17:16:15,827 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3.jar
+2022-10-24 17:16:15,985 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3.jar
+2022-10-24 17:16:16,259 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3.jar
+2022-10-24 17:16:16,260 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4.jar
+2022-10-24 17:16:16,265 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3.jar
+2022-10-24 17:16:16,268 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3.jar
+2022-10-24 17:16:16,412 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3.jar
+2022-10-24 17:16:16,583 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3.jar
+2022-10-24 17:16:16,593 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3.jar
+2022-10-24 17:16:16,593 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4.jar
+2022-10-24 17:16:16,669 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15.jar
+2022-10-24 17:16:17,007 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+2022-10-24 17:16:17,013 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3.jar
+2022-10-24 17:16:18,006 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3.jar
+2022-10-24 17:16:18,025 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3.jar
+2022-10-24 17:16:18,055 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+2022-10-24 17:16:18,058 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15.jar
+2022-10-24 17:16:18,435 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.jar
+2022-10-24 17:16:18,481 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.jar
+2022-10-24 17:16:18,484 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+2022-10-24 17:16:18,484 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3.jar
+2022-10-24 17:16:18,794 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3.jar
+2022-10-24 17:16:18,795 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3.jar
+2022-10-24 17:16:18,802 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.jar
+2022-10-24 17:16:18,806 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+2022-10-24 17:16:18,962 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3.jar
+2022-10-24 17:16:19,131 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3.jar
+2022-10-24 17:16:19,131 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3.jar
+2022-10-24 17:16:19,134 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11.jar
+2022-10-24 17:16:19,137 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.jar
+2022-10-24 17:16:19,618 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3.jar
+2022-10-24 17:16:19,641 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3.jar
+2022-10-24 17:16:19,953 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3.jar
+2022-10-24 17:16:19,976 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga.jar
+2022-10-24 17:16:20,702 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3.jar
+2022-10-24 17:16:20,711 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11.jar
+2022-10-24 17:16:20,853 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3.jar
+2022-10-24 17:16:20,853 [AetherRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3.jar
+2022-10-24 17:16:21,006 [AetherRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga.jar
+2022-10-24 17:16:21,257 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+2022-10-24 17:16:21,268 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1.jar
+2022-10-24 17:16:21,277 [AetherRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3.jar
+2022-10-24 17:16:22,303 [AetherRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+2022-10-24 17:16:22,578 [AetherRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1.jar
+2022-10-24 17:16:27,723 [Worker-172: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:16:27,725 [Worker-172: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:16:27,729 [Worker-172: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:16:27,733 [Worker-172: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:16:27,793 [Worker-172: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of Finance
+2022-10-24 17:16:27,795 [Worker-172: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for Finance
+2022-10-24 17:16:27,802 [Worker-172: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:16:31,171 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3-sources.jar
+2022-10-24 17:16:32,208 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3-sources.jar
+2022-10-24 17:16:32,666 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-core/3.0.3/tiles-core-3.0.3-sources.jar
+2022-10-24 17:16:32,763 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-core:3.0.3
+2022-10-24 17:16:35,344 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3-sources.jar
+2022-10-24 17:16:36,118 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3-sources.jar
+2022-10-24 17:16:36,549 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-api/3.0.3/tiles-api-3.0.3-sources.jar
+2022-10-24 17:16:36,680 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-api:3.0.3
+2022-10-24 17:16:39,189 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3-sources.jar
+2022-10-24 17:16:39,891 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3-sources.jar
+2022-10-24 17:16:40,297 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-api/1.0.3/tiles-request-api-1.0.3-sources.jar
+2022-10-24 17:16:40,377 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-api:1.0.3
+2022-10-24 17:16:43,030 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0-sources.jar
+2022-10-24 17:16:43,754 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0-sources.jar
+2022-10-24 17:16:44,389 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.0/commons-digester-2.0-sources.jar
+2022-10-24 17:16:44,467 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-digester:commons-digester:2.0
+2022-10-24 17:16:47,164 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0-sources.jar
+2022-10-24 17:16:47,956 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0-sources.jar
+2022-10-24 17:16:48,782 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0-sources.jar
+2022-10-24 17:16:48,865 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-beanutils:commons-beanutils:1.8.0
+2022-10-24 17:16:51,646 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3-sources.jar
+2022-10-24 17:16:53,396 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3-sources.jar
+2022-10-24 17:16:53,730 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-servlet/3.0.3/tiles-servlet-3.0.3-sources.jar
+2022-10-24 17:16:53,814 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-servlet:3.0.3
+2022-10-24 17:16:56,494 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3-sources.jar
+2022-10-24 17:16:57,249 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3-sources.jar
+2022-10-24 17:16:57,575 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet/1.0.3/tiles-request-servlet-1.0.3-sources.jar
+2022-10-24 17:16:57,644 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-servlet:1.0.3
+2022-10-24 17:16:59,996 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3-sources.jar
+2022-10-24 17:17:00,753 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3-sources.jar
+2022-10-24 17:17:01,111 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-jsp/3.0.3/tiles-jsp-3.0.3-sources.jar
+2022-10-24 17:17:01,182 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-jsp:3.0.3
+2022-10-24 17:17:03,498 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3-sources.jar
+2022-10-24 17:17:04,209 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3-sources.jar
+2022-10-24 17:17:04,522 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-template/3.0.3/tiles-template-3.0.3-sources.jar
+2022-10-24 17:17:04,602 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-template:3.0.3
+2022-10-24 17:17:07,005 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0-sources.jar
+2022-10-24 17:17:07,627 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0-sources.jar
+2022-10-24 17:17:07,953 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-autotag-core-runtime/1.1.0/tiles-autotag-core-runtime-1.1.0-sources.jar
+2022-10-24 17:17:08,032 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-autotag-core-runtime:1.1.0
+2022-10-24 17:17:11,300 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3-sources.jar
+2022-10-24 17:17:12,051 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3-sources.jar
+2022-10-24 17:17:12,356 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-jsp/1.0.3/tiles-request-jsp-1.0.3-sources.jar
+2022-10-24 17:17:12,483 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-jsp:1.0.3
+2022-10-24 17:17:15,038 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3-sources.jar
+2022-10-24 17:17:15,748 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3-sources.jar
+2022-10-24 17:17:16,182 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-extras/3.0.3/tiles-extras-3.0.3-sources.jar
+2022-10-24 17:17:16,270 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-extras:3.0.3
+2022-10-24 17:17:18,177 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3-sources.jar
+2022-10-24 17:17:18,869 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3-sources.jar
+2022-10-24 17:17:19,218 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-servlet-wildcard/1.0.3/tiles-request-servlet-wildcard-1.0.3-sources.jar
+2022-10-24 17:17:19,282 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-servlet-wildcard:1.0.3
+2022-10-24 17:17:21,807 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3-sources.jar
+2022-10-24 17:17:22,441 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3-sources.jar
+2022-10-24 17:17:22,760 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-mustache/1.0.3/tiles-request-mustache-1.0.3-sources.jar
+2022-10-24 17:17:22,829 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-mustache:1.0.3
+2022-10-24 17:17:25,263 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4-sources.jar
+2022-10-24 17:17:25,920 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4-sources.jar
+2022-10-24 17:17:26,240 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/github/spullara/mustache/java/compiler/0.8.4/compiler-0.8.4-sources.jar
+2022-10-24 17:17:26,320 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.github.spullara.mustache.java:compiler:0.8.4
+2022-10-24 17:17:30,044 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3-sources.jar
+2022-10-24 17:17:30,789 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3-sources.jar
+2022-10-24 17:17:31,287 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-freemarker/3.0.3/tiles-freemarker-3.0.3-sources.jar
+2022-10-24 17:17:31,373 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-freemarker:3.0.3
+2022-10-24 17:17:34,231 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3-sources.jar
+2022-10-24 17:17:35,053 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3-sources.jar
+2022-10-24 17:17:35,412 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-freemarker/1.0.3/tiles-request-freemarker-1.0.3-sources.jar
+2022-10-24 17:17:35,510 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-freemarker:1.0.3
+2022-10-24 17:17:38,684 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15-sources.jar
+2022-10-24 17:17:39,387 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15-sources.jar
+2022-10-24 17:17:40,893 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.15/freemarker-2.3.15-sources.jar
+2022-10-24 17:17:41,000 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.freemarker:freemarker:2.3.15
+2022-10-24 17:17:43,343 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3-sources.jar
+2022-10-24 17:17:44,050 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3-sources.jar
+2022-10-24 17:17:44,389 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-velocity/3.0.3/tiles-velocity-3.0.3-sources.jar
+2022-10-24 17:17:44,467 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-velocity:3.0.3
+2022-10-24 17:17:47,036 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0-sources.jar
+2022-10-24 17:17:47,739 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0-sources.jar
+2022-10-24 17:17:47,754 [Worker-170: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.apache.velocity:velocity-tools:2.0
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.apache.velocity:velocity-tools:jar:sources:2.0
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:804)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:772)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:749)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:330)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:304)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:269)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:233)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:161)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-10-24 17:17:49,910 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2-sources.jar
+2022-10-24 17:17:50,621 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2-sources.jar
+2022-10-24 17:17:51,827 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2-sources.jar
+2022-10-24 17:17:51,962 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-collections:commons-collections:3.2
+2022-10-24 17:17:54,711 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/oro/oro/2.0.8/oro-2.0.8-sources.jar
+2022-10-24 17:17:55,449 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8-sources.jar
+2022-10-24 17:17:56,099 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8-sources.jar
+2022-10-24 17:17:56,186 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for oro:oro:2.0.8
+2022-10-24 17:17:58,865 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2-sources.jar
+2022-10-24 17:17:59,587 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2-sources.jar
+2022-10-24 17:17:59,591 [Worker-170: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.apache.velocity:velocity:1.6.2
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.apache.velocity:velocity:jar:sources:1.6.2
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:804)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:772)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:749)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:330)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:304)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:269)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:233)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:161)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-10-24 17:18:02,074 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4-sources.jar
+2022-10-24 17:18:02,838 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4-sources.jar
+2022-10-24 17:18:03,638 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4-sources.jar
+2022-10-24 17:18:03,816 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-lang:commons-lang:2.4
+2022-10-24 17:18:06,237 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3-sources.jar
+2022-10-24 17:18:07,077 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3-sources.jar
+2022-10-24 17:18:07,413 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-request-velocity/1.0.3/tiles-request-velocity-1.0.3-sources.jar
+2022-10-24 17:18:07,483 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-request-velocity:1.0.3
+2022-10-24 17:18:09,741 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3-sources.jar
+2022-10-24 17:18:10,478 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3-sources.jar
+2022-10-24 17:18:10,847 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-el/3.0.3/tiles-el-3.0.3-sources.jar
+2022-10-24 17:18:10,917 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-el:3.0.3
+2022-10-24 17:18:13,602 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3-sources.jar
+2022-10-24 17:18:14,409 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3-sources.jar
+2022-10-24 17:18:14,777 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-mvel/3.0.3/tiles-mvel-3.0.3-sources.jar
+2022-10-24 17:18:14,854 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-mvel:3.0.3
+2022-10-24 17:18:17,404 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11-sources.jar
+2022-10-24 17:18:18,152 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11-sources.jar
+2022-10-24 17:18:19,189 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/mvel/mvel2/2.0.11/mvel2-2.0.11-sources.jar
+2022-10-24 17:18:19,271 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.mvel:mvel2:2.0.11
+2022-10-24 17:18:21,272 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3-sources.jar
+2022-10-24 17:18:21,613 [Worker-181: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:18:21,635 [Worker-181: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 71 resources
+2022-10-24 17:18:22,040 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3-sources.jar
+2022-10-24 17:18:22,514 [Worker-181: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:18:22,515 [Worker-181: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 17:18:22,669 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-ognl/3.0.3/tiles-ognl-3.0.3-sources.jar
+2022-10-24 17:18:22,747 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-ognl:3.0.3
+2022-10-24 17:18:25,128 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3-sources.jar
+2022-10-24 17:18:25,854 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3-sources.jar
+2022-10-24 17:18:27,260 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/ognl/ognl/2.7.3/ognl-2.7.3-sources.jar
+2022-10-24 17:18:27,411 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for ognl:ognl:2.7.3
+2022-10-24 17:18:31,166 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga-sources.jar
+2022-10-24 17:18:32,098 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga-sources.jar
+2022-10-24 17:18:33,052 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/jboss/javassist/3.7.ga/javassist-3.7.ga-sources.jar
+2022-10-24 17:18:33,129 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for jboss:javassist:3.7.ga
+2022-10-24 17:18:35,337 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3-sources.jar
+2022-10-24 17:18:36,059 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3-sources.jar
+2022-10-24 17:18:36,440 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/tiles/tiles-compat/3.0.3/tiles-compat-3.0.3-sources.jar
+2022-10-24 17:18:36,528 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.tiles:tiles-compat:3.0.3
+2022-10-24 17:18:39,214 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1-sources.jar
+2022-10-24 17:18:40,102 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1-sources.jar
+2022-10-24 17:18:41,309 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava/12.0.1/guava-12.0.1-sources.jar
+2022-10-24 17:18:41,382 [Worker-170: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.guava:guava:12.0.1
+2022-10-24 17:18:43,549 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-sources.jar
+2022-10-24 17:18:44,284 [Worker-170: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-sources.jar
+2022-10-24 17:18:44,293 [Worker-170: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for com.google.code.findbugs:jsr305:1.3.9
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.code.findbugs:jsr305:jar:sources:1.3.9
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:804)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:772)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:749)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:330)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:304)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:269)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:233)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:161)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-10-24 17:18:44,648 [Worker-173: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:18:44,649 [Worker-173: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 17:18:44,650 [Worker-173: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:18:44,651 [Worker-173: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:18:48,153 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0-javadoc.jar
+2022-10-24 17:18:48,908 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0-javadoc.jar
+2022-10-24 17:18:51,103 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0-javadoc.jar
+2022-10-24 17:18:51,177 [Worker-178: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded javadoc for org.apache.velocity:velocity-tools:2.0
+2022-10-24 17:18:53,612 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2-javadoc.jar
+2022-10-24 17:18:54,351 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2-javadoc.jar
+2022-10-24 17:18:56,868 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2-javadoc.jar
+2022-10-24 17:18:56,948 [Worker-178: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded javadoc for org.apache.velocity:velocity:1.6.2
+2022-10-24 17:18:59,987 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.jahia.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-javadoc.jar
+2022-10-24 17:19:00,749 [Worker-178: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-javadoc.jar
+2022-10-24 17:19:00,752 [Worker-178: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for com.google.code.findbugs:jsr305:1.3.9
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.code.findbugs:jsr305:jar:javadoc:1.3.9
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:804)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:772)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:749)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:330)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:316)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:269)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:233)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:161)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-10-24 17:19:01,115 [Worker-180: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:19:01,117 [Worker-180: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-24 17:19:01,118 [Worker-180: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:19:01,119 [Worker-180: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:21:39,204 [Worker-185: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:21:39,205 [Worker-185: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:21:39,206 [Worker-185: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:21:39,207 [Worker-185: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:22:07,480 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:22:07,481 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:22:07,482 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:22:07,483 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:23:17,267 [Worker-176: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:23:17,268 [Worker-176: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:23:17,269 [Worker-176: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:23:17,270 [Worker-176: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:01,111 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:01,112 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:01,113 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:01,114 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:03,395 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:03,396 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:03,397 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:03,398 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:09,544 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:09,547 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:09,549 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:09,550 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:19,436 [Worker-180: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:19,437 [Worker-180: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:19,438 [Worker-180: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:19,438 [Worker-180: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:40,553 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:40,554 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:25:40,555 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:25:40,556 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:26:33,206 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:26:33,207 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:26:33,208 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:26:33,209 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:26:39,997 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:26:39,998 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:26:39,999 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:26:40,000 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:28:12,501 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:28:12,502 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:28:12,503 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:28:12,504 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:34:46,655 [Worker-192: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:34:46,656 [Worker-192: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:34:46,659 [Worker-192: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:34:46,660 [Worker-192: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:36:26,827 [Worker-193: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:36:26,828 [Worker-193: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:36:26,830 [Worker-193: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:36:26,831 [Worker-193: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:37:52,647 [Worker-194: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:37:52,648 [Worker-194: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:37:52,648 [Worker-194: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:37:52,648 [Worker-194: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:38:15,918 [Worker-195: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:38:15,920 [Worker-195: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:38:15,921 [Worker-195: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:38:15,922 [Worker-195: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:40:00,000 [Worker-197: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:40:00,001 [Worker-197: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:40:00,002 [Worker-197: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:40:00,003 [Worker-197: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:41:39,714 [Worker-195: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:41:39,715 [Worker-195: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-24 17:41:39,716 [Worker-195: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-24 17:41:39,717 [Worker-195: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

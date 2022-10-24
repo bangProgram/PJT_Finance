@@ -50,7 +50,7 @@
 <title>사업장 목록</title>
 </head>
 <body>
-	<form name="searchForm" >
+	<form name="searchForm" method="post">
 		<table>
 			<tr>
 				<th>조회 년도</th>

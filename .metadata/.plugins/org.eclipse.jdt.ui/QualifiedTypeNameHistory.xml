@@ -18,4 +18,6 @@
     <fullyQualifiedTypeName name="finance.cms.report.service.ReportService"/>
     <fullyQualifiedTypeName name="finance.cms.portfolio.service.PortfolioService"/>
     <fullyQualifiedTypeName name="finance.common.mapper.CommonMapper"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="javax.inject.Inject"/>
 </qualifiedTypeNameHistroy>

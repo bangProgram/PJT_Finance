@@ -5,17 +5,74 @@
  </title>
  </head>
  <body>
-  <h1>사업장 조회하기</h1>
-  <form action="/bplc/view" method="POST">
-   <p>년도 : <input type="text" name="pStartYear" /> ~ <input type="text" name="pEndYear" /></p>
-   <p>보고서 구분 : <input type="radio" name="pReportGb" value="11011" /> 사업보고서 / <input type="radio" name="pReportGb" value="11012" checked="checked"/>반기보고서</p>
-   <p>연결 구분 : <input type="radio" name="pConnectGb" value="CFS" checked="checked"/> 연결 / <input type="radio" name="pConnectGb" value="OFS"/> 개별</p>
-   <p>연결 구분 : <input type="radio" name="pConnectGb" value="CFS" checked="checked"/> 연결 / <input type="radio" name="pConnectGb" value="OFS"/> 개별</p>
-   <p><input type="submit" value="조회123" />
-   <p>
-   <a href="/report">목록으로</a>
-  </p>
-  </form>
+  <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>66</td>
+                                            <td>2009/01/12</td>
+                                            <td>$86,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
  </body>
 </html>
 

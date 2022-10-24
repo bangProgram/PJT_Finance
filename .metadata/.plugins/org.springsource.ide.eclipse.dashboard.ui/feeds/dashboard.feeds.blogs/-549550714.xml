@@ -5,7 +5,242 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-10-21T04:00:00Z</updated>
+  <updated>2022-10-21T12:00:00Z</updated>
+  <entry>
+    <title>Introducing Spring Modulith</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/21/introducing-spring-modulith" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Oliver Drotbohm</name>
+    </author>
+    <id>tag:spring.io,2022-10-21:4964</id>
+    <updated>2022-10-21T12:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;When designing software systems, architects and developers have plenty of architectural options to choose from. Microservice-based systems have become ubiquitous in the last couple of years. However, the idea of monolithic, modular systems has also regained popularity recently.
+Independent of the architectural style ultimately selected, the individual applications comprising the overall system need their structure to be evolvable and able to follow changes in business requirements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Traditionally, application frameworks have provided structural guidance by providing abstractions aligned with technical concepts, such as Spring Framework＊s stereotype annotations (&lt;code&gt;@Controller&lt;/code&gt;, &lt;code&gt;@Service&lt;/code&gt;, &lt;code&gt;@Repository&lt;/code&gt;, and so on).
+However, shifting the focus to &lt;a href="https://dannorth.net/2022/02/10/cupid-for-joyful-coding/#domain-based"&gt;align code structure with the domain&lt;/a&gt; has proven to lead to better structured applications that are ultimately more understandable and maintainable.
+Until now, the Spring team has given verbal and written guidance on how we recommend structuring your Spring Boot applications.
+We decided that we can do more than that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-modulith"&gt;&lt;em&gt;Spring Modulith&lt;/em&gt;&lt;/a&gt; is a new, experimental Spring project that supports developers in expressing these logical application modules in code and in building well-structured, domain-aligned Spring Boot applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="example"&gt;&lt;a class="anchor" href="#example"&gt;&lt;/a&gt;An Example&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Let us have a look at &lt;a href="https://github.com/spring-projects-experimental/spring-modulith/tree/main/spring-modulith-example"&gt;a concrete example&lt;/a&gt;.
+Assume we need to develop an e-commerce application, for which we start with two logical modules.
+An &lt;em&gt;order&lt;/em&gt; module deals with order processing, and an &lt;em&gt;inventory&lt;/em&gt; keeps track of the stock for the products we sell.
+Our primary focus for this post is the use case that the inventory needs to be updated once an order is completed.
+Our project structure would look something like this (&lt;code&gt;∞&lt;/code&gt; denotes a public type, &lt;code&gt;-&lt;/code&gt; a private one):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;﹤ Example
+戌式 ﹤ src/main/java
+   戍式 ﹤ example
+   |  戌式 ∞ Application.java
+   |
+   戍式 ﹤ example.inventory
+   |  戍式 ∞ InventoryManagement.java
+   |  戌式 - InventoryInternal.java
+   |
+   戍式 ﹤ example.order
+   |  戌式 ∞ OrderManagement.java
+   戌式 ﹤ example.order.internal
+      戌式 ∞ OrderInternal.java&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This arrangement starts with the usual skeleton, a base package that contains the Spring Boot application class.
+Our two business modules are reflected by direct sub-packages: &lt;code&gt;inventory&lt;/code&gt; and &lt;code&gt;order&lt;/code&gt;.
+The inventory uses a rather simple arrangement.
+It consists of only a single package. Thus, we can use Java visibility modifiers to hide internal components from access by code residing in other modules, such as &lt;code&gt;InventoryInternal&lt;/code&gt;, as the Java compiler restricts access to non-public types.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;code&gt;order&lt;/code&gt; package, on the contrary, contains a sub-package that exposes a Spring bean which&amp;#8212;&amp;#8203;in our case&amp;#8212;&amp;#8203;needs to be public, because &lt;code&gt;OrderManagement&lt;/code&gt; refers to it.
+This arrangement of types, unfortunately, rules out the compiler as a helper to prevent illegal access to &lt;code&gt;OrderInternal&lt;/code&gt;, because, in plain Java, packages are not hierarchical.
+A sub-package is not hidden inside a parent one.
+Spring Modulith, however, establishes the notion of &lt;em&gt;application modules&lt;/em&gt;, that&amp;#8212;&amp;#8203;by default&amp;#8212;&amp;#8203;consist of an API package (the ones directly located under the application&amp;#8217;s main package&amp;#8212;&amp;#8203;in our case &lt;code&gt;inventory&lt;/code&gt; and &lt;code&gt;order&lt;/code&gt;) and, optionally, nested ones (&lt;code&gt;order.internal&lt;/code&gt;).
+The latter are considered internal, and the code residing in those modules is inaccessible to other modules.
+This application module model can &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#fundamentals.customizing-modules"&gt;be tweaked&lt;/a&gt; to your liking, but let us stick with this default arrangement for this post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="verification"&gt;&lt;a class="anchor" href="#verification"&gt;&lt;/a&gt;Verifying the Modular Structure&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To verify the application&amp;#8217;s structure and that our code adheres to the structures we defined, we can create a test case that creates an &lt;code&gt;ApplicationModules&lt;/code&gt; instance:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class ModularityTests {
+
+  @Test
+  void verifyModularity() {
+    ApplicationModules.of(Application.class).verify();
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Assuming &lt;code&gt;InventoryManagement&lt;/code&gt; introduced a dependency on &lt;code&gt;OrderInternal&lt;/code&gt;, that test would fail with the following error message and, thus, break the build:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;- Module 'inventory' depends on non-exposed type ’.internal.OrderInternal within module 'order'!
+InventoryManagement declares constructor InventoryManagement(InventoryInternal, OrderInternal) in (InventoryManagement.java:0)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The initial step (&lt;code&gt;ApplicationModules.of(’)&lt;/code&gt;) inspects the application structure, applies the module conventions and analyzes which parts of each application module are part of their &lt;em&gt;provided interface&lt;/em&gt;.
+As &lt;code&gt;OrderInternal&lt;/code&gt; does not reside in the application module&amp;#8217;s API package, the reference to it from the &lt;code&gt;inventory&lt;/code&gt; module is considered invalid and, thus, is reported as such in the next step, the invocation of &lt;code&gt;’.verify()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The verification as well as the underlying analysis of the application module model are implemented by using &lt;a href="https://www.archunit.org/"&gt;ArchUnit&lt;/a&gt;.
+It will reject cyclic dependencies between application modules, access to types considered internal (as per the definition above), and, optionally, allow only references to modules explicitly allow-listed by using &lt;code&gt;@ApplicationModule(allowedDependencies = ’)&lt;/code&gt; on the application modules &lt;code&gt;package-info.java&lt;/code&gt;.
+For more information on how to define application module boundaries and allowed dependencies between them in the link, see the &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/##fundamentals.modules"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="integration-tests"&gt;&lt;a class="anchor" href="#integration-tests"&gt;&lt;/a&gt;Application Module Integration Tests&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Being able to build a model of the application＊s structure is also helpful for integration testing.
+Similar to Spring Boot&amp;#8217;s slice test annotations, developers can indicate that they want to include only the components and configuration for a particular application module by using Spring Modulith&amp;#8217;s &lt;code&gt;@ApplicationModuleTest&lt;/code&gt; on an integration test.
+This helps to isolate integration tests against changes and the potential failures of tests located in other modules.
+An integration test class would look something like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;package example.order;
+
+@ApplicationModuleTest
+class OrderIntegrationTests {
+
+  // Test methods go here
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Similar to a test case run with &lt;code&gt;@SpringBootTest&lt;/code&gt;, &lt;code&gt;@ApplicationModuleTest&lt;/code&gt; finds the application&amp;#8217;s main class annotated with &lt;code&gt;@SpringBootApplication&lt;/code&gt;.
+It then initializes the application module model, finds the module the test class is located in, and defaults to bootstrap exactly that module.
+If you run this class and have the log level for &lt;code&gt;org.springframework.modulith.test&lt;/code&gt; raised to &lt;code&gt;DEBUG&lt;/code&gt;, you will see output that looks like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;’ - Bootstrapping @ApplicationModuleTest for example.order in mode STANDALONE (class example.Application)’
+’
+’ - ## example.order ##
+’ - &amp;gt; Logical name: order
+’ - &amp;gt; Base package: example.order
+’ - &amp;gt; Direct module dependencies: none
+’ - &amp;gt; Spring beans:
+’ -   + ’.OrderManagement
+’ -   + ’.internal.OrderInternal
+’
+’ - Re-configuring auto-configuration and entity scan packages to: example.order.&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The test execution reports which module is bootstrapped, its logical structure, and how it ultimately alters the Spring Boot bootstrap to include only the module&amp;#8217;s base package.
+It can be &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#testing.bootstrap-modes"&gt;tweaked&lt;/a&gt; to explicitly include other application modules, or bootstrap an entire tree of modules.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="events"&gt;&lt;a class="anchor" href="#events"&gt;&lt;/a&gt;Using Events for Inter-module Interaction&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Shifting the integration testing focus towards application modules usually reveals their outgoing dependencies, typically established by references to Spring beans residing in other modules.
+While those can be mocked (by using &lt;code&gt;@MockBean&lt;/code&gt;) to satisfy the test execution, it is often a better idea to replace the cross-module bean dependencies with an application event being published and consuming that with the previously explicitly invoked component.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Our example is already arranged in this preferred way, as it publishes an &lt;code&gt;OrderCompleted&lt;/code&gt; event during the call to &lt;code&gt;OrderManagement.complete(’)&lt;/code&gt;.
+Spring Modulith&amp;#8217;s &lt;code&gt;PublishedEvents&lt;/code&gt; abstraction allows testing that an integration test case has caused particular application events to be published:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@ApplicationModuleTest
+@RequiredArgsConstructor
+class OrderIntegrationTests {
+
+  private final OrderManagement orders;
+
+  @Test
+  void publishesOrderCompletion(PublishedEvents events) {
+
+    var reference = new Order();
+
+    orders.complete(reference);
+
+    // Find all OrderCompleted events referring to our reference order
+    var matchingMapped = events.ofType(OrderCompleted.class)
+        .matchingMapped(OrderCompleted::getOrderId, reference.getId()::equals);
+
+    assertThat(matchingMapped).hasSize(1);
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="summary"&gt;&lt;a class="anchor" href="#summary"&gt;&lt;/a&gt;A Tool Box for Well-structured Spring Boot Applications&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Modulith provides convention and APIs to declare and verify logical modules in your Spring Boot application.
+On top of the features described above, the first release has many more features to help developers structuring their applications:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Support for more &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#fundamentals.modules.advanced"&gt;advanced package arrangements&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support to &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#testing.bootstrap-modes"&gt;flexibly select&lt;/a&gt; a set of application modules to include in an integration test run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#events.publication-registry"&gt;transaction event publication&lt;/a&gt; log to let developers integrate application modules through events in transactional contexts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deriving &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#documentation"&gt;developer documentation&lt;/a&gt; from the application module structure, including C4 and UML component diagrams as well as the Application Module Canvas (a tabular high-level description of each module).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Runtime &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#observability"&gt;observability&lt;/a&gt; on the application module level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#moments"&gt;Passage of Time Events&lt;/a&gt; implementation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can find more about the project in &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/"&gt;its reference documentation&lt;/a&gt; and check out the &lt;a href="https://github.com/spring-projects-experimental/spring-modulith/tree/main/spring-modulith-example"&gt;example project&lt;/a&gt;.
+Despite the broad set of features already available, this is just the start of the journey.
+We look forward to your feedback and feature ideas for the project.
+Also, be sure to follow us &lt;a href="https://twitter.com/springmodulith"&gt;on Twitter&lt;/a&gt; for the latest social media updates on the project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="about-moduliths"&gt;&lt;a class="anchor" href="#about-moduliths"&gt;&lt;/a&gt;About Moduliths&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Modulith (no trailing "s") is the continuation of the &lt;a href="http://www.moduliths.org"&gt;Moduliths (with trailing "s") project&lt;/a&gt; but using Spring Boot 3.0, Framework 6, Java 17, and JakartaEE 9 as the baseline.
+The old Moduliths project is currently available in version 1.3, is compatible with Spring Boot 2.7, and will be maintained as long as the corresponding Boot generation.
+We have used the experience gained with it over the last two years, streamlined a few abstractions, tweaked a couple of defaults here and there, and decided to start with a more state-of-the-art baseline.
+For more detailed guidance on how to migrate to Spring Modulith, see the Spring Modulith &lt;a href="https://docs.spring.io/spring-modulith/docs/0.1.0-M1/reference/html/#appendix.migrating-from-moduliths"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 3.0.0-RC1 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/20/spring-boot-3-0-0-rc1-available-now" />
@@ -25,7 +260,7 @@
 &lt;p&gt;Other notable new features in this release include:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;More Flexible Auto-configuration for Spring Data JDBC&lt;/li&gt;
-  &lt;li&gt;Auto-Configuration for Prometheus Examplars&lt;/li&gt;
+  &lt;li&gt;Auto-Configuration for Prometheus Exemplars&lt;/li&gt;
   &lt;li&gt;Log4j2 Enhancements include profile support and Environment property lookup&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0.0-RC1-Release-Notes"&gt;release notes&lt;/a&gt; for more details and upgrade instructions.&lt;/p&gt;
@@ -841,28 +1076,6 @@ class MyHandler implements ObservationHandler&amp;lt;Observation.Context&amp;gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
-&lt;p&gt;You might wonder what you should do to have the observability turned on for the controllers. You can register one bean and be ready to go. Once &lt;a href="https://github.com/spring-projects/spring-boot/issues/32538"&gt;this issue&lt;/a&gt; is fixed, this configuration will not need to be manually defined.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="title"&gt;MyConfiguration.java&lt;/div&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@Configuration(proxyBeanMethods = false)
-class MyConfiguration {
-    // You must set this manually until this is registered in Boot
-    @Bean
-    FilterRegistrationBean observationWebFilter(ObservationRegistry observationRegistry) {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new ServerHttpObservationFilter(observationRegistry));
-        filterRegistrationBean.setDispatcherTypes(DispatcherType.ASYNC, DispatcherType.ERROR, DispatcherType.FORWARD,
-                DispatcherType.INCLUDE, DispatcherType.REQUEST);
-        filterRegistrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        // We provide a list of URLs that we want to create observations for
-        filterRegistrationBean.setUrlPatterns(Collections.singletonList("/user/*"));
-        return filterRegistrationBean;
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
 &lt;p&gt;That is it! Time for the client side.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1026,9 +1239,6 @@ class MyConfiguration {
 &lt;div class="paragraph"&gt;
 &lt;p&gt;The Spring Boot AutoConfiguration for WebMvc Observability is not yet ready. As a result, we need to set things up manually. For more information, see this &lt;a href="https://github.com/spring-projects/spring-boot/issues/32538"&gt;issue&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;For the Spring Boot &lt;a href="https://grafana.com/docs/grafana/latest/basics/exemplars/"&gt;Exemplars&lt;/a&gt; AutoConfiguration to work properly, we need to wait for &lt;a href="https://github.com/spring-projects/spring-boot/pull/32399"&gt;this PR&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-boot/pull/32415"&gt;this PR&lt;/a&gt; to be merged. Until then, we need to create &lt;a href="https://github.com/marcingrzejszczak/observability-boot-blog-post/blob/main/server/src/main/java/com/example/server/ExemplarsConfiguration.java"&gt;our configuration&lt;/a&gt; manually.&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1160,9 +1370,23 @@ class MyConfiguration {
 &lt;div class="paragraph"&gt;
 &lt;p&gt;To build the applications, you need GraalVM on your path. If you use &lt;code&gt;SDKMan&lt;/code&gt;, invoke the following:&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can skip this section if Bellsofr Liberica Native Image Kit 22.3 is already present in &lt;code&gt;SDKMan&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="listingblock"&gt;
 &lt;div class="content"&gt;
-&lt;pre&gt;sdk install java 22.2.r17-nik&lt;/pre&gt;
+&lt;pre&gt;$ # First download the 22.3 version of Bellsoft Liberica Native Image Kit 22.3 from https://bell-sw.com/pages/downloads/native-image-kit/#/nik-22-17-ea
+$ # Unpack the Kit (e.g to ~/foo/bar/22.3/ where ~/foo/bar/22.3/ would be the root of the JDK installation)
+$ # Use SDKMan to install the kit
+$ sdk install java 22.3.r17-nik  ~/foo/bar/22.3/&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Use the installed SDK&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;$ sdk use java 22.3.r17-nik&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
@@ -1173,7 +1397,7 @@ class MyConfiguration {
 &lt;/div&gt;
 &lt;div class="listingblock"&gt;
 &lt;div class="content"&gt;
-&lt;pre&gt;$ ./mvnw -Pnative clean package&lt;/pre&gt;
+&lt;pre&gt;$ ./mvnw native:compile -Pnative&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1293,25 +1517,6 @@ class MyConfiguration {
 &lt;p&gt;There are many further features and refinements available in Spring Framework 6.0, e.g. an &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC1/reference/html/integration.html#rest-http-interface"&gt;HTTP interface client&lt;/a&gt; based on &lt;code&gt;@HttpExchange&lt;/code&gt; service interfaces, support for &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC1/reference/html/web.html#mvc-ann-rest-exceptions"&gt;RFC 7807 problem details&lt;/a&gt;, and Micrometer-based observability for Spring&amp;rsquo;s HTTP clients. Please see our &lt;a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x/"&gt;What&amp;rsquo;s New page&lt;/a&gt; for a comprehensive overview and give 6.0 an early try!&lt;/p&gt;
 &lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/milestones"&gt;GitHub&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC1/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>The State of Spring Survey 2022 Is Here!</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/11/the-state-of-spring-survey-2022-is-here" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Michael Minella</name>
-    </author>
-    <id>tag:spring.io,2022-10-11:4941</id>
-    <updated>2022-10-11T17:00:00Z</updated>
-    <content type="html">&lt;p&gt;The State of Spring survey is here! Please give us your feedback by going to &lt;a href="https://spring.io/survey"&gt;spring.io/survey&lt;/a&gt;. Spread the word by sharing these posts on &lt;a href="https://twitter.com/springcentral/status/1577314901525204992"&gt;Twitter&lt;/a&gt;, &lt;a href="https://www.linkedin.com/posts/vmware-tanzu_we-want-to-hear-from-you-share-your-feedback-activity-6983123705023406080-pwRM/"&gt;LinkedIn&lt;/a&gt;, and any other social platform you use! &lt;/p&gt;
-&lt;hr/&gt;
-&lt;p&gt;Spring fans, our annual survey of the Spring community is back! Last year, we dived into the biggest projects and the most popular app patterns built with Spring, and a whole lot more! You told us your views about Spring Native, Data, and what matters to you when you start using a new Spring project.&lt;/p&gt;
-&lt;p&gt;The survey is back for 2022, and we＊re really excited to learn again from you. What matters to you when you build with Spring? What types of apps are you building with Spring? What can we change, and what should remain the same?&lt;/p&gt;
-&lt;p&gt;Completing the survey should take about 15 minutes. If you want to be among the first to get the report, feel free to leave your email at the end of the survey.&lt;/p&gt;
-&lt;p&gt;Ok, if you＊re ready, &lt;strong&gt;head over to &lt;a href="https://spring.io/survey"&gt;spring.io/survey&lt;/a&gt; now!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;One last thing - we&amp;rsquo;d really appreciate it if you share the survey with others in the Spring community. You can share the link spring.io/survey, or our &lt;a href="https://twitter.com/springcentral/status/1577314901525204992"&gt;Twitter&lt;/a&gt; and &lt;a href="https://www.linkedin.com/posts/vmware-tanzu_we-want-to-hear-from-you-share-your-feedback-activity-6983123705023406080-pwRM/"&gt;LinkedIn&lt;/a&gt; posts. Thank you!&lt;/p&gt;
-&lt;p&gt;The Spring Team&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
