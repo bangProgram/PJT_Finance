@@ -93,11 +93,11 @@
 				group by corp_code , corp_name , account_id
 			) a
 			where  1=1 
+				<foreach collection="chkYearList" item="item" >
+						AND RATE_${item} > #{chkAccRate}
+				</foreach>
 		)
 		where 1=1
-		<foreach collection="chkYearList" item="item" >
-				AND RATE_${item} > #{chkAccRate}
-		</foreach>
 		and rnk = #{pAccountCnt}
 	</select>
 	
@@ -107,45 +107,46 @@
 	    		<foreach collection="pYearList" item="item" >
 					RATE_${item},
 				</foreach>
-				SEQ, corp_code , corp_name , account_id
+				DENSE_RANK() OVER(ORDER BY stock_code) AS rnum, SEQ, stock_code , corp_name , account_id, corp_code
 			FROM (
 				SELECT 
 				    2 AS "SEQ",
 				    <foreach collection="pYearList" item="item" >
 						sum(DECODE(bsns_year ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))) AS RATE_${item},
 					</foreach>
-				    corp_code , corp_name , account_id
+				    stock_code , corp_name , account_id, corp_code
 				FROM (
 					select 
 					        NVL(A.NET_AMOUNT,0) AS NET_AMOUNT, LEAD(NVL(A.NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_NET_AMOUNT,
 					        NVL(A.ACCUMULATED_NET_AMOUNT,0) AS ACC_NET_AMOUNT, LEAD(NVL(A.ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_ACC_NET_AMOUNT,
 					        NVL(A.BEF_NET_AMOUNT,0) AS BEF_NET_AMOUNT,  LEAD(NVL(A.BEF_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_NET_AMOUNT,
 					        NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0) AS BEF_ACC_NET_AMOUNT, LEAD(NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_ACC_NET_AMOUNT,
-					        a.corp_code , b.corp_name , REPLACE(a.ACCOUNT_ID,'ifrs_','ifrs-full_') as ACCOUNT_ID, a.bsns_year
+					        a.corp_code as stock_code, b.corp_name , REPLACE(a.ACCOUNT_ID,'ifrs_','ifrs-full_') as ACCOUNT_ID, a.bsns_year, b.corp_code
 					from 	tb_Bplc_cis a inner join tb_Bplc b
 					on 		a.corp_code = b.stock_code
+					where 1=1
+						<include refid = "whereReport"/>
 				) a
 				where 	1=1
 						and REPLACE(ACCOUNT_ID,'ifrs_','ifrs-full_') in ('ifrs-full_Revenue','dart_OperatingIncomeLoss','ifrs-full_ProfitLoss')
-						<include refid = "whereReport"/>
 				group by 
-						corp_code , corp_name , account_id
+						stock_code , corp_name , account_id, corp_code
 				union all
 				select 
 				        1 AS "SEQ",
 				        <foreach collection="pYearList" item="item" >
-							sum(decode(a.bsns_year ,#{item},a.ACCUMULATED_NET_AMOUNT)) AS RATE_${item},
+							ROUND(sum(decode(a.bsns_year ,#{item},a.ACCUMULATED_NET_AMOUNT)/100000000),3) AS RATE_${item},
 						</foreach>
-				        a.corp_code , b.corp_name , REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') as account_id
+				        a.corp_code as stock_code, b.corp_name , REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') as account_id, b.corp_code
 				from 	tb_Bplc_cis a inner join tb_Bplc b
 				on 		a.corp_code = b.stock_code
 				where 	1=1
 						and REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') in ('ifrs-full_Revenue','dart_OperatingIncomeLoss','ifrs-full_ProfitLoss')
 						<include refid = "whereReport"/>
 				group by 
-						a.corp_code , b.corp_name , REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_')
+						a.corp_code , b.corp_name , REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_'), b.corp_code
 			) A
-			order by corp_code, account_id, SEQ
+			order by stock_code, account_id, SEQ
 	</select>
 	
 	

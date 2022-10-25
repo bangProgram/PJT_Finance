@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import finance.cms.report.service.ReportService;
@@ -39,8 +40,9 @@ public class ReportController {
 	    return mav;
 	}
 	
+	@ResponseBody
 	@RequestMapping(value={"/report/select"} , method = RequestMethod.POST)
-	public ModelAndView getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{
+	public Map<String, Object> getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
@@ -63,18 +65,15 @@ public class ReportController {
 		for(int i=0; i<searchList.size(); i++) {
 			chkCorpList.add(searchList.get(i).get("CORP_CODE").toString());
 		}
-		System.out.println("JB 확인 : "+chkCorpList.toString());
 		
 		commandMap.put("chkCorpList", chkCorpList); List<Map<String, Object>>
 		resultList = reportService.getReportList(commandMap);
-		System.out.println("JB 확인 : "+resultList.size());
 		
-	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "report/reportList";
-	    mav.addObject("resultList", resultList);
-	    mav.setViewName(resultURL);
+	    Map<String, Object> result = new HashMap<String, Object>();
+	    result.put("resultList", resultList);
+	    result.put("pYearList", pYearList);
 	    
-	    return mav;
+	    return result;
 	}
 	
 	@RequestMapping(value = "/report/detail/view", method = RequestMethod.POST)
