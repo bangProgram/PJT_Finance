@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="pReportCd"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="datanu"/>
-			<item value="ojdbc"/>
-			<item value="mybatis"/>
-			<item value="-mybatis"/>
-			<item value="sqlSession"/>
-			<item value="sqlSessionFactory"/>
-			<item value="org.springframework.jdbc.datasource.DriverManagerDataSource"/>
-			<item value="SqlSessionFactory"/>
-			<item value="org.apache.ibatis.session.SqlSessionFactory"/>
-			<item value="select"/>
-			<item value="selectList("/>
-			<item value="selectList"/>
-			<item value="setsqlsess"/>
-			<item value="org.mybatis.spring.SqlSessionFactoryBean"/>
-			<item value="org.mybatis.spring.SqlSessionFactoryBean&#x0A;출처: https://tadakichi.tistory.com/99 [라자루스의 개발 이야기:티스토리]"/>
+			<item value="pReportCd"/>
+			<item value="a.reprt_code"/>
+			<item value="reprt_code"/>
+			<item value="userList"/>
+			<item value="head2"/>
+			<item value="quaterList"/>
+			<item value="pAccountIds"/>
+			<item value="RATE_0"/>
+			<item value="pYearList"/>
+			<item value="yearString"/>
+			<item value="pStartYear"/>
+			<item value="pEndYear"/>
+			<item value="chkYearList"/>
+			<item value="curYear"/>
+			<item value="index"/>
 		</list>
 		<list key="replacehistory">
+			<item value="reprtList"/>
+			<item value="td"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

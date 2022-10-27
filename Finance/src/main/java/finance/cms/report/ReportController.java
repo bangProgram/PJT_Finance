@@ -33,22 +33,25 @@ public class ReportController {
 		
 		String yearString = "";
 		List<String> yearList = new ArrayList<String>();
+		String quaterString = "";
 		List<String> quaterList = new ArrayList<String>();
 		String tmp = "";
-		String[] qTmp = {" 4Q"," 2Q"};
+		String[] qTmp = {"Q4_","Q2_"};
 		
 		if(curMonth >= 9) {
 			for(int i=0; i<3; i++) {
 				for(int j=0;j<2;j++) {
 					if(i == 0 && j == 0) continue;
-					quaterList.add(Integer.toString(curYear-i)+qTmp[j]);
+					quaterString += qTmp[j]+Integer.toString(curYear-i)+",";
+					quaterList.add(qTmp[j]+Integer.toString(curYear-i));
 				}
 			}
 		}else {
 			for(int i=1; i<=3; i++) {
 				for(int j=0;j<2;j++) {
 					if(i == 3 && j == 2) continue;
-					quaterList.add(Integer.toString(curYear-i)+qTmp[j]);
+					quaterString += qTmp[j]+Integer.toString(curYear-i)+",";
+					quaterList.add(qTmp[j]+Integer.toString(curYear-i));
 				}
 			}
 		}
@@ -74,6 +77,7 @@ public class ReportController {
 	    String resultURL = "report/reportList";
 	    mav.addObject("yearString", yearString);
 	    mav.addObject("yearList", yearList);
+	    mav.addObject("quaterString", quaterString);
 	    mav.addObject("quaterList", quaterList);
 	    mav.setViewName(resultURL);
 	    
@@ -95,11 +99,14 @@ public class ReportController {
 		String[] pAccountIds = commandMap.get("pAccountIds").toString().split(",");
 		String[] chkYearList = commandMap.get("chkYearList").toString().split(",");
 		String[] pYearList = commandMap.get("pYearList").toString().split(",");
+		String[] pQuaterList = commandMap.get("pQuaterList").toString().split(",");
 		
 		commandMap.put("pAccountCnt", pAccountIds.length);
 		commandMap.put("pAccountIds", pAccountIds);
 		commandMap.put("chkYearList", chkYearList);
 		commandMap.put("pYearList", pYearList);
+		System.out.println("JB pQuaterList : "+pQuaterList.toString());
+		commandMap.put("pQuaterList", pQuaterList);
 		
 		List<Map<String, Object>> searchList = reportService.getReportSearch(commandMap);
 		List<String> chkCorpList = new ArrayList<String>();

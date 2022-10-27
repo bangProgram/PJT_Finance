@@ -5,7 +5,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.ImportResource"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
@@ -13,11 +12,16 @@
     <fullyQualifiedTypeName name="src.main.finance.common.mapper.CommonMapper"/>
     <fullyQualifiedTypeName name="org.mybatis.spring.support.SqlSessionDaoSupport"/>
     <fullyQualifiedTypeName name="javax.annotation.Resource"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="src.main.finance.common.mapper.CommonDAO"/>
     <fullyQualifiedTypeName name="finance.cms.report.service.ReportService"/>
     <fullyQualifiedTypeName name="finance.cms.portfolio.service.PortfolioService"/>
     <fullyQualifiedTypeName name="finance.common.mapper.CommonMapper"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
     <fullyQualifiedTypeName name="javax.inject.Inject"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

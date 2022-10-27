@@ -4,16 +4,21 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>﻿
 <script type="text/javascript">
 	$(document).ready(function(){
+		
 		var chkYear = pEndYear;
 		var yearString = $("#pYearList").val();
 		var pYearList = yearString.split(',');
+		var quaterString = $("#pQuaterList").val();
+		var pQuaterList = quaterString.split(',');
+		
 		$("#pStartYear").val(pYearList[4]);
 		$("#pEndYear").val(pYearList[0]);
+		
 		var pEndYear = $("#pEndYear").val();
 		
 		var html = ''
 		var chkYearList = ''
-		for(var i=0; i<pYearList.length; i++){
+		for(var i=0; i<5; i++){
 			if(i==0){
 				chkYearList += pYearList[i];
 				html += '<option value="'+chkYearList+'">'+ pYearList[i] +' </option>'
@@ -21,9 +26,38 @@
 				chkYearList += ','+pYearList[i];
 				html += '<option value="'+chkYearList+'">'+ pEndYear+' ~ '+ pYearList[i]  +' </option>'
 			}
-			
 		}
 		$('#chkYearList').append(html);
+		
+		$("input[name=pReportCd]").change(function(){
+			$('#chkYearList').empty();
+			var reprtCd = $(this).val();
+			html = '<option value = "">개년 선택</option>'
+			chkYearList = '';
+			if(reprtCd == "11011"){
+				for(var i=0; i<5; i++){
+					if(i==0){
+						chkYearList += pYearList[i];
+						html += '<option value="'+chkYearList+'">'+ pYearList[i] +' </option>'
+					}else{
+						chkYearList += ','+pYearList[i];
+						html += '<option value="'+chkYearList+'">'+ pEndYear+' ~ '+ pYearList[i]  +' </option>'
+					}
+				}
+				$('#chkYearList').append(html);
+			}else{
+				for(var i=0; i<5; i++){
+					if(i==0){
+						chkYearList += pQuaterList[i];
+						html += '<option value="'+chkYearList+'">'+ pQuaterList[i] +' </option>'
+					}else{
+						chkYearList += ','+pQuaterList[i];
+						html += '<option value="'+chkYearList+'">'+ pQuaterList[0]+' ~ '+ pQuaterList[i]  +' </option>'
+					}
+				}
+				$('#chkYearList').append(html);
+			}
+		});
 		
 	});
 
@@ -49,6 +83,7 @@
 			url : '/report/select',           // 요청할 서버url    
 			data : {
 				pYearList : $("#pYearList").val(),
+				pQuaterList : $("#pQuaterList").val(),
 				pStartYear : $("#pStartYear").val(),
 				pEndYear : $("#pEndYear").val(),
 				pReportCd : reprtCd,
@@ -92,6 +127,7 @@
 <div class="container-fluid">
 	<form name="searchForm" method="post">
 	<input type="hidden" name="pYearList" id="pYearList" value="${yearString}" title="조회 년도 목록">
+	<input type="hidden" name="pQuaterList" id="pQuaterList" value="${quaterString}" title="조회 년도 목록">
 	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="" title="조회 시작년도">
 	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="" title="조회 시작년도">
 	
@@ -107,14 +143,20 @@
         <div class="card-body">
             <div class="table-responsive">
             
-                <table class="table table-bordered"  width="100%" cellspacing="0">
+                <table id="searchTable" class="table table-bordered"  width="100%">
+                	<colgroup>
+                		<col width="18%"/>
+                		<col width="32%"/>
+                		<col width="18%"/>
+                		<col width="32%"/>
+                	</colgroup>
                     <tbody>
                         <tr>
                             <td>기준 성장률</td>
 							<td><input type="text" name="chkAccRate" id="chkAccRate" value="" title="기준 성장률">  </td>
 							<td>기준 개년</td>
 							<td>
-								<select name="chkYearList" id="chkYearList" title="기준 년도 선택"> 
+								<select name="chkYearList" id="chkYearList" title="기준 년도 선택" style="width: 200px;"> 
 									<option value = "">개년 선택</option>
 								</select> 
 							</td>
