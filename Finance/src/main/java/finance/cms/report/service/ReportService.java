@@ -11,5 +11,7 @@ public interface ReportService {
 
 	public List<Map<String, Object>> getReportSearch(Map<String, Object> param) throws Exception;
 
+	List<Map<String, Object>> getBsnsYearList(Map<String, Object> param) throws Exception;
+
 	
 }

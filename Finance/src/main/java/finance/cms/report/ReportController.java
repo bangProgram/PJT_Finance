@@ -32,41 +32,21 @@ public class ReportController {
 		int curMonth = now.getMonthValue();
 		
 		String yearString = "";
-		List<String> yearList = new ArrayList<String>();
 		String quaterString = "";
-		List<String> quaterList = new ArrayList<String>();
-		String tmp = "";
-		String[] qTmp = {"Q4_","Q2_"};
 		
-		if(curMonth >= 9) {
-			for(int i=0; i<3; i++) {
-				for(int j=0;j<2;j++) {
-					if(i == 0 && j == 0) continue;
-					quaterString += qTmp[j]+Integer.toString(curYear-i)+",";
-					quaterList.add(qTmp[j]+Integer.toString(curYear-i));
-				}
-			}
-		}else {
-			for(int i=1; i<=3; i++) {
-				for(int j=0;j<2;j++) {
-					if(i == 3 && j == 2) continue;
-					quaterString += qTmp[j]+Integer.toString(curYear-i)+",";
-					quaterList.add(qTmp[j]+Integer.toString(curYear-i));
-				}
-			}
-		}
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		List<Map<String, Object>> quaterList = reportService.getBsnsYearList(paramMap);
+		paramMap.put("pReportCd", "11011");
+		List<Map<String, Object>> yearList = reportService.getBsnsYearList(paramMap);
 		
 		
-		tmp = "";
-		for(int i=1; i<=5; i++ ) {
-			tmp = Integer.toString(curYear-i);
-			
-			if(i==1) {
-				yearList.add(tmp);
-				yearString += tmp;
+		for(int i=0; i<5; i++ ) {
+			if(i==0) {
+				yearString += yearList.get(i).get("BSNS_YEAR");
+				quaterString += quaterList.get(i).get("HAEDER_NM");
 			}else {
-				yearList.add(tmp);
-				yearString += "," + tmp;
+				yearString += "," + yearList.get(i).get("BSNS_YEAR");
+				quaterString += "," + quaterList.get(i).get("HAEDER_NM");
 			}
 		}
 		
@@ -79,6 +59,8 @@ public class ReportController {
 	    mav.addObject("yearList", yearList);
 	    mav.addObject("quaterString", quaterString);
 	    mav.addObject("quaterList", quaterList);
+	    mav.addObject("pEndYear", curYear);
+	    mav.addObject("pStartYear", (curYear-5));
 	    mav.setViewName(resultURL);
 	    
 	    return mav;
@@ -92,20 +74,25 @@ public class ReportController {
 		int curYear = now.getYear();		//2022
 		int curMonth = now.getMonthValue();	//10
 		
-		System.out.println("JB1 : "+commandMap.toString());
-		System.out.println("JB2 : "+commandMap.get("pAccountIds").toString());
-		System.out.println("JB3 : "+commandMap.get("pYearList").toString());
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		List<Map<String, Object>> quaterList = reportService.getBsnsYearList(paramMap);
+		paramMap.put("pReportCd", "11011");
+		List<Map<String, Object>> yearList = reportService.getBsnsYearList(paramMap);
 		
 		String[] pAccountIds = commandMap.get("pAccountIds").toString().split(",");
 		String[] chkYearList = commandMap.get("chkYearList").toString().split(",");
-		String[] pYearList = commandMap.get("pYearList").toString().split(",");
-		String[] pQuaterList = commandMap.get("pQuaterList").toString().split(",");
+		String[] pYearList = new String [5];
+		String[] pQuaterList = new String [5];
+		
+		for(int i=0; i<5; i++ ) {
+			pYearList[i] = yearList.get(i).get("BSNS_YEAR").toString();			
+			pQuaterList[i] = quaterList.get(i).get("HAEDER_NM").toString();			
+		}
 		
 		commandMap.put("pAccountCnt", pAccountIds.length);
 		commandMap.put("pAccountIds", pAccountIds);
 		commandMap.put("chkYearList", chkYearList);
 		commandMap.put("pYearList", pYearList);
-		System.out.println("JB pQuaterList : "+pQuaterList.toString());
 		commandMap.put("pQuaterList", pQuaterList);
 		
 		List<Map<String, Object>> searchList = reportService.getReportSearch(commandMap);

@@ -11,9 +11,6 @@
 		var quaterString = $("#pQuaterList").val();
 		var pQuaterList = quaterString.split(',');
 		
-		$("#pStartYear").val(pYearList[4]);
-		$("#pEndYear").val(pYearList[0]);
-		
 		var pEndYear = $("#pEndYear").val();
 		
 		var html = ''
@@ -36,7 +33,7 @@
 			chkYearList = '';
 			if(reprtCd == "11011"){
 				for(var i=0; i<5; i++){
-					if(i==0){
+					if(i==1){
 						chkYearList += pYearList[i];
 						html += '<option value="'+chkYearList+'">'+ pYearList[i] +' </option>'
 					}else{
@@ -128,8 +125,8 @@
 	<form name="searchForm" method="post">
 	<input type="hidden" name="pYearList" id="pYearList" value="${yearString}" title="조회 년도 목록">
 	<input type="hidden" name="pQuaterList" id="pQuaterList" value="${quaterString}" title="조회 년도 목록">
-	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="" title="조회 시작년도">
-	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="" title="조회 시작년도">
+	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="${pStartYear}" title="조회 시작년도">
+	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="${pEndYear}" title="조회 시작년도">
 	
 	<!-- Page Heading -->
 	<h1 class="h3 mb-2 text-gray-800">종목발굴</h1>
@@ -208,7 +205,7 @@
 							<td>사업장명</td>
 							<td>계정명</td>
 							<c:forEach items="${yearList}" var="list">
-								<td>${list} 년</td>
+								<td>${list.HAEDER_NM}</td>
 							</c:forEach>
 						</tr>
 						<tr id="head2" style="display: none;">
@@ -216,7 +213,7 @@
 							<td>사업장명</td>
 							<td>계정명</td>
 							<c:forEach items="${quaterList}" var="list">
-								<td>${list}</td>
+								<td>${list.HAEDER_NM}</td>
 							</c:forEach>
 						</tr>
 			        </thead>

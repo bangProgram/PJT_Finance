@@ -23,6 +23,14 @@ public class ReportServiceImpl implements ReportService {
 	private String namespace = "reportMapper.";
 	
 	@Override
+	public List<Map<String, Object>> getBsnsYearList(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getBsnsYearList");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
+	
+	@Override
 	public List<Map<String, Object>> getReportSearch(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getReportSearch");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
