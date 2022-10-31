@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="interestMapper">
+
+	<sql id="whereInterest">
+		<if test="(pStartYear != null and pStartYear != '') or (pEndYear != null and pEndYear != '') ">
+			AND A.BSNS_YEAR BETWEEN #{pStartYear} AND #{pEndYear}
+		</if>
+	</sql>
+	
+	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="book_id">  
+	    INSERT INTO  TB_INTEREST (
+		    CORP_CODE ,CORP_NAME ,STOCK_CODE ,UESR_ID ,
+		    CREATE_ID ,CREATE_DT ,CHANGE_ID ,CHANGE_DT	
+		) VALUES (
+			#{CORP_CODE} ,#{CORP_NAME} ,#{STOCK_CODE} ,'SYSTEM_JB' ,
+		    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		)
+	</insert>
+	
+</mapper>

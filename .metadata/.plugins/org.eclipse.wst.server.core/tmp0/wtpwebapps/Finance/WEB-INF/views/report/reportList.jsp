@@ -83,6 +83,7 @@
 				pQuaterList : $("#pQuaterList").val(),
 				pStartYear : $("#pStartYear").val(),
 				pEndYear : $("#pEndYear").val(),
+				pCorpName : $("#pCorpName").val(),
 				pReportCd : reprtCd,
 				chkAccRate : $("#chkAccRate").val(),
 				chkYearList : $("#chkYearList").val(),
@@ -103,16 +104,56 @@
 				  		{ data: 'RATE_1' },
 				  		{ data: 'RATE_2' },
 				  		{ data: 'RATE_3' },
-				  		{ data: 'RATE_4' }
+				  		{ data: 'RATE_4' },
+				  		{ "data": '', 
+				  			"defaultContent" : '',
+				  			"render": function(data, type, row, meta){
+				  	            if(type === 'display'){
+				  	                data = '<a href="/report/detail/list" target="_blank" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+				  	            }
+
+				  	            return data;
+				  	         }	
+				  		},
+				  		{ "data": '',
+				  			"defaultContent" : '',
+				  			"render": function(data, type, row, meta){
+				  	            if(type === 'display'){
+				  	                data = '<a href="#" onclick="addInterest('+data.CORP_CODE+','+data.CORP_NAME+','+data.STOCK_CODE+'); return false;" target="_blank" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	            }
+
+				  	            return data;
+				  	         }	 }
 				  	]
 				});
-				alert("조회완료");
 			},    
 			error : function(request, status, error) {       
 				console.log(error)    
 			}
 		})
 		
+	}
+	
+	function addInterest(corpCd,corpNm,stockCd){
+		var url = "/interest/add/cud";
+		alert("corpCd" + corpCd);
+		
+		$.ajax({    
+			type : 'post',           // 타입 (get, post, put 등등)    
+			url : url,           // 요청할 서버url    
+			data : {
+				CORP_CODE 	: corpCd,
+				CORP_NAME	: corpNm,
+				STOCK_CODE 	: stockCd,
+			},    
+			dataType : 'json',    
+			success : function(data) { // 결과 성공 콜백함수        
+				
+			},    
+			error : function(request, status, error) {       
+				console.log(error)    
+			}
+		})
 	}
 </script>
 
@@ -129,7 +170,7 @@
 	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="${pEndYear}" title="조회 시작년도">
 	
 	<!-- Page Heading -->
-	<h1 class="h3 mb-2 text-gray-800">종목발굴</h1>
+	<h1 class="h3 mb-2 text-gray-800">종목찾기</h1>
 	<p class="mb-4"></p>
 
 	<!-- DataTales Example -->
@@ -148,6 +189,10 @@
                 		<col width="32%"/>
                 	</colgroup>
                     <tbody>
+                    	<tr>
+                            <td>사업장명</td>
+							<td><input type="text" name="pCorpName" id="pCorpName" value="" title="사업장명">  </td>
+                        </tr>
                         <tr>
                             <td>기준 성장률</td>
 							<td><input type="text" name="chkAccRate" id="chkAccRate" value="" title="기준 성장률">  </td>
@@ -199,6 +244,18 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table id="reprtList" class="table table-bordered" id="dataTable" width="100%" >
+                	<colgroup>
+                		<col width="3%"/>
+                		<col width="10%"/>
+                		<col width="10%"/>
+                		<col width="13%"/>
+                		<col width="13%"/>
+                		<col width="13%"/>
+                		<col width="13%"/>
+                		<col width="13%"/>
+                		<col width="6%"/>
+                		<col width="6%"/>
+                	</colgroup>
                     <thead>
 			            <tr id="head1">
 			            	<td>No</td>
@@ -207,6 +264,8 @@
 							<c:forEach items="${yearList}" var="list">
 								<td>${list.HAEDER_NM}</td>
 							</c:forEach>
+							<td>상세</td>
+							<td>관심</td>
 						</tr>
 						<tr id="head2" style="display: none;">
 			            	<td>No</td>
@@ -215,6 +274,8 @@
 							<c:forEach items="${quaterList}" var="list">
 								<td>${list.HAEDER_NM}</td>
 							</c:forEach>
+							<td>상세</td>
+							<td>관심</td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">

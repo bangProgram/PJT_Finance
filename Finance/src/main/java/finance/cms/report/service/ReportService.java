@@ -9,9 +9,9 @@ public interface ReportService {
 
 	public List<Map<String, Object>> getReportDetailList(Map<String, Object> param) throws Exception;
 
-	public List<Map<String, Object>> getReportSearch(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getReprtCorpCode(Map<String, Object> param) throws Exception;
 
-	List<Map<String, Object>> getBsnsYearList(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getBsnsYearList(Map<String, Object> param) throws Exception;
 
 	
 }
