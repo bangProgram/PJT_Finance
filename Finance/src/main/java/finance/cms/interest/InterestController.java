@@ -42,9 +42,13 @@ public class InterestController {
 		List<Map<String, Object>> quaterList = reportService.getBsnsYearList(paramMap);
 		paramMap.put("pReportCd", "11011");
 		List<Map<String, Object>> yearList = reportService.getBsnsYearList(paramMap);
-		
+		String[] pYearList = new String [5];
+		String[] pQuaterList = new String [5];
 		
 		for(int i=0; i<5; i++ ) {
+			pYearList[i] = yearList.get(i).get("BSNS_YEAR").toString();			
+			pQuaterList[i] = quaterList.get(i).get("HAEDER_NM").toString();	
+			
 			if(i==0) {
 				yearString += yearList.get(i).get("BSNS_YEAR");
 				quaterString += quaterList.get(i).get("HAEDER_NM");
@@ -54,11 +58,20 @@ public class InterestController {
 			}
 		}
 		
+		commandMap.put("pEndYear", curYear);
+		commandMap.put("pStartYear", (curYear-5));
+		commandMap.put("pYearList", pYearList);
+		commandMap.put("pQuaterList", pQuaterList);
+		List<Map<String, Object>> yearReprtList = reportService.getReportList(commandMap);
+		List<Map<String, Object>> quaterReprtList = reportService.getReportList(commandMap);
+		
 		System.out.println("JB : "+quaterList.toString());
 		System.out.println("JB : "+yearString);
 		
 		ModelAndView mav = new ModelAndView();
-	    String resultURL = "report/reportList";
+	    String resultURL = "interest/interestList";
+	    mav.addObject("yearReprtList", yearReprtList);
+	    mav.addObject("quaterReprtList", quaterReprtList);
 	    mav.addObject("yearString", yearString);
 	    mav.addObject("yearList", yearList);
 	    mav.addObject("quaterString", quaterString);

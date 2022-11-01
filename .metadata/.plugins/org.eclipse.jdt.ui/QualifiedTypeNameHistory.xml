@@ -24,4 +24,5 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="finance.cms.interest.service.InterestService"/>
 </qualifiedTypeNameHistroy>

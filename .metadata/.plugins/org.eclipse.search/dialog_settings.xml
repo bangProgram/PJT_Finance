@@ -27,30 +27,30 @@
 		<item key="WHOLE_WORD" value="false"/>
 		<item key="SEARCH_DERIVED" value="false"/>
 		<item key="SEARCH_IN_BINARIES" value="false"/>
-		<item key="HISTORY_SIZE" value="9"/>
+		<item key="HISTORY_SIZE" value="11"/>
 		<section name="HISTORY0">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="dataTable"/>
+			<item key="textPattern" value="report/detail/view"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.js"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="EXTENSIONS">
-			<item key="0" value="*.js"/>
-			<item key="1" value="*.ㅓㄴ"/>
-			<item key="2" value="*.xml"/>
-			<item key="3" value="*.java"/>
+			<item key="0" value="*.java"/>
+			<item key="1" value="*.xml"/>
+			<item key="2" value="*.js"/>
+			<item key="3" value="*.ㅓㄴ"/>
 		</section>
 		<section name="HISTORY1">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="org.mybatis.spring.SqlSessionFactoryBean"/>
+			<item key="textPattern" value="reportController"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.xml"/>
@@ -62,10 +62,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="SqlSessionFactory"/>
+			<item key="textPattern" value="dataTable"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.xml"/>
+				<item value="*.js"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -74,7 +74,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="mybatis"/>
+			<item key="textPattern" value="org.mybatis.spring.SqlSessionFactoryBean"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.xml"/>
@@ -86,7 +86,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="basePackage"/>
+			<item key="textPattern" value="SqlSessionFactory"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.xml"/>
@@ -98,7 +98,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="sqlSessionFactory"/>
+			<item key="textPattern" value="mybatis"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.xml"/>
@@ -110,6 +110,30 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="basePackage"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.xml"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="sqlSessionFactory"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.xml"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
 			<item key="textPattern" value="sqlSessionTemplate"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
@@ -118,7 +142,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY7">
+		<section name="HISTORY9">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
@@ -130,7 +154,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY8">
+		<section name="HISTORY10">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>

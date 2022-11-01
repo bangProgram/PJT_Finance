@@ -119,7 +119,8 @@
 				  			"defaultContent" : '',
 				  			"render": function(data, type, row, meta){
 				  	            if(type === 'display'){
-				  	                data = '<a href="#" onclick="addInterest('+data.CORP_CODE+','+data.CORP_NAME+','+data.STOCK_CODE+'); return false;" target="_blank" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	            	//console.log('row : '+row.CORP_CODE+" / "+row.CORP_NAME);
+				  	                data = '<a href="#" onclick="addInterest('+row.CORP_CODE+','+row.CORP_NAME+','+row.STOCK_CODE+'); return false;" target="_blank" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
 				  	            }
 
 				  	            return data;
