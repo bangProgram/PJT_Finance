@@ -8,7 +8,7 @@
 		</if>
 	</sql>
 	
-	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="book_id">  
+	<insert id="insertInterestCorp" parameterType="hashMap"  >  
 	    INSERT INTO  TB_INTEREST (
 		    CORP_CODE ,CORP_NAME ,STOCK_CODE ,UESR_ID ,
 		    CREATE_ID ,CREATE_DT ,CHANGE_ID ,CHANGE_DT	
@@ -20,7 +20,7 @@
 	
 	<select id="getReportList" parameterType="hashMap" resultType="HashMap">  
 		<if test="pReportCd == '11011' ">
-		    SELECT 	
+			SELECT 	
 		    		<foreach collection="pYearList" item="item" index="index">
 						RATE_${index},
 					</foreach>
@@ -31,7 +31,7 @@
 					    <foreach collection="pYearList" item="item" index="index">
 							NVL(sum(DECODE(bsns_year ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))),0) AS RATE_${index},
 						</foreach>
-					    stock_code , corp_name , account_id, bsns_year, corp_code
+					    stock_code , corp_name , account_id, corp_code
 					FROM (
 						select 
 						        NVL(A.ACCUMULATED_NET_AMOUNT,0) AS ACC_NET_AMOUNT, LEAD(NVL(A.ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_ACC_NET_AMOUNT,
@@ -41,16 +41,16 @@
 						where 1=1
 							AND replace(account_id, 'ifrs_', 'ifrs-full_') IN ( 'ifrs-full_Revenue', 'dart_OperatingIncomeLoss', 'ifrs-full_ProfitLoss')
 							AND a.bsns_year BETWEEN #{pStartYear} AND #{pEndYear}
+							AND A.REPRT_CODE = #{pReportCd}
 						group by 
-                                 a.corp_code,
-                                    bsns_year,
-                                    reprt_code,
-                                    reprt_nm,
-                                    b.corp_name,
-                                    b.stock_code,
-                                    a.reprt_code,
-                                    replace(account_id, 'ifrs_', 'ifrs-full_'),
-                                    accumulated_net_amount
+                              a.corp_code,
+			                  b.corp_name,
+			                  replace(a.account_id, 'ifrs_', 'ifrs-full_'),
+			                  a.bsns_year,
+			                  b.corp_code,
+			                  a.reprt_code,
+			                  net_amount,
+			                  accumulated_net_amount
 					) a
 					where 	1=1
 					group by 
@@ -67,6 +67,7 @@
 					where 	1=1
 							AND replace(account_id, 'ifrs_', 'ifrs-full_') IN ( 'ifrs-full_Revenue', 'dart_OperatingIncomeLoss', 'ifrs-full_ProfitLoss')
 							AND a.bsns_year BETWEEN #{pStartYear} AND #{pEndYear}
+							AND A.REPRT_CODE = #{pReportCd}
 					group by 
 							a.corp_code , b.corp_name , REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_'), b.corp_code
 				) A
@@ -136,7 +137,7 @@
 			        SELECT
 			            1 as "SEQ",
 			            <foreach collection="pQuaterList" item="item" index="index">
-							SUM(decode(HADER_NM,#{item},acc_net_amount)) AS ${item},
+			            	NVL(ROUND(sum(decode(HADER_NM ,#{item},acc_net_amount)/100000000),3),0) AS ${item},
 						</foreach>
 			            corp_code, corp_name, account_id, STOCK_CODE
 			        FROM (

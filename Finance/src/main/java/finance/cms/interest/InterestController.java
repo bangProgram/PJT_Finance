@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import finance.cms.interest.service.InterestService;
 import finance.cms.report.service.ReportService;
+import finance.common.Controller.CommonController;
+import finance.common.mapper.CommonMapper;
 
 
 @Controller
@@ -28,6 +34,9 @@ public class InterestController {
 	
 	@Autowired
 	private InterestService interestService;
+	
+	@Resource(name="CommonController")
+	private CommonController commonController;
 
 	@RequestMapping(value={"/interest"} , method = RequestMethod.GET)
 	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{
@@ -62,16 +71,23 @@ public class InterestController {
 		commandMap.put("pStartYear", (curYear-5));
 		commandMap.put("pYearList", pYearList);
 		commandMap.put("pQuaterList", pQuaterList);
-		List<Map<String, Object>> yearReprtList = reportService.getReportList(commandMap);
-		List<Map<String, Object>> quaterReprtList = reportService.getReportList(commandMap);
+		commandMap.put("pReportCd", "11012");
+		List<Map<String, Object>> quaterReprtList = interestService.getReportList(commandMap);
+		commandMap.put("pReportCd", "11011");
+		List<Map<String, Object>> yearReprtList = interestService.getReportList(commandMap);
 		
 		System.out.println("JB : "+quaterList.toString());
 		System.out.println("JB : "+yearString);
+		
+		JSONArray quaterReprtJson =  commonController.convertListToJson(quaterReprtList);
+		JSONArray yearReprtJson = commonController.convertListToJson(yearReprtList);
 		
 		ModelAndView mav = new ModelAndView();
 	    String resultURL = "interest/interestList";
 	    mav.addObject("yearReprtList", yearReprtList);
 	    mav.addObject("quaterReprtList", quaterReprtList);
+	    mav.addObject("yearReprtJson", yearReprtJson);
+	    mav.addObject("quaterReprtJson", quaterReprtJson);
 	    mav.addObject("yearString", yearString);
 	    mav.addObject("yearList", yearList);
 	    mav.addObject("quaterString", quaterString);
@@ -84,8 +100,8 @@ public class InterestController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value={"/interest/add/cud"} , method = RequestMethod.GET)
-	public Map<String, Object> getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{
+	@RequestMapping(value={"/interest/add/cud"} , method = RequestMethod.POST)
+	public Map<String, Object> addInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022

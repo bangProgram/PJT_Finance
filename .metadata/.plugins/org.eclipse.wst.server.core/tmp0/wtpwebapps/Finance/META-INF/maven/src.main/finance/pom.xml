@@ -231,6 +231,14 @@
 		</dependency>
 		<!-- 객체를 JSON으로 변환하는 라이브러리 -->
 		
+		<!-- 구글 json 라이브러리  -->
+		<dependency>
+		  <groupId>com.googlecode.json-simple</groupId>
+		  <artifactId>json-simple</artifactId>
+		  <version>1.1</version>
+		</dependency>
+		<!-- 구글 json 라이브러리  -->
+		
 	</dependencies>
     <build>
         <plugins>

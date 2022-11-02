@@ -68,11 +68,11 @@
 		
 		var reprtCd = $("input[name=pReportCd]:checked").val();
 		if(reprtCd == '11011'){
-			$("#head1").css('display', 'table-row');
-			$("#head2").css('display', 'none');
+			$("#yearHaeder").css('display', 'table-row');
+			$("#quaterHaeder").css('display', 'none');
 		}else{
-			$("#head1").css('display', 'none');
-			$("#head2").css('display', 'table-row');
+			$("#yearHaeder").css('display', 'none');
+			$("#quaterHaeder").css('display', 'table-row');
 		}
 		
 		$.ajax({    
@@ -92,8 +92,9 @@
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수        
 				var resultList = data.resultList;
-				var yearList = data.pYearList;
+				console.log("resultList : "+resultList);
 				 $("#reprtList").dataTable({
+					lengthMenu: [ 10, 15, 20, 25, 30 ],
 				 	data: resultList,
 				 	destroy: true,
 				 	columns: [
@@ -120,7 +121,7 @@
 				  			"render": function(data, type, row, meta){
 				  	            if(type === 'display'){
 				  	            	//console.log('row : '+row.CORP_CODE+" / "+row.CORP_NAME);
-				  	                data = '<a href="#" onclick="addInterest('+row.CORP_CODE+','+row.CORP_NAME+','+row.STOCK_CODE+'); return false;" target="_blank" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	                data = '<a href="" onclick="addInterest(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
 				  	            }
 
 				  	            return data;
@@ -137,7 +138,8 @@
 	
 	function addInterest(corpCd,corpNm,stockCd){
 		var url = "/interest/add/cud";
-		alert("corpCd" + corpCd);
+		
+		if(!confirm('\''+corpNm+'\'을 관심목록에 추가하시겠습니까?')) return;
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    
@@ -258,25 +260,25 @@
                 		<col width="6%"/>
                 	</colgroup>
                     <thead>
-			            <tr id="head1">
+			            <tr id="yearHaeder">
 			            	<td>No</td>
 							<td>사업장명</td>
 							<td>계정명</td>
 							<c:forEach items="${yearList}" var="list">
-								<td>${list.HAEDER_NM}</td>
+								<td>${list.HAEDER_NM}<span style="float: right;">(년도)</span></td>
 							</c:forEach>
 							<td>상세</td>
-							<td>관심</td>
+							<td>제거</td>
 						</tr>
-						<tr id="head2" style="display: none;">
+						<tr id="quaterHaeder" style="display: none;">
 			            	<td>No</td>
 							<td>사업장명</td>
 							<td>계정명</td>
 							<c:forEach items="${quaterList}" var="list">
-								<td>${list.HAEDER_NM}</td>
+								<td>${list.HAEDER_NM}<span style="float: right;">(반기)</span></td>
 							</c:forEach>
 							<td>상세</td>
-							<td>관심</td>
+							<td>제거</td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">

@@ -5,7 +5,75 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-11-01T01:00:00Z</updated>
+  <updated>2022-11-01T15:00:00Z</updated>
+  <entry>
+    <title>Spring Authorization Server 1.0.0-RC1 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/01/spring-authorization-server-1-0-0-rc1-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Joe Grandja</name>
+    </author>
+    <id>tag:spring.io,2022-11-01:4977</id>
+    <updated>2022-11-01T15:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the general availability of Spring Authorization Server 1.0.0-RC1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can download it from &lt;a href="https://repo.spring.io/milestone"&gt;repo.spring.io&lt;/a&gt; milestone repository by using the module coordinates:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.0.0-RC1'&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-authorization-server/releases/tag/1.0.0-RC1"&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href="https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html"&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href="https://github.com/spring-projects/spring-authorization-server/tree/main/samples"&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We would love to gather your feedback as we strive to improve and build upon this release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Authorization Server 0.4.0-RC1 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/01/spring-authorization-server-0-4-0-rc1-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Joe Grandja</name>
+    </author>
+    <id>tag:spring.io,2022-11-01:4976</id>
+    <updated>2022-11-01T15:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the general availability of Spring Authorization Server 0.4.0-RC1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can download it from &lt;a href="https://repo.spring.io/milestone"&gt;repo.spring.io&lt;/a&gt; milestone repository by using the module coordinates:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;implementation 'org.springframework.security:spring-security-oauth2-authorization-server:0.4.0-RC1'&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-authorization-server/releases/tag/0.4.0-RC1"&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href="https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html"&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href="https://github.com/spring-projects/spring-authorization-server/tree/0.4.x/samples"&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We would love to gather your feedback as we strive to improve and build upon this release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - November 1st, 2022</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/31/this-week-in-spring-november-1st-2022" />
@@ -178,170 +246,6 @@ It is &lt;strong&gt;not recommended&lt;/strong&gt; to simply map authorities fro
     <updated>2022-10-31T16:41:00Z</updated>
     <content type="html">&lt;div class="paragraph"&gt;
 &lt;p&gt;Spring Security 5.6.9 and 5.7.5 released on October 31st, 2022 included a fix for &lt;a href="https://tanzu.vmware.com/security/cve-2022-31692"&gt;CVE-2022-31692&lt;/a&gt; affecting the &lt;code&gt;AuthorizationFilter&lt;/code&gt;. Users are encouraged to update as soon as possible.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="severity"&gt;&lt;a class="anchor" href="#severity"&gt;&lt;/a&gt;Severity&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;High&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="vendor"&gt;&lt;a class="anchor" href="#vendor"&gt;&lt;/a&gt;Vendor&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring by VMware&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="affected-vmware-products-and-versions"&gt;&lt;a class="anchor" href="#affected-vmware-products-and-versions"&gt;&lt;/a&gt;Affected VMware Products and Versions&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Security &lt;strong&gt;5.7.0&lt;/strong&gt; to &lt;strong&gt;5.7.4&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Security &lt;strong&gt;5.6.0&lt;/strong&gt; to &lt;strong&gt;5.6.8&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="description"&gt;&lt;a class="anchor" href="#description"&gt;&lt;/a&gt;Description&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring Security, versions &lt;strong&gt;5.7&lt;/strong&gt; prior to &lt;strong&gt;5.7.5&lt;/strong&gt; and &lt;strong&gt;5.6&lt;/strong&gt; prior to &lt;strong&gt;5.6.9&lt;/strong&gt; could be susceptible to authorization rules bypass via FORWARD or INCLUDE dispatch.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Specifically, an application is vulnerable when all the following are true:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The application expects that Spring Security applies security to forward and include dispatcher types.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The application uses the &lt;code&gt;AuthorizationFilter&lt;/code&gt; either manually or via the &lt;code&gt;authorizeHttpRequests()&lt;/code&gt; method.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The application configures the &lt;code&gt;FilterChainProxy&lt;/code&gt; to apply to forward and/or include requests (e.g. &lt;code&gt;spring.security.filter.dispatcher-types = request, error, async, forward, include&lt;/code&gt;).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The application forwards/includes the request to a higher privilege-secured endpoint.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The application configures Spring Security to apply to every dispatcher type via &lt;code&gt;authorizeHttpRequests().shouldFilterAllDispatcherTypes(true)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;An application is not vulnerable if any of the following is true:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The application does not use &lt;code&gt;authorizeHttpRequests()&lt;/code&gt; or the &lt;code&gt;AuthorizationFilter&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The application does not forward/include requests.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The application does not need to configure Spring Security to apply to forward or include dispatcher types.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="mitigation"&gt;&lt;a class="anchor" href="#mitigation"&gt;&lt;/a&gt;Mitigation&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Users of affected versions should apply the following mitigations:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;5.7.x&lt;/strong&gt; users should upgrade to &lt;strong&gt;5.7.5&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;5.6.x&lt;/strong&gt; users should upgrade to &lt;strong&gt;5.6.9&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Users who cannot change versions, should use &lt;code&gt;authorizeRequests().filterSecurityInterceptorOncePerRequest(false)&lt;/code&gt; instead of &lt;code&gt;authorizeHttpRequests().shouldFilterAllDispatcherTypes(true)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Users who upgrade to &lt;strong&gt;5.6.9&lt;/strong&gt; which does not have &lt;code&gt;shouldFilterAllDispatcherTypes&lt;/code&gt; available in &lt;code&gt;authorizeHttpRequests()&lt;/code&gt;, should add an &lt;code&gt;ObjectPostProcessor&lt;/code&gt;:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre&gt;authorizeHttpRequests().withObjectPostProcessor(new ObjectPostProcessor&amp;lt;AuthorizationFilter&amp;gt;() {
-    @Override
-    public&amp;lt;O extends AuthorizationFilter&amp;gt; O postProcess(O filter) {
-        filter.setObserveOncePerRequest(false);
-        filter.setFilterAsyncDispatch(true);
-        filter.setFilterErrorDispatch(true);
-        return filter;
-    }}
-);&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Note that in Spring Security 5, the default behavior is to not apply the filters more than once to a request, therefore you have to explicitly configure Spring Security to do that. In addition, the &lt;code&gt;FilterChainProxy&lt;/code&gt; is also not configured to be invoked on forward and include dispatcher types, depending on you to do it yourself.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Releases that have fixed this issue include:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Security&lt;/p&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;5.7.5+&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;5.6.9+&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="credit"&gt;&lt;a class="anchor" href="#credit"&gt;&lt;/a&gt;Credit&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This issue was identified and responsibly reported by Osword from SGLAB of Legendsec at Qi&amp;#8217;anxin Group&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="references"&gt;&lt;a class="anchor" href="#references"&gt;&lt;/a&gt;References&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring Security &lt;a href="https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html"&gt;Authorize HTTP Requests documentation&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://tanzu.vmware.com/security/cve-2022-31692" class="bare"&gt;https://tanzu.vmware.com/security/cve-2022-31692&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="history"&gt;&lt;a class="anchor" href="#history"&gt;&lt;/a&gt;History&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;2022-10-31: Initial vulnerability report published.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
@@ -1072,135 +976,6 @@ For more detailed guidance on how to migrate to Spring Modulith, see the Spring 
 &lt;p&gt;I would like to thank all contributors who had a role in this first release candidate!&lt;/p&gt;
 &lt;hr/&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt;|&lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on Github&lt;/a&gt;|&lt;a href="https://docs.spring.io/spring-batch/docs/5.0.0-RC1/reference/html/index-single.html"&gt;Reference documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - October 18th, 2022</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/18/this-week-in-spring-october-18th-2022" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-10-18:4955</id>
-    <updated>2022-10-18T19:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! How&amp;rsquo;re you doin&amp;rsquo;? I&amp;rsquo;m doin&amp;rsquo; alright! Last week I was in Antwerp, Belgium, for the amazing Devoxx BE show. I did a presentation with my friend and hero &lt;a href="https://www.youtube.com/watch?v=2MYSLP2vgps&amp;t=1680s"&gt;James Ward on Spring and Kotlin&lt;/a&gt; (that was voted third most-liked talk at a show with more than 250 speakers!) That was a personal career highlight for me - it&amp;rsquo;s not often you get to win and have fun in life. And, as if that wasn&amp;rsquo;t awesome enough, this week I am in Las Vegas, NV, for JavaOne! Fingers crossed, this week will go smoothly, too! Both Devoxx and JavaOne are the first such shows since at least before the pandemic. It&amp;rsquo;s been a very long time in coming and I&amp;rsquo;m elated, overjoyed, to be able to be here.&lt;/p&gt;
-&lt;p&gt;And, of course, I&amp;rsquo;m super excited about &lt;a href="https://springone.io"&gt;SpringOne 2022&lt;/a&gt;! Also, the first in-person show of its kind since before the pandemic! It&amp;rsquo;s going to be amazing. Have you registered? If not, you might consider using this registration code - &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;And this week&amp;rsquo;s busy roundup reflects the usual flurry of activity on the Spring team as we ready releases for our end-of-November timelines for Spring Framework 6 and Spring Boot 3, which means we&amp;rsquo;ve got a &lt;em&gt;ton&lt;/em&gt; of stuff to get into this week, so let&amp;rsquo;s!&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/12/spring-framework-6-0-goes-rc1"&gt;Spring Framework 6.0 goes RC1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/12/observability-with-spring-boot-3"&gt;Observability with Spring Boot 3&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/12/a-bootiful-podcast-google-mad-scientist-josh-suereth-on-observability-with-opentelemetry-building-better-build-tools-and-so-much-more"&gt;A Bootiful Podcast: Google mad scientist Josh Suereth on Observability with OpenTelemetry, building better build tools, and so much more &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/13/spring-batch-5-0-0-m8-is-out"&gt;Spring Batch 5.0.0-M8 is out!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/13/spring-batch-5-0-0-m8-is-out"&gt;Learn more about Spring Framework 6 and Spring Boot 3 in these two great talks from Devoxx 2022&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/13/spring-batch-5-0-0-m8-is-out"&gt;Spring at JavaOne 2022&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/17/spring-data-2022-0-0-rc1-2021-2-5-and-2021-1-8-available"&gt;Spring Data 2022.0.0-RC1, 2021.2.5, and 2021.1.8 available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-security-6-0-0-rc1-and-5-8-0-rc1-are-released"&gt;Spring Security 6.0.0-RC1 and 5.8.0-RC1 are released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-security-5-7-4-and-5-6-8-available-now"&gt;Spring Security 5.7.4 and 5.6.8 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-for-graphql-1-1-0-rc1-released"&gt;Spring for GraphQL 1.1.0-RC1 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/18/spring-web-services-4-0-0-rc1-is-out"&gt;Spring Web Services 4.0.0-RC1 is out!&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Web Services 4.0.0-RC1 is out!</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/18/spring-web-services-4-0-0-rc1-is-out" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Greg L. Turnquist</name>
-    </author>
-    <id>tag:spring.io,2022-10-18:4954</id>
-    <updated>2022-10-18T19:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Greetings Spring community,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The Spring Web Services team has released &lt;strong&gt;4.0.0-RC1&lt;/strong&gt;. This is the last planned release candidate that supports Spring Boot 3.0. The final GA release is coming next month in anticipation of Spring Boot 3.0 going GA.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;strong&gt;4.0.x&lt;/strong&gt; is the generation of Spring Web Services that works with Jakarta EE 9, the version where the enterprise specs (JAX-WS, etc.) migrate from &lt;code&gt;javax.&lt;strong&gt;&lt;/code&gt; to &lt;code&gt;jakarta.&lt;/strong&gt;&lt;/code&gt;. See &lt;a href="https://spring.io/blog/2022/10/12/spring-framework-6-0-goes-rc1"&gt;Juergen Holler&amp;#8217;s blog post&lt;/a&gt; for more details about that.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Being based upon Spring Framework 6.0, this is also the generation of Spring Web Services that is rebased on top of Java 17 (LTS). So check it out!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;For more details, read the following release notes for each version:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="release-notes-spring-web-services-version-4-0-0-rc1"&gt;&lt;a class="anchor" href="#release-notes-spring-web-services-version-4-0-0-rc1"&gt;&lt;/a&gt;Release Notes - Spring Web Services - Version 4.0.0-RC1&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1284 - Upgrade to Spring Security 6.0.0-RC1. dependenciesPull requests that update a dependency file&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1283 - Upgrade to Spring Framework 6.0.0-RC1. dependenciesPull requests that update a dependency file&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;There were also a LOT of 3rd party library upgrades that were merged from other baselines into this one (and tracked on other tickets).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1281 - Upgrade to xmlsec 3.0.1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1280 - Upgrade to woodstox 4.4.1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1274 - Remove old log4j dependency.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1278 - Upgrade to Smack 4.3.5.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1277 - Upgrade to slf4j 2.0.3.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1274 - Upgrade to log4j2 2.19.0.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1272 - Upgrade to jdom2 2.0.6.1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1271 - Upgrade to jaxen 1.1.6.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1268 - Upgrade to ehcache 2.10.9.2.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;#1267 - Upgrade to Commons IO 2.11.0.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="admonitionblock note"&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class="icon"&gt;
-&lt;div class="title"&gt;Note&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class="content"&gt;
-This is to ensure Spring WS is running against the latest versions of libraries that are tied to Jakarta EE 9 (and NOT Jakarta EE 10, for which some are already supporting!)
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Links: &lt;a href="https://spring.io/projects/spring-ws/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-ws"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-ws/issues"&gt;Issues&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The artifacts are located on repo.spring.io. Get it while it&amp;#8217;s hot!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="its-not-too-late-to-register-for-springone-2022"&gt;&lt;a class="anchor" href="#its-not-too-late-to-register-for-springone-2022"&gt;&lt;/a&gt;It&amp;#8217;s not too late to register for SpringOne 2022!&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;If you want the chance to meet up at the world&amp;#8217;s most popular Spring event, this is it. You can register at &lt;a href="https://springone.io/register" class="bare"&gt;https://springone.io/register&lt;/a&gt;. It&amp;#8217;s not too late.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;I&amp;#8217;ll be giving a talk on It&amp;#8217;s 10 PM: Where Is Your Relational Data Store? on Spring&amp;#8217;s various approaches approaches to tame relational data stores. But that&amp;#8217;s not all. There will be a plethora of talks ranging from beginner to advanced across the spectrum of Spring portfolio projects.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;And&amp;#8230;&amp;#8203;it&amp;#8217;s in San Francisco. Don&amp;#8217;t miss this chance to see your favorite Spring teammate (even if it&amp;#8217;s not me!)&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

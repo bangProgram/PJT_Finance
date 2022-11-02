@@ -135,6 +135,12 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
+                <a class="nav-link" href="/interest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>관심기업</span></a>
+            </li>
+            
+            <li class="nav-item active">
                 <a class="nav-link" href="/report">
                     <i class="fas fa-fw fa-table"></i>
                     <span>종목찾기</span></a>
