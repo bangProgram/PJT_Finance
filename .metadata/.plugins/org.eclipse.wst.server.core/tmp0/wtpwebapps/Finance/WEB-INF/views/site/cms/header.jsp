@@ -111,6 +111,7 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
+            
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
@@ -123,9 +124,9 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
-            20221025 메뉴 > 토글메뉴 사용 법 궁금하면 주석 해제하고 확인하기 -종료- -->
-
+			</li>
+			20221025 메뉴 > 토글메뉴 사용 법 궁금하면 주석 해제하고 확인하기 -종료- -->
+			
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
@@ -134,18 +135,35 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/interest">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>관심기업</span></a>
-            </li>
             
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/report">
                     <i class="fas fa-fw fa-table"></i>
                     <span>종목찾기</span></a>
             </li>
-
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/interest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>관심기업</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>포트폴리오</span>
+                </a>
+	            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+					    <h6 class="collapse-header">포트폴리오:</h6>
+					    <a class="collapse-item" href="/portfolio">메인화면</a>
+					    <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+					    <a class="collapse-item" href="">전문가상담</a>
+					    <a class="collapse-item" href="">게시판</a>
+					</div>
+	            </div>
+             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

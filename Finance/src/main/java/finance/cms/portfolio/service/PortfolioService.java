@@ -5,11 +5,14 @@ import java.util.Map;
 
 public interface PortfolioService {
 
-	Integer insertPortFolio(Map<String, Object> param) throws Exception;
+	public Integer insertPortFolio(Map<String, Object> param) throws Exception;
 
-	List<Map<String, Object>> getPortFolioList(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getPortFolioList(Map<String, Object> param) throws Exception;
 
-	List<Map<String, Object>> getPortFolioDetail(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getPortFolioDetail(Map<String, Object> param) throws Exception;
 
+	public Integer insertPortfolioCorp(Map<String, Object> param) throws Exception;
+
+	public Integer deletePortfolioCorp(Map<String, Object> param) throws Exception;
 	
 }

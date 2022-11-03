@@ -5,7 +5,37 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-11-01T15:00:00Z</updated>
+  <updated>2022-11-03T07:00:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Java Champion, legend, and prolific open source contributor Andres Almiray</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/03/a-bootiful-podcast-java-champion-legend-and-prolific-open-source-contributor-andres-almiray" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-11-02:4979</id>
+    <updated>2022-11-03T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Java Champion, legend, and prolific opensource contributor &lt;a href="https://twitter.com/aalmiray"&gt;Andres Almiray (@aalmiray) &lt;/a&gt;&lt;/p&gt;
+&lt;iframe title="Java Champion, legend, and prolific open source contributor Andres Almiray " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=sjkns-13031f2-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Modulith 0.1 M2 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/02/spring-modulith-0-1-m2-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Oliver Drotbohm</name>
+    </author>
+    <id>tag:spring.io,2022-11-02:4980</id>
+    <updated>2022-11-02T20:43:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;I am pleased to announce the availability of the second milestone of Spring Modulith 0.1. The release contains a few minor bug fixes and a couple of community contributions to the reference documentation. Find a complete overview about the changes included in the release &lt;a href="https://github.com/spring-projects-experimental/spring-modulith/releases/tag/0.1.0-M2"&gt;here&lt;/a&gt;. For a general introduction into the project, please consult the &lt;a href="https://spring.io/blog/2022/10/21/introducing-spring-modulith"&gt;announcing blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The current plan is to ship an 0.1 RC1 after Spring Boot&amp;#8217;s second RC, followed by a GA version on the heels of Boot&amp;#8217;s GA.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Authorization Server 1.0.0-RC1 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2022/11/01/spring-authorization-server-1-0-0-rc1-available-now" />
@@ -456,6 +486,26 @@ dependencies {&#xD;
     <updated>2022-10-27T07:00:00Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long (@starbuxman) talks to Spring mad scientist Andy Clement (@andy_clement) about the new native support in Spring Boot 3, SpringOne 2022, and Azure Spring Apps, among other things&lt;/p&gt;
 &lt;iframe title="Spring mad scientist Andy Clement on a Bootiful Podcast" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=sjcgd-12fa8ff-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Session 3.0.0-RC1</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/26/spring-session-3-0-0-rc1" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Rob Winch</name>
+    </author>
+    <id>tag:spring.io,2022-11-02:4978</id>
+    <updated>2022-10-26T22:02:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Session 3.1.0-RC1 has been released. The biggest news from this release is that Spring Session Geode &lt;a href="https://github.com/spring-projects/spring-session-bom/issues/217"&gt;was removed&lt;/a&gt; which means all of the Spring Modules now belong to the same lifecycle. This means that the Spring Session BOM no longer uses CalVer and instead uses the same version as the remaining Spring Session modules. For example, in this release the version of spring-session-bom is 3.0.0-RC1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can view the &lt;a href="https://github.com/spring-projects/spring-session-bom/wiki/Spring-Session-2022.0.0-RC1-Release-Notes"&gt;release notes&lt;/a&gt; for additional details around this release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-session/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-session/reference/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-session"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
   <entry>
@@ -923,59 +973,6 @@ For more detailed guidance on how to migrate to Spring Modulith, see the Spring 
     <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;6.0.0-RC2&lt;/code&gt; is available now.&lt;/p&gt;
 &lt;p&gt;Spring Framework &lt;code&gt;6.0.0-RC2&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.0-RC2"&gt;28 fixes and improvements&lt;/a&gt;. Stay tuned for the announcement of Spring Boot &lt;code&gt;3.0.0-RC1&lt;/code&gt; later today!&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC2/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>CVE-2022-31684: Reactor Netty HTTP Server may log request headers</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/20/cve-2022-31684-reactor-netty-http-server-may-log-request-headers" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Violeta Georgieva</name>
-    </author>
-    <id>tag:spring.io,2022-10-20:4956</id>
-    <updated>2022-10-20T12:45:00Z</updated>
-    <content type="html">&lt;p&gt;The Reactor Netty 1.0.24 release on &lt;a href="https://github.com/reactor/reactor-netty/releases/tag/v1.0.24"&gt;October 11&lt;/a&gt; included fix for &lt;a href="https://tanzu.vmware.com/security/cve-2022-31684"&gt;CVE-2022-31684&lt;/a&gt; affecting Reactor Netty HTTP Server.&lt;br/&gt;Users are encouraged to update as soon as possible.&lt;/p&gt;
-&lt;p&gt;Reactor Netty is used internally in many frameworks including Spring WebFlux and its WebClient.&lt;br/&gt;If you have a Spring Boot application, you can upgrade to Reactor BOM 2020.0.24.&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.6.13 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/20/spring-boot-2-6-13-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2022-10-20:4958</id>
-    <updated>2022-10-20T10:45:48Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.6.13&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
-&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.13"&gt;27 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.6.13/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Batch 5.0 RC1 is out!</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/20/spring-batch-5-0-rc1-is-out" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Mahmoud Ben Hassine</name>
-    </author>
-    <id>tag:spring.io,2022-10-20:4957</id>
-    <updated>2022-10-20T08:00:00Z</updated>
-    <content type="html">&lt;p&gt;It is finally here! The first release candidate of Spring Batch 5 is now available from our &lt;a href="https://repo.spring.io/milestone"&gt;milestone repository&lt;/a&gt;. In this release, we worked on the following items:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Execution context Meta-data improvement&lt;/li&gt;
-  &lt;li&gt;GemFire support removal&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This blog post walks through these two changes in details. For the complete list of changes, please check the &lt;a href="https://github.com/spring-projects/spring-batch/releases/tag/5.0.0-RC1"&gt;release notes&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#execution-context-meta-data-improvement" class="anchor" name="execution-context-meta-data-improvement"&gt;&lt;/a&gt;Execution context Meta-data improvement&lt;/h2&gt;
-&lt;p&gt;In addition to what Spring Batch already persists in the execution context with regard to runtime information (like the step type, the restart flag, etc), this release adds an important detail in the execution context which is the Spring Batch version that was used to serialize the context.&lt;/p&gt;
-&lt;p&gt;While this seems a detail, it has a huge added value when debugging upgrade issues with regard to execution context serialization and deserialization.&lt;/p&gt;&lt;h2&gt;&lt;a href="#gemfire-support-removal" class="anchor" name="gemfire-support-removal"&gt;&lt;/a&gt;GemFire support removal&lt;/h2&gt;
-&lt;p&gt;Based on the &lt;a href="https://github.com/spring-projects/spring-data-geode#notice"&gt;decision to discontinue&lt;/a&gt; the support of Spring Data for Apache Geode, the support for Apache Geode in Spring Batch was removed.&lt;/p&gt;
-&lt;p&gt;The code was moved to the &lt;a href="https://github.com/spring-projects/spring-batch-extensions"&gt;spring-batch-extensions&lt;/a&gt; repository as a community-driven effort.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-rsquo-s-next" class="anchor" name="what-rsquo-s-next"&gt;&lt;/a&gt;What&amp;rsquo;s next?&lt;/h2&gt;
-&lt;p&gt;We are planning to roll out a second release candidate early November and release 5.0.0 GA by the end of November, in time for Spring Boot 3.0.0. We would appreciate your help to try this release candidate out and share your feedback with us on &lt;a href="https://github.com/spring-projects/spring-batch/issues"&gt;Github&lt;/a&gt;, &lt;a href="https://twitter.com/springbatch"&gt;Twitter&lt;/a&gt; and &lt;a href="https://stackoverflow.com/questions/tagged/spring-batch"&gt;StackOverflow&lt;/a&gt;. You can find a migration guide &lt;a href="https://github.com/spring-projects/spring-batch/wiki/Spring-Batch-5.0-Migration-Guide"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I would like to thank all contributors who had a role in this first release candidate!&lt;/p&gt;
-&lt;hr/&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt;|&lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on Github&lt;/a&gt;|&lt;a href="https://docs.spring.io/spring-batch/docs/5.0.0-RC1/reference/html/index-single.html"&gt;Reference documentation&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

@@ -6,19 +6,79 @@
 	var toggleChk = true;
 	$(document).ready(function(){
 		$("#yearReprtList").dataTable({
-			lengthMenu: [ 10, 15, 20, 25, 30 ],
+			lengthMenu: [ 12, 18, 24, 30, 36 ],
 		 	data: ${yearReprtJson},
 		 	destroy: true,
 		 	ordering: true,
 		 	columns: [
 		  		{ data: 'RNUM' },
 		  		{ data: 'CORP_NAME' },
-		  		{ data: 'ACCOUNT_ID' },
-		  		{ data: 'RATE_0' },
-		  		{ data: 'RATE_1' },
-		  		{ data: 'RATE_2' },
-		  		{ data: 'RATE_3' },
-		  		{ data: 'RATE_4' },
+		  		{ data: 'ACCOUNT_NM' },
+		  		{ "data": 'RATE_0', 
+		  			"render": function(data, type, row, meta){
+		  				var index = row.SEQ;
+		  				if(type === 'display'){
+		  					if(index == 1){
+		  						data += "<span style='float:right;'>(억원)</span>";				  						
+		  					}else{
+		  						data += "<span style='float:right;'>(%)</span>";
+		  					}
+		  	            }
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'RATE_1', 
+		  			"render": function(data, type, row, meta){
+		  				var index = row.SEQ;
+		  				if(type === 'display'){
+		  					if(index == 1){
+		  						data += "<span style='float:right;'>(억원)</span>";				  						
+		  					}else{
+		  						data += "<span style='float:right;'>(%)</span>";
+		  					}
+		  	            }
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'RATE_2', 
+		  			"render": function(data, type, row, meta){
+		  				var index = row.SEQ;
+		  				if(type === 'display'){
+		  					if(index == 1){
+		  						data += "<span style='float:right;'>(억원)</span>";				  						
+		  					}else{
+		  						data += "<span style='float:right;'>(%)</span>";
+		  					}
+		  	            }
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'RATE_3', 
+		  			"render": function(data, type, row, meta){
+		  				var index = row.SEQ;
+		  				if(type === 'display'){
+		  					if(index == 1){
+		  						data += "<span style='float:right;'>(억원)</span>";				  						
+		  					}else{
+		  						data += "<span style='float:right;'>(%)</span>";
+		  					}
+		  	            }
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'RATE_4', 
+		  			"render": function(data, type, row, meta){
+		  				var index = row.SEQ;
+		  				if(type === 'display'){
+		  					if(index == 1){
+		  						data += "<span style='float:right;'>(억원)</span>";				  						
+		  					}else{
+		  						data += "<span style='float:right;'>(%)</span>";
+		  					}
+		  	            }
+		  	            return data;
+		  	         }	
+		  		},
 		  		{ "data": '', 
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
@@ -27,6 +87,15 @@
 		  	            }
 		  	            return data;
 		  	         }	
+		  		},
+		  		{ "data": '',
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	            	data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+		  	            }
+		  	            return data;
+		  	         }	 
 		  		},
 		  		{ "data": '',
 		  			"defaultContent" : '',
@@ -53,19 +122,79 @@
 	                	toggleTabel();
 	                }
 		        }],
-				lengthMenu: [ 10, 15, 20, 25, 30 ],
+				lengthMenu: [ 12, 18, 24, 30, 36 ],
 			 	data: ${quaterReprtJson},
 			 	destroy: true,
 			 	ordering: true,
 			 	columns: [
 			  		{ data: 'RNUM' },
 			  		{ data: 'CORP_NAME' },
-			  		{ data: 'ACCOUNT_ID' },
-			  		{ data: 'RATE_0' },
-			  		{ data: 'RATE_1' },
-			  		{ data: 'RATE_2' },
-			  		{ data: 'RATE_3' },
-			  		{ data: 'RATE_4' },
+			  		{ data: 'ACCOUNT_NM' },
+			  		{ "data": 'RATE_0', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_1', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_2', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_3', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_4', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
 			  		{ "data": '', 
 			  			"defaultContent" : '',
 			  			"render": function(data, type, row, meta){
@@ -74,6 +203,15 @@
 			  	            }
 			  	            return data;
 			  	         }	
+			  		},
+			  		{ "data": '',
+			  			"defaultContent" : '',
+			  			"render": function(data, type, row, meta){
+			  	            if(type === 'display'){
+			  	            	data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+			  	            }
+			  	            return data;
+			  	         }	 
 			  		},
 			  		{ "data": '',
 			  			"defaultContent" : '',
@@ -97,19 +235,79 @@
 	                	toggleTabel();
 	                }
 		        }],
-				lengthMenu: [ 10, 15, 20, 25, 30 ],
+				lengthMenu: [ 12, 18, 24, 30, 36 ],
 			 	data: ${yearReprtJson},
 			 	destroy: true,
 			 	ordering: true,
 			 	columns: [
 			  		{ data: 'RNUM' },
 			  		{ data: 'CORP_NAME' },
-			  		{ data: 'ACCOUNT_ID' },
-			  		{ data: 'RATE_0' },
-			  		{ data: 'RATE_1' },
-			  		{ data: 'RATE_2' },
-			  		{ data: 'RATE_3' },
-			  		{ data: 'RATE_4' },
+			  		{ data: 'ACCOUNT_NM' },
+			  		{ "data": 'RATE_0', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_1', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_2', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_3', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
+			  		{ "data": 'RATE_4', 
+			  			"render": function(data, type, row, meta){
+			  				var index = row.SEQ;
+			  				if(type === 'display'){
+			  					if(index == 1){
+			  						data += "<span style='float:right;'>(억원)</span>";				  						
+			  					}else{
+			  						data += "<span style='float:right;'>(%)</span>";
+			  					}
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
 			  		{ "data": '', 
 			  			"defaultContent" : '',
 			  			"render": function(data, type, row, meta){
@@ -118,6 +316,15 @@
 			  	            }
 			  	            return data;
 			  	         }	
+			  		},
+			  		{ "data": '',
+			  			"defaultContent" : '',
+			  			"render": function(data, type, row, meta){
+			  	            if(type === 'display'){
+			  	            	data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+			  	            }
+			  	            return data;
+			  	         }	 
 			  		},
 			  		{ "data": '',
 			  			"defaultContent" : '',
@@ -132,13 +339,66 @@
 			});
 			
 		}
+		
+		$('#tableHead').css("animation-name","search");
+		$('#tableHead').css("animation-duration","2.5s");
 	}
 	
-function delInterest(corpCd, corpNm, stockCd){
+	function delInterest(corpCd,corpNm,stockCd){
+		var frm = document.form;
+		
+		if(!confirm('\''+corpNm+'\'을 관심목록에서 삭제하시겠습니까?')) return;
+		
+		$("#corpCd").val(corpCd);
+		$("#corpNm").val(corpNm);
+		$("#stockCd").val(stockCd);
+		
+		frm.action = "/interest/del/cud";
+		frm.submit();
+	}
 	
-}
+	function addPortfolio(corpCd,corpNm,stockCd){
+		var url = "/portfolio/add/cud";
+		
+		if(!confirm('\''+corpNm+'\'을 포트폴리오에 추가하시겠습니까?')) return;
+		
+		$.ajax({    
+			type : 'post',           // 타입 (get, post, put 등등)    
+			url : url,           // 요청할 서버url    
+			data : {
+				CORP_CODE 	: corpCd,
+				CORP_NAME	: corpNm,
+				STOCK_CODE 	: stockCd,
+			},    
+			dataType : 'json',    
+			success : function(data) { // 결과 성공 콜백함수        
+				$('#dataTables').css("animation-name","add");
+				$('#dataTables').css("animation-duration","2.5s");
+			},    
+			error : function(request, status, error) {       
+				console.log(error)    
+			}
+		})
+	}
 </script>
 
+<style>
+@keyframes add {
+	from{background : lightgreen;}
+	to{background : transparent;}
+}
+
+@keyframes del {
+	from{background : indianred;}
+	to{background : transparent;}
+}
+
+@keyframes search {
+	from{background : lightsteelblue;}
+	to{background : transparent;}
+}
+
+</style>
 <html>
 <head>
 <title>사업장 목록</title>
@@ -151,7 +411,9 @@ function delInterest(corpCd, corpNm, stockCd){
 	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="${pStartYear}" title="조회 시작년도">
 	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="${pEndYear}" title="조회 시작년도">
 	
-	<a href="" onclick="toggleTabel(); return false;">토글버튼</a>
+	<input type="hidden" name="CORP_CODE" id="corpCd" value="" title="삭제대상 사업장코드">
+	<input type="hidden" name="CORP_NAME" id="corpNm" value="" title="삭제대상 사업장명">
+	<input type="hidden" name="STOCK_CODE" id="stockCd" value="" title="삭제대상 증권코드">
     </form>
 </div>
 
@@ -165,8 +427,8 @@ function delInterest(corpCd, corpNm, stockCd){
 	
 	<!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <div class="card-header py-3" id="dataTables">
+            <h6 class="m-0 font-weight-bold text-primary">관심 기업목록</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive" style="position: relative;">
@@ -178,17 +440,18 @@ function delInterest(corpCd, corpNm, stockCd){
                 <table id="yearReprtList" class="table table-bordered" id="dataTable" width="100%" >
                 	<colgroup>
                 		<col width="3%"/>
+                		<col width="12%"/>
                 		<col width="10%"/>
-                		<col width="10%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="6%"/>
-                		<col width="6%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="5%"/>
+                		<col width="5%"/>
+                		<col width="5%"/>
                 	</colgroup>
-                    <thead>
+                    <thead id="tableHead">
 			            <tr>
 			            	<td>No</td>
 							<td>사업장명</td>
@@ -200,6 +463,7 @@ function delInterest(corpCd, corpNm, stockCd){
 								<td class="quaterHaeder" style="display: none;">${list.HAEDER_NM}<span style="float: right;">(반기)</span></td>
 							</c:forEach>
 							<td>상세</td>
+							<td>추가</td>
 							<td>제거</td>
 						</tr>
 			        </thead>

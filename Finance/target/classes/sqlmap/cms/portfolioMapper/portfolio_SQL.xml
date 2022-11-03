@@ -3,6 +3,7 @@
 <mapper namespace="portfolioMapper">
 	
 	<select id="getPortFolioList" parameterType="hashMap" resultType="HashMap">  
-	    select * from tb_portfolio
+	    select * from tb_interest
 	</select>
+	
 </mapper>

@@ -18,13 +18,19 @@
 		)
 	</insert>
 	
+	<insert id="deleteInterestCorp" parameterType="hashMap"  >  
+	    DELETE  TB_INTEREST 
+	    WHERE CORP_CODE = #{CORP_CODE}
+	    AND UESR_ID = 'SYSTEM_JB'
+	</insert>
+	
 	<select id="getReportList" parameterType="hashMap" resultType="HashMap">  
 		<if test="pReportCd == '11011' ">
 			SELECT 	
 		    		<foreach collection="pYearList" item="item" index="index">
 						RATE_${index},
 					</foreach>
-					DENSE_RANK() OVER(ORDER BY stock_code) AS rnum, SEQ, stock_code , corp_name , account_id, corp_code
+					DENSE_RANK() OVER(ORDER BY stock_code) AS rnum, SEQ, stock_code , corp_name , account_id, fun_getAccNm(ACCOUNT_ID) as account_nm, corp_code
 				FROM (
 					SELECT 
 					    2 AS "SEQ",
@@ -71,14 +77,14 @@
 					group by 
 							a.corp_code , b.corp_name , REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_'), b.corp_code
 				) A
-				order by stock_code, account_id, SEQ
+				order by stock_code, (select ordr from tb_code_account where code = account_id), SEQ
 		</if>
 		<if test="pReportCd == '11012' ">
 			SELECT 	
 					<foreach collection="pQuaterList" item="item" index="index">
 		    			NVL(${item},0) AS RATE_${index},
 					</foreach>
-					DENSE_RANK() OVER(ORDER BY stock_code) AS rnum, SEQ, stock_code , corp_name , account_id, corp_code
+					DENSE_RANK() OVER(ORDER BY stock_code) AS rnum, SEQ, stock_code , corp_name , account_id, fun_getAccNm(ACCOUNT_ID) as account_nm, corp_code
 			FROM (
 			        SELECT
 			            2 AS "SEQ",
@@ -186,7 +192,7 @@
 			        GROUP BY
 			        corp_code, corp_name, STOCK_CODE, account_id
 			) A
-			order by stock_code, account_id, SEQ
+			order by stock_code, (select ordr from tb_code_account where code = account_id), SEQ
 		</if>
 	</select>
 	

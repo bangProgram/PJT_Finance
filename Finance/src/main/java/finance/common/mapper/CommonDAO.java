@@ -27,4 +27,11 @@ public abstract class CommonDAO{
 	public int insert(String queryId, Object paramObject) {
 		return sql.insert(queryId,paramObject);
 	}
+	
+	/**
+	 * 삭제
+	 */
+	public int delete(String queryId, Object paramObject) {
+		return sql.delete(queryId,paramObject);
+	}
 }

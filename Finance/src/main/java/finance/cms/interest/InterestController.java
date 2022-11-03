@@ -116,4 +116,25 @@ public class InterestController {
 	    
 	    return result;
 	}
+	
+	@RequestMapping(value={"/interest/del/cud"} , method = RequestMethod.POST)
+	public ModelAndView delInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{
+		
+		LocalDate now = LocalDate.now();
+		int curYear = now.getYear();		//2022
+		int curMonth = now.getMonthValue();	//10
+		
+		System.out.println("JB : "+commandMap.toString());
+		
+		Integer resultInt = interestService.deleteInterestCorp(commandMap);
+		
+	    Map<String, Object> result = new HashMap<String, Object>();
+	    result.put("resultInt", resultInt);
+	    
+	    ModelAndView mav = new ModelAndView();
+	    String resultURL = "redirect:/interest";
+	    mav.setViewName(resultURL);
+	    
+	    return mav;
+	}
 }

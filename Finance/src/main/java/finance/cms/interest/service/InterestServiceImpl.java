@@ -37,5 +37,12 @@ public class InterestServiceImpl implements InterestService {
 	    return resultInt;
 	}
 	
+	@Override
+	public Integer deleteInterestCorp(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"deleteInterestCorp");
+	    Integer resultInt = (Integer) commonMapper.delete(param);
+	    return resultInt;
+	}
+	
 
 }

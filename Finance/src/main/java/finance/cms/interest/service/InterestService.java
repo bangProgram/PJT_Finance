@@ -9,6 +9,8 @@ public interface InterestService {
 
 	public Integer insertInterestCorp(Map<String, Object> param) throws Exception;
 
+	public Integer deleteInterestCorp(Map<String, Object> param) throws Exception;
+
 	
 
 	

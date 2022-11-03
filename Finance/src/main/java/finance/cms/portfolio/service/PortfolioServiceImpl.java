@@ -42,7 +42,19 @@ public class PortfolioServiceImpl implements PortfolioService {
 	    param.put("mId", namespace+"getPortFolioDetail");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
 	    return resultList;
-
 	}
-
+	
+	@Override
+	public Integer insertPortfolioCorp(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"insertPortfolioCorp");
+	    Integer resultInt = (Integer) commonMapper.insert(param);
+	    return resultInt;
+	}
+	
+	@Override
+	public Integer deletePortfolioCorp(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"deletePortfolioCorp");
+	    Integer resultInt = (Integer) commonMapper.delete(param);
+	    return resultInt;
+	}
 }

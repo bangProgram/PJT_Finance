@@ -88,14 +88,13 @@ public class ReportController {
 			pYearList[i] = yearList.get(i).get("BSNS_YEAR").toString();			
 			pQuaterList[i] = quaterList.get(i).get("HAEDER_NM").toString();			
 		}
-		System.out.println("chkYearList : "+chkYearList+"chkYearList.size"+chkYearList.length);
 		commandMap.put("pAccountCnt", pAccountIds.length);
 		commandMap.put("pAccountIds", pAccountIds);
 		commandMap.put("chkYearList", chkYearList);
 		commandMap.put("pYearList", pYearList);
 		commandMap.put("pQuaterList", pQuaterList);
 		
-		if(commandMap.get("pCorpName") != null) {
+		if(commandMap.get("pCorpName") != null && commandMap.get("pCorpName") != "") {
 			
 		}else {
 			List<Map<String, Object>> searchList = reportService.getReprtCorpCode(commandMap);

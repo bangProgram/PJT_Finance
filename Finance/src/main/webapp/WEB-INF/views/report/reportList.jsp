@@ -21,7 +21,7 @@
 				html += '<option value="'+chkYearList+'">'+ pYearList[i] +' </option>'
 			}else{
 				chkYearList += ','+pYearList[i];
-				html += '<option value="'+chkYearList+'">'+ pEndYear+' ~ '+ pYearList[i]  +' </option>'
+				html += '<option value="'+chkYearList+'">'+ (pEndYear-1)+' ~ '+ pYearList[i]  +' </option>'
 			}
 		}
 		$('#chkYearList').append(html);
@@ -92,20 +92,85 @@
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수        
 				var resultList = data.resultList;
-				console.log("resultList : "+resultList);
+				
 				 $("#reprtList").dataTable({
-					lengthMenu: [ 10, 15, 20, 25, 30 ],
+					lengthMenu: [ 12, 18, 24, 30, 36 ],
 				 	data: resultList,
 				 	destroy: true,
 				 	columns: [
 				  		{ data: 'RNUM' },
 				  		{ data: 'CORP_NAME' },
-				  		{ data: 'ACCOUNT_ID' },
-				  		{ data: 'RATE_0' },
-				  		{ data: 'RATE_1' },
-				  		{ data: 'RATE_2' },
-				  		{ data: 'RATE_3' },
-				  		{ data: 'RATE_4' },
+				  		{ data: 'ACCOUNT_NM' },
+				  		{ "data": 'RATE_0', 
+				  			"render": function(data, type, row, meta){
+				  				var index = row.SEQ;
+				  				console.log("JB : "+index);
+				  				if(type === 'display'){
+				  					if(index == 1){
+				  						data += "<span style='float:right;'>(억원)</span>";				  						
+				  					}else{
+				  						data += "<span style='float:right;'>(%)</span>";
+				  					}
+				  	            }
+				  	            return data;
+				  	         }	
+				  		},
+				  		{ "data": 'RATE_1', 
+				  			"render": function(data, type, row, meta){
+				  				var index = row.SEQ;
+				  				console.log("JB : "+index);
+				  				if(type === 'display'){
+				  					if(index == 1){
+				  						data += "<span style='float:right;'>(억원)</span>";				  						
+				  					}else{
+				  						data += "<span style='float:right;'>(%)</span>";
+				  					}
+				  	            }
+				  	            return data;
+				  	         }	
+				  		},
+				  		{ "data": 'RATE_2', 
+				  			"render": function(data, type, row, meta){
+				  				var index = row.SEQ;
+				  				console.log("JB : "+index);
+				  				if(type === 'display'){
+				  					if(index == 1){
+				  						data += "<span style='float:right;'>(억원)</span>";				  						
+				  					}else{
+				  						data += "<span style='float:right;'>(%)</span>";
+				  					}
+				  	            }
+				  	            return data;
+				  	         }	
+				  		},
+				  		{ "data": 'RATE_3', 
+				  			"render": function(data, type, row, meta){
+				  				var index = row.SEQ;
+				  				console.log("JB : "+index);
+				  				if(type === 'display'){
+				  					if(index == 1){
+				  						data += "<span style='float:right;'>(억원)</span>";				  						
+				  					}else{
+				  						data += "<span style='float:right;'>(%)</span>";
+				  					}
+				  	            }
+				  	            return data;
+				  	         }	
+				  		},
+				  		{ "data": 'RATE_4', 
+				  			"render": function(data, type, row, meta){
+				  				var index = row.SEQ;
+				  				console.log("JB : "+index);
+				  				if(type === 'display'){
+				  					if(index == 1){
+				  						data += "<span style='float:right;'>(억원)</span>";				  						
+				  					}else{
+				  						data += "<span style='float:right;'>(%)</span>";
+				  					}
+				  	            }
+				  	            return data;
+				  	         }	
+				  		},
 				  		{ "data": '', 
 				  			"defaultContent" : '',
 				  			"render": function(data, type, row, meta){
@@ -128,6 +193,10 @@
 				  	         }	 }
 				  	]
 				});
+					
+				$('#dataTables').css("animation-name","search");
+				$('#dataTables').css("animation-duration","2.5s");
+				
 			},    
 			error : function(request, status, error) {       
 				console.log(error)    
@@ -151,7 +220,8 @@
 			},    
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수        
-				
+				$('#bodyList').css("animation-name","add");
+				$('#bodyList').css("animation-duration","2s");
 			},    
 			error : function(request, status, error) {       
 				console.log(error)    
@@ -159,7 +229,19 @@
 		})
 	}
 </script>
+<style>
 
+@keyframes search {
+	from{background : lightsteelblue;}
+	to{background : transparent;}
+}
+
+@keyframes add {
+	from{background : lightgreen;}
+	to{background : transparent;}
+}
+
+</style>
 <html>
 <head>
 <title>사업장 목록</title>
@@ -241,8 +323,8 @@
 	
 	<!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <div class="card-header py-3" id="dataTables">
+            <h6 class="m-0 font-weight-bold text-primary">조회 데이터</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -268,7 +350,7 @@
 								<td>${list.HAEDER_NM}<span style="float: right;">(년도)</span></td>
 							</c:forEach>
 							<td>상세</td>
-							<td>제거</td>
+							<td>등록</td>
 						</tr>
 						<tr id="quaterHaeder" style="display: none;">
 			            	<td>No</td>
@@ -278,7 +360,7 @@
 								<td>${list.HAEDER_NM}<span style="float: right;">(반기)</span></td>
 							</c:forEach>
 							<td>상세</td>
-							<td>제거</td>
+							<td>등록</td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">

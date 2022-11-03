@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="STOCK_CODE"/>
+		<item key="selection" value="account_nm"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="STOCK_CODE"/>
-			<item value=" ,"/>
-			<item value=","/>
-			<item value="VARCHAR"/>
-			<item value="getBsnsYearList"/>
-			<item value="onclick"/>
+			<item value="ACCOUNT_NM"/>
+			<item value="account_id"/>
+			<item value="pEndYear"/>
+			<item value="pYearList"/>
+			<item value="yearString"/>
+			<item value="corp"/>
 			<item value="pCorpName"/>
 			<item value="getReportList"/>
-			<item value="chkYearList"/>
-			<item value="chkCorpList"/>
-			<item value="pReportCd"/>
-			<item value="reprtCd"/>
-			<item value="chkYearList&apos;"/>
-			<item value="CHK"/>
-			<item value="Q4_"/>
+			<item value="관심"/>
+			<item value="delInterest"/>
+			<item value="whereReport"/>
+			<item value="toggleTabel()"/>
+			<item value="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"/>
+			<item value="https://code.jquery.com/jquery-3.5.1.js"/>
+			<item value="&lt;script"/>
 		</list>
 		<list key="replacehistory">
 			<item value="} ,#{"/>
