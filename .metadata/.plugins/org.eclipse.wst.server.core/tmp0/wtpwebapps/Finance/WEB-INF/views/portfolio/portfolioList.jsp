@@ -84,24 +84,67 @@
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-	<h1 class="h3 mb-2 text-gray-800">관심목록</h1>
-	<p class="mb-4">관심목록에 저장해 놓은 기업의 성장성을 보여준다. 
+	<h1 class="h3 mb-2 text-gray-800">포트폴리오</h1>
+	<p class="mb-4">본인이 보유하고 있는 기업에 대한 포트폴리오 리스트 
 		<span id=""></span>
 	</p>
 	
+	<div class="col-xl-4 col-lg-5">
+	    <div class="card shadow mb-4">
+	        <!-- Card Header - Dropdown -->
+	        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+	            <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+	            <div class="dropdown no-arrow">
+	                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+	                </a>
+	                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+	                    <div class="dropdown-header">Dropdown Header:</div>
+	                    <a class="dropdown-item" href="#">Action</a>
+	                    <a class="dropdown-item" href="#">Another action</a>
+	                    <div class="dropdown-divider"></div>
+	                    <a class="dropdown-item" href="#">Something else here</a>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- Card Body -->
+	        <div class="card-body">
+	            <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+	                <canvas id="myPieChart" width="470" height="245" style="display: block; width: 470px; height: 245px;" class="chartjs-render-monitor"></canvas>
+	            </div>
+	            <div class="mt-4 text-center small">
+	                <span class="mr-2">
+	                    <i class="fas fa-circle text-primary"></i> Direct
+	                </span>
+	                <span class="mr-2">
+	                    <i class="fas fa-circle text-success"></i> Social
+	                </span>
+	                <span class="mr-2">
+	                    <i class="fas fa-circle text-info"></i> Referral
+	                </span>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+		
 	<!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3" id="dataTables">
-            <h6 class="m-0 font-weight-bold text-primary">관심 기업목록</h6>
+            <h6 class="m-0 font-weight-bold text-primary">포트폴리오 기업목록</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive" >
-                <table id="yearReprtList" class="table table-bordered" id="dataTable" width="100%" >
+                <table id="portfolioList" class="table table-bordered" id="dataTable" width="100%" >
                     <thead id="tableHead">
 			            <tr>
-			            	<td>No</td>
+			            	<td></td>
 							<td>사업장명</td>
-							<td>계정명</td>
+							<td>현재주가</td>
+							<td>평균단가</td>
+							<td>보유수량</td>
+							<td>최근공시명</td>
+							<td>공시목록</td>
+							<td>메모<td>공시목록</td></td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">

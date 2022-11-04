@@ -3,7 +3,22 @@
 <mapper namespace="portfolioMapper">
 	
 	<select id="getPortFolioList" parameterType="hashMap" resultType="HashMap">  
-	    select * from tb_interest
+	    select * from TB_PORTFOLIO
 	</select>
 	
+	<insert id="insertPortfolioCorp" parameterType="hashMap"  >  
+	    INSERT INTO  TB_PORTFOLIO (
+		    CORP_CODE,UESR_ID,CORP_NAME,STOCK_CODE,GUBN,
+		    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO	
+		) VALUES (
+			#{CORP_CODE}, 'SYSTEM_JB' ,#{CORP_NAME} ,#{STOCK_CODE} , '',
+		    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),''
+		)
+	</insert>
+	
+	<insert id="deletePortfolioCorp" parameterType="hashMap"  >  
+	    DELETE  TB_PORTFOLIO 
+	    WHERE CORP_CODE = #{CORP_CODE}
+	    AND UESR_ID = 'SYSTEM_JB'
+	</insert>
 </mapper>

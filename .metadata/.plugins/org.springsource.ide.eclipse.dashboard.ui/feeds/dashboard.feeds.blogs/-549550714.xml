@@ -5,7 +5,36 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-11-03T07:00:00Z</updated>
+  <updated>2022-11-04T01:00:00Z</updated>
+  <entry>
+    <title>CVE Report Published for Spring Tools</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/03/cve-report-published-for-spring-tools" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Alex Boyko</name>
+    </author>
+    <id>tag:spring.io,2022-11-03:4982</id>
+    <updated>2022-11-04T01:00:00Z</updated>
+    <content type="html">&lt;p&gt;We have released STS &lt;strong&gt;4.16.1&lt;/strong&gt; for Eclipse and Spring VSCode extensions &lt;strong&gt;1.40.0&lt;/strong&gt; to address the following CVE report:&lt;br/&gt; - &lt;a href="https://tanzu.vmware.com/security/cve-2022-31691"&gt;CVE-2022-31691: Remote Code Execution via YAML editors in STS4 extensions for Eclipse and VSCode&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Please review the information in the CVE report and upgrade immediately.&lt;/p&gt;
+&lt;p&gt;Eclipse: STS upgrade to 4.16.1&lt;br/&gt;VSCode: Spring Boot Tools upgrade to 1.40.0&lt;br/&gt;VSCode: Concourse CI Pipeline Editor upgrade to 1.40.0&lt;br/&gt;VSCode: Bosh Editor upgrade to 1.40.0&lt;br/&gt;VSCode: Cloudfoundry Manifest YML Support upgrade to 1.40.0&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://spring.io/tools"&gt;Spring Tools&lt;/a&gt; page to find the latest releases&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Framework 6.0.0-RC3 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/03/spring-framework-6-0-0-rc3-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>S?bastien Deleuze</name>
+    </author>
+    <id>tag:spring.io,2022-11-03:4981</id>
+    <updated>2022-11-03T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;6.0.0-RC3&lt;/code&gt; is available now.&lt;/p&gt;
+&lt;p&gt;Spring Framework &lt;code&gt;6.0.0-RC3&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.0-RC3"&gt;22 fixes and improvements&lt;/a&gt;. This is the last release candidate expected before the general availability of Spring Framework &lt;code&gt;6.0.0&lt;/code&gt; currently planned mid-November.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC3/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: Java Champion, legend, and prolific open source contributor Andres Almiray</title>
     <link rel="alternate" href="https://spring.io/blog/2022/11/03/a-bootiful-podcast-java-champion-legend-and-prolific-open-source-contributor-andres-almiray" />
@@ -944,35 +973,6 @@ For more detailed guidance on how to migrate to Spring Modulith, see the Spring 
     <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long (@starbuxma) talks to his friend, Microsoft&amp;rsquo;s Asir Selvasingh (@asirselvasingh), about Azure Spring Apps, Java at Microsoft, Spring, application security, and more. Want to learn more? Join us at SpringOne (6-8 December 2022)!&lt;/p&gt;
 &lt;iframe title="Microsoft¡¯s Asir Selvasingh on Azure Spring Apps, Java at Microsoft, application security, and more " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=giege-12f2df5-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
 &lt;p&gt;Want to meet amazing people like Asir? Join us at SpringOne 2022! Register now and get $200 off with this discount code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.7.5 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/20/spring-boot-2-7-5-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2022-10-20:4961</id>
-    <updated>2022-10-20T14:27:46Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.7.5&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
-&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.5"&gt;31 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.7.5/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 6.0.0-RC2 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/20/spring-framework-6-0-0-rc2-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>St?phane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2022-10-20:4959</id>
-    <updated>2022-10-20T13:17:51Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;6.0.0-RC2&lt;/code&gt; is available now.&lt;/p&gt;
-&lt;p&gt;Spring Framework &lt;code&gt;6.0.0-RC2&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.0-RC2"&gt;28 fixes and improvements&lt;/a&gt;. Stay tuned for the announcement of Spring Boot &lt;code&gt;3.0.0-RC1&lt;/code&gt; later today!&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC2/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
