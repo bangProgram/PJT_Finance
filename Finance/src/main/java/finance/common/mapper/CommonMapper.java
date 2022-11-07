@@ -21,10 +21,17 @@ public class CommonMapper extends CommonDAO{
 	}
 	
 	/**
+	 * 단건조회
+	 */
+	public Map<String,Object> get(Map<String,Object> param) throws Exception{
+		return get(mapperId(param),param);
+	}
+	
+	
+	/**
 	 * 리스트조회
 	 */
 	public List<Map<String,Object>> getList(Map<String,Object> param) throws Exception{
-
 		return selectList(mapperId(param),param);
 	}
 	

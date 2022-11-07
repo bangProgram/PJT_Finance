@@ -6,6 +6,119 @@
 	var toggleChk = true;
 	$(document).ready(function(){
 	
+		$("#portCorpList").dataTable({
+			lengthMenu: [ 12, 18, 24, 30, 36 ],
+		 	data: ${getPortCorpJson},
+		 	destroy: true,
+		 	columns: [
+		  		{ "data": '',
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	            	data = '<input type="checkbox" name="del_chk" id="del_chk" value="'+row.CORP_CODE+'" title="삭제 체크박스">';
+		  	            }
+
+		  	            return data;
+		  	         }	 
+		  		},
+		  		{ "data": 'INVEST_OPINION', 
+		  			"render": function(data, type, row, meta){
+		  				console.log("JB row.INVEST_OPINION : "+row.INVEST_OPINION);
+		  				if(row.INVEST_OPINION != null && row.INVEST_OPINION != ''){
+		  					if(type === 'display'){
+			  	                data = row.INVEST_OPINION;
+			  	            }		  					
+		  				}else{
+		  					data = "없음";
+		  				}
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ data: 'CORP_NAME' },
+		  		{ "data": '', 
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	                data = '';
+		  	            }
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'AVR_PRICE', 
+		  			"render": function(data, type, row, meta){
+		  				console.log("JB row.AVR_PRICE : "+row.AVR_PRICE);
+		  				if(row.AVR_PRICE != null && row.AVR_PRICE != ''){
+		  					if(type === 'display'){
+			  	                data = row.AVR_PRICE;
+			  	            }		  					
+		  				}else{
+		  					data = "없음";
+		  				}
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'HOLD_QUANTITY', 
+		  			"render": function(data, type, row, meta){
+		  				if(row.HOLD_QUANTITY != null && row.HOLD_QUANTITY != ''){
+		  					if(type === 'display'){
+			  	                data = row.HOLD_QUANTITY;
+			  	            }		  					
+		  				}else{
+		  					data = "없음";
+		  				}
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": '', 
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	                data = '<a href="/report/detail/list" target="_blank" >최근공시 뭐시깽이</a>';
+		  	            }
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": '',
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	            	 data = '<a href="#" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>';
+		  	            }
+
+		  	            return data;
+		  	         }	 
+		  		},
+		  		{ "data": '',
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	            	data = '<a href="#" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+		  	            }
+
+		  	            return data;
+		  	         }	 
+		  		},
+		  		{ "data": 'MEMO', 
+		  			"render": function(data, type, row, meta){
+		  				console.log("JB row.MEMO : "+row.MEMO);
+		  				if(row.MEMO != null && row.MEMO != ''){
+		  					if(type === 'display'){
+			  	                data = '<a href="#" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+			  	            }		  					
+		  				}else{
+		  					data = "없음";
+		  				}
+
+		  	            return data;
+		  	         }	
+		  		}
+		  	]
+		});
 	});
 	
 	function delInterest(corpCd,corpNm,stockCd){
@@ -44,6 +157,7 @@
 			}
 		})
 	}
+	
 </script>
 
 <style>
@@ -103,7 +217,7 @@
 	                    <a class="dropdown-item" href="#">Action</a>
 	                    <a class="dropdown-item" href="#">Another action</a>
 	                    <div class="dropdown-divider"></div>
-	                    <a class="dropdown-item" href="#">Something else here</a>
+	                    <a class="dropdown-item" href="#">Something else here</a>	
 	                </div>
 	            </div>
 	        </div>
@@ -134,17 +248,19 @@
         </div>
         <div class="card-body">
             <div class="table-responsive" >
-                <table id="portfolioList" class="table table-bordered" id="dataTable" width="100%" >
+                <table id="portCorpList" class="table table-bordered" id="dataTable" width="100%" >
                     <thead id="tableHead">
 			            <tr>
 			            	<td></td>
+							<td>투자의견</td>
 							<td>사업장명</td>
 							<td>현재주가</td>
 							<td>평균단가</td>
 							<td>보유수량</td>
 							<td>최근공시명</td>
 							<td>공시목록</td>
-							<td>메모<td>공시목록</td></td>
+							<td>상세</td>
+							<td>메모</td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">

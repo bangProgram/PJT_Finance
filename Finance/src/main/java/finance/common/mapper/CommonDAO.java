@@ -15,6 +15,14 @@ public abstract class CommonDAO{
 	private SqlSession sql;
 
 	/**
+	 * 단건조회
+	 */
+	public <T> T get(String queryId, Object paramObject) {
+		return sql.selectOne(queryId,paramObject);
+	}
+	
+	
+	/**
 	 * 리스트조회
 	 */
 	public <E> List<E> selectList(String queryId, Object paramObject) {
