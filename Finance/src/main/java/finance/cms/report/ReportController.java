@@ -54,7 +54,7 @@ public class ReportController {
 		System.out.println("JB : "+yearString);
 		
 		ModelAndView mav = new ModelAndView();
-	    String resultURL = "report/reportList";
+	    String resultURL = "report/reportList.jsp";
 	    mav.addObject("yearString", yearString);
 	    mav.addObject("yearList", yearList);
 	    mav.addObject("quaterString", quaterString);
@@ -120,7 +120,7 @@ public class ReportController {
 	    List<Map<String, Object>> resultList = reportService.getReportDetailList(commandMap);
 	    
 	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "report/detail/repDetview";
+	    String resultURL = "report/detail/repDetview.jsp";
 	    mav.addObject("resultList", resultList);
 	    mav.setViewName(resultURL);
 	    

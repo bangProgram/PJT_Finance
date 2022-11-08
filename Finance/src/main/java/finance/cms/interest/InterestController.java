@@ -83,7 +83,7 @@ public class InterestController {
 		JSONArray yearReprtJson = commonController.convertListToJson(yearReprtList);
 		
 		ModelAndView mav = new ModelAndView();
-	    String resultURL = "interest/interestList";
+	    String resultURL = "interest/interestList.jsp";
 	    mav.addObject("yearReprtList", yearReprtList);
 	    mav.addObject("quaterReprtList", quaterReprtList);
 	    mav.addObject("yearReprtJson", yearReprtJson);
@@ -127,6 +127,7 @@ public class InterestController {
 		System.out.println("JB : "+commandMap.toString());
 		
 		Integer resultInt = interestService.deleteInterestCorp(commandMap);
+		System.out.println("jN");
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
 	    result.put("resultInt", resultInt);

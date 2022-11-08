@@ -23,7 +23,6 @@
 		  		},
 		  		{ "data": 'INVEST_OPINION', 
 		  			"render": function(data, type, row, meta){
-		  				console.log("JB row.INVEST_OPINION : "+row.INVEST_OPINION);
 		  				if(row.INVEST_OPINION != null && row.INVEST_OPINION != ''){
 		  					if(type === 'display'){
 			  	                data = row.INVEST_OPINION;
@@ -48,7 +47,6 @@
 		  		},
 		  		{ "data": 'AVR_PRICE', 
 		  			"render": function(data, type, row, meta){
-		  				console.log("JB row.AVR_PRICE : "+row.AVR_PRICE);
 		  				if(row.AVR_PRICE != null && row.AVR_PRICE != ''){
 		  					if(type === 'display'){
 			  	                data = row.AVR_PRICE;
@@ -77,7 +75,7 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	                data = '<a href="/report/detail/list" target="_blank" >최근공시 뭐시깽이</a>';
+		  	                data = '<a href="#" onclick="openReportPop(\''+row.REPRT_NO+'\',\''+row.REPRT_NM+'\')" >'+row.REPRT_NM+'</a>';
 		  	            }
 
 		  	            return data;
@@ -87,7 +85,7 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	            	 data = '<a href="#" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>';
+		  	            	 data = '<a href="#" onclick="openReportList(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\')" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>';
 		  	            }
 
 		  	            return data;
@@ -105,7 +103,6 @@
 		  		},
 		  		{ "data": 'MEMO', 
 		  			"render": function(data, type, row, meta){
-		  				console.log("JB row.MEMO : "+row.MEMO);
 		  				if(row.MEMO != null && row.MEMO != ''){
 		  					if(type === 'display'){
 			  	                data = '<a href="#" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
@@ -157,6 +154,20 @@
 			}
 		})
 	}
+	
+	function openReportPop(reprtNo,reprtNm){
+        var url = "https://dart.fss.or.kr/dsaf001/main.do?rcpNo="+reprtNo;
+        var name = reprtNm;
+        var option = "width = 500, height = 1500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
+	
+	function openReportList(corpCd,corpNm){
+        var url = "/popup/dart/report/list?corpCd="+corpCd;
+        var name = corpNm + " 공시 목록";
+        var option = "width = 1500, height = 1500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
 	
 </script>
 

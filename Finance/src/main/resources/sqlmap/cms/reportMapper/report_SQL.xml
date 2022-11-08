@@ -108,7 +108,7 @@
 			    (
 			        SELECT
 			        	<foreach collection="pQuaterList" item="item" index="index">
-							sum(DECODE(HADER_NM ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))) AS ${item},
+							sum(DECODE(HADER_NM ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))) AS RATE_${item},
 						</foreach>
 			            corp_code,
 			            corp_name,

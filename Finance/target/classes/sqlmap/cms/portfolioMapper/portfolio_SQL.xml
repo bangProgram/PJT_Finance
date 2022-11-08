@@ -15,13 +15,27 @@
 	</select>
 	
 	<insert id="insertPortfolioCorp" parameterType="hashMap"  >  
-	    INSERT INTO  TB_PORTFOLIO_CORP (
-		    CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
-		    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO	
-		) VALUES (
-			#{CORP_CODE}, 'SYSTEM_JB' ,#{CORP_NAME} ,#{STOCK_CODE} , '',
-		    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),''
-		)
+		MERGE 
+		 	INTO TB_PORTFOLIO_CORP a
+		USING dual
+		   ON (
+		   		a.CORP_CODE = #{CORP_CODE}
+		   		and a.USER_ID = 'SYSTEM_JB' 
+		   	)
+		 WHEN MATCHED THEN
+		      UPDATE
+		         SET 
+		         	a.CHANGE_ID = 'SYSTEM_JB',
+		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		 WHEN NOT MATCHED THEN
+				INSERT (
+				    CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
+				    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO	
+				) VALUES (
+					#{CORP_CODE}, 'SYSTEM_JB' ,#{CORP_NAME} ,#{STOCK_CODE} , '',
+				    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),''
+				)
+	    
 	</insert>
 	
 	<insert id="deletePortfolioCorp" parameterType="hashMap"  >  

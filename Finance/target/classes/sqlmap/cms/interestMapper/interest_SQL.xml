@@ -9,13 +9,24 @@
 	</sql>
 	
 	<insert id="insertInterestCorp" parameterType="hashMap"  >  
-	    INSERT INTO  TB_INTEREST (
-		    CORP_CODE ,CORP_NAME ,STOCK_CODE ,UESR_ID ,
-		    CREATE_ID ,CREATE_DT ,CHANGE_ID ,CHANGE_DT	
-		) VALUES (
-			#{CORP_CODE} ,#{CORP_NAME} ,#{STOCK_CODE} ,'SYSTEM_JB' ,
-		    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
-		)
+		MERGE 
+		 INTO TB_INTEREST a
+		USING dual
+		   ON (a.CORP_CODE = #{CORP_CODE})
+		 WHEN MATCHED THEN
+		      UPDATE
+		         SET 
+		         	a.CHANGE_ID = 'SYSTEM_JB',
+		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		 WHEN NOT MATCHED THEN
+				INSERT (
+				    CORP_CODE ,CORP_NAME ,STOCK_CODE ,UESR_ID ,
+				    CREATE_ID ,CREATE_DT ,CHANGE_ID ,CHANGE_DT	
+				) VALUES (
+					#{CORP_CODE} ,#{CORP_NAME} ,#{STOCK_CODE} ,'SYSTEM_JB' ,
+				    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+				)
+	    
 	</insert>
 	
 	<insert id="deleteInterestCorp" parameterType="hashMap"  >  

@@ -101,7 +101,7 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	                data = '<a href="#" onclick="delInterest(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" target="_blank" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
+		  	                data = '<a href="#" onclick="delInterest(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
 		  	            }
 		  	            return data;
 		  	         }	 
@@ -345,7 +345,7 @@
 	}
 	
 	function delInterest(corpCd,corpNm,stockCd){
-		var frm = document.form;
+		var frm = document.searchForm;
 		
 		if(!confirm('\''+corpNm+'\'을 관심목록에서 삭제하시겠습니까?')) return;
 		

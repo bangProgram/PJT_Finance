@@ -10,11 +10,11 @@ public class MainController {
 
 	@RequestMapping(value={"/main","/"} , method = RequestMethod.GET)
 	public ModelAndView main() {
-	    return new ModelAndView("main/main");
+	    return new ModelAndView("main/main.jsp");
 	}
 	
 	@RequestMapping(value={"/bplc/report"} , method = RequestMethod.GET)
 	public ModelAndView goReport() {
-	    return new ModelAndView("report/reportView");
+	    return new ModelAndView("report/reportView.jsp");
 	}
 }
