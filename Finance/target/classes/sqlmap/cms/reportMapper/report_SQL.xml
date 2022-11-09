@@ -3,11 +3,16 @@
 <mapper namespace="reportMapper">
 
 	<sql id="whereReport">
-		<if test="pAccountIds != null and pAccountIds != '' ">
+		<if test="pAccountCnt != 0 ">
 			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
 			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
 				#{item}
 			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
 		</if>
 		
 		<if test="chkCorpList != null and chkCorpList != '' ">
@@ -88,8 +93,11 @@
 				</if>
 			)
 			where 1=1
-			<if test="pAccountCnt != '' and pAccountCnt != null ">
+			<if test="pAccountCnt != 0 ">
 				and rnk = #{pAccountCnt}
+			</if>
+			<if test="pAccountCnt == 0 ">
+				and rnk = 3
 			</if>
 		</if>
 		<if test="pReportCd == '11012' ">
@@ -169,8 +177,11 @@
 			    )
 			WHERE
 			        1 = 1
-			<if test="pAccountCnt != '' and pAccountCnt != null ">
+			<if test="pAccountCnt != 0 ">
 				and rnk = #{pAccountCnt}
+			</if>
+			<if test="pAccountCnt == 0 ">
+				and rnk = 3
 			</if>
 		</if>
 	</select>

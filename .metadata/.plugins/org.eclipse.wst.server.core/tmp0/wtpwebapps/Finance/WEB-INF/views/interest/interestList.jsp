@@ -83,7 +83,7 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	                data = '<a href="/report/detail/list" target="_blank" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+		  	                data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
 		  	            }
 		  	            return data;
 		  	         }	
@@ -111,6 +111,8 @@
 	});
 	
 	function toggleTabel(){
+		$('#tableHead').css("animation-name","");
+		$('#bodyList').css("animation-name","");
 		if(toggleChk == true){
 			toggleChk = false;
 			$('.quaterHaeder').css('display','');
@@ -199,7 +201,7 @@
 			  			"defaultContent" : '',
 			  			"render": function(data, type, row, meta){
 			  	            if(type === 'display'){
-			  	                data = '<a href="/report/detail/list" target="_blank" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+			  	                data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
 			  	            }
 			  	            return data;
 			  	         }	
@@ -312,7 +314,7 @@
 			  			"defaultContent" : '',
 			  			"render": function(data, type, row, meta){
 			  	            if(type === 'display'){
-			  	                data = '<a href="/report/detail/list" target="_blank" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+			  	                data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
 			  	            }
 			  	            return data;
 			  	         }	
@@ -372,14 +374,21 @@
 			},    
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수        
-				$('#dataTables').css("animation-name","add");
-				$('#dataTables').css("animation-duration","2.5s");
+				$('#bodyList').css("animation-name","add");
+				$('#bodyList').css("animation-duration","2.5s");
 			},    
 			error : function(request, status, error) {       
 				console.log(error)    
 			}
 		})
 	}
+	
+	function openNaverFinancePop(corpCd){
+        var url = "https://finance.naver.com/item/main.nhn?code="+corpCd;
+        var name = "네이버 크롤링 페이지";
+        var option = "width = 1000, height = 1500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
 </script>
 
 <style>

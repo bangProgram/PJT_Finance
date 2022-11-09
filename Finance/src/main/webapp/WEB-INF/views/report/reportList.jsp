@@ -58,16 +58,13 @@
 		
 	});
 
-	function openNaverFinancePop(corpCd){
-        var url = "https://finance.naver.com/item/main.nhn?code="+corpCd;
-        var name = "네이버 크롤링 페이지";
-        var option = "width = 1000, height = 1500, top = 100, left = 200, location = no"
-        window.open(url, name, option);
-    }
-	
 	function goSearch(){
 		var frm = document.searchForm;
 		var pAccountIds = [];
+		
+		$('#dataTables').css("animation-name","");
+		$('#bodyList').css("animation-name","");
+		
 		$("input[name=pAccountId]:checked").each(function(){
 			pAccountIds.push($(this).val());
 		});
@@ -81,6 +78,8 @@
 			$("#yearHaeder").css('display', 'none');
 			$("#quaterHaeder").css('display', 'table-row');
 		}
+		
+		console.log("JB : "+pAccountIds+" / "+$("#pAccountIds").val());
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    
@@ -111,7 +110,6 @@
 				  		{ "data": 'RATE_0', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
-				  				console.log("JB : "+index);
 				  				if(type === 'display'){
 				  					if(index == 1){
 				  						data += "<span style='float:right;'>(억원)</span>";				  						
@@ -125,7 +123,6 @@
 				  		{ "data": 'RATE_1', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
-				  				console.log("JB : "+index);
 				  				if(type === 'display'){
 				  					if(index == 1){
 				  						data += "<span style='float:right;'>(억원)</span>";				  						
@@ -139,7 +136,6 @@
 				  		{ "data": 'RATE_2', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
-				  				console.log("JB : "+index);
 				  				if(type === 'display'){
 				  					if(index == 1){
 				  						data += "<span style='float:right;'>(억원)</span>";				  						
@@ -153,7 +149,6 @@
 				  		{ "data": 'RATE_3', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
-				  				console.log("JB : "+index);
 				  				if(type === 'display'){
 				  					if(index == 1){
 				  						data += "<span style='float:right;'>(억원)</span>";				  						
@@ -167,7 +162,6 @@
 				  		{ "data": 'RATE_4', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
-				  				console.log("JB : "+index);
 				  				if(type === 'display'){
 				  					if(index == 1){
 				  						data += "<span style='float:right;'>(억원)</span>";				  						
@@ -197,7 +191,19 @@
 				  	            }
 
 				  	            return data;
-				  	         }	 }
+				  	         }	 
+				  		},
+				  		{ "data": '',
+				  			"defaultContent" : '',
+				  			"render": function(data, type, row, meta){
+				  	            if(type === 'display'){
+				  	            	//console.log('row : '+row.CORP_CODE+" / "+row.CORP_NAME);
+				  	                data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	            }
+
+				  	            return data;
+				  	         }	 
+				  		}
 				  	]
 				});
 					
@@ -212,10 +218,42 @@
 		
 	}
 	
+	function openNaverFinancePop(corpCd){
+        var url = "https://finance.naver.com/item/main.nhn?code="+corpCd;
+        var name = "네이버 크롤링 페이지";
+        var option = "width = 1000, height = 1500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
+	
 	function addInterest(corpCd,corpNm,stockCd){
 		var url = "/interest/add/cud";
+		$('#bodyList').css("animation-name","");
 		
-		if(!confirm('\''+corpNm+'\'을 관심목록에 추가하시겠습니까?')) return;
+		if(!confirm('\''+corpNm+'\'을 관심목록에 등록하시겠습니까?')) return;
+		
+		$.ajax({    
+			type : 'post',           // 타입 (get, post, put 등등)    
+			url : url,           // 요청할 서버url    
+			data : {
+				CORP_CODE 	: corpCd,
+				CORP_NAME	: corpNm,
+				STOCK_CODE 	: stockCd,
+			},    
+			dataType : 'json',    
+			success : function(data) { // 결과 성공 콜백함수
+				$('#bodyList').css("animation-name","add1");
+				$('#bodyList').css("animation-duration","2s");
+			},    
+			error : function(request, status, error) {       
+				console.log(error)    
+			}
+		})
+	}
+	
+	function addPortfolio(corpCd,corpNm,stockCd){
+		var url = "/portfolio/add/cud";
+		
+		if(!confirm('\''+corpNm+'\'을 포트폴리오에 추가하시겠습니까?')) return;
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    
@@ -227,8 +265,8 @@
 			},    
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수        
-				$('#bodyList').css("animation-name","add");
-				$('#bodyList').css("animation-duration","2s");
+				$('#bodyList').css("animation-name","add2");
+				$('#bodyList').css("animation-duration","2.5s");
 			},    
 			error : function(request, status, error) {       
 				console.log(error)    
@@ -243,8 +281,13 @@
 	to{background : transparent;}
 }
 
-@keyframes add {
+@keyframes add1 {
 	from{background : lightgreen;}
+	to{background : transparent;}
+}
+
+@keyframes add2 {
+	from{background : lightskyblue;}
 	to{background : transparent;}
 }
 
@@ -340,13 +383,14 @@
                 		<col width="3%"/>
                 		<col width="10%"/>
                 		<col width="10%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="13%"/>
-                		<col width="6%"/>
-                		<col width="6%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="5%"/>
+                		<col width="5%"/>
+                		<col width="5%"/>
                 	</colgroup>
                     <thead>
 			            <tr id="yearHaeder">
@@ -358,6 +402,7 @@
 							</c:forEach>
 							<td>상세</td>
 							<td>등록</td>
+							<td>추가</td>
 						</tr>
 						<tr id="quaterHaeder" style="display: none;">
 			            	<td>No</td>
@@ -368,6 +413,7 @@
 							</c:forEach>
 							<td>상세</td>
 							<td>등록</td>
+							<td>추가</td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">

@@ -79,7 +79,11 @@ public class ReportController {
 		paramMap.put("pReportCd", "11011");
 		List<Map<String, Object>> yearList = reportService.getBsnsYearList(paramMap);
 		
-		String[] pAccountIds = commandMap.get("pAccountIds").toString().split(",");
+		String[] pAccountIds = {}; 
+		System.out.println("JB 1 : "+pAccountIds+ " / "+commandMap.get("pAccountIds").toString());
+		if(!commandMap.get("pAccountIds").equals("") && commandMap.get("pAccountIds").equals(null) ) {
+			pAccountIds = commandMap.get("pAccountIds").toString().split(",");
+		}
 		String[] chkYearList = commandMap.get("chkYearList").toString().split(",");
 		String[] pYearList = new String [5];
 		String[] pQuaterList = new String [5];
@@ -88,6 +92,7 @@ public class ReportController {
 			pYearList[i] = yearList.get(i).get("BSNS_YEAR").toString();			
 			pQuaterList[i] = quaterList.get(i).get("HAEDER_NM").toString();			
 		}
+		System.out.println("pAccountIds.length : "+pAccountIds.length + " / pAccountIds : " + pAccountIds.toString());
 		commandMap.put("pAccountCnt", pAccountIds.length);
 		commandMap.put("pAccountIds", pAccountIds);
 		commandMap.put("chkYearList", chkYearList);
