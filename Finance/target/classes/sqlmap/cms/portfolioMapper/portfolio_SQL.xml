@@ -38,9 +38,33 @@
 	    
 	</insert>
 	
+	<insert id="updatePortfolioAsset" parameterType="Map"  >  
+		UPDATE
+			TB_PORTFOLIO
+			<set>
+				<if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
+					DEPOSIT_AMOUNT		=	#{DEPOSIT_AMOUNT},
+				</if>
+				<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
+					RESERVE_AMOUNT		=	#{RESERVE_AMOUNT},
+				</if>
+				CHANGE_DT 		=	SYSDATE,
+				CHANGE_ID		=	'SYSTEM_JB'
+			</set>
+		WHERE
+			USER_ID = 'SYSTEM_JB'
+	    
+	</insert>
+	
 	<insert id="deletePortfolioCorp" parameterType="hashMap"  >  
 	    DELETE  TB_PORTFOLIO_CORP 
-	    WHERE CORP_CODE = #{CORP_CODE}
+	    WHERE 1=1
+	    <if test="delCorpCnt != 0 ">
+			AND CORP_CODE IN 
+			<foreach collection="delCorpList" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
 	    AND USER_ID = 'SYSTEM_JB'
 	</insert>
 </mapper>

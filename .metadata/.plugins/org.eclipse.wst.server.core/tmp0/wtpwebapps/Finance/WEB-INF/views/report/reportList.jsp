@@ -198,7 +198,7 @@
 				  			"render": function(data, type, row, meta){
 				  	            if(type === 'display'){
 				  	            	//console.log('row : '+row.CORP_CODE+" / "+row.CORP_NAME);
-				  	                data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	                data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" style="background : cornflowerblue; border-color : cornflowerblue;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
 				  	            }
 
 				  	            return data;

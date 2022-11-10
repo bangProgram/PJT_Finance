@@ -41,6 +41,13 @@ public class CommonMapper extends CommonDAO{
 	public Object insert(Map<String,Object> param) throws Exception{
 		return insert(mapperId(param),param);
 	}
+	
+	/**
+	 * 수정
+	 */
+	public Object update(Map<String,Object> param) throws Exception{
+		return update(mapperId(param),param);
+	}
 
 	public Object delete(Map<String, Object> param) throws Exception{
 		return delete(mapperId(param),param);

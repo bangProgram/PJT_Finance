@@ -60,8 +60,8 @@ public class DartController {
 		List<Map<String, Object>> getDartReportList = new ArrayList<Map<String, Object>> ();
 		try{
 			
-			URL urltest = new URL(infoURL+"crtfc_key="+crtfcKey+"&corp_code="+corpCd+"&bgn_de="+bgndate+"&end_de="+endDate+"&page_no=1&page_count=100");
-			InputStreamReader isr = new InputStreamReader(urltest.openConnection().getInputStream(), "UTF-8");
+			URL url = new URL(infoURL+"crtfc_key="+crtfcKey+"&corp_code="+corpCd+"&bgn_de="+bgndate+"&end_de="+endDate+"&page_no=1&page_count=100");
+			InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
 			JSONObject object = (JSONObject)JSONValue.parse(isr);
 			JSONArray infoList = (JSONArray) object.get("list");
 			

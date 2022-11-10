@@ -37,6 +37,13 @@ public abstract class CommonDAO{
 	}
 	
 	/**
+	 * 수정
+	 */
+	public int update(String queryId, Object paramObject) {
+		return sql.update(queryId,paramObject);
+	}
+	
+	/**
 	 * 삭제
 	 */
 	public int delete(String queryId, Object paramObject) {

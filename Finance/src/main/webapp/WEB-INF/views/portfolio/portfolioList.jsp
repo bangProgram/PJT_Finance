@@ -169,6 +169,75 @@
         window.open(url, name, option);
     }
 	
+	function delPortCorp(){
+		var frm = document.searchForm;
+		var delChks = "";
+		
+		var i = 0;
+		$("input[name=del_chk]:checked").each(function(){
+			if(i==0){
+				delChks += $(this).val();
+			}else{
+				delChks += ","+$(this).val();
+			}
+			i++;
+		});
+		
+		if(i == 0){
+			alert("삭제할 사업장을 선택해 주세요.");
+			return;
+		}
+		
+		var corpCd = "";
+		
+		if(!confirm('체크된 사업장을 포트폴리오에서 삭제하시겠습니까?')) return;
+		
+		$("#corpCds").val(delChks);
+		
+		frm.action = "/portfolio/del/cud";
+		frm.submit();
+	}
+	
+	function regAsset(gu){
+		var url = "/portfolio/regasset/cud";
+		
+		var guTitle = "";
+		var guVal = "";
+		if(gu == 'deposit'){
+			guVal = $("#DEPOSIT_AMOUNT").val();
+			guTitle = $("#DEPOSIT_AMOUNT").attr("title");
+		}else{
+			guVal = $("#RESERVE_AMOUNT").val();
+			guTitle =  $("#RESERVE_AMOUNT").attr("title");
+		}
+
+		guVal = guVal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+		
+		alert(guTitle + " : "+guVal+" 원 등록 하시겠습니까?");
+		
+		$.ajax({    
+			type : 'post',           // 타입 (get, post, put 등등)    
+			url : url,           // 요청할 서버url    
+			data : {
+				DEPOSIT_AMOUNT 	: $("#DEPOSIT_AMOUNT").val(),
+				RESERVE_AMOUNT	: $("#RESERVE_AMOUNT").val(),
+			},    
+			dataType : 'json',    
+			success : function(data) { // 결과 성공 콜백함수
+				var resultData = data.resultData;
+				if(gu == 'deposit'){
+					$("#DEPOSIT_AMOUNT").val(resultData.DEPOSIT_AMOUNT);
+				}else{
+					$("#RESERVE_AMOUNT").val(resultData.RESERVE_AMOUNT);
+				}
+				$('#cardDiv').css("animation-name","add");
+				$('#cardDiv').css("animation-duration","2.5s");
+			},    
+			error : function(request, status, error) {       
+				console.log(error)    
+			}
+		})
+	}
 </script>
 
 <style>
@@ -200,9 +269,7 @@
 	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="${pStartYear}" title="조회 시작년도">
 	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="${pEndYear}" title="조회 시작년도">
 	
-	<input type="hidden" name="CORP_CODE" id="corpCd" value="" title="삭제대상 사업장코드">
-	<input type="hidden" name="CORP_NAME" id="corpNm" value="" title="삭제대상 사업장명">
-	<input type="hidden" name="STOCK_CODE" id="stockCd" value="" title="삭제대상 증권코드">
+	<input type="hidden" name="corpCds" id="corpCds" value="" title="삭제대상 사업장코드(복수)">
     </form>
 </div>
 
@@ -215,20 +282,34 @@
 	</p>
 	
 	<div class="col-xl-4 col-lg-5">
-	    <div class="card shadow mb-4">
+	    <div class="card shadow mb-4" id="cardDiv">
 	        <!-- Card Header - Dropdown -->
 	        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	            <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+	            <h6 class="m-0 font-weight-bold text-primary">포트폴리오 자산 분배비율</h6>
 	            <div class="dropdown no-arrow">
 	                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 	                </a>
 	                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-	                    <div class="dropdown-header">Dropdown Header:</div>
-	                    <a class="dropdown-item" href="#">Action</a>
-	                    <a class="dropdown-item" href="#">Another action</a>
+	                    <div class="dropdown-header" style="font-size: 12px;">- 자산 등록 -</div>
 	                    <div class="dropdown-divider"></div>
-	                    <a class="dropdown-item" href="#">Something else here</a>	
+	                    <div style="padding: 5px 10px 5px 10px;">
+		                    <div class="dropdown-item" style="padding: 10px 10px 10px 10px;">
+			                    예수금 : <input type="text" name="DEPOSIT_AMOUNT" id="DEPOSIT_AMOUNT" style="width : 135px;" value="${getPortfolio.DEPOSIT_AMOUNT }"  title="예수금" placeholder="예수금"> 
+			                    <button class="btn btn-outline-primary" style="height: 30px; font-size: 13px; width: 55px;" onclick="regAsset('deposit'); return false;">
+			                    	<c:if test="${getPortfolio.DEPOSIT_AMOUNT != null }">수정</c:if>
+			                    	<c:if test="${getPortfolio.DEPOSIT_AMOUNT == null }">등록</c:if>
+			                    </button>
+		                    </div>
+		                    <div class="dropdown-divider"></div>
+		                    <div class="dropdown-item" style="padding: 10px 10px 10px 10px;">
+			                    예비금 : <input type="text" name="RESERVE_AMOUNT" id="RESERVE_AMOUNT" style="width : 135px;" value="${getPortfolio.RESERVE_AMOUNT }"  title="예비금" placeholder="예비금"> 
+			                    <button class="btn btn-outline-primary" style="height: 30px; font-size: 13px; width: 55px;" onclick="regAsset('reserve'); return false;">
+			                    	<c:if test="${getPortfolio.RESERVE_AMOUNT != null }">수정</c:if>
+			                    	<c:if test="${getPortfolio.RESERVE_AMOUNT == null }">등록</c:if> 
+			                    </button>
+		                    </div>
+	                    </div>
 	                </div>
 	            </div>
 	        </div>
@@ -239,13 +320,13 @@
 	            </div>
 	            <div class="mt-4 text-center small">
 	                <span class="mr-2">
-	                    <i class="fas fa-circle text-primary"></i> Direct
+	                    <i class="fas fa-circle text-primary"></i> 예치금
 	                </span>
 	                <span class="mr-2">
-	                    <i class="fas fa-circle text-success"></i> Social
+	                    <i class="fas fa-circle text-success"></i> 투자금
 	                </span>
 	                <span class="mr-2">
-	                    <i class="fas fa-circle text-info"></i> Referral
+	                    <i class="fas fa-circle text-info"></i> 예비금
 	                </span>
 	            </div>
 	        </div>
@@ -254,8 +335,13 @@
 		
 	<!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3" id="dataTables">
-            <h6 class="m-0 font-weight-bold text-primary">포트폴리오 기업목록</h6>
+        <div class="card-header py-3" id="dataTables" style="display: table;">
+            <h6 class="m-0 font-weight-bold text-primary" style="display: table-cell; width: 95%; padding-left: 10px;">포트폴리오 기업목록</h6>
+            <div >
+				<button class="dt-button buttons-excel buttons-html5 btn btn-outline-primary excelBtn" style="width: 70px;" tabindex="0" aria-controls="portCorpList" onclick="delPortCorp(); return false;">
+					<span>삭제</span>
+				</button>                	
+			</div>
         </div>
         <div class="card-body">
             <div class="table-responsive" >

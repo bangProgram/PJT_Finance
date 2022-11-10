@@ -66,4 +66,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 	    Integer resultInt = (Integer) commonMapper.delete(param);
 	    return resultInt;
 	}
+	
+	@Override
+	public Integer updatePortfolioAsset(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"updatePortfolioAsset");
+	    Integer resultInt = (Integer) commonMapper.update(param);
+	    return resultInt;
+	}
 }
