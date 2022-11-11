@@ -226,8 +226,10 @@
 			success : function(data) { // 결과 성공 콜백함수
 				var resultData = data.resultData;
 				if(gu == 'deposit'){
+					$("btn_DEPOSIT_AMOUNT").text('수정');
 					$("#DEPOSIT_AMOUNT").val(resultData.DEPOSIT_AMOUNT);
 				}else{
+					$("btn_RESERVE_AMOUNT").text('수정');
 					$("#RESERVE_AMOUNT").val(resultData.RESERVE_AMOUNT);
 				}
 				$('#cardDiv').css("animation-name","add");
@@ -296,7 +298,7 @@
 	                    <div style="padding: 5px 10px 5px 10px;">
 		                    <div class="dropdown-item" style="padding: 10px 10px 10px 10px;">
 			                    예수금 : <input type="text" name="DEPOSIT_AMOUNT" id="DEPOSIT_AMOUNT" style="width : 135px;" value="${getPortfolio.DEPOSIT_AMOUNT }"  title="예수금" placeholder="예수금"> 
-			                    <button class="btn btn-outline-primary" style="height: 30px; font-size: 13px; width: 55px;" onclick="regAsset('deposit'); return false;">
+			                    <button class="btn btn-outline-primary" style="height: 30px; font-size: 13px; width: 55px;" id="btn_DEPOSIT_AMOUNT" onclick="regAsset('deposit'); return false;">
 			                    	<c:if test="${getPortfolio.DEPOSIT_AMOUNT != null }">수정</c:if>
 			                    	<c:if test="${getPortfolio.DEPOSIT_AMOUNT == null }">등록</c:if>
 			                    </button>
@@ -304,7 +306,7 @@
 		                    <div class="dropdown-divider"></div>
 		                    <div class="dropdown-item" style="padding: 10px 10px 10px 10px;">
 			                    예비금 : <input type="text" name="RESERVE_AMOUNT" id="RESERVE_AMOUNT" style="width : 135px;" value="${getPortfolio.RESERVE_AMOUNT }"  title="예비금" placeholder="예비금"> 
-			                    <button class="btn btn-outline-primary" style="height: 30px; font-size: 13px; width: 55px;" onclick="regAsset('reserve'); return false;">
+			                    <button class="btn btn-outline-primary" style="height: 30px; font-size: 13px; width: 55px;" id="btn_RESERVE_AMOUNT" onclick="regAsset('reserve'); return false;">
 			                    	<c:if test="${getPortfolio.RESERVE_AMOUNT != null }">수정</c:if>
 			                    	<c:if test="${getPortfolio.RESERVE_AMOUNT == null }">등록</c:if> 
 			                    </button>

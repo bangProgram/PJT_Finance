@@ -31,6 +31,14 @@ public class InterestServiceImpl implements InterestService {
 	}
 	
 	@Override
+	public Map<String, Object> getInterest(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getInterest");
+	    Map<String, Object> resultList = commonMapper.get(param);
+	    return resultList;
+
+	}
+	
+	@Override
 	public Integer insertInterestCorp(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"insertInterestCorp");
 	    Integer resultInt = (Integer) commonMapper.insert(param);

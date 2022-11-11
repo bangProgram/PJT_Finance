@@ -102,7 +102,7 @@ public class PortfolioController {
 		int curYear = now.getYear();		//2022
 		int curMonth = now.getMonthValue();	//10
 		
-		System.out.println("JB : "+commandMap.toString());
+		commandMap.put("curUserId", "SYSTEM_JB");
 		
 		Integer resultInt = portfolioService.insertPortfolioCorp(commandMap);
 		
@@ -150,7 +150,7 @@ public class PortfolioController {
 		
 		System.out.println("JB : "+commandMap.toString());
 		
-		Integer resultInt = portfolioService.updatePortfolioAsset(commandMap);
+		Integer resultInt = portfolioService.inertPortfolioAsset(commandMap);
 		Map<String, Object> resultData = portfolioService.getPortfolio(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();

@@ -88,6 +88,15 @@
 		  	            return data;
 		  	         }	
 		  		},
+		  		{ "data": '', 
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	            	data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #FFD232; background: #FFD232;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
+		  	            }
+		  	            return data;
+		  	         }	
+		  		},
 		  		{ "data": '',
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
@@ -206,6 +215,15 @@
 			  	            return data;
 			  	         }	
 			  		},
+			  		{ "data": '', 
+			  			"defaultContent" : '',
+			  			"render": function(data, type, row, meta){
+			  	            if(type === 'display'){
+			  	            	data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #FFD232; background: #FFD232;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
 			  		{ "data": '',
 			  			"defaultContent" : '',
 			  			"render": function(data, type, row, meta){
@@ -319,6 +337,15 @@
 			  	            return data;
 			  	         }	
 			  		},
+			  		{ "data": '', 
+			  			"defaultContent" : '',
+			  			"render": function(data, type, row, meta){
+			  	            if(type === 'display'){
+			  	            	data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #FFD232; background: #FFD232;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
+			  	            }
+			  	            return data;
+			  	         }	
+			  		},
 			  		{ "data": '',
 			  			"defaultContent" : '',
 			  			"render": function(data, type, row, meta){
@@ -389,6 +416,13 @@
         var option = "width = 1000, height = 1500, top = 100, left = 200, location = no"
         window.open(url, name, option);
     }
+	
+	function openMemoPop(corpCd){
+        var url = "/popup/interest/memo?pCorpCd="+corpCd;
+        var name = "관심기업 메모 팝업";
+        var option = "width = 505, height = 780, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
 </script>
 
 <style>
@@ -448,14 +482,15 @@
                 </div>
                 <table id="yearReprtList" class="table table-bordered" id="dataTable" width="100%" >
                 	<colgroup>
-                		<col width="3%"/>
-                		<col width="12%"/>
-                		<col width="10%"/>
-                		<col width="12%"/>
-                		<col width="12%"/>
+                		<col width="2%"/>
+                		<col width="9%"/>
+                		<col width="9%"/>
                 		<col width="12%"/>
                 		<col width="12%"/>
                 		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="12%"/>
+                		<col width="5%"/>
                 		<col width="5%"/>
                 		<col width="5%"/>
                 		<col width="5%"/>
@@ -472,6 +507,7 @@
 								<td class="quaterHaeder" style="display: none;">${list.HAEDER_NM}<span style="float: right;">(반기)</span></td>
 							</c:forEach>
 							<td>상세</td>
+							<td>메모</td>
 							<td>추가</td>
 							<td>제거</td>
 						</tr>

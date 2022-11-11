@@ -1,7 +1,11 @@
 package finance.cms.interest;
 
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,9 +15,11 @@ import javax.annotation.Resource;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,6 +52,8 @@ public class InterestController {
 		
 		String yearString = "";
 		String quaterString = "";
+		
+		commandMap.put("curUserId", "SYSTEM_JB");
 		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		List<Map<String, Object>> quaterList = reportService.getBsnsYearList(paramMap);
@@ -107,8 +115,7 @@ public class InterestController {
 		int curYear = now.getYear();		//2022
 		int curMonth = now.getMonthValue();	//10
 		
-		System.out.println("JB : "+commandMap.toString());
-		
+		commandMap.put("curUserId", "SYSTEM_JB");
 		Integer resultInt = interestService.insertInterestCorp(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
@@ -138,4 +145,5 @@ public class InterestController {
 	    
 	    return mav;
 	}
+	
 }

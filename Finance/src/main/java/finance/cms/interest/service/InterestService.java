@@ -11,7 +11,6 @@ public interface InterestService {
 
 	public Integer deleteInterestCorp(Map<String, Object> param) throws Exception;
 
-	
+	public Map<String, Object> getInterest(Map<String, Object> param) throws Exception;
 
-	
 }
