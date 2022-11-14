@@ -19,13 +19,21 @@ public class CorporationServiceImpl implements CorporationService {
 	@Resource(name="CommonMapper")
 	private CommonMapper commonMapper;
 	
-	private String namespace = "corprationMapper.";
+	private String namespace = "corporationMapper.";
 	
 	@Override
 	public Integer insertCorp(Map<String, Object> param) throws Exception{
 		param.put("mId", namespace+"insertCorp");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
+
+	}
+	
+	@Override
+	public Map<String, Object> getCorporationGrowth(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getCorporationGrowth");
+	    Map<String, Object> resultList = commonMapper.get(param);
+	    return resultList;
 
 	}
 	

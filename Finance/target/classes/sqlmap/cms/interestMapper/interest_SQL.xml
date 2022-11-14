@@ -199,7 +199,7 @@
 			                    reprt_code ASC
 			            )   WHERE 1=1
 			                <![CDATA[
-            	                AND RNK < 6
+            	                AND RNK <= 6
 			            	]]>
 			        )
 			        GROUP BY
@@ -252,7 +252,7 @@
 			                    reprt_code ASC
 			            )   WHERE 1=1
 			                <![CDATA[
-            	                AND RNK < 6
+            	                AND RNK <= 6
 			            	]]>
 			        )
 			        GROUP BY

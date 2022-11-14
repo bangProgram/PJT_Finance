@@ -18,9 +18,23 @@
 	    WHERE 1=1
 	</select>
 	
+	<select id="getPortCorp" parameterType="Map" resultType="HashMap">  
+	    select 
+	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
+	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT
+	    	,TO_CHAR(MEMO) AS MEMO,
+	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE
+	    from TB_PORTFOLIO_CORP A
+	    WHERE 1=1
+	    	<include refid = "wherePortfolio"/>
+	</select>
+	
 	<select id="getPortCorpList" parameterType="Map" resultType="HashMap">  
 	    select 
-	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO,INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE
+	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
+	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT
+	    	,TO_CHAR(MEMO) AS MEMO,
+	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE
 	    from TB_PORTFOLIO_CORP A
 	    WHERE 1=1
 	    	<include refid = "wherePortfolio"/>
@@ -40,17 +54,69 @@
 		        <set>
 		         	<if test="MEMO != null and MEMO != '' ">
 						MEMO		=	#{MEMO},
+					</if>
+					<if test="AVG_REVENUE_GROWTH != null and AVG_REVENUE_GROWTH != '' ">
+						AVG_REVENUE_GROWTH		=	#{AVG_REVENUE_GROWTH},
+					</if>
+					<if test="AVG_OPERAT_GROWTH != null and AVG_OPERAT_GROWTH != '' ">
+						AVG_OPERAT_GROWTH		=	#{AVG_OPERAT_GROWTH},
+					</if>
+					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
+						AVG_PROFIT_GROWTH		=	#{AVG_PROFIT_GROWTH},
 					</if> 
-		         	a.CHANGE_ID = 'SYSTEM_JB',
+		         	a.CHANGE_ID = #{curUserId},
 		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
 				</set>
 		 WHEN NOT MATCHED THEN
 				INSERT (
-				    CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
+				    CORP_CODE,
+				    USER_ID,
+				    <if test="CORP_NAME != null and CORP_NAME != '' ">
+						CORP_NAME,
+					</if>
+					<if test="STOCK_CODE != null and STOCK_CODE != '' ">
+						STOCK_CODE,
+					</if>
+					<if test="AVG_REVENUE_GROWTH != null and AVG_REVENUE_GROWTH != '' ">
+						AVG_REVENUE_GROWTH,
+					</if>
+					<if test="AVG_OPERAT_GROWTH != null and AVG_OPERAT_GROWTH != '' ">
+						AVG_OPERAT_GROWTH,
+					</if>
+					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
+						AVG_PROFIT_GROWTH,
+					</if> 
+				    GUBN,
 				    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO	
 				) VALUES (
-					#{CORP_CODE}, 'SYSTEM_JB' ,#{CORP_NAME} ,#{STOCK_CODE} , '',
-				    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),''
+					#{CORP_CODE}, #{curUserId},
+					<if test="CORP_NAME != null and CORP_NAME != '' ">
+						#{CORP_NAME},
+					</if>
+					<if test="STOCK_CODE != null and STOCK_CODE != '' ">
+						#{STOCK_CODE},
+					</if>
+					<if test="AVG_REVENUE_GROWTH != null and AVG_REVENUE_GROWTH != '' ">
+						#{AVG_REVENUE_GROWTH},
+					</if>
+					<if test="AVG_OPERAT_GROWTH != null and AVG_OPERAT_GROWTH != '' ">
+						#{AVG_OPERAT_GROWTH},
+					</if>
+					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
+						#{AVG_PROFIT_GROWTH},
+					</if>
+					'',
+				    #{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+					(
+				        SELECT
+				            to_CLOB(memo) AS memo
+				        FROM
+				            tb_interest a
+				        WHERE
+				                1 = 1
+				            AND a.corp_code = #{CORP_CODE}
+				            AND a.user_id = #{curUserId}
+				    )
 				)
 	    
 	</insert>

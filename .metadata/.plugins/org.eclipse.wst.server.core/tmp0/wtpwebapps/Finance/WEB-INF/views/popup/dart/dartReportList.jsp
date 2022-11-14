@@ -75,16 +75,16 @@
 	<!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3" id="dataTables">
-            <h6 class="m-0 font-weight-bold text-primary">관심 기업목록</h6>
+            <h6 class="m-0 font-weight-bold text-primary">전자공시 보고서목록</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive" >
                 <table id="dartReprtList" class="table table-bordered" id="dataTable" width="100%" >
                 	<colgroup>
                 		<col width="5%"/>
-                		<col width="25%"/>
-                		<col width="25%"/>
-                		<col width="25%"/>
+                		<col width="20%"/>
+                		<col width="35%"/>
+                		<col width="20%"/>
                 		<col width="20%"/>
                 	</colgroup>
                     <thead id="tableHead">
@@ -96,7 +96,7 @@
 							<td>접수일자</td>
 						</tr>
 			        </thead>
-			        <tbody id="bodyList">
+			        <tbody id="bodyList" style="font-size: 12px;">
 			        </tbody>
                 </table>
             </div>

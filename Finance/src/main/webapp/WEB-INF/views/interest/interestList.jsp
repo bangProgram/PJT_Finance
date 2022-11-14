@@ -390,6 +390,7 @@
 		var url = "/portfolio/add/cud";
 		
 		if(!confirm('\''+corpNm+'\'을 포트폴리오에 추가하시겠습니까?')) return;
+		$('#bodyList').css("animation-name","");
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    

@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import finance.cms.corporation.service.CorporationService;
 import finance.cms.portfolio.service.PortfolioService;
 import finance.common.Controller.CommonController;
 
@@ -34,6 +35,9 @@ public class PortfolioController {
 	
 	@Autowired
 	private PortfolioService portfolioService;
+	
+	@Autowired
+	private CorporationService corporationService;
 	
 	@Resource(name="CommonController")
 	private CommonController commonController;
@@ -104,6 +108,24 @@ public class PortfolioController {
 		
 		commandMap.put("curUserId", "SYSTEM_JB");
 		
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("CORP_CODE", commandMap.get("CORP_CODE").toString());
+		paramMap.put("pEndYear", curYear);
+		paramMap.put("pStartYear", (curYear-6));
+		
+		Map<String, Object> getCorporation = corporationService.getCorporationGrowth(paramMap);
+		
+		for(int i=0; i<getCorporation.size(); i++) {
+			String accId = getCorporation.get("ACCOUNT_ID").toString();
+			if(accId.equals("ifrs-full_Revenue")) {
+				commandMap.put("", getCorporation.get("").toString());
+			}else if(accId.equals("dart_OperatingIncomeLoss")) {
+				commandMap.put("", getCorporation.get("").toString());
+			}else {
+				commandMap.put("", getCorporation.get("").toString());
+			}
+		}
 		Integer resultInt = portfolioService.insertPortfolioCorp(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();

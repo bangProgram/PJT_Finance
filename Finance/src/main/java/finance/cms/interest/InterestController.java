@@ -76,7 +76,7 @@ public class InterestController {
 		}
 		
 		commandMap.put("pEndYear", curYear);
-		commandMap.put("pStartYear", (curYear-5));
+		commandMap.put("pStartYear", (curYear-6));
 		commandMap.put("pYearList", pYearList);
 		commandMap.put("pQuaterList", pQuaterList);
 		commandMap.put("pReportCd", "11012");
@@ -101,7 +101,7 @@ public class InterestController {
 	    mav.addObject("quaterString", quaterString);
 	    mav.addObject("quaterList", quaterList);
 	    mav.addObject("pEndYear", curYear);
-	    mav.addObject("pStartYear", (curYear-5));
+	    mav.addObject("pStartYear", (curYear-6));
 	    mav.setViewName(resultURL);
 	    
 	    return mav;

@@ -79,8 +79,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive" >
-            	<textarea rows="26" cols="54" name="content" id="MEMO" style="font-size: 13px;">
-							<c:out value="${resultData.MEMO }"/>
+            	<textarea rows="26" cols="54" name="content" id="MEMO" style="font-size: 13px;"><c:out value="${resultData.MEMO }"/>
 				</textarea>
             </div>
         </div>

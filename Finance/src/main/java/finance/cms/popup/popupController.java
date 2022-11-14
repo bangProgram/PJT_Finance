@@ -114,7 +114,7 @@ public class popupController {
 		if(webPath.equals("interest")) {
 			resultData = interestService.getInterest(commandMap);
 		}else if(webPath.equals("portfolio")){
-			resultData = portfolioService.getPortfolio(commandMap);
+			resultData = portfolioService.getPortCorp(commandMap);
 		}
 		
 		

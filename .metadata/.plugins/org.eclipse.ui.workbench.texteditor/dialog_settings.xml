@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="addPortfolio"/>
+		<item key="selection" value="MEMO"/>
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="false"/>
+		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="addPortfolio"/>
-			<item value="dataTables"/>
-			<item value=".css"/>
-			<item value="search("/>
-			<item value="search"/>
-			<item value="openNaverFinancePop"/>
-			<item value="pAccountCnt"/>
-			<item value="pAccountIds.length"/>
-			<item value="JB 1 : "/>
-			<item value="pAccountIds"/>
-			<item value=""/>
-			<item value="/search"/>
-			<item value="JB"/>
-			<item value="rATE_4"/>
-			<item value="ATE_4"/>
+			<item value="MEMO"/>
+			<item value="curUserId"/>
+			<item value="CORP_CODE"/>
+			<item value="insertInterestCorp"/>
+			<item value="popup/memo/cud"/>
+			<item value="add"/>
+			<item value="openMemoPop"/>
+			<item value="whereReport"/>
+			<item value="whereInterest"/>
+			<item value="userId"/>
+			<item value="getInterest"/>
+			<item value="getMemoPopup"/>
+			<item value="getPortfolio"/>
+			<item value="getinterest"/>
+			<item value="map&lt;"/>
 		</list>
 		<list key="replacehistory">
 			<item value="dartReprtList"/>

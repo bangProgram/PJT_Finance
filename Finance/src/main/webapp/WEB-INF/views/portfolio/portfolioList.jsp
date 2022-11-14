@@ -105,10 +105,10 @@
 		  			"render": function(data, type, row, meta){
 		  				if(row.MEMO != null && row.MEMO != ''){
 		  					if(type === 'display'){
-			  	                data = '<a href="#" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+		  						data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #FFD232; background: #FFD232;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
 			  	            }		  					
 		  				}else{
-		  					data = "없음";
+		  					data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #aeafb9; background: #aeafb9;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
 		  				}
 
 		  	            return data;
@@ -155,6 +155,13 @@
 		})
 	}
 	
+	function openMemoPop(corpCd){
+        var url = "/popup/portfolio/memo?pCorpCd="+corpCd;
+        var name = "포트폴리오 메모 팝업";
+        var option = "width = 505, height = 780, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
+	
 	function openReportPop(reprtNo,reprtNm){
         var url = "https://dart.fss.or.kr/dsaf001/main.do?rcpNo="+reprtNo;
         var name = reprtNm;
@@ -165,7 +172,7 @@
 	function openReportList(corpCd,corpNm){
         var url = "/popup/dart/report/list?corpCd="+corpCd;
         var name = corpNm + " 공시 목록";
-        var option = "width = 1500, height = 1500, top = 100, left = 200, location = no"
+        var option = "width = 1000, height = 700, top = 100, left = 200, location = no"
         window.open(url, name, option);
     }
 	
@@ -266,10 +273,8 @@
 <body>
 <div class="container-fluid">
 	<form name="searchForm" method="post">
-	<input type="hidden" name="pYearList" id="pYearList" value="${yearString}" title="조회 년도 목록">
-	<input type="hidden" name="pQuaterList" id="pQuaterList" value="${quaterString}" title="조회 년도 목록">
-	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="${pStartYear}" title="조회 시작년도">
-	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="${pEndYear}" title="조회 시작년도">
+	<input type="hidden" name="CORP_CODE" id="CORP_CODE" value="" title="기업 코드">
+	<input type="hidden" name="STOCK_CODE" id="STOCK_CODE" value="" title="기업 코드">
 	
 	<input type="hidden" name="corpCds" id="corpCds" value="" title="삭제대상 사업장코드(복수)">
     </form>

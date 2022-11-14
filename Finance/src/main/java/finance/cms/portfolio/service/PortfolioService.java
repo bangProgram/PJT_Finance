@@ -9,6 +9,8 @@ public interface PortfolioService {
 
 	public Map<String, Object> getPortfolio(Map<String, Object> param) throws Exception;
 	
+	public Map<String, Object> getPortCorp(Map<String, Object> param) throws Exception;
+	
 	public List<Map<String, Object>> getPortCorpList(Map<String, Object> param) throws Exception;
 
 	public List<Map<String, Object>> getPortFolioDetail(Map<String, Object> param) throws Exception;
