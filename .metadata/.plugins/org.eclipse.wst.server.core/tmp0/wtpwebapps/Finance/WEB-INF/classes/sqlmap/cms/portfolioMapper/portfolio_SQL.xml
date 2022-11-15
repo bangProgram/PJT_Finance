@@ -54,6 +54,15 @@
 		        <set>
 		         	<if test="MEMO != null and MEMO != '' ">
 						MEMO		=	#{MEMO},
+					</if>
+					<if test="AVG_REVENUE_GROWTH != null and AVG_REVENUE_GROWTH != '' ">
+						AVG_REVENUE_GROWTH		=	#{AVG_REVENUE_GROWTH},
+					</if>
+					<if test="AVG_OPERAT_GROWTH != null and AVG_OPERAT_GROWTH != '' ">
+						AVG_OPERAT_GROWTH		=	#{AVG_OPERAT_GROWTH},
+					</if>
+					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
+						AVG_PROFIT_GROWTH		=	#{AVG_PROFIT_GROWTH},
 					</if> 
 		         	a.CHANGE_ID = #{curUserId},
 		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
@@ -68,6 +77,15 @@
 					<if test="STOCK_CODE != null and STOCK_CODE != '' ">
 						STOCK_CODE,
 					</if>
+					<if test="AVG_REVENUE_GROWTH != null and AVG_REVENUE_GROWTH != '' ">
+						AVG_REVENUE_GROWTH,
+					</if>
+					<if test="AVG_OPERAT_GROWTH != null and AVG_OPERAT_GROWTH != '' ">
+						AVG_OPERAT_GROWTH,
+					</if>
+					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
+						AVG_PROFIT_GROWTH,
+					</if> 
 				    GUBN,
 				    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO	
 				) VALUES (
@@ -77,6 +95,15 @@
 					</if>
 					<if test="STOCK_CODE != null and STOCK_CODE != '' ">
 						#{STOCK_CODE},
+					</if>
+					<if test="AVG_REVENUE_GROWTH != null and AVG_REVENUE_GROWTH != '' ">
+						#{AVG_REVENUE_GROWTH},
+					</if>
+					<if test="AVG_OPERAT_GROWTH != null and AVG_OPERAT_GROWTH != '' ">
+						#{AVG_OPERAT_GROWTH},
+					</if>
+					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
+						#{AVG_PROFIT_GROWTH},
 					</if>
 					'',
 				    #{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),

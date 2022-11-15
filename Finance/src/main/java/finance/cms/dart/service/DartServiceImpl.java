@@ -1,5 +1,6 @@
 package finance.cms.dart.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,10 +28,17 @@ public class DartServiceImpl implements DartService {
 	}
 	
 	@Override
-	public List<Map<String, Object>> getDartList(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"getDartList");
+	public List<Map<String, Object>> getPortListForSchedule(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getPortListForSchedule");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
 	    return resultList;
-
 	}
+	
+	@Override
+	public Integer updatePortForSchedule(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"updatePortForSchedule");
+	    Integer resultInt = (Integer) commonMapper.update(param);
+	    return resultInt;
+	}
+	
 }

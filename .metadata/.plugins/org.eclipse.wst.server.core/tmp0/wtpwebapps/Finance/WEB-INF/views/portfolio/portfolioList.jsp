@@ -5,7 +5,7 @@
 <script type="text/javascript">
 	var toggleChk = true;
 	$(document).ready(function(){
-	
+		
 		$("#portCorpList").dataTable({
 			lengthMenu: [ 12, 18, 24, 30, 36 ],
 		 	data: ${getPortCorpJson},
@@ -35,12 +35,16 @@
 		  	         }	
 		  		},
 		  		{ data: 'CORP_NAME' },
-		  		{ "data": '', 
+		  		{ "data": 'TDD_CLSPRC', 
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
-		  	            if(type === 'display'){
-		  	                data = '';
-		  	            }
+		  				if(row.TDD_CLSPRC != null && row.TDD_CLSPRC != ''){
+		  					if(type === 'display'){
+			  	                data = row.TDD_CLSPRC;
+			  	            }		  					
+		  				}else{
+		  					data = "없음";
+		  				}
 
 		  	            return data;
 		  	         }	
@@ -95,7 +99,7 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	            	data = '<a href="#" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+		  	            	data = '<a href="#" onclick="goPortfolioDetail(\''+row.CORP_CODE+'\')" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
 		  	            }
 
 		  	            return data;
@@ -116,6 +120,7 @@
 		  		}
 		  	]
 		});
+		
 	});
 	
 	function delInterest(corpCd,corpNm,stockCd){
@@ -247,6 +252,18 @@
 			}
 		})
 	}
+	
+	function goPortfolioDetail(corpCd){
+		var frm = document.searchForm;
+		
+		if(!confirm('체크된 사업장을 포트폴리오에서 삭제하시겠습니까?')) return;
+		
+		$("#CORP_CODE").val(corpCd);
+		
+		frm.action = "/portfolio/detail";
+		frm.target = "_blank"
+		frm.submit();
+	}
 </script>
 
 <style>
@@ -327,7 +344,7 @@
 	            </div>
 	            <div class="mt-4 text-center small">
 	                <span class="mr-2">
-	                    <i class="fas fa-circle text-primary"></i> 예치금
+	                    <i class="fas fa-circle text-primary"></i> 예수금
 	                </span>
 	                <span class="mr-2">
 	                    <i class="fas fa-circle text-success"></i> 투자금
@@ -358,7 +375,7 @@
 			            	<td></td>
 							<td>투자의견</td>
 							<td>사업장명</td>
-							<td>현재주가</td>
+							<td>전일종가</td>
 							<td>평균단가</td>
 							<td>보유수량</td>
 							<td>최근공시명</td>

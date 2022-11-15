@@ -31,4 +31,11 @@ public class CommonController {
 		return json;
 	}
 	
+	public static JSONArray mergeJsonArray(JSONArray list1, JSONArray list2) {
+		JSONArray jsonArray = list1;
+		for(int i=0; i<list2.size(); i++) {
+			jsonArray.add(list2.get(i));
+		}
+		return jsonArray;
+	}
 }

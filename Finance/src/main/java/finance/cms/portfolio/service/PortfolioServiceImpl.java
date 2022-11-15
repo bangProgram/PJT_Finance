@@ -55,8 +55,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 	
 	
 	@Override
-	public List<Map<String, Object>> getPortFolioDetail(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"getPortFolioDetail");
+	public List<Map<String, Object>> getPortCorpDetailList(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getPortCorpDetailList");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
 	    return resultList;
 	}

@@ -7,9 +7,9 @@ Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
 This is a continuation of log file C:\PJT_Finance\.metadata\.bak_3.log
-Created Time: 2022-11-14 17:46:29.984
+Created Time: 2022-11-15 16:29:45.401
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.984
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:29:45.401
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -68,7 +68,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -98,7 +98,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.988
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:29:45.405
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -154,7 +154,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -183,11 +183,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:29.988
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:29:45.405
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -287,7 +287,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -342,7 +342,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.989
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:29:45.406
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -401,7 +401,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -431,7 +431,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.993
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:29:45.410
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -487,7 +487,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -516,11 +516,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:29.993
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:29:45.410
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -620,7 +620,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -675,7 +675,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.994
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:29:45.411
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -734,7 +734,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -764,7 +764,25 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.999
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:29:51.027
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:29:51.029
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:31:14.726
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:31:14.749
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:31:38.317
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:31:38.350
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.974
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -820,7 +838,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -849,11 +867,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:29.999
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:17.975
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -953,7 +971,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1008,7 +1026,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:29.999
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.976
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -1067,7 +1085,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1097,7 +1115,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.003
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.981
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -1153,7 +1171,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1182,11 +1200,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.003
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:17.981
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1286,7 +1304,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1341,7 +1359,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.004
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.982
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -1400,7 +1418,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1430,7 +1448,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.007
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.987
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -1486,7 +1504,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1515,11 +1533,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.007
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:17.987
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1619,7 +1637,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1674,7 +1692,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.008
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.988
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -1733,7 +1751,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1763,7 +1781,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.012
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.993
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -1819,7 +1837,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1848,11 +1866,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.012
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:17.994
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -1952,7 +1970,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2007,7 +2025,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.013
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.994
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -2066,7 +2084,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2096,7 +2114,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.016
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.998
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -2152,7 +2170,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2181,11 +2199,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.016
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:17.998
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2285,7 +2303,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2340,7 +2358,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.017
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:17.998
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -2399,7 +2417,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2429,7 +2447,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.020
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.001
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -2485,7 +2503,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2514,11 +2532,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.020
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.002
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2618,7 +2636,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2673,7 +2691,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.021
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.002
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -2732,7 +2750,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2762,7 +2780,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.867
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.007
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -2818,7 +2836,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2847,11 +2865,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.867
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.007
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -2951,7 +2969,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3006,7 +3024,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.869
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.008
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -3065,7 +3083,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3095,7 +3113,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.877
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.011
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -3151,7 +3169,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3180,11 +3198,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.877
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.011
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3284,7 +3302,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3339,7 +3357,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.878
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.012
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -3398,7 +3416,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3428,7 +3446,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.884
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.015
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -3484,7 +3502,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3513,11 +3531,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.884
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.015
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3617,7 +3635,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3672,7 +3690,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.885
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.015
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -3731,7 +3749,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3761,7 +3779,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.892
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.020
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -3817,7 +3835,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3846,11 +3864,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.892
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.020
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -3950,7 +3968,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4005,7 +4023,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.893
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.021
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -4064,7 +4082,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4094,7 +4112,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.896
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.024
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -4150,7 +4168,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4179,11 +4197,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.896
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.024
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4283,7 +4301,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4338,7 +4356,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.897
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.025
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -4397,7 +4415,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4427,7 +4445,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.900
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.028
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -4483,7 +4501,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4512,11 +4530,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.900
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.028
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4616,7 +4634,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4671,7 +4689,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.901
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.029
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -4730,7 +4748,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4760,7 +4778,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.912
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.033
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -4816,7 +4834,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4845,11 +4863,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.913
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.033
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -4949,7 +4967,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5004,7 +5022,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.913
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.034
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -5063,7 +5081,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5093,7 +5111,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.916
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.037
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -5149,7 +5167,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5178,11 +5196,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.916
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.037
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5282,7 +5300,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5337,7 +5355,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.917
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.038
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -5396,7 +5414,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5426,7 +5444,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.921
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.041
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -5482,7 +5500,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5511,11 +5529,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.921
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.041
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5615,7 +5633,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5670,7 +5688,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.922
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.042
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -5729,7 +5747,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5759,7 +5777,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.927
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.057
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -5815,7 +5833,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5844,11 +5862,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.928
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.057
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -5948,7 +5966,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6003,7 +6021,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.929
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.058
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -6062,7 +6080,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6092,7 +6110,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.933
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.061
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -6148,7 +6166,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6177,11 +6195,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.933
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.061
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6281,7 +6299,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6336,7 +6354,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.934
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.062
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -6395,7 +6413,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6425,7 +6443,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.938
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.065
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -6481,7 +6499,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6510,11 +6528,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.938
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.065
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6614,7 +6632,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6669,7 +6687,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.939
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.065
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -6728,7 +6746,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6758,7 +6776,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.943
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.074
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -6814,7 +6832,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6843,11 +6861,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.943
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.074
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -6947,7 +6965,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7002,7 +7020,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.944
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.075
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -7061,7 +7079,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7091,7 +7109,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.949
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.077
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -7147,7 +7165,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7176,11 +7194,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.949
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.078
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7280,7 +7298,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7335,7 +7353,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.950
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.078
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -7394,7 +7412,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7424,7 +7442,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.954
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.081
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -7480,7 +7498,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7509,11 +7527,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:30.954
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:18.081
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7613,7 +7631,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7668,7 +7686,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:30.955
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:18.082
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -7727,7 +7745,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7757,7 +7775,13 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.591
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:21.767
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:21.769
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:21.952
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -7813,7 +7837,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7842,11 +7866,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.591
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:21.953
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -7946,7 +7970,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8001,7 +8025,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.592
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:21.957
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -8060,7 +8084,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8090,7 +8114,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.595
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:21.960
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -8146,7 +8170,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8175,11 +8199,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.595
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:21.961
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8279,7 +8303,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8334,7 +8358,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.596
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:21.961
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -8393,7 +8417,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8423,7 +8447,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.599
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:21.965
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -8479,7 +8503,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8508,11 +8532,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.599
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:21.965
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8612,7 +8636,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8667,7 +8691,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.600
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:21.966
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -8726,7 +8750,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8756,7 +8780,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.604
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.320
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -8812,7 +8836,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8841,11 +8865,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.604
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:22.320
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -8945,7 +8969,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9000,7 +9024,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.605
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.321
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -9059,7 +9083,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9089,7 +9113,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.608
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.326
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -9145,7 +9169,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9174,11 +9198,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.608
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:22.327
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9278,7 +9302,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9333,7 +9357,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.609
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.327
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -9392,7 +9416,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9422,7 +9446,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.612
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.330
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -9478,7 +9502,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9507,11 +9531,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.612
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:22.331
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9611,7 +9635,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9666,7 +9690,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.613
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.331
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -9725,7 +9749,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9755,7 +9779,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.617
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.335
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -9811,7 +9835,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9840,11 +9864,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.617
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:22.335
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9944,7 +9968,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -9999,7 +10023,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.618
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.336
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -10058,7 +10082,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10088,7 +10112,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.621
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.339
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -10144,7 +10168,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10173,11 +10197,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.621
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:22.339
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10277,7 +10301,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10332,7 +10356,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.622
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.340
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -10391,7 +10415,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10421,7 +10445,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.626
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.344
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -10477,7 +10501,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10506,11 +10530,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.626
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:32:22.344
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10610,7 +10634,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10665,7 +10689,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.626
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:32:22.345
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -10724,7 +10748,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10754,7 +10778,25 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.631
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:32.687
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:33.389
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:33.474
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:47.391
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:47.674
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-11-15 16:32:47.705
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:34:46.629
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -10810,7 +10852,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10839,11 +10881,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.631
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:34:46.629
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10943,7 +10985,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -10998,7 +11040,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.632
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:34:46.631
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -11057,7 +11099,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11087,7 +11129,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.635
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:34:46.638
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -11143,7 +11185,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11172,11 +11214,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.636
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:34:46.638
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11276,7 +11318,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11331,7 +11373,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.637
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:34:46.639
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -11390,7 +11432,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11420,7 +11462,7 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.640
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:34:46.645
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 1
 org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
@@ -11476,7 +11518,7 @@ org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebdeveloper.xm
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11505,11 +11547,11 @@ Caused by: java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
 	... 54 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-14 17:46:31.640
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2022-11-15 16:34:46.645
 !MESSAGE Plug-in "org.eclipse.wildwebdeveloper.xml" was unable to instantiate class "org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer".
 !STACK 0
 java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11609,7 +11651,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.computeJavaPath(XMLLanguageServer.java:160)
 	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.<init>(XMLLanguageServer.java:81)
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
@@ -11664,7 +11706,7 @@ java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Program Fil
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
 
-!ENTRY org.eclipse.lsp4e 4 0 2022-11-14 17:46:31.641
+!ENTRY org.eclipse.lsp4e 4 0 2022-11-15 16:34:46.646
 !MESSAGE Exception occurred while creating an instance of the stream connection provider
 !STACK 0
 java.lang.RuntimeException: Exception occurred while creating an instance of the stream connection provider
@@ -11723,7 +11765,7 @@ Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.wildwebd
 	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.createConnectionProvider(LanguageServersRegistry.java:129)
 	... 45 more
 Caused by: java.lang.reflect.InvocationTargetException
-	at jdk.internal.reflect.GeneratedConstructorAccessor102.newInstance(Unknown Source)
+	at jdk.internal.reflect.GeneratedConstructorAccessor159.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)

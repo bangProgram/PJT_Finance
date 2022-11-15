@@ -13,7 +13,7 @@ public interface PortfolioService {
 	
 	public List<Map<String, Object>> getPortCorpList(Map<String, Object> param) throws Exception;
 
-	public List<Map<String, Object>> getPortFolioDetail(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getPortCorpDetailList(Map<String, Object> param) throws Exception;
 
 	public Integer insertPortfolioCorp(Map<String, Object> param) throws Exception;
 

@@ -30,9 +30,9 @@ public class CorporationServiceImpl implements CorporationService {
 	}
 	
 	@Override
-	public Map<String, Object> getCorporationGrowth(Map<String, Object> param) throws Exception {
+	public List<Map<String, Object>> getCorporationGrowth(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getCorporationGrowth");
-	    Map<String, Object> resultList = commonMapper.get(param);
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
 	    return resultList;
 
 	}
