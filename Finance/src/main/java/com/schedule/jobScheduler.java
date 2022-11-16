@@ -18,7 +18,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,12 +30,13 @@ import com.schedule.service.SchedulerService;
 import finance.cms.dart.service.DartService;
 import finance.common.Controller.CommonController;
 
-
+@Service
 public class jobScheduler {
 
-	private SchedulerService schedulerService;
+	@Autowired(required=false)
+	private DartService dartService;
 	
-	@Resource(name="CommonController")
+	@Autowired(required=false)
 	private CommonController commonController;
 	
 	// 매주 토요일 새벽 3시에 자동으로 시작하는 스케쥴러
@@ -49,7 +53,7 @@ public class jobScheduler {
 		Map<String, Object> paramtest = new HashMap<String, Object> ();
 		System.out.println("test1111");
 		paramtest.put("test", "test");
-		List<Map<String,Object>> getPortListForSchedule = schedulerService.getPortListForSchedule(paramtest);
+		List<Map<String,Object>> getPortListForSchedule = dartService.getPortListForSchedule(paramtest);
 		
 		String infoKospi = "http://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd.json?" ;
 		String infoKodaq = "http://data-dbg.krx.co.kr/svc/apis/sto/ksq_bydd_trd.json?" ;
@@ -87,7 +91,7 @@ public class jobScheduler {
 			            if(ISU_CD.equals(stockCd)) {
 			            	param.put("TDD_CLSPRC", TDD_CLSPRC);
 			            	param.put("LIST_SHRS", LIST_SHRS);
-			            	resultInt += schedulerService.updatePortForSchedule(param);
+			            	resultInt += dartService.updatePortForSchedule(param);
 			            }else {
 			            	continue;
 			            }

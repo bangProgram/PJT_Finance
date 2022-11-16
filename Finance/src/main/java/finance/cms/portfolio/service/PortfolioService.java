@@ -21,5 +21,9 @@ public interface PortfolioService {
 
 	public Integer inertPortfolioAsset(Map<String, Object> param) throws Exception;
 
+	public Integer addPortfolioDetail(Map<String, Object> param) throws Exception;
+	
+	public Integer delPortfolioDetail(Map<String, Object> param) throws Exception;
+
 	
 }

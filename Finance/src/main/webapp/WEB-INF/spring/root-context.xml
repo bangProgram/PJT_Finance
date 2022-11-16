@@ -32,19 +32,47 @@
 	<bean id="sqlSessionFactory" class="com.myBatis.RefreshableSqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource"></property>
 	    <property name="configLocation" value="classpath:mybatis-config.xml"></property>
-	    <property name="mapperLocations" value ="classpath:/sqlmap/cms/**/*_SQL.xml"/> 
+	    <property name="mapperLocations">
+	    	<list>
+	    		<value>classpath:/sqlmap/cms/**/*_SQL.xml</value>
+	    		<value>classpath:/sqlmap/com/**/*_SQL.xml</value>
+	    		<value>classpath:/sqlmap/app/**/*_SQL.xml</value>
+	    	</list>
+	    </property> 
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
     	<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean> 
 	
-	<bean id="scheduler" class="finance.cms.schedule.jobScheduler" />
+	<!-- 	
+	<bean id="scheduler" class="com.schedule.jobScheduler" />
 	<task:scheduler id="baseScheduler" pool-size="10" />
 
 	<task:scheduled-tasks scheduler="baseScheduler">
-		<!-- <task:scheduled ref="scheduler" method="autoUpdate" cron="0 0 5 * * MON-FRI" /> -->
 		<task:scheduled ref="scheduler" method="autoUpdate" cron="*/30 * * * * *" />
 	</task:scheduled-tasks>
+	
+	 -->
+	 
+    <!-- job bean -->
+    <context:component-scan base-package="com"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="finance"/>
+    <bean id="scheduleJob" class="com.schedule.jobScheduler" />
+    <task:scheduled-tasks> <!-- scheduled job list -->
+        <task:scheduled ref="scheduleJob" method="autoUpdate" cron="0 */10 * * * *"/>
+        <!-- add more job here -->
+    </task:scheduled-tasks> 
+	 
+	<!--  
+	<context:component-scan base-package="com.schedule.jobScheduler"/>
+	<task:scheduler id="jobScheduler" pool-size="10" />
+	<task:annotation-driven scheduler="jobScheduler"/>
+	<task:scheduled-tasks scheduler="jobScheduler">
+		
+		<task:scheduled ref="scheduler" method="autoUpdate" cron="*/30 * * * * *" />
+	</task:scheduled-tasks>
+	 -->
 </beans>
 

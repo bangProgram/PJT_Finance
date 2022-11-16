@@ -81,4 +81,19 @@ public class PortfolioServiceImpl implements PortfolioService {
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}
+	
+	@Override
+	public Integer addPortfolioDetail(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"addPortfolioDetail");
+	    Integer resultInt = (Integer) commonMapper.insert(param);
+	    return resultInt;
+	}
+	
+	@Override
+	public Integer delPortfolioDetail(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"delPortfolioDetail");
+	    Integer resultInt = (Integer) commonMapper.delete(param);
+	    return resultInt;
+	}
+	
 }

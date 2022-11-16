@@ -25,7 +25,6 @@ INDEX VERSION 1.131+C:\PJT_Finance\.metadata\.plugins\org.eclipse.jdt.core
 1519375899.index
 1254202235.index
 4247518469.index
-3528626113.index
 1890440513.index
 3139252766.index
 3269999251.index
@@ -52,7 +51,6 @@ INDEX VERSION 1.131+C:\PJT_Finance\.metadata\.plugins\org.eclipse.jdt.core
 1831416966.index
 3675975041.index
 1844972663.index
-1479911627.index
 2343524061.index
 3304741876.index
 3460880079.index

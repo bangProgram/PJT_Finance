@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 import finance.common.mapper.CommonMapper;
 
-
+@Service("schedulerService")
 public class SchedulerServiceImpl implements SchedulerService {
-	
+	/**
 	@Resource(name="CommonMapper")
 	private CommonMapper commonMapper;
 	
@@ -32,4 +32,5 @@ public class SchedulerServiceImpl implements SchedulerService {
 	    Integer resultInt = (Integer) commonMapper.update(param);
 	    return resultInt;
 	}
+	**/
 }

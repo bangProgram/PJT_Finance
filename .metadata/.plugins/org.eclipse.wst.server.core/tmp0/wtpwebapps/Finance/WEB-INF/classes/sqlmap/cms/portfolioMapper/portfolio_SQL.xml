@@ -23,7 +23,12 @@
 	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
 	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT
 	    	,TO_CHAR(MEMO) AS MEMO,
-	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE
+	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE,
+	    	nvl(ESTIMATE_EPS,'미추정') ESTIMATE_EPS,
+	    	nvl(AVG_REVENUE_GROWTH,'0') AVG_REVENUE_GROWTH,
+	    	nvl(AVG_OPERAT_GROWTH,'0') AVG_OPERAT_GROWTH,
+	    	nvl(AVG_PROFIT_GROWTH,'0') AVG_PROFIT_GROWTH,
+	    	BEF_CLS_PRICE,SHARES_AMOUNT
 	    from TB_PORTFOLIO_CORP A
 	    WHERE 1=1
 	    	<include refid = "wherePortfolio"/>
@@ -34,8 +39,25 @@
 	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
 	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT
 	    	,TO_CHAR(MEMO) AS MEMO,
-	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE
+	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE,
+	    	ESTIMATE_EPS,AVG_REVENUE_GROWTH,AVG_OPERAT_GROWTH,AVG_PROFIT_GROWTH,
+	    	BEF_CLS_PRICE,SHARES_AMOUNT
 	    from TB_PORTFOLIO_CORP A
+	    WHERE 1=1
+	    	<include refid = "wherePortfolio"/>
+	    	
+	</select>
+	
+	<select id="getPortCorpDetailList" parameterType="Map" resultType="HashMap">  
+	    select 
+	    	SEQ,
+	    	CORP_CODE,USER_ID,
+	    	GUBN, fun_getCodeNm(GUBN,'0001') as GUBN_NM,
+	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,
+	    	MEMO,
+	    	BUY_QUANTITY,SELL_QUANTITY,BUY_AMOUNT,SELL_AMOUNT,
+	    	RETURN_AMOUNT,TRADE_DATE,TRADE_PRICE
+	    from TB_PORTFOLIO_CORP_DETAIL A
 	    WHERE 1=1
 	    	<include refid = "wherePortfolio"/>
 	    	
@@ -175,7 +197,7 @@
 	    
 	</insert>
 	
-	<insert id="deletePortfolioCorp" parameterType="hashMap"  >  
+	<delete id="deletePortfolioCorp" parameterType="hashMap"  >  
 	    DELETE  TB_PORTFOLIO_CORP 
 	    WHERE 1=1
 	    <if test="delCorpCnt != 0 ">
@@ -185,5 +207,42 @@
 			</foreach>
 		</if>
 	    AND USER_ID = 'SYSTEM_JB'
+	</delete>
+	
+	<insert id="addPortfolioDetail" parameterType="hashMap"  >  
+		BEGIN
+		    INSERT INTO TB_PORTFOLIO_CORP_DETAIL (
+		    	SEQ,CORP_CODE,USER_ID,
+		    	GUBN,
+		    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,
+		    	MEMO,
+		    	BUY_QUANTITY,SELL_QUANTITY,
+		    	BUY_AMOUNT,SELL_AMOUNT,
+		    	RETURN_AMOUNT,
+		    	TRADE_DATE,TRADE_PRICE
+		    ) VALUES (
+		    	(SELECT NVL(MAX(SEQ),0)+1 FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE=#{CORP_CODE} AND USER_ID=#{curUserId}),
+		    	#{CORP_CODE},#{curUserId},
+		    	#{gubn},
+		    	#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+		    	#{MEMO},
+		    	#{BUY_QUANTITY},#{SELL_QUANTITY},
+		    	#{BUY_AMOUNT},#{SELL_AMOUNT},
+		    	#{RETURN_AMOUNT},
+		    	#{TRADE_DATE},#{TRADE_PRICE}
+		    )
+		    ;
+		
+			UPDATE TB_PORTFOLIO_CORP SET HOLD_QUANTITY = #{HOLD_QUANTITY}, AVR_PRICE = #{AVR_PRICE} 
+			WHERE CORP_CODE = #{CORP_CODE}
+			AND USER_ID = #{curUserId}
+			;
+		END;
 	</insert>
+	
+	<delete id="delPortfolioDetail" parameterType="hashMap"  >  
+	    DELETE  TB_PORTFOLIO_CORP 
+	    WHERE 1=1
+	    AND USER_ID = #{curUserId}
+	</delete>
 </mapper>

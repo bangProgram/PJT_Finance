@@ -1,7 +1,10 @@
 package finance.common.Controller;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -12,6 +15,23 @@ import org.springframework.stereotype.Repository;
 
 @Repository("CommonController")
 public class CommonController {
+	
+	public Map<String, Object> init( Map<String, Object> map) throws Exception{
+		Set<String> set = map.keySet();
+		Iterator<String> it = set.iterator();
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		while(it.hasNext()) {
+			String key = it.next();
+			if(map.get(key) == null) {
+				returnMap.put(key, "");
+			}else {
+				returnMap.put(key, map.get(key).toString().replace("<", "&lt;").replace(">", "&gt;").toString());
+			}
+		}
+		
+		return returnMap;
+	}
 
 	public static JSONArray convertListToJson(List<Map<String, Object>> list) {
 		JSONArray jsonArray = new JSONArray();

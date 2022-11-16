@@ -35,12 +35,12 @@
 		  	         }	
 		  		},
 		  		{ data: 'CORP_NAME' },
-		  		{ "data": 'TDD_CLSPRC', 
+		  		{ "data": 'BEF_CLS_PRICE', 
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
-		  				if(row.TDD_CLSPRC != null && row.TDD_CLSPRC != ''){
+		  				if(row.BEF_CLS_PRICE != null && row.BEF_CLS_PRICE != ''){
 		  					if(type === 'display'){
-			  	                data = row.TDD_CLSPRC;
+			  	                data = row.BEF_CLS_PRICE;
 			  	            }		  					
 		  				}else{
 		  					data = "없음";
@@ -256,9 +256,7 @@
 	function goPortfolioDetail(corpCd){
 		var frm = document.searchForm;
 		
-		if(!confirm('체크된 사업장을 포트폴리오에서 삭제하시겠습니까?')) return;
-		
-		$("#CORP_CODE").val(corpCd);
+		$("#pCorpCd").val(corpCd);
 		
 		frm.action = "/portfolio/detail";
 		frm.target = "_blank"
@@ -292,6 +290,8 @@
 	<form name="searchForm" method="post">
 	<input type="hidden" name="CORP_CODE" id="CORP_CODE" value="" title="기업 코드">
 	<input type="hidden" name="STOCK_CODE" id="STOCK_CODE" value="" title="기업 코드">
+	
+	<input type="hidden" name="pCorpCd" id="pCorpCd" value="" title="검색용 기업 코드">
 	
 	<input type="hidden" name="corpCds" id="corpCds" value="" title="삭제대상 사업장코드(복수)">
     </form>
