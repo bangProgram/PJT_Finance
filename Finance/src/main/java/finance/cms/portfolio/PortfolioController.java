@@ -10,8 +10,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -183,7 +185,7 @@ public class PortfolioController {
 		
 		System.out.println("JB : "+commandMap.toString());
 		
-		Integer resultInt = portfolioService.inertPortfolioAsset(commandMap);
+		Integer resultInt = portfolioService.insertPortfolioAsset(commandMap);
 		Map<String, Object> resultData = portfolioService.getPortfolio(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
@@ -236,9 +238,26 @@ public class PortfolioController {
 	    Map<String, Object> result = new HashMap<String, Object>();
 	    
 	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "redirect:/portfolio/detail";
+	    String resultURL = "redirect:/portfolio/detail?pCorpCd="+commandMap.get("pCorpCd").toString();
 	    mav.setViewName(resultURL);
 	    
 	    return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value={"/portfolio/regOpinonAmt/ajax"} , method = RequestMethod.POST)
+	public Map<String, Object> regOpinonAmt(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = commonController.init(commandMap);
+		
+		LocalDate now = LocalDate.now();
+		
+		System.out.println("JB : "+commandMap.toString());
+		commandMap.put("curUserId", "SYSTEM_JB");
+		
+		Integer resultInt = portfolioService.insertPortfolioCorp(commandMap);
+		
+	    Map<String, Object> result = new HashMap<String, Object>();
+	    result.put("resultInt", resultInt);
+	    
+	    return result;
 	}
 }

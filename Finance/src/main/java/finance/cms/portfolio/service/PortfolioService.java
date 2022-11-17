@@ -19,11 +19,13 @@ public interface PortfolioService {
 
 	public Integer deletePortfolioCorp(Map<String, Object> param) throws Exception;
 
-	public Integer inertPortfolioAsset(Map<String, Object> param) throws Exception;
+	public Integer insertPortfolioAsset(Map<String, Object> param) throws Exception;
 
 	public Integer addPortfolioDetail(Map<String, Object> param) throws Exception;
 	
 	public Integer delPortfolioDetail(Map<String, Object> param) throws Exception;
+
+	public Integer insertPortfolioOpinonAmt(Map<String, Object> param) throws Exception;
 
 	
 }

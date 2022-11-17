@@ -1,46 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="MEMO"/>
+		<item key="selection" value="&lt;c:out value=&quot;${resultData.MEMO }&quot;/&gt;"/>
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="true"/>
+		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="MEMO"/>
-			<item value="curUserId"/>
-			<item value="CORP_CODE"/>
-			<item value="insertInterestCorp"/>
-			<item value="popup/memo/cud"/>
-			<item value="add"/>
-			<item value="openMemoPop"/>
-			<item value="whereReport"/>
-			<item value="whereInterest"/>
-			<item value="userId"/>
-			<item value="getInterest"/>
-			<item value="getMemoPopup"/>
-			<item value="getPortfolio"/>
-			<item value="getinterest"/>
-			<item value="map&lt;"/>
+			<item value="&lt;c:out value=&quot;${resultData.MEMO }&quot;/&gt;"/>
+			<item value="text-success"/>
+			<item value="text-info"/>
+			<item value="border-left-success"/>
+			<item value="getPortCorp"/>
+			<item value="earnin"/>
+			<item value="earn"/>
+			<item value="ear"/>
+			<item value="TRADE_PRICE"/>
+			<item value="&quot;B&quot;"/>
+			<item value="&quot;S&quot;"/>
+			<item value="&apos;S&apos;"/>
+			<item value="&apos;B&apos;"/>
+			<item value="HOLD_QUANTITY"/>
+			<item value="AVR_PRICE"/>
 		</list>
 		<list key="replacehistory">
-			<item value="dartReprtList"/>
-			<item value="REPORT"/>
-			<item value="getDartReportJson"/>
-			<item value="getDartReportList"/>
-			<item value="} ,#{"/>
-			<item value=",#{"/>
+			<item value="text-info"/>
+			<item value="border-left-info"/>
+			<item value="&quot;0101&quot;"/>
+			<item value="&quot;0102&quot;"/>
+			<item value="&apos;0102&apos;"/>
+			<item value="&apos;0101&apos;"/>
+			<item value="&apos;B&apos;"/>
 			<item value=""/>
-			<item value="getReprtCorpCode"/>
-			<item value="pQuaterList"/>
-			<item value="reprtList"/>
-			<item value="td"/>
+			<item value="curUserId"/>
+			<item value="},#{"/>
+			<item value="#cad8ff"/>
+			<item value="dartService"/>
+			<item value="schedulerService"/>
+			<item value="DartService"/>
+			<item value="getPortListForSchedule"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1394"/>
-		<item key="DIALOG_Y_ORIGIN" value="371"/>
+		<item key="DIALOG_X_ORIGIN" value="937"/>
+		<item key="DIALOG_Y_ORIGIN" value="497"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

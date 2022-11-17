@@ -32,29 +32,29 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="UESR_ID"/>
+			<item key="textPattern" value="getPortCorpDetailList"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*.xml"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="EXTENSIONS">
-			<item key="0" value="*.java"/>
-			<item key="1" value="*.xml"/>
-			<item key="2" value="*.js"/>
-			<item key="3" value="*.jsp"/>
+			<item key="0" value="*.xml"/>
+			<item key="1" value="*.jsp"/>
+			<item key="2" value="*.java"/>
+			<item key="3" value="*.js"/>
 			<item key="4" value="*.ㅓㄴ"/>
 		</section>
 		<section name="HISTORY1">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="insertInterestCorp"/>
+			<item key="textPattern" value="StringF"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.xml"/>
+				<item value="*.jsp"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -63,10 +63,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="insertPortfolioCorp"/>
+			<item key="textPattern" value="getPortCorpList"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*.xml"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -75,10 +75,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="getInterest"/>
+			<item key="textPattern" value="mysql"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*.xml"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -87,10 +87,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="getPortfolio"/>
+			<item key="textPattern" value="com.mysql"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*.xml"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -99,7 +99,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="curUserId"/>
+			<item key="textPattern" value="new"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -111,10 +111,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="{guserId"/>
+			<item key="textPattern" value="new SchedulerService"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.xml"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -123,10 +123,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="{userId"/>
+			<item key="textPattern" value="getPortListForSchedule"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.xml"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -135,7 +135,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="&quot;userId"/>
+			<item key="textPattern" value="CommonMapper"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -147,7 +147,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="popup/dart/report/list"/>
+			<item key="textPattern" value="dartService"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -159,10 +159,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="SYSTEM"/>
+			<item key="textPattern" value="update"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.xml"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -171,10 +171,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="SYSTEM_JB"/>
+			<item key="textPattern" value="portfolio/add/cud"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.xml"/>
+				<item value="*.jsp"/>
 			</list>
 			<list key="workingSets">
 			</list>

@@ -198,7 +198,15 @@
 					SELECT 
 					    2 AS "SEQ",
 					    <foreach collection="pYearList" item="item" index="index">
-							NVL(sum(DECODE(bsns_year ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))),0) AS RATE_${index},
+					    	<![CDATA[          	
+							NVL(sum(DECODE(bsns_year ,#{item},ROUND( case 
+                                        when ACC_NET_AMOUNT > 0 and LEAD_ACC_NET_AMOUNT < 0 
+                                        then - ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        else ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        end
+                                    ,
+                                 2))),0) AS RATE_${index},
+							]]>
 						</foreach>
 					    stock_code , corp_name , account_id, corp_code
 					FROM (
@@ -250,7 +258,15 @@
 			        SELECT
 			            2 AS "SEQ",
 			            <foreach collection="pQuaterList" item="item" index="index">
-							SUM(decode(HADER_NM,#{item},round(((acc_net_amount - lead_acc_net_amount) / decode(lead_acc_net_amount, 0, NULL, lead_acc_net_amount) * 100),2))) AS ${item},
+			            	<![CDATA[          	
+							SUM(decode(HADER_NM,#{item},ROUND( case 
+                                        when ACC_NET_AMOUNT > 0 and LEAD_ACC_NET_AMOUNT < 0 
+                                        then - ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        else ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        end
+                                    ,
+                                 2))) AS ${item},
+							]]>
 						</foreach>
 			            corp_code, corp_name, account_id, STOCK_CODE
 			        FROM (

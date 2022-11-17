@@ -76,8 +76,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public Integer inertPortfolioAsset(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"inertPortfolioAsset");
+	public Integer insertPortfolioAsset(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"insertPortfolioAsset");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}
@@ -96,4 +96,10 @@ public class PortfolioServiceImpl implements PortfolioService {
 	    return resultInt;
 	}
 	
+	@Override 
+	public Integer insertPortfolioOpinonAmt(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"insertPortfolioOpinonAmt");
+	    Integer resultInt = (Integer) commonMapper.insert(param);
+	    return resultInt;
+	}
 }

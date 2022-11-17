@@ -23,12 +23,15 @@
 	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
 	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT
 	    	,TO_CHAR(MEMO) AS MEMO,
-	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE,
+	    	NVL(INVEST_OPINION,'미추정') INVEST_OPINION,
+	    	TO_CHAR(HOLD_QUANTITY,'FM999,999,999,999') AS HOLD_QUANTITY,
+	    	TO_CHAR(ROUND(AVR_PRICE,2),'FM999,999,999,999') AS AVR_PRICE,
 	    	nvl(ESTIMATE_EPS,'미추정') ESTIMATE_EPS,
 	    	nvl(AVG_REVENUE_GROWTH,'0') AVG_REVENUE_GROWTH,
 	    	nvl(AVG_OPERAT_GROWTH,'0') AVG_OPERAT_GROWTH,
 	    	nvl(AVG_PROFIT_GROWTH,'0') AVG_PROFIT_GROWTH,
-	    	BEF_CLS_PRICE,SHARES_AMOUNT
+	    	TO_CHAR(BEF_CLS_PRICE,'FM999,999,999,999') AS BEF_CLS_PRICE,
+	    	TO_CHAR(SHARES_AMOUNT,'FM999,999,999,999') AS SHARES_AMOUNT
 	    from TB_PORTFOLIO_CORP A
 	    WHERE 1=1
 	    	<include refid = "wherePortfolio"/>
@@ -86,6 +89,21 @@
 					<if test="AVG_PROFIT_GROWTH != null and AVG_PROFIT_GROWTH != '' ">
 						AVG_PROFIT_GROWTH		=	#{AVG_PROFIT_GROWTH},
 					</if> 
+					<if test="OPINION_AMOUNT1 != null and OPINION_AMOUNT1 != '' ">
+						OPINION_AMOUNT1		=	#{OPINION_AMOUNT1},
+					</if>
+					<if test="OPINION_AMOUNT2 != null and OPINION_AMOUNT2 != '' ">
+						OPINION_AMOUNT2		=	#{OPINION_AMOUNT2},
+					</if>
+					<if test="OPINION_AMOUNT3 != null and OPINION_AMOUNT3 != '' ">
+						OPINION_AMOUNT3		=	#{OPINION_AMOUNT3},
+					</if> 
+					<if test="OPINION_AMOUNT4 != null and OPINION_AMOUNT4 != '' ">
+						OPINION_AMOUNT4		=	#{OPINION_AMOUNT4},
+					</if>
+					<if test="OPINION_AMOUNT5 != null and OPINION_AMOUNT5 != '' ">
+						OPINION_AMOUNT5		=	#{OPINION_AMOUNT5},
+					</if>
 		         	a.CHANGE_ID = #{curUserId},
 		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
 				</set>
@@ -143,7 +161,7 @@
 	    
 	</insert>
 	
-	<insert id="inertPortfolioAsset" parameterType="Map"  >  
+	<insert id="insertPortfolioAsset" parameterType="Map"  >  
 		MERGE 
 		 	INTO TB_PORTFOLIO a
 		USING dual
@@ -233,7 +251,9 @@
 		    )
 		    ;
 		
-			UPDATE TB_PORTFOLIO_CORP SET HOLD_QUANTITY = #{HOLD_QUANTITY}, AVR_PRICE = #{AVR_PRICE} 
+			UPDATE TB_PORTFOLIO_CORP SET 
+				HOLD_QUANTITY = (SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{CORP_CODE} AND USER_ID = #{curUserId}), 
+				AVR_PRICE = ( SELECT SUM(NVL(BUY_AMOUNT,0)) / ( SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) ) FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE = #{CORP_CODE} AND USER_ID = #{curUserId})
 			WHERE CORP_CODE = #{CORP_CODE}
 			AND USER_ID = #{curUserId}
 			;
@@ -245,4 +265,5 @@
 	    WHERE 1=1
 	    AND USER_ID = #{curUserId}
 	</delete>
+	
 </mapper>

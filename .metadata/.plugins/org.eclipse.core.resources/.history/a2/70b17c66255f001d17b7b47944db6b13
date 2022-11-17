@@ -1,5 +1,0 @@
-package finance.cms.dart.service;
-
-public interface DartService {
-
-}

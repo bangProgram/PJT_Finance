@@ -19,7 +19,15 @@
 		FROM
 		    (
 		    SELECT
-		        ROUND((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100,2) AS GROWTH,
+		    	<![CDATA[          	
+		        ROUND( case 
+                                        when ACC_NET_AMOUNT > 0 and LEAD_ACC_NET_AMOUNT < 0 
+                                        then - ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        else ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        end
+                                    ,
+                                 2) AS GROWTH,
+		        ]]>
 		        STOCK_CODE,
 		        CORP_NAME,
 		        ACCOUNT_ID,
