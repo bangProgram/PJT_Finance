@@ -302,6 +302,25 @@
 	
 	<insert id="addPortfolioDetail" parameterType="hashMap"  >  
 		BEGIN
+			
+			<if test="gubn == '0101'">
+				UPDATE TB_PORTFOLIO_CORP
+			    SET
+			        AVR_PRICE = (
+			            SELECT
+			                ( ( (A.AVR_PRICE * A.HOLD_QUANTITY) + TO_NUMBER(#{BUY_AMOUNT})  ) / (A.HOLD_QUANTITY + TO_NUMBER(#{BUY_QUANTITY}) ) )
+			            FROM
+			                TB_PORTFOLIO_CORP A
+			            WHERE
+			                    CORP_CODE = #{CORP_CODE}
+			                AND USER_ID = #{curUserId}
+			        )
+			    WHERE
+			            CORP_CODE = #{CORP_CODE}
+			        AND USER_ID = #{curUserId}
+				;
+			</if>	
+			
 		    INSERT INTO TB_PORTFOLIO_CORP_DETAIL (
 		    	SEQ,CORP_CODE,USER_ID,
 		    	GUBN,
@@ -324,45 +343,39 @@
 		    )
 		    ;
 			
-			<if test="gubn == '0101' ">
-				UPDATE TB_PORTFOLIO_CORP a SET 
-					AVR_PRICE = ( (a.AVR_PRICE*a.HOLD_QUANTITY) +  (to_number(#{BUY_AMOUNT})*to_number(#{BUY_QUANTITY})) ) / (a.HOLD_QUANTITY + to_number(#{BUY_QUANTITY})))
-				WHERE CORP_CODE = #{CORP_CODE}
-				AND USER_ID = #{curUserId}
-			;
-			</if>
-			
 			UPDATE TB_PORTFOLIO_CORP SET 
 				HOLD_QUANTITY = (SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{CORP_CODE} AND USER_ID = #{curUserId}) 
 			WHERE CORP_CODE = #{CORP_CODE}
 			AND USER_ID = #{curUserId}
 			;
+		
 		END;
 	</insert>
 	
 	<delete id="delPortfolioDetail" parameterType="hashMap"  >  
-	    DELETE  TB_PORTFOLIO_CORP_DETAIL 
-	    WHERE 1=1
-	    AND CORP_CODE = #{CORP_CODE}
-	    AND USER_ID = #{curUserId}
-	    AND SEQ IN 
+		BEGIN
+		    DELETE  TB_PORTFOLIO_CORP_DETAIL 
+		    WHERE 1=1
+		    AND CORP_CODE = #{CORP_CODE}
+		    AND USER_ID = #{curUserId}
+		    AND SEQ IN 
 			<foreach collection="delSEQs" item="item" open="(" close=")" separator=",">
 				#{item}
 			</foreach>
-		
-		<if test="gubn == '0101' ">
-				UPDATE TB_PORTFOLIO_CORP a SET 
-					AVR_PRICE = ( (a.AVR_PRICE*a.HOLD_QUANTITY) +  (to_number(#{BUY_AMOUNT})*to_number(#{BUY_QUANTITY})) ) / (a.HOLD_QUANTITY + to_number(#{BUY_QUANTITY})))
-				WHERE CORP_CODE = #{CORP_CODE}
-				AND USER_ID = #{curUserId}
 			;
-		</if>
 			
 			UPDATE TB_PORTFOLIO_CORP SET 
 				HOLD_QUANTITY = (SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{CORP_CODE} AND USER_ID = #{curUserId}) 
 			WHERE CORP_CODE = #{CORP_CODE}
 			AND USER_ID = #{curUserId}
 			;
+			
+			UPDATE TB_PORTFOLIO_CORP a SET 
+				AVR_PRICE =  ( SELECT (SUM(BUY_AMOUNT) / SUM(BUY_QUANTITY)) FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE = #{CORP_CODE} AND USER_ID = #{curUserId} )
+			WHERE CORP_CODE = #{CORP_CODE}
+			AND USER_ID = #{curUserId}
+			;
+			
 		END;
 		
 	</delete>

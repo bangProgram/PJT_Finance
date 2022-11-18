@@ -4,6 +4,25 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>﻿
 <script type="text/javascript">
 	var toggleChk = true;
+
+	document.addEventListener("DOMContentLoaded", function () {
+
+		const ctx = document.getElementById('myPieChart');
+		
+		new Chart(ctx, {
+			  type: 'pie',
+			  data: {
+			    datasets: [{
+			      label: '# of Votes',
+			      data: [12, 19, 0, 5, 2, 0],
+			    }]
+			  },
+			  options: {
+					maintainAspectRatio: false,
+				},
+			});
+	});
+	
 	$(document).ready(function(){
 		$("#gubn").change(function(){
 			if(this.value == "0101"){
@@ -16,9 +35,9 @@
 			
 		});
 		
-		
 	});
 	
+
 	function dateformat(date){
 		var length = date.length;
 		if(length == 8){
@@ -185,7 +204,7 @@
 	
 	
 	<div class="row">
-                        <!-- Pie Chart -->
+         <!-- Pie Chart -->
 		<div class="col-xl-4 col-lg-5">
 			<div class="card shadow mb-4" id="cardDiv">
 		        <!-- Card Header - Dropdown -->
@@ -194,9 +213,16 @@
 		        </div>
 		        <!-- Card Body -->
 		        <div class="card-body">
-		            <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-		                <canvas id="myPieChart" width="470" height="245" style="display: block; width: 470px; height: 245px;" class="chartjs-render-monitor"></canvas>
-		            </div>
+		            <%-- <div class="chart-pie " style="text-align: center;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+		                <canvas id="myPieChart" ></canvas>
+		            </div> --%>
+		            		<%-- 
+		            		<canvas id="myPieChart" width="277" height="277" ></canvas>
+		            		 --%>
+		            <div class="chart-container" style="position: relative; height:277px;">
+						<canvas id="myPieChart"></canvas>
+					</div>
+					
 		            <div class="mt-4 text-center small">
 		                <span class="mr-2">
 		                    <i class="fas fa-circle text-info"></i> 예수금
@@ -216,7 +242,7 @@
 		</div>
 	
 		<!-- Area Chart -->
-	    <div class="" style="width: 180px;">
+	    <div class="col-xl-2 col-lg-5">
 	        <div class="card shadow mb-4">
 				<div class="card border-left-primary shadow h-100 py-2" id="epsDiv">
 	            	<div class="card-body">
@@ -289,7 +315,7 @@
 	          	</div>
 	        </div>
 		</div>
-		<!-- MEMO Area -->
+		<!-- Info Area -->
 	    <div class="col-xl-2 col-lg-5">
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
@@ -375,7 +401,7 @@
 			</div>
 		</div>
 		<!-- MEMO Area -->
-	    <div class="col-xl-4 col-lg-5" style="max-width: 100%;">
+	    <div class="col-xl-4 col-lg-5" >
 			<div class="card shadow mb-4">
 				<div class="card-header py-3" id="memoDiv" style="display: table;">
 		            <h6 class="m-0 font-weight-bold text-primary" style="display: table-cell; width: 95%; padding-left: 10px;"><c:out value="${resultData.CORP_NAME }"/> 메모장</h6>
@@ -389,7 +415,7 @@
 					</div>
 		        </div>
 				<div class="card-body">
-					<textarea  rows="25" cols="85" id="corpMemo" style="font-size: 13px; height: 299px;width: 550px;"><c:out value="${resultData.MEMO }"/></textarea>
+					<textarea  rows="25" cols="85" id="corpMemo" style="font-size: 13px; height: 299px; max-width: 100%;"><c:out value="${resultData.MEMO }"/></textarea>
 				</div>
 			</div>
 		</div>
@@ -417,7 +443,8 @@
 					</button>
 					<button class="dt-button buttons-excel buttons-html5 btn btn-outline-primary excelBtn" style="width: 55px; font-size: 12px;" tabindex="0" aria-controls="portCorpList" type="submit" onclick="portDetailSave('del'); return false;">
 						<span>삭제</span>
-					</button>                	
+					</button>   
+					<button type="button" class="btn btn-outline-primary">삭제</button>             	
 				</div>
 	        </div>
 	        <div class="card-body">
@@ -499,5 +526,9 @@
 	</form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>
