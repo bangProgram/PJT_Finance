@@ -62,8 +62,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public Integer insertPortfolioCorp(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"insertPortfolioCorp");
+	public Integer mergePortfolioCorp(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"mergePortfolioCorp");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}

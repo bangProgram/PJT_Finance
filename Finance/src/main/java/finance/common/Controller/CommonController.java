@@ -29,7 +29,8 @@ public class CommonController {
 				returnMap.put(key, map.get(key).toString().replace("<", "&lt;").replace(">", "&gt;").toString());
 			}
 		}
-		
+		//로그인 기능 만들기 전까지 사용하도록
+		returnMap.put("curUserId", "SYSTEM_JB");
 		return returnMap;
 	}
 

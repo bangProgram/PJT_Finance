@@ -25,7 +25,23 @@
 		  			"render": function(data, type, row, meta){
 		  				if(row.INVEST_OPINION != null && row.INVEST_OPINION != ''){
 		  					if(type === 'display'){
-			  	                data = row.INVEST_OPINION;
+		  						var style = '';
+		  						if(row.INVEST_OPINION == '매수'){
+		  							style = "style='color: red;'";
+		  						}else if(row.INVEST_OPINION == '비중확대'){
+		  							style = "style='color: palevioletred;'";
+		  						}else if(row.INVEST_OPINION == '중립'){
+		  							style = "style='color: black;'";
+		  						}
+		  						else if(row.INVEST_OPINION == '비중축소'){
+		  							style = "style='color: cornflowerblue;'";
+		  						}
+		  						else if(row.INVEST_OPINION == '매도'){
+		  							style = "style='color: blue;'";
+		  						}else{
+		  							style = "";
+		  						}
+			  	                data = '<span '+style+'>'+row.INVEST_OPINION+'( ~ '+row.INVEST_OPINION_AMOUNT+' )</span>';
 			  	            }		  					
 		  				}else{
 		  					data = "없음";
@@ -53,7 +69,16 @@
 		  			"render": function(data, type, row, meta){
 		  				if(row.AVR_PRICE != null && row.AVR_PRICE != ''){
 		  					if(type === 'display'){
-			  	                data = row.AVR_PRICE;
+		  						var style = '';
+		  						if(row.AVR_PRICE < row.BEF_CLS_PRICE){
+		  							style = "style='color: palevioletred;'";
+		  						}else if(row.AVR_PRICE > row.BEF_CLS_PRICE){
+		  							style = "style='color: cornflowerblue;'";
+		  						}
+		  						else{
+		  							style = "";
+		  						}
+			  	                data = '<span '+style+'>'+row.AVR_PRICE+'</span>';
 			  	            }		  					
 		  				}else{
 		  					data = "없음";

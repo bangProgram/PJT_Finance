@@ -5,7 +5,52 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-11-16T11:31:54Z</updated>
+  <updated>2022-11-17T14:00:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Java Champion, legendary engineer, and teacher Trisha Gee</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/17/a-bootiful-podcast-java-champion-legendary-engineer-and-teacher-trisha-gee" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-11-17:4998</id>
+    <updated>2022-11-17T14:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Java Champion, legendary engineer, and teacher &lt;a href="https://twitter.com/trisha_gee"&gt;Trisha Gee (@trisha_gee)&lt;/a&gt; bout her extraordinary career working at organizations like LMAX, MongoDB, Jetbrains, and her new books, &lt;em&gt;Heads First Java&lt;/em&gt;, and &lt;em&gt;Getting to Know IntelliJ IDEA&lt;/em&gt;. &lt;/p&gt;
+&lt;iframe title="Java Champion, legendary engineer, and author Trisha Gee " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=3sxjg-13191e8-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Modulith 0.1 RC1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/11/17/spring-modulith-0-1-rc1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Oliver Drotbohm</name>
+    </author>
+    <id>tag:spring.io,2022-11-17:4997</id>
+    <updated>2022-11-17T12:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;I am pleased to announce the first and final release candidate of Spring Modulith 0.1. The release primarily is a preparation for the GA one to follow Spring Boot 3.0 GA some time next week. That said, we managed to sneak &lt;a href="https://github.com/spring-projects-experimental/spring-modulith/releases/tag/0.1.0-RC1"&gt;a couple of improvements&lt;/a&gt; into the Application Module Canvas that will surely be helpful. The Canvas now lists Spring bean references into other modules explicitly and thus documents the required interface of the module, just like constructor arguments describe the dependencies of a class.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://user-images.githubusercontent.com/128577/202445150-8c5422b9-031e-441f-a5dc-4184b78d65f8.png" alt="202445150 8c5422b9 031e 441f a5dc 4184b78d65f8"&gt;
+&lt;/div&gt;
+&lt;div class="title"&gt;Figure 1. Spring bean references in the Application Module Canvas&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Also, the Canvas now includes value types exposed by a module. These types are identified by either the annotations or interfaces provided by the &lt;a href="https://github.com/xmolecules/jmolecules#use-case-express-ddd-concepts"&gt;jMolecules DDD library&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://user-images.githubusercontent.com/128577/202445176-da02018e-f1bd-4f2c-9e81-ccfbbf307b4c.png" alt="202445176 da02018e f1bd 4f2c 9e81 ccfbbf307b4c"&gt;
+&lt;/div&gt;
+&lt;div class="title"&gt;Figure 2. Value types exposed by the Application Module in the Application Module Canvas&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are currently planning to release 0.1 GA on top of Spring Boot 3.0 GA mid next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Framework 6.0 goes GA</title>
     <link rel="alternate" href="https://spring.io/blog/2022/11/16/spring-framework-6-0-goes-ga" />
@@ -14,12 +59,12 @@
       <name>Juergen Hoeller</name>
     </author>
     <id>tag:spring.io,2022-11-11:4992</id>
-    <updated>2022-11-16T11:31:54Z</updated>
+    <updated>2022-11-16T11:31:00Z</updated>
     <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
 &lt;p&gt;It is my pleasure to announce that Spring Framework 6.0.0 is generally available from Maven Central now! This is the start of a new framework generation for 2023 and beyond, embracing current and upcoming innovations in OpenJDK and the Java ecosystem. At the same time, we carefully designed it as a straightforward upgrade from Spring Framework 5.3.x for modern-day runtime environments.&lt;/p&gt;
 &lt;p&gt;As a major revision of the core framework, Spring Framework 6.0 comes with a Java 17+ baseline and a move to Jakarta EE 9+ (in the &lt;code&gt;jakarta&lt;/code&gt; namespace), with a focus on the recently released Jakarta EE 10 APIs such as Servlet 6.0 and JPA 3.1. This provides access to the latest web containers such as &lt;a href="https://tomcat.apache.org/whichversion.html"&gt;Tomcat 10.1&lt;/a&gt; and the latest persistence providers such as &lt;a href="https://hibernate.org/orm/releases/6.1/"&gt;Hibernate ORM 6.1&lt;/a&gt;. Don&amp;rsquo;t be stuck on Java EE 8, make the leap to the &lt;code&gt;jakarta&lt;/code&gt; namespace, ideally straight to the Jakarta EE 10 level! The upcoming Spring Boot 3.0.0 release includes corresponding managed dependencies for you.&lt;/p&gt;
 &lt;p&gt;Infrastructure-wise, 6.0 introduces a foundation for &lt;a href="https://spring.io/blog/2022/03/22/initial-aot-support-in-spring-framework-6-0-0-m3"&gt;Ahead-Of-Time transformations&lt;/a&gt; and the corresponding AOT processing support for Spring application contexts. This enables first-class support for &lt;a href="https://spring.io/blog/2022/09/26/native-support-in-spring-boot-3-0-0-m5"&gt;GraalVM native images with Spring Boot 3&lt;/a&gt;. You may also explore &lt;a href="https://openjdk.org/jeps/425"&gt;Project Loom&lt;/a&gt;&amp;rsquo;s virtual threads with Spring applications - see &lt;a href="https://spring.io/blog/2022/10/11/embracing-virtual-threads"&gt;&amp;ldquo;Embracing Virtual Threads&amp;rdquo;&lt;/a&gt; - and dive into &lt;a href="https://github.com/CRaC/docs"&gt;Project CRaC&lt;/a&gt; &amp;rsquo;s checkpoint restore approach for faster JVM startups, both of which are in preview at this point but expected to become first-class features for Spring Framework 6.x based applications.&lt;/p&gt;
-&lt;p&gt;There are many further features and refinements available in Spring Framework 6.0, e.g. an &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC1/reference/html/integration.html#rest-http-interface"&gt;HTTP interface client&lt;/a&gt;, support for &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0-RC1/reference/html/web.html#mvc-ann-rest-exceptions"&gt;RFC 7807 problem details&lt;/a&gt;, and Micrometer-based observability for HTTP clients. Please see our &lt;a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x/"&gt;What&amp;rsquo;s New page&lt;/a&gt; for a comprehensive overview and give 6.0.0 an early try!&lt;/p&gt;
+&lt;p&gt;There are many further features and refinements available in Spring Framework 6.0, e.g. an &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0/reference/html/integration.html#rest-http-interface"&gt;HTTP interface client&lt;/a&gt;, support for &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0/reference/html/web.html#mvc-ann-rest-exceptions"&gt;RFC 7807 problem details&lt;/a&gt;, and Micrometer-based observability for HTTP clients. Please see our &lt;a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x/"&gt;What&amp;rsquo;s New page&lt;/a&gt; for a comprehensive overview and give 6.0.0 an early try!&lt;/p&gt;
 &lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/milestones"&gt;GitHub&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/6.0.0/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
@@ -516,70 +561,6 @@ compile &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-c
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Authorization Server 0.4.0-RC1 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/11/01/spring-authorization-server-0-4-0-rc1-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Joe Grandja</name>
-    </author>
-    <id>tag:spring.io,2022-11-01:4976</id>
-    <updated>2022-11-01T15:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the general availability of Spring Authorization Server 0.4.0-RC1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;You can download it from &lt;a href="https://repo.spring.io/milestone"&gt;repo.spring.io&lt;/a&gt; milestone repository by using the module coordinates:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;implementation 'org.springframework.security:spring-security-oauth2-authorization-server:0.4.0-RC1'&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-authorization-server/releases/tag/0.4.0-RC1"&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href="https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html"&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href="https://github.com/spring-projects/spring-authorization-server/tree/0.4.x/samples"&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We would love to gather your feedback as we strive to improve and build upon this release.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - November 1st, 2022</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/10/31/this-week-in-spring-november-1st-2022" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-10-31:4975</id>
-    <updated>2022-11-01T01:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! How&amp;rsquo;re you doin&amp;rsquo;? I hope you&amp;rsquo;re doing well and had a great Halloween if you celebrate. I&amp;rsquo;m doing great. I&amp;rsquo;m in sunny Kuala Lumpur, Malaysia, eating delicious food and hanging out with amazing people. Tomorrow, I&amp;rsquo;m off to Penang, Malaysia, for a little tourism before I get back to a more code-driven kinda fun: I&amp;rsquo;ll be &lt;a href="https://kubernetes-native-java-josh-long-developerkaki.peatix.com/"&gt;doing a developer event looking at the latest-and-greatest from Spring Boot 3&lt;/a&gt; here in &lt;strong&gt;Kuala Lumpur&lt;/strong&gt; on the 11th of November - ten short days from now! - so please join me!&lt;/p&gt;
-&lt;p&gt;Also, I just joined &lt;em&gt;Mastodon&lt;/em&gt; - a decentralized and open-source Twitter; I&amp;rsquo;m not leaving Twitter, of course, but I would love to make new friends and grow the community there: &lt;a href="https://mastodon.online/@starbuxman"&gt;@starbuxman@mastodon.online&lt;/a&gt;! &lt;/p&gt;
-&lt;p&gt;Anyway, my friends, housekeeping aside, we&amp;rsquo;ve got a &lt;em&gt;ton&lt;/em&gt; of amazing things to talk about today so let&amp;rsquo;s dive right into it!&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=qkgdjIsNYA0"&gt;Automated Code Migrations With Spring Boot Migrator | Fabian Krueger (EN)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/27/bootiful-podcast-spring-mad-scientist-andy-clement-on-springone-2022-aot-azure-spring-apps-and-more"&gt;Bootiful Podcast: Spring Mad Scientist Andy Clement on SpringOne 2022, AOT, Azure Spring Apps, and more&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/717387970/0/baeldung~How-to-Access-the-First-Element-of-a-Flux"&gt;How to Access the First Element of a Flux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/alina_yurenko/status/1587102593851052032?s=61&amp;t=ahaeq7OhMUteRPzmYqDtKA"&gt;I wondered out loud if anybody heard elevaor music when they were waiting for their GraalVM compiles to finish. Then this happened. LOL&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/717425390/0/baeldung~Limiting-the-Requests-per-Second-With-WebClient"&gt;Limiting the Requests per Second With WebClient&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/717449636/0/baeldung~Log-Properties-in-a-Spring-Boot-Application"&gt;Log Properties in a Spring Boot Application&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Interested in how GraalVm will fit into the OpenJDK model? &lt;a href="https://openjdk.org/projects/leyden/notes/02-shift-and-constrain"&gt;Selectively Shifting and Constraining Computation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://qiita.com/suke_masa/items/8c879c9b20a07d7489a8"&gt;Spring Boot + MyBatis ªÇí»íÂ TypeHandler ªòÞÅª¦ - Qiita&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/25/spring-integration-6-0-0-rc1-available"&gt;Spring Integration 6.0.0-RC1 Available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://qiita.com/kazuki43zoo/items/489cdd01de28dd647681"&gt;Spring Integration ªÎ TCP Ñ¦ÒöªÎ«Ç«·«ê«¢«é«¤«ºãÁªË«¿«¤«à«¢«¦«Èªòò¦ïÒª¹ªë - Qiita&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=iJ2muJniikY"&gt;Spring Security, demystified by Daniel Garnier Moiroux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/10/26/spring-tools-4-16-1-released"&gt;Spring Tools 4.16.1 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Check out my Devoxx UK talk, also voted one of the top videos at Devoxx UK: &lt;a href="https://www.youtube.com/watch?v=2Wnp6FdrTbI"&gt;Spring.next by Josh Long&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/717085636/0/baeldung~TLS-Setup-in-MySQL-and-Spring-Boot-Application"&gt;TLS Setup in MySQL and Spring Boot Application&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

@@ -15,7 +15,7 @@ public interface PortfolioService {
 
 	public List<Map<String, Object>> getPortCorpDetailList(Map<String, Object> param) throws Exception;
 
-	public Integer insertPortfolioCorp(Map<String, Object> param) throws Exception;
+	public Integer mergePortfolioCorp(Map<String, Object> param) throws Exception;
 
 	public Integer deletePortfolioCorp(Map<String, Object> param) throws Exception;
 

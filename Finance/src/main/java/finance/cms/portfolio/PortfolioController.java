@@ -139,7 +139,7 @@ public class PortfolioController {
 				commandMap.put("AVG_PROFIT_GROWTH", avrGrwoth);
 			}
 		}
-		Integer resultInt = portfolioService.insertPortfolioCorp(commandMap);
+		Integer resultInt = portfolioService.mergePortfolioCorp(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
 	    result.put("resultInt", resultInt);
@@ -227,25 +227,26 @@ public class PortfolioController {
 		String mode = commandMap.get("mode").toString();
 		commandMap.put("curUserId", "SYSTEM_JB");
 		System.out.println("JB : "+commandMap.toString());
-		Integer resultInt = 0; 
 		
 		if(mode.equals("add")) {
-			resultInt = portfolioService.addPortfolioDetail(commandMap);
+			portfolioService.addPortfolioDetail(commandMap);
 		}else {
-			resultInt = portfolioService.delPortfolioDetail(commandMap);
+			String[] delSEQs = commandMap.get("delSEQs").toString().split(",");
+			commandMap.put("delSEQs", delSEQs);
+			portfolioService.delPortfolioDetail(commandMap);
 		}
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
 	    
 	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "redirect:/portfolio/detail?pCorpCd="+commandMap.get("pCorpCd").toString();
+	    String resultURL = "redirect:/portfolio/detail?pCorpCd="+commandMap.get("CORP_CODE").toString();
 	    mav.setViewName(resultURL);
 	    
 	    return mav;
 	}
 	
 	@ResponseBody
-	@RequestMapping(value={"/portfolio/regOpinonAmt/ajax"} , method = RequestMethod.POST)
+	@RequestMapping(value={"/portfolio/update/ajax"} , method = RequestMethod.POST)
 	public Map<String, Object> regOpinonAmt(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = commonController.init(commandMap);
 		
 		LocalDate now = LocalDate.now();
@@ -253,7 +254,7 @@ public class PortfolioController {
 		System.out.println("JB : "+commandMap.toString());
 		commandMap.put("curUserId", "SYSTEM_JB");
 		
-		Integer resultInt = portfolioService.insertPortfolioCorp(commandMap);
+		Integer resultInt = portfolioService.mergePortfolioCorp(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
 	    result.put("resultInt", resultInt);

@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="&lt;c:out value=&quot;${resultData.MEMO }&quot;/&gt;"/>
+		<item key="selection" value="addPortfolioDetail"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="&lt;c:out value=&quot;${resultData.MEMO }&quot;/&gt;"/>
-			<item value="text-success"/>
-			<item value="text-info"/>
-			<item value="border-left-success"/>
-			<item value="getPortCorp"/>
-			<item value="earnin"/>
-			<item value="earn"/>
-			<item value="ear"/>
-			<item value="TRADE_PRICE"/>
-			<item value="&quot;B&quot;"/>
-			<item value="&quot;S&quot;"/>
-			<item value="&apos;S&apos;"/>
-			<item value="&apos;B&apos;"/>
-			<item value="HOLD_QUANTITY"/>
-			<item value="AVR_PRICE"/>
+			<item value="addPortfolioDetail"/>
+			<item value="portDetailSave"/>
+			<item value="등록"/>
+			<item value="&lt;c:if test=&quot;${resultData."/>
+			<item value="매수"/>
+			<item value="avr_pr"/>
+			<item value="data"/>
+			<item value="error : function(request, status, error) {       &#x0A;&#x09;&#x09;&#x09;&#x09;console.log(error)    &#x0A;&#x09;&#x09;&#x09;}"/>
+			<item value="opiAmtDiv"/>
+			<item value="memoDiv"/>
+			<item value="메모장"/>
+			<item value="updatePortfolio"/>
+			<item value="ESTIMATE_EPS"/>
+			<item value="regOpinonAmt"/>
+			<item value="updateMemo"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="updatePortfolio"/>
+			<item value="value=&quot;0&quot;"/>
+			<item value="width : 120px; margin-left: 20px;&quot;"/>
+			<item value="120px"/>
+			<item value="100px"/>
+			<item value="15px"/>
 			<item value="text-info"/>
 			<item value="border-left-info"/>
 			<item value="&quot;0101&quot;"/>
@@ -32,19 +39,12 @@
 			<item value="&apos;0102&apos;"/>
 			<item value="&apos;0101&apos;"/>
 			<item value="&apos;B&apos;"/>
-			<item value=""/>
 			<item value="curUserId"/>
-			<item value="},#{"/>
-			<item value="#cad8ff"/>
-			<item value="dartService"/>
-			<item value="schedulerService"/>
-			<item value="DartService"/>
-			<item value="getPortListForSchedule"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="937"/>
-		<item key="DIALOG_Y_ORIGIN" value="497"/>
+		<item key="DIALOG_X_ORIGIN" value="604"/>
+		<item key="DIALOG_Y_ORIGIN" value="652"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

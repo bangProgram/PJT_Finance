@@ -141,7 +141,7 @@ public class popupController {
 		if(webPath.equals("interest")) {
 			resultInt = interestService.insertInterestCorp(commandMap);
 		}else if(webPath.equals("portfolio")){
-			resultInt = portfolioService.insertPortfolioCorp(commandMap);
+			resultInt = portfolioService.mergePortfolioCorp(commandMap);
 		}
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
