@@ -222,6 +222,12 @@
 		        </div>
 		        <!-- Card Body -->
 		        <div class="card-body">
+		            <%-- <div class="chart-pie " style="text-align: center;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+		                <canvas id="myPieChart" ></canvas>
+		            </div> --%>
+		            		<%-- 
+		            		<canvas id="myPieChart" width="277" height="277" ></canvas>
+		            		 --%>
 		            <div class="chart-container" style="position: relative; height:320px;">
 						<canvas id="myPieChart"></canvas>
 					</div>
