@@ -18,7 +18,6 @@
 	    WHERE 1=1
 	</select>
 	
-<<<<<<< HEAD
 	<select id="getPortAmount" parameterType="Map" resultType="HashMap">  
 	    SELECT 
 		    B.DEPOSIT_AMOUNT,NVL(B.INVEST_AMOUNT,0),B.RESERVE_AMOUNT, 
@@ -33,8 +32,6 @@
 	
 	
 	
-=======
->>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 	<select id="getPortCorp" parameterType="Map" resultType="HashMap">  
 	    select 
 	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
@@ -366,14 +363,11 @@
 			AND USER_ID = #{curUserId}
 			;
 		
-<<<<<<< HEAD
 			UPDATE TB_PORTFOLIO SET INVEST_AMOUNT = (
 				SELECT SUM(HOLD_QUANTITY*AVR_PRICE) FROM TB_PORTFOLIO_CORP
 			)
 			;
 			
-=======
->>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		END;
 	</insert>
 	
@@ -401,13 +395,10 @@
 			AND USER_ID = #{curUserId}
 			;
 			
-<<<<<<< HEAD
 			UPDATE TB_PORTFOLIO SET INVEST_AMOUNT = (
 				SELECT SUM(HOLD_QUANTITY*AVR_PRICE) FROM TB_PORTFOLIO_CORP
 			)
 			;
-=======
->>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		END;
 		
 	</delete>
