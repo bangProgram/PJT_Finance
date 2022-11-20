@@ -38,6 +38,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
+<<<<<<< HEAD
 	public Map<String, Object> getPortAmount(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getPortAmount");
 	    Map<String, Object> resultList = commonMapper.get(param);
@@ -46,6 +47,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
+=======
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 	public Map<String, Object> getPortCorp(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getPortCorp");
 	    Map<String, Object> resultList = commonMapper.get(param);

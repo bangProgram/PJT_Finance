@@ -27,7 +27,10 @@ public interface PortfolioService {
 
 	public Integer insertPortfolioOpinonAmt(Map<String, Object> param) throws Exception;
 
+<<<<<<< HEAD
 	public Map<String, Object> getPortAmount(Map<String, Object> param) throws Exception;
 
+=======
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 	
 }

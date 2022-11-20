@@ -111,12 +111,22 @@ public class PortfolioController {
 	
 	@ResponseBody
 	@RequestMapping(value={"/portfolio/add/cud"} , method = RequestMethod.POST)
+<<<<<<< HEAD
 	public Map<String, Object> addPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+	public Map<String, Object> addPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
 		int curMonth = now.getMonthValue();	//10
-
+		
+<<<<<<< HEAD
+=======
+		commandMap.put("curUserId", "SYSTEM_JB");
+		
+		
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("CORP_CODE", commandMap.get("CORP_CODE").toString());
 		paramMap.put("pEndYear", curYear);
@@ -145,19 +155,30 @@ public class PortfolioController {
 	}
 	
 	@RequestMapping(value={"/portfolio/del/cud"} , method = RequestMethod.POST)
+<<<<<<< HEAD
 	public ModelAndView delPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+	public ModelAndView delPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
 		int curMonth = now.getMonthValue();	//10
 		
+<<<<<<< HEAD
+=======
 		System.out.println("JB : "+commandMap.toString());
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		String[] delCorpList = {};
 		if(!commandMap.get("corpCds").equals("") && !commandMap.get("corpCds").equals(null) ) {
 			delCorpList = commandMap.get("corpCds").toString().split(",");
 		}
 		
 		int delCorpCnt = delCorpList.length;
+<<<<<<< HEAD
+=======
+		System.out.println("JB2 : "+delCorpCnt);
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		commandMap.put("delCorpCnt", delCorpCnt);
 		commandMap.put("delCorpList", delCorpList);
 		
@@ -199,8 +220,13 @@ public class PortfolioController {
 		String curDate = format.format(now);
 		
 		System.out.println("JB : "+commandMap.toString());
+<<<<<<< HEAD
 		Map<String, Object> resultData = portfolioService.getPortCorp(commandMap);
 		Map<String, Object> portAmount = portfolioService.getPortAmount(commandMap);
+=======
+		commandMap.put("curUserId", "SYSTEM_JB");
+		Map<String, Object> resultData = portfolioService.getPortCorp(commandMap);
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		List<Map<String, Object>> resultList = portfolioService.getPortCorpDetailList(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
@@ -210,7 +236,10 @@ public class PortfolioController {
 	    mav.setViewName(resultURL);
 	    mav.addObject("curDate", curDate);
 	    mav.addObject("resultData", resultData);
+<<<<<<< HEAD
 	    mav.addObject("portAmount", portAmount);
+=======
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 	    mav.addObject("resultList", resultList);
 	    
 	    return mav;
@@ -222,6 +251,10 @@ public class PortfolioController {
 		LocalDate now = LocalDate.now();
 		
 		String mode = commandMap.get("mode").toString();
+<<<<<<< HEAD
+=======
+		commandMap.put("curUserId", "SYSTEM_JB");
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		System.out.println("JB : "+commandMap.toString());
 		
 		if(mode.equals("add")) {
@@ -248,6 +281,10 @@ public class PortfolioController {
 		LocalDate now = LocalDate.now();
 		
 		System.out.println("JB : "+commandMap.toString());
+<<<<<<< HEAD
+=======
+		commandMap.put("curUserId", "SYSTEM_JB");
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		Integer resultInt = portfolioService.mergePortfolioCorp(commandMap);
 		

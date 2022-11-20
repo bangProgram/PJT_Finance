@@ -438,6 +438,10 @@
 					<button class="dt-button buttons-excel buttons-html5 btn btn-outline-primary excelBtn" style="width: 55px; font-size: 12px;" tabindex="0" aria-controls="portCorpList" type="submit" onclick="portDetailSave('del'); return false;">
 						<span>삭제</span>
 					</button>   
+<<<<<<< HEAD
+=======
+					<button type="button" class="btn btn-outline-primary">삭제</button>             	
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 				</div>
 	        </div>
 	        <div class="card-body">

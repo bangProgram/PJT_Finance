@@ -6,6 +6,7 @@
 	var toggleChk = true;
 
 	document.addEventListener("DOMContentLoaded", function () {
+<<<<<<< HEAD
 		
 		const datas = [
 			<c:out value=" ${portAmount.DIFF_INVEST_AMOUNT}"/>,
@@ -14,16 +15,26 @@
 			<c:out value=" ${portAmount.DEPOSIT_AMOUNT}"/>
 		];
 		
+=======
+
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		const ctx = document.getElementById('myPieChart');
 		
 		new Chart(ctx, {
 			  type: 'pie',
+<<<<<<< HEAD
 			  
 			  data: {
 				  labels: ['타사투자금', '당사투자금', '예수금', '예비금'],
 			    datasets: [{
 			    	labels: ['타사투자금', '당사투자금', '예수금', '예비금'],
 			      data: datas,
+=======
+			  data: {
+			    datasets: [{
+			      label: '# of Votes',
+			      data: [12, 19, 0, 5, 2, 0],
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 			    }]
 			  },
 			  options: {
@@ -228,9 +239,30 @@
 		            		<%-- 
 		            		<canvas id="myPieChart" width="277" height="277" ></canvas>
 		            		 --%>
+<<<<<<< HEAD
 		            <div class="chart-container" style="position: relative; height:320px;">
 						<canvas id="myPieChart"></canvas>
 					</div>
+=======
+		            <div class="chart-container" style="position: relative; height:277px;">
+						<canvas id="myPieChart"></canvas>
+					</div>
+					
+		            <div class="mt-4 text-center small">
+		                <span class="mr-2">
+		                    <i class="fas fa-circle text-info"></i> 예수금
+		                </span>
+		                <span class="mr-2">
+		                    <i class="fas fa-circle text-warning"></i> 예비금
+		                </span>
+		                <span class="mr-2">
+		                    <i class="fas fa-circle text-secondary"></i> 타사 투자금
+		                </span>
+		                <span class="mr-2">
+		                    <i class="fas fa-circle text-success"></i> 당사 투자금
+		                </span>
+		            </div>
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		        </div>
 		    </div>
 		</div>
@@ -438,6 +470,10 @@
 					<button class="dt-button buttons-excel buttons-html5 btn btn-outline-primary excelBtn" style="width: 55px; font-size: 12px;" tabindex="0" aria-controls="portCorpList" type="submit" onclick="portDetailSave('del'); return false;">
 						<span>삭제</span>
 					</button>   
+<<<<<<< HEAD
+=======
+					<button type="button" class="btn btn-outline-primary">삭제</button>             	
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 				</div>
 	        </div>
 	        <div class="card-body">

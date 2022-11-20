@@ -7,8 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 import javax.annotation.Resource;
 
+=======
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -19,7 +22,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import finance.cms.report.service.ReportService;
+<<<<<<< HEAD
 import finance.common.Controller.CommonController;
+=======
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 
 
 @Controller
@@ -27,6 +33,7 @@ public class ReportController {
 	
 	@Autowired
 	private ReportService reportService;
+<<<<<<< HEAD
 	
 	@Resource(name="CommonController")
 	private CommonController commonController;
@@ -34,6 +41,11 @@ public class ReportController {
 
 	@RequestMapping(value={"/report"} , method = RequestMethod.GET)
 	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+
+	@RequestMapping(value={"/report"} , method = RequestMethod.GET)
+	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
 		int curMonth = now.getMonthValue();
@@ -75,7 +87,11 @@ public class ReportController {
 	
 	@ResponseBody
 	@RequestMapping(value={"/report/select"} , method = RequestMethod.POST)
+<<<<<<< HEAD
 	public Map<String, Object> getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+	public Map<String, Object> getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022

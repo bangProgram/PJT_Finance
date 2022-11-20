@@ -82,11 +82,7 @@
 	<insert id="deleteInterestCorp" parameterType="hashMap"  >  
 	    DELETE  TB_INTEREST 
 	    WHERE CORP_CODE = #{CORP_CODE}
-<<<<<<< HEAD
 	    AND USER_ID = #{curUserId}
-=======
-	    AND UESR_ID = 'SYSTEM_JB'
->>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 	</insert>
 	
 	<select id="getReportList" parameterType="hashMap" resultType="HashMap">  

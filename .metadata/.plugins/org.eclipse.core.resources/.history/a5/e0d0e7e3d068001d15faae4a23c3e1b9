@@ -18,6 +18,7 @@
 	    WHERE 1=1
 	</select>
 	
+<<<<<<< HEAD
 	<select id="getPortAmount" parameterType="Map" resultType="HashMap">  
 	    SELECT 
 		    B.DEPOSIT_AMOUNT,NVL(B.INVEST_AMOUNT,0),B.RESERVE_AMOUNT, 
