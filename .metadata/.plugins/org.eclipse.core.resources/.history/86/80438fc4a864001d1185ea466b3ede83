@@ -1,0 +1,117 @@
+package finance.cms.dart;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import finance.cms.dart.service.DartService;
+import finance.cms.interest.service.InterestService;
+import finance.cms.portfolio.service.PortfolioService;
+import finance.common.Controller.CommonController;
+
+@Controller
+public class DartController {
+
+	@Autowired
+	private DartService dartService;
+	
+	@Autowired
+	private PortfolioService portfolioService;
+	
+	@Resource(name="CommonController")
+	private CommonController commonController;
+	
+	@ResponseBody
+	@RequestMapping(value={"/dart/getStockAmount"} , method = RequestMethod.GET)
+	public JSONArray getStockAmount(@RequestParam Map<String, Object> commandMap) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+		Date now = new Date();
+		String curDate = format.format(now);
+		
+		commandMap.put("curUserId", "SYSTEM_JB");
+		
+		List<Map<String, Object>> getPortCorpList = portfolioService.getPortCorpList(commandMap);
+		
+		String infoKospi = "http://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd.json?" ;
+		String infoKodaq = "http://data-dbg.krx.co.kr/svc/apis/sto/ksq_bydd_trd.json?" ;
+		String AUTH_KEY = "fb1e1e5223c66ce1175f545ddd0ea9a15984528a";
+		
+		System.out.println("JB tlwkr");
+		for(int i=0; i< getPortCorpList.size(); i++) {
+			try{
+				System.out.println("JB 1111");
+				String getStockCd = getPortCorpList.get(i).get("STOCK_CODE").toString();
+				
+				System.out.println("JB 2222");
+				URL url1 = new URL(infoKospi+"AUTH_KEY="+AUTH_KEY+"&basDd="+curDate );
+				InputStreamReader isr1 = new InputStreamReader(url1.openConnection().getInputStream(), "UTF-8");
+				JSONObject object1 = (JSONObject)JSONValue.parse(isr1);
+				JSONArray infoList1 = (JSONArray) object1.get("OutBlock_1");
+				
+				System.out.println("JB 3333");
+				URL url2 = new URL(infoKodaq+"AUTH_KEY="+AUTH_KEY+"&basDd="+curDate );
+				InputStreamReader isr2 = new InputStreamReader(url2.openConnection().getInputStream(), "UTF-8");
+				JSONObject object2 = (JSONObject)JSONValue.parse(isr2);
+				JSONArray infoList2 = (JSONArray) object2.get("OutBlock_1");
+				
+				System.out.println("JB 4444");
+				JSONArray mergeList = commonController.mergeJsonArray(infoList1,infoList2);
+				
+				if(mergeList != null) {
+					System.out.println("JB 5555");
+					for(int j=0; j < mergeList.size(); j++) {
+			            JSONObject infoObject = (JSONObject) mergeList.get(j);
+			            
+			            //KRX 에서 가져온 STOCK_CODE
+			            String ISU_CD = infoObject.get("ISU_CD").toString();
+			            //KRX 에서 가져온 1. 종가 , 2. 상장 주식수
+		            	String TDD_CLSPRC = infoObject.get("TDD_CLSPRC").toString();
+			            String LIST_SHRS = infoObject.get("LIST_SHRS").toString();
+			            
+			            System.out.println("JB 7777");
+			            if(ISU_CD.equals(getStockCd)) {
+			            	getPortCorpList.get(i).put("TDD_CLSPRC", TDD_CLSPRC);
+				            getPortCorpList.get(i).put("LIST_SHRS", LIST_SHRS);
+			            }else {
+			            	continue;
+			            }
+			            
+			            System.out.println("JB : "+ISU_CD + " / " + TDD_CLSPRC);
+			        }
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			 
+		}
+		System.out.println("JB 8888");
+		JSONArray getPortCorpJson = commonController.convertListToJson(getPortCorpList);
+		
+		System.out.println("JB 끝 : "+ getPortCorpJson.toString());
+		
+	    return getPortCorpJson;
+	}
+}

@@ -45,7 +45,11 @@ public class InterestController {
 	private CommonController commonController;
 
 	@RequestMapping(value={"/interest"} , method = RequestMethod.GET)
+<<<<<<< HEAD
 	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
 		int curMonth = now.getMonthValue();
@@ -53,6 +57,11 @@ public class InterestController {
 		String yearString = "";
 		String quaterString = "";
 		
+<<<<<<< HEAD
+=======
+		commandMap.put("curUserId", "SYSTEM_JB");
+		
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		List<Map<String, Object>> quaterList = reportService.getBsnsYearList(paramMap);
 		paramMap.put("pReportCd", "11011");
@@ -107,12 +116,20 @@ public class InterestController {
 	
 	@ResponseBody
 	@RequestMapping(value={"/interest/add/cud"} , method = RequestMethod.POST)
+<<<<<<< HEAD
 	public Map<String, Object> addInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+	public Map<String, Object> addInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
 		int curMonth = now.getMonthValue();	//10
 		
+<<<<<<< HEAD
+=======
+		commandMap.put("curUserId", "SYSTEM_JB");
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		Integer resultInt = interestService.insertInterestCorp(commandMap);
 		
 	    Map<String, Object> result = new HashMap<String, Object>();
@@ -122,7 +139,11 @@ public class InterestController {
 	}
 	
 	@RequestMapping(value={"/interest/del/cud"} , method = RequestMethod.POST)
+<<<<<<< HEAD
 	public ModelAndView delInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+=======
+	public ModelAndView delInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022

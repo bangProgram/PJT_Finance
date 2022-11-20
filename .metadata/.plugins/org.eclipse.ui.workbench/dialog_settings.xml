@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<section name="org.eclipse.ui.preferences.keysPreferencePage">
 		<item key="actionSetFilter" value="true"/>
 		<item key="internalFilter" value="true"/>
 		<item key="uncategorizedFilter" value="true"/>
+=======
+	<section name="NewWizardAction">
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 	</section>
 </section>

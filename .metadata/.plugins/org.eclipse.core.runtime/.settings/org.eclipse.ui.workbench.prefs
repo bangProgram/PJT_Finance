@@ -2,6 +2,7 @@
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=;org.eclipse.m2e.discovery;
 eclipse.preferences.version=1
 org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands>\r\n<keyBinding commandId\="org.eclipse.search.ui.openFileSearchPage" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+CTRL+F"/>\r\n</org.eclipse.ui.commands>
+<<<<<<< HEAD
 org.eclipse.ui.ide.systemDefault.CONFLICTING_COLOR=240,15,66
 org.eclipse.ui.ide.systemDefault.CONTENT_ASSIST_BACKGROUND_COLOR=52,57,61
 org.eclipse.ui.ide.systemDefault.CONTENT_ASSIST_FOREGROUND_COLOR=238,238,238
@@ -87,11 +88,14 @@ org.eclipse.ui.r30.org.springframework.ide.eclipse.boot.dash.AltTextDecorColor=1
 org.eclipse.ui.r30.org.springframework.ide.eclipse.boot.dash.MutedTextDecorColor=211,211,211
 org.eclipse.ui.r30.org.springframework.ide.eclipse.boot.dash.TextDecorColor=144,238,144
 org.eclipse.ui.r30.org.springframework.tooling.ls.eclipse.commons.STS4BootMarkerIndicationColor=56,84,26
+=======
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=255,255,255
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=255,255,255
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=16,16,16
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=255,255,255
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=255,255,255
+<<<<<<< HEAD
 org.eclipse.ui.workbench.ACTIVE_TAB_INNER_KEYLINE_COLOR=75,76,79
 org.eclipse.ui.workbench.ACTIVE_TAB_OUTER_KEYLINE_COLOR=75,76,79
 org.eclipse.ui.workbench.ACTIVE_TAB_OUTLINE_COLOR=72,72,72
@@ -103,3 +107,6 @@ org.eclipse.ui.workbench.INACTIVE_TAB_OUTER_KEYLINE_COLOR=81,86,88
 org.eclipse.ui.workbench.INACTIVE_TAB_OUTLINE_COLOR=59,64,66
 org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_END=70,70,73
 org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_START=81,86,88
+=======
+org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=242,242,242
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4

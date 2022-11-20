@@ -129,9 +129,16 @@ public class popupController {
 	
 	@ResponseBody
 	@RequestMapping(value={"/popup/memo/cud"} , method = RequestMethod.POST)
+<<<<<<< HEAD
 	public Map<String, Object> regMemoCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
 		
 		String webPath = commandMap.get("webPath").toString();
+=======
+	public Map<String, Object> regMemoCUD(@RequestParam Map<String, Object> commandMap) throws Exception{
+		
+		String webPath = commandMap.get("webPath").toString();
+		commandMap.put("curUserId", "SYSTEM_JB");
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
 		
 		Integer resultInt = 0;
 		

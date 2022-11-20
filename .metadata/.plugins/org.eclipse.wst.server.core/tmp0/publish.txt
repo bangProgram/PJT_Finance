@@ -1,3 +1,8 @@
 #Tomcat publish data
+<<<<<<< HEAD
 #Sun Nov 20 00:19:49 KST 2022
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Bang\\.m2\\repository\\org\\springframework\\spring-web\\5.2.5.RELEASE\\spring-web-5.2.5.RELEASE.jar=WEB-INF/lib/spring-web-5.2.5.RELEASE.jar
+=======
+#Fri Nov 18 23:09:14 KST 2022
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\hot50\\.m2\\repository\\org\\springframework\\spring-web\\5.2.5.RELEASE\\spring-web-5.2.5.RELEASE.jar=WEB-INF/lib/spring-web-5.2.5.RELEASE.jar
+>>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
