@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-=======
-content.descriptors=spring-defaults|https\://dist.springsource.com/release/STS/help/descriptors-3.0.xml\nspring-integration|https\://raw.github.com/SpringSource/spring-integration-templates/master/si-sts-templates/builds/descriptor.xml\nspring-data-gemfire|https\://raw.githubusercontent.com/spring-projects/spring-data-gemfire-sts-templates/master/builds/descriptor.xml\n
->>>>>>> 844a58f86eba82bf22f4b63666f11ea8363e93f4
-dashboard.feeds.blogs=https\://spring.io/blog.atom
-eclipse.preferences.version=1
