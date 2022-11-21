@@ -43,7 +43,7 @@ public class popupController {
 	private CommonController commonController;
 	
 	@RequestMapping(value={"/popup/dart/report/list"} , method = RequestMethod.GET)
-	public ModelAndView getDartReportList(@RequestParam Map<String, Object> commandMap) throws Exception {
+	public ModelAndView getDartReportList(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		
@@ -105,11 +105,10 @@ public class popupController {
 	}
 	
 	@RequestMapping(value={"/popup/{webPath}/memo"} , method = RequestMethod.GET)
-	public ModelAndView getMemoPopup(@PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception {
+	public ModelAndView getMemoPopup(@PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
 		
 		Map<String, Object> resultData = new HashMap<String, Object> ();
 		
-		commandMap.put("curUserId", "SYSTEM_JB");  
 		
 		if(webPath.equals("interest")) {
 			resultData = interestService.getInterest(commandMap);

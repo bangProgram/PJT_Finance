@@ -176,7 +176,7 @@
 				  			"defaultContent" : '',
 				  			"render": function(data, type, row, meta){
 				  	            if(type === 'display'){
-				  	                data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+				  	            	data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
 				  	            }
 
 				  	            return data;
@@ -400,7 +400,7 @@
 							<c:forEach items="${yearList}" var="list">
 								<td>${list.HAEDER_NM}<span style="float: right;">(년도)</span></td>
 							</c:forEach>
-							<td>상세</td>
+							<td>정보</td>
 							<td>등록</td>
 							<td>추가</td>
 						</tr>
@@ -411,7 +411,7 @@
 							<c:forEach items="${quaterList}" var="list">
 								<td>${list.HAEDER_NM}<span style="float: right;">(반기)</span></td>
 							</c:forEach>
-							<td>상세</td>
+							<td>정보</td>
 							<td>등록</td>
 							<td>추가</td>
 						</tr>

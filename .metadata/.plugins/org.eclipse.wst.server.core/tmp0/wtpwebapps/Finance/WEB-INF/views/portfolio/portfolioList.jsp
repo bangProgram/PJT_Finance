@@ -4,6 +4,33 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>﻿
 <script type="text/javascript">
 	var toggleChk = true;
+	
+	document.addEventListener("DOMContentLoaded", function () {
+		
+		const datas = [
+			<c:out value=" ${portAmount.INVEST_AMOUNT}"/>,
+			<c:out value=" ${portAmount.DEPOSIT_AMOUNT}"/>,
+			<c:out value=" ${portAmount.RESERVE_AMOUNT}"/>
+		];
+		
+		const ctx = document.getElementById('myPieChart');
+		
+		new Chart(ctx, {
+			  type: 'pie',
+			  
+			  data: {
+				  labels: ['투자금', '예수금', '예비금'],
+			    datasets: [{
+			    	labels: ['투자금', '예수금', '예비금'],
+			      data: datas,
+			    }]
+			  },
+			  options: {
+					maintainAspectRatio: false,
+				},
+			});
+	});
+	
 	$(document).ready(function(){
 		
 		$("#portCorpList").dataTable({
@@ -104,7 +131,7 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	                data = '<a href="#" onclick="openReportPop(\''+row.REPRT_NO+'\',\''+row.REPRT_NM+'\')" >'+row.REPRT_NM+'</a>';
+		  	                data = '<a href="#" onclick="openReportPop(\''+row.REPRT_NO+'\',\''+row.REPRT_NM+'\'); return false;" >'+row.REPRT_NM+'</a>';
 		  	            }
 
 		  	            return data;
@@ -114,17 +141,27 @@
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	            	 data = '<a href="#" onclick="openReportList(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\')" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>';
+		  	            	 data = '<a href="#" onclick="openReportList(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\'); return false;" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>';
 		  	            }
 
 		  	            return data;
 		  	         }	 
 		  		},
+		  		{ "data": '', 
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+		  	            if(type === 'display'){
+		  	            	data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+		  	            }
+
+		  	            return data;
+		  	         }	
+		  		},
 		  		{ "data": '',
 		  			"defaultContent" : '',
 		  			"render": function(data, type, row, meta){
 		  	            if(type === 'display'){
-		  	            	data = '<a href="#" onclick="goPortfolioDetail(\''+row.CORP_CODE+'\')" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
+		  	            	data = '<a href="#" onclick="goPortfolioDetail(\''+row.CORP_CODE+'\'); return false;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
 		  	            }
 
 		  	            return data;
@@ -287,6 +324,13 @@
 		frm.target = "_blank"
 		frm.submit();
 	}
+	
+	function openNaverFinancePop(corpCd){
+        var url = "https://finance.naver.com/item/main.nhn?code="+corpCd;
+        var name = "네이버 크롤링 페이지";
+        var option = "width = 1000, height = 1500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
 </script>
 
 <style>
@@ -364,20 +408,9 @@
 	        </div>
 	        <!-- Card Body -->
 	        <div class="card-body">
-	            <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-	                <canvas id="myPieChart" width="470" height="245" style="display: block; width: 470px; height: 245px;" class="chartjs-render-monitor"></canvas>
-	            </div>
-	            <div class="mt-4 text-center small">
-	                <span class="mr-2">
-	                    <i class="fas fa-circle text-primary"></i> 예수금
-	                </span>
-	                <span class="mr-2">
-	                    <i class="fas fa-circle text-success"></i> 투자금
-	                </span>
-	                <span class="mr-2">
-	                    <i class="fas fa-circle text-info"></i> 예비금
-	                </span>
-	            </div>
+	            <div class="chart-container" style="position: relative; height:320px;">
+					<canvas id="myPieChart"></canvas>
+				</div>
 	        </div>
 	    </div>
 	</div>
@@ -405,6 +438,7 @@
 							<td>보유수량</td>
 							<td>최근공시명</td>
 							<td>공시목록</td>
+							<td>정보</td>
 							<td>상세</td>
 							<td>메모</td>
 						</tr>
@@ -416,5 +450,6 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

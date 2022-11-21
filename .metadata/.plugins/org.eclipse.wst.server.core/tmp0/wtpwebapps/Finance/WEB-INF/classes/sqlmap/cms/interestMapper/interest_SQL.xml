@@ -184,7 +184,7 @@
 			                    NVL(DECODE(reprt_code,'11011', decode(bsns_year,lead_bsns_year,(acc_net_amount-lead_acc_net_amount),null),acc_net_amount),0) as acc_net_amount
 			                FROM (
 			                    SELECT
-			                        A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.STOCK_CODE, B.USER_ID ,
+			                        A.corp_code AS STOCK_CODE, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.CORP_CODE, B.USER_ID ,
 			                        replace(account_id, 'ifrs_', 'ifrs-full_') as account_id,
 			                        accumulated_net_amount as acc_net_amount,
 			                        LEAD(nvl(accumulated_net_amount, 0))
@@ -204,7 +204,7 @@
 			                        AND a.bsns_year BETWEEN #{pStartYear} AND #{pEndYear}
 			                        AND B.USER_ID = #{curUserId}
 			                    GROUP BY 
-			                    	A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.STOCK_CODE, B.USER_ID,
+			                    	A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.CORP_CODE, B.USER_ID,
 			                        replace(account_id, 'ifrs_', 'ifrs-full_'),
 			                        accumulated_net_amount
 			                )
@@ -237,7 +237,7 @@
 			                    NVL(DECODE(reprt_code,'11011', decode(bsns_year,lead_bsns_year,(acc_net_amount-lead_acc_net_amount),null),acc_net_amount),0) as acc_net_amount
 			                FROM (
 			                    SELECT
-			                        A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.STOCK_CODE, B.USER_ID,
+			                        A.corp_code AS STOCK_CODE, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.CORP_CODE, B.USER_ID,
 			                        replace(account_id, 'ifrs_', 'ifrs-full_') as account_id,
 			                        accumulated_net_amount as acc_net_amount,
 			                        LEAD(nvl(accumulated_net_amount, 0))
@@ -257,7 +257,7 @@
 			                        AND a.bsns_year BETWEEN #{pStartYear} AND #{pEndYear}
 			                        AND B.USER_ID = #{curUserId}
 			                   	GROUP BY 
-			                    	A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.STOCK_CODE, B.USER_ID,
+			                    	A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME, B.CORP_CODE, B.USER_ID,
 			                        replace(account_id, 'ifrs_', 'ifrs-full_'),
 			                        accumulated_net_amount
 			                )

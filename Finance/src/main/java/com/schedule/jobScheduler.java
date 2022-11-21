@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -44,11 +46,28 @@ public class jobScheduler {
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		String curDate = format.format(now);
+		int year = Integer.parseInt(curDate.substring(0, 4));
+		int month = Integer.parseInt(curDate.substring(4, 6));
+		int day = Integer.parseInt(curDate.substring(6, 8));
+		
+		LocalDate date = LocalDate.of(year, month, day);
+        System.out.println(date);  // // 2021-12-25
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        int dayOfWeekNumber = dayOfWeek.getValue();
+        System.out.println(dayOfWeekNumber);
 		
 		Calendar cal = new GregorianCalendar();
 		Date setDate = format.parse(curDate);
 		cal.setTime(setDate);
-		cal.add(Calendar.DATE, -1);
+		
+		//월요일 일 경우 3일전 (금요일) , 일요일 일 경우 2일전 (금요일) 날짜 가져오기
+		if(dayOfWeekNumber == 1) {
+			cal.add(Calendar.DATE, -3);
+		}else if(dayOfWeekNumber == 7){
+			cal.add(Calendar.DATE, -2);
+		}else{
+			cal.add(Calendar.DATE, -1);
+		}
 		String befDate = format.format(cal.getTime());
 		Map<String, Object> paramtest = new HashMap<String, Object> ();
 		System.out.println("test1111");
@@ -68,8 +87,10 @@ public class jobScheduler {
 		InputStreamReader isr2 = new InputStreamReader(url2.openConnection().getInputStream(), "UTF-8");
 		JSONObject object2 = (JSONObject)JSONValue.parse(isr2);
 		JSONArray infoList2 = (JSONArray) object2.get("OutBlock_1");
-		
 		JSONArray mergeList = commonController.mergeJsonArray(infoList1,infoList2);
+		
+		System.out.println("JB1 : "+url1);
+		System.out.println("JB1 : "+url2);
 		
 		int resultInt = 0;
 		for(int i=0; i< getPortListForSchedule.size(); i++) {

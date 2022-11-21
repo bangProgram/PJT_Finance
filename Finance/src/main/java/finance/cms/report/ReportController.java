@@ -125,7 +125,7 @@ public class ReportController {
 	}
 	
 	@RequestMapping(value = "/report/detail/view", method = RequestMethod.POST)
-	public ModelAndView getReportDetail(@RequestParam Map<String, Object> commandMap) throws Exception {
+	public ModelAndView getReportDetail(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
 
 	    List<Map<String, Object>> resultList = reportService.getReportDetailList(commandMap);
 	    

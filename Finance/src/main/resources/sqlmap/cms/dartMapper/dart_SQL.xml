@@ -21,8 +21,36 @@
 	</select>
 	
 	<update id="updatePortForSchedule" parameterType="hashMap" >
-		UPDATE TB_PORTFOLIO_CORP SET BEF_CLS_PRICE = #{TDD_CLSPRC} , SHARES_AMOUNT = #{LIST_SHRS}
-			WHERE STOCK_CODE = #{STOCK_CODE}
+		BEGIN
+		
+			UPDATE TB_PORTFOLIO_CORP SET BEF_CLS_PRICE = #{TDD_CLSPRC} , SHARES_AMOUNT = #{LIST_SHRS}
+				WHERE STOCK_CODE = #{STOCK_CODE}
+				;
+				
+			UPDATE  TB_PORTFOLIO_CORP a SET INVEST_OPINION = (
+					SELECT 
+						<![CDATA[ 
+						CASE WHEN NVL(BEF_CLS_PRICE,0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT1,0) )
+							THEN '매수'
+							WHEN NVL(BEF_CLS_PRICE,0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT2,0) )
+							THEN '비중확대'
+							WHEN NVL(BEF_CLS_PRICE,0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT3,0) )
+							THEN '중립'
+							WHEN NVL(BEF_CLS_PRICE,0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
+							THEN '비중축소'
+							WHEN NVL(BEF_CLS_PRICE,0) >= ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
+							THEN '매도'
+							ELSE '의견없음'
+						END
+						]]> 
+					FROM TB_PORTFOLIO_CORP A WHERE 
+						a.STOCK_CODE = #{STOCK_CODE}
+				)
+				WHERE
+			   		a.STOCK_CODE = #{STOCK_CODE}
+			   	;
+		   	
+		END;
 	</update>
 	
 </mapper>

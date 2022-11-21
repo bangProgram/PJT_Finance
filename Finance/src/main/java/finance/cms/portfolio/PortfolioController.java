@@ -48,7 +48,7 @@ public class PortfolioController {
 
 	
 	@RequestMapping(value={"/portfolio"})
-	public ModelAndView goPortFolio(@RequestParam Map<String, Object> commandMap) throws Exception {
+	public ModelAndView goPortFolio(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		String curDate = format.format(now);
@@ -59,9 +59,8 @@ public class PortfolioController {
 		cal.add(Calendar.DATE, -1);
 		String befDate = format.format(cal.getTime());
 		
-		commandMap.put("curUserId", "SYSTEM_JB");
-		
 		Map<String, Object> getPortfolio = portfolioService.getPortfolio(commandMap);
+		Map<String, Object> portAmount = portfolioService.getPortAmount(commandMap);
 		List<Map<String, Object>> getPortCorpList = portfolioService.getPortCorpList(commandMap);
 		
 		String infoURL = "https://opendart.fss.or.kr/api/list.json?";
@@ -102,6 +101,7 @@ public class PortfolioController {
 	    ModelAndView mav = new ModelAndView();
 	    String resultURL = "portfolio/portfolioList.jsp";
 	    mav.addObject("getPortfolio", getPortfolio);
+	    mav.addObject("portAmount", portAmount);
 	    mav.addObject("getPortCorpJson", getPortCorpJson);
 	    mav.setViewName(resultURL);
 	    

@@ -222,12 +222,6 @@
 		        </div>
 		        <!-- Card Body -->
 		        <div class="card-body">
-		            <%-- <div class="chart-pie " style="text-align: center;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-		                <canvas id="myPieChart" ></canvas>
-		            </div> --%>
-		            		<%-- 
-		            		<canvas id="myPieChart" width="277" height="277" ></canvas>
-		            		 --%>
 		            <div class="chart-container" style="position: relative; height:320px;">
 						<canvas id="myPieChart"></canvas>
 					</div>
@@ -325,7 +319,7 @@
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-header" id="opiAmtDiv" style="font-size: 15px; padding: 8px 0px 8px 0px; display: -webkit-inline-box;">
-                    	매수 의견 : 
+                    	의견 : 
                     	<span 
                     		<c:if test="${resultData.INVEST_OPINION == '매수'}">style="color: red;"</c:if>
                     		<c:if test="${resultData.INVEST_OPINION == '비중확대'}">style="color: palevioletred;"</c:if>
@@ -334,8 +328,9 @@
                     		<c:if test="${resultData.INVEST_OPINION == '매도'}">style="color: blue;"</c:if>
                     	>
                     			<c:out value="${resultData.INVEST_OPINION}"/>
+                    			(~<c:out value="${resultData.INVEST_OPINION_AMOUNT }"/>)
                     	</span>
-                    	<div class="dropdown no-arrow" style="right: -45px;">
+                    	<div class="dropdown no-arrow" style="right: -10px;">
 			                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 			                </a>
@@ -381,7 +376,7 @@
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-header" style="font-size: 15px; padding: 8px 0px 8px 0px;">
-                    	매수 의견 : ~ ( <span style="color: black;"><c:out value="${resultData.INVEST_OPINION_AMOUNT }"/></span> )
+                    	현재 PER : <span style="color: black;"><c:out value="${resultData.CURRENT_PER }"/></span>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-header" style="font-size: 15px; padding: 8px 0px 8px 0px;">
