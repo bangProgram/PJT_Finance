@@ -4,7 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>﻿
 <script type="text/javascript">
 	var toggleChk = true;
-	alert("JB 20221121 저녁 업데이트해본다");
+	
 	document.addEventListener("DOMContentLoaded", function () {
 		
 		const datas = [
