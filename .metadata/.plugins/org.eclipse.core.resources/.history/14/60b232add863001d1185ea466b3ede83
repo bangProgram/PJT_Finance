@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="portfolioMapper">
+	
+	<sql id="wherePortfolio">
+		<if test=" pCorpCd != null and pCorpCd != '' ">
+			AND A.CORP_CODE = #{pCorpCd}
+		</if>
+		<if test=" curUserId != null and curUserId != ''  ">
+			AND A.USER_ID = #{curUserId}
+		</if>
+	</sql>
+	
+	<select id="getPortfolio" parameterType="Map" resultType="HashMap">  
+	    select 
+	    	USER_ID, DEPOSIT_AMOUNT, INVEST_AMOUNT, RESERVE_AMOUNT, CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT, MEMO
+	    from TB_PORTFOLIO
+	    WHERE 1=1
+	</select>
+	
+	<select id="getPortCorpList" parameterType="Map" resultType="HashMap">  
+	    select 
+	    	CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
+	    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT
+	    	,TO_CHAR(MEMO) AS MEMO,
+	    	INVEST_OPINION,HOLD_QUANTITY,AVR_PRICE
+	    from TB_PORTFOLIO_CORP A
+	    WHERE 1=1
+	    	<include refid = "wherePortfolio"/>
+	    	
+	</select>
+	
+	<insert id="insertPortfolioCorp" parameterType="hashMap"  >  
+		MERGE 
+		 	INTO TB_PORTFOLIO_CORP a
+		USING dual
+		   ON (
+		   		a.CORP_CODE = #{CORP_CODE}
+		   		and a.USER_ID = #{curUserId} 
+		   	)
+		 WHEN MATCHED THEN
+		      UPDATE
+		        <set>
+		         	<if test="MEMO != null and MEMO != '' ">
+						MEMO		=	#{MEMO},
+					</if> 
+		         	a.CHANGE_ID = 'SYSTEM_JB',
+		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
+				</set>
+		 WHEN NOT MATCHED THEN
+				INSERT (
+				    CORP_CODE,USER_ID,CORP_NAME,STOCK_CODE,GUBN,
+				    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,MEMO	
+				) VALUES (
+					#{CORP_CODE}, 'SYSTEM_JB' ,#{CORP_NAME} ,#{STOCK_CODE} , '',
+				    'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,'SYSTEM_JB' ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+					(
+				        SELECT
+				            to_CLOB(memo) AS memo
+				        FROM
+				            tb_interest a
+				        WHERE
+				                1 = 1
+				            AND a.corp_code = #{CORP_CODE}
+				            AND a.user_id = #{curUserId}
+				    )
+				)
+	    
+	</insert>
+	
+	<insert id="inertPortfolioAsset" parameterType="Map"  >  
+		MERGE 
+		 	INTO TB_PORTFOLIO a
+		USING dual
+		   ON (
+		   		a.USER_ID = 'SYSTEM_JB' 
+		   	)
+		WHEN MATCHED THEN
+			UPDATE
+				<set>
+					<if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
+						DEPOSIT_AMOUNT		=	#{DEPOSIT_AMOUNT},
+					</if>
+					<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
+						RESERVE_AMOUNT		=	#{RESERVE_AMOUNT},
+					</if>
+					CHANGE_DT 		=	SYSDATE,
+					CHANGE_ID		=	'SYSTEM_JB'
+				</set>
+		WHEN NOT MATCHED THEN
+				INSERT (
+				    USER_ID, 
+				    <if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
+						DEPOSIT_AMOUNT,
+					</if>
+					<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
+						RESERVE_AMOUNT,
+					</if>
+				    <if test="INVEST_AMOUNT != null and INVEST_AMOUNT != '' ">
+						INVEST_AMOUNT,
+					</if>
+					<if test="MEMO != null and MEMO != '' ">
+						MEMO,
+					</if>
+				    CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
+				) VALUES (
+					'SYSTEM_JB', 
+					<if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
+						#{DEPOSIT_AMOUNT},
+					</if>
+					<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
+						#{RESERVE_AMOUNT},
+					</if>
+				    <if test="INVEST_AMOUNT != null and INVEST_AMOUNT != '' ">
+						#{INVEST_AMOUNT},
+					</if>
+					<if test="MEMO != null and MEMO != '' ">
+						#{MEMO},
+					</if>
+				    'SYSTEM_JB', TO_CHAR(SYSDATE,'YYYY-MM-DD'), 'SYSTEM_JB', TO_CHAR(SYSDATE,'YYYY-MM-DD') 
+				)
+	    
+	</insert>
+	
+	<insert id="deletePortfolioCorp" parameterType="hashMap"  >  
+	    DELETE  TB_PORTFOLIO_CORP 
+	    WHERE 1=1
+	    <if test="delCorpCnt != 0 ">
+			AND CORP_CODE IN 
+			<foreach collection="delCorpList" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	    AND USER_ID = 'SYSTEM_JB'
+	</insert>
+</mapper>

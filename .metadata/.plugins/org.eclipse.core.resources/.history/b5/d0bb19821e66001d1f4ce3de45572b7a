@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="corporationMapper">
+
+	<sql id="whereCorporation">
+		<if test=" CORP_CODE != null and CORP_CODE != '' ">
+			AND A.CORP_CODE = #{CORP_CODE}
+		</if>
+	</sql>
+	
+	<select id="getCorporationGrowth" parameterType="Map" resultType="HashMap">  
+		SELECT 
+		    DISTINCT
+		    ROUND(SUM(GROWTH) OVER(PARTITION BY CORP_CODE, ACCOUNT_ID ORDER BY ACCOUNT_ID) / COUNT(GROWTH) OVER(PARTITION BY CORP_CODE, ACCOUNT_ID ORDER BY ACCOUNT_ID),2) AS AVR_GROWTH,
+		    STOCK_CODE,
+		        CORP_NAME,
+		        ACCOUNT_ID,
+		        CORP_CODE
+		FROM
+		    (
+		    SELECT
+		    	ROUND( case 
+                                        when ACC_NET_AMOUNT > 0 and LEAD_ACC_NET_AMOUNT < 0 
+                                        then - ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        else ((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, null, LEAD_ACC_NET_AMOUNT) * 100 )
+                                        end
+                                    ,
+                                 2) AS GROWTH,
+		        STOCK_CODE,
+		        CORP_NAME,
+		        ACCOUNT_ID,
+		        CORP_CODE,
+		        BSNS_YEAR,
+		        REPRT_CODE
+		    FROM
+		        (
+		            SELECT
+		                DENSE_RANK() 
+		                OVER(PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_') ORDER BY REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_'), A.BSNS_YEAR DESC, A.REPRT_CODE ASC) 
+		                AS YEAR_CNT,
+		                NVL(A.ACCUMULATED_NET_AMOUNT, 0)             AS ACC_NET_AMOUNT,
+		                LEAD(NVL(A.ACCUMULATED_NET_AMOUNT, 0))
+		                OVER(PARTITION BY A.CORP_CODE,
+		                     REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_')
+		                     ORDER BY
+		                         A.CORP_CODE,
+		                         A.BSNS_YEAR DESC,
+		                         A.REPRT_CODE ASC
+		                )                                            AS LEAD_ACC_NET_AMOUNT,
+		                A.CORP_CODE                                  AS STOCK_CODE,
+		                B.CORP_NAME,
+		                REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_') AS ACCOUNT_ID,
+		                A.BSNS_YEAR,
+		                B.CORP_CODE,
+		                A.REPRT_CODE
+		            FROM
+				        	TB_BPLC_CIS A
+		                INNER JOIN TB_BPLC B ON A.CORP_CODE = B.STOCK_CODE
+		            WHERE
+		                    1 = 1
+		                AND REPLACE(ACCOUNT_ID, 'ifrs_', 'ifrs-full_') IN ( 'ifrs-full_Revenue', 'dart_OperatingIncomeLoss', 'ifrs-full_ProfitLoss'
+		                )
+		                <if test="(pStartYear != null and pStartYear != '') or (pEndYear != null and pEndYear != '') ">
+							AND A.BSNS_YEAR BETWEEN #{pStartYear} AND #{pEndYear}
+						</if>
+		                AND A.REPRT_CODE = '11011'
+		            GROUP BY
+		                A.CORP_CODE,
+		                B.CORP_NAME,
+		                REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_'),
+		                A.BSNS_YEAR,
+		                B.CORP_CODE,
+		                A.REPRT_CODE,
+		                NET_AMOUNT,
+		                ACCUMULATED_NET_AMOUNT
+		    )
+		    WHERE 1=1
+		    <![CDATA[
+				AND YEAR_CNT < 6
+        	]]>
+		)  A  
+		WHERE 1=1
+			<include refid = "whereCorporation"/>
+		ORDER 
+		BY STOCK_CODE, (SELECT ORDR FROM TB_CODE_ACCOUNT WHERE CODE = ACCOUNT_ID)
+	</select>
+	
+</mapper>
