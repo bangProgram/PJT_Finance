@@ -22,8 +22,8 @@
 	    SELECT 
 		    B.DEPOSIT_AMOUNT, B.RESERVE_AMOUNT, 
 		    ROUND(NVL(B.INVEST_AMOUNT,0),0) AS INVEST_AMOUNT,
-			ROUND(SUM(A.HOLD_QUANTITY*A.AVR_PRICE),0) AS CORP_INVEST_AMOUNT,
-			ROUND((NVL(B.INVEST_AMOUNT,0) - SUM(A.HOLD_QUANTITY*A.AVR_PRICE)),0) AS DIFF_INVEST_AMOUNT
+			ROUND(NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0),0) AS CORP_INVEST_AMOUNT,
+			ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0)),0) AS DIFF_INVEST_AMOUNT
 		FROM TB_PORTFOLIO_CORP A, TB_PORTFOLIO B
 		WHERE 1=1
 		AND A.USER_ID = B.USER_ID
@@ -42,7 +42,9 @@
 	    	TO_CHAR(HOLD_QUANTITY,'FM999,999,999,999') AS HOLD_QUANTITY,
 	    	TO_CHAR(ROUND(AVR_PRICE,2),'FM999,999,999,999') AS AVR_PRICE,
 	    	ROUND(AVR_PRICE,0) AS CAL_AVR_PRICE,
+	    	AVR_PER,
 	    	nvl(ESTIMATE_EPS,'미추정') ESTIMATE_EPS,
+	    	ESTIMATE_CAGR,
 	    	nvl(AVG_REVENUE_GROWTH,'0') AVG_REVENUE_GROWTH,
 	    	nvl(AVG_OPERAT_GROWTH,'0') AVG_OPERAT_GROWTH,
 	    	nvl(AVG_PROFIT_GROWTH,'0') AVG_PROFIT_GROWTH,
@@ -98,11 +100,14 @@
 						ELSE '0'
 				]]>
 			END as INVEST_OPINION_AMOUNT,
-	    	SHARES_AMOUNT
+	    	SHARES_AMOUNT,
+	    	ROUND(nvl((bef_cls_price / estimate_eps),0),2) AS CURRENT_PER, nvl(AVR_PER,0) as AVR_PER,
+	    	nvl(ESTIMATE_CAGR,0) as ESTIMATE_CAGR
 	    from TB_PORTFOLIO_CORP A
 	    WHERE 1=1
 	    	<include refid = "wherePortfolio"/>
-	    	
+	    ORDER BY 
+	    	NVL(TO_NUMBER(HOLD_QUANTITY),0) DESC 
 	</select>
 	
 	<select id="getPortCorpDetailList" parameterType="Map" resultType="HashMap">  
@@ -165,6 +170,12 @@
 					</if>
 					<if test="ESTIMATE_EPS != null and ESTIMATE_EPS != '' ">
 						ESTIMATE_EPS		=	#{ESTIMATE_EPS},
+					</if>
+					<if test="AVR_PER != null and AVR_PER != '' ">
+						AVR_PER		=	#{AVR_PER},
+					</if>
+					<if test="ESTIMATE_CAGR != null and ESTIMATE_CAGR != '' ">
+						ESTIMATE_CAGR		=	#{ESTIMATE_CAGR},
 					</if>
 		         	a.CHANGE_ID = #{curUserId},
 		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
@@ -324,7 +335,7 @@
 			    SET
 			        AVR_PRICE = (
 			            SELECT
-			                ( ( (A.AVR_PRICE * A.HOLD_QUANTITY) + TO_NUMBER(#{BUY_AMOUNT})  ) / (A.HOLD_QUANTITY + TO_NUMBER(#{BUY_QUANTITY}) ) )
+			                ( ( NVL(( A.AVR_PRICE * A.HOLD_QUANTITY ),0) + TO_NUMBER(#{BUY_AMOUNT})  ) / (NVL(A.HOLD_QUANTITY,0) + TO_NUMBER(#{BUY_QUANTITY}) ) )
 			            FROM
 			                TB_PORTFOLIO_CORP A
 			            WHERE

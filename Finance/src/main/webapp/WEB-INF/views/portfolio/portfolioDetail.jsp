@@ -44,6 +44,16 @@
 			
 		});
 		
+		var curPer = '<c:out value="${resultData.CURRENT_PER }"/>';
+		var avrPer = '<c:out value="${resultData.AVR_PER }"/>';
+		
+		if(curPer > avrPer){
+			$("#perSpan").css("color","blue");
+		}else if(curPer == avrPer){
+			$("#perSpan").css("color","black");
+		}else{
+			$("#perSpan").css("color","red");
+		}
 	});
 	
 
@@ -123,7 +133,7 @@
 		var url = "/portfolio/update/ajax";
 		var allData = {};
 		
-		$('#opiAmtDiv').css("animation-name","");
+		$('#infoDiv').css("animation-name","");
 		$('#epsDiv').css("animation-name","");
 		$('#memoDiv').css("animation-name","");
 		
@@ -146,6 +156,16 @@
 					CORP_CODE 	: $("#CORP_CODE").val(),
 					ESTIMATE_EPS 	: $("#ESTIMATE_EPS").val() 
 			};
+		}else if(mode == 'cagr'){
+			allData = { 
+				CORP_CODE 	: $("#CORP_CODE").val(),
+				ESTIMATE_CAGR 	: $("#ESTIMATE_CAGR").val() 
+		};
+		}else if(mode == 'per'){
+			allData = { 
+					CORP_CODE 	: $("#CORP_CODE").val(),
+					AVR_PER 	: $("#AVR_PER").val() 
+			};
 		}else{
 			return;
 		}
@@ -157,15 +177,18 @@
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수
 				var resultData = data.resultData;
-				if(mode == 'opinion'){
-					$('#opiAmtDiv').css("animation-name","add");
-					$('#opiAmtDiv').css("animation-duration","2.5s");
+				if(mode == 'opinion'|| mode == 'per'){
+					$('#infoDiv').css("animation-name","add");
+					$('#infoDiv').css("animation-duration","2.5s");
 				}else if(mode == 'memo'){
 					$('#memoDiv').css("animation-name","add");
 					$('#memoDiv').css("animation-duration","2.5s");
-				}else if(mode == 'eps'){
+				}else if(mode == 'eps' ){
 					$('#epsDiv').css("animation-name","add");
 					$('#epsDiv').css("animation-duration","2.5s");
+				}else if( mode == 'cagr' ){
+					$('#cagrDiv').css("animation-name","add");
+					$('#cagrDiv').css("animation-duration","2.5s");
 				}
 				
 			},    
@@ -233,7 +256,7 @@
 	    <div class="col-xl-2 col-lg-5">
 	        <div class="card shadow mb-4">
 				<div class="card border-left-primary shadow h-100 py-2" id="epsDiv">
-	            	<div class="card-body">
+	            	<div class="card-body" style="padding: 10px 15px 10px 15px;">
 	                	<div class="row no-gutters align-items-center">
 	                    	<div class="col mr-2">
 	                        	<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
@@ -268,8 +291,44 @@
 	                  	</div>
 	              	</div>
 	          	</div>
-	          	<div class="card border-left-info shadow h-100 py-2">
-	              	<div class="card-body">
+	          	<div class="card border-left-success shadow h-100 py-2" id="cagrDiv">
+	              	<div class="card-body" style="padding: 10px 15px 10px 15px;">
+	                  	<div class="row no-gutters align-items-center">
+	                      	<div class="col mr-2">
+	                        	<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+	                              CAGR </div>
+								<div class="h5 mb-0 font-weight-bold text-gray-800" style="display: -webkit-inline-box;">
+									<c:out value="${resultData.ESTIMATE_CAGR}"/>
+									<div class="dropdown no-arrow" style="right: -45px; font-size: 17px;">
+						                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+						                </a>
+						                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+						                    <div class="dropdown-header" style="font-size: 11px;">
+						                    	- 추정 CAGR 등록 -
+						                    	<button class="btn btn-outline-primary" style="height: 29px; font-size: 11px; width: 50px; margin-left: 30px;" id="btn_DEPOSIT_AMOUNT" onclick="updatePortfolio('cagr'); return false;">
+								                    	등록
+								                </button>
+						                    </div>
+						                    <div class="dropdown-divider"></div>
+						                    <div style="padding: 5px 10px 5px 10px;">
+						                    <form name="opinionForm">
+							                    <div class="dropdown-item" style="padding: 10px 10px 10px 10px; text-align: right;">
+								                    CAGR :
+								                    <input type="text" name="ESTIMATE_CAGR" id="ESTIMATE_CAGR" style="width : 120px; margin-left: 15px;" value='<c:out value="${resultData.ESTIMATE_CAGR}"/>' title="추정 연 평균 성장률" placeholder="추정 연 성장률">
+							                    </div>
+							                    <div class="dropdown-divider"></div>
+							                </form>
+						                    </div>
+						                </div>
+					            	</div>
+								</div>
+	                      	</div>
+	                  	</div>
+	              	</div>
+	          	</div>
+	          	<div class="card border-left-warning shadow h-100 py-2">
+	              	<div class="card-body" style="padding: 10px 15px 10px 15px;">
 	                  	<div class="row no-gutters align-items-center">
 	                      	<div class="col mr-2">
 	                          	<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
@@ -279,8 +338,8 @@
 	                  	</div>
 	              	</div>
 	          	</div>
-	        	<div class="card border-left-info shadow h-100 py-2">
-	              	<div class="card-body">
+	        	<div class="card border-left-warning shadow h-100 py-2">
+	              	<div class="card-body" style="padding: 10px 15px 10px 15px;">
 	                  	<div class="row no-gutters align-items-center">
 	                      	<div class="col mr-2">
 	                          	<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
@@ -290,8 +349,8 @@
 	                  	</div>
 	              	</div>
 	          	</div>
-	          	<div class="card border-left-info shadow h-100 py-2">
-	              	<div class="card-body">
+	          	<div class="card border-left-warning shadow h-100 py-2">
+	              	<div class="card-body" style="padding: 10px 15px 10px 15px;">
 	                  	<div class="row no-gutters align-items-center">
 	                      	<div class="col mr-2">
 	                          	<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
@@ -306,7 +365,7 @@
 		<!-- Info Area -->
 	    <div class="col-xl-2 col-lg-5">
 			<div class="card shadow mb-4">
-				<div class="card-header py-3">
+				<div class="card-header py-3" id="infoDiv" >
 					<h6 class="m-0 font-weight-bold text-primary"><c:out value="${resultData.CORP_NAME }"/> 정보</h6>
 				</div>
 				<div class="card-body">
@@ -318,7 +377,7 @@
                     	전일 종가 : <span style="color: black;"><c:out value="${resultData.BEF_CLS_PRICE}"/></span>
                     </div>
                     <div class="dropdown-divider"></div>
-                    <div class="dropdown-header" id="opiAmtDiv" style="font-size: 15px; padding: 8px 0px 8px 0px; display: -webkit-inline-box;">
+                    <div class="dropdown-header"style="font-size: 15px; padding: 8px 0px 8px 0px; display: -webkit-inline-box;">
                     	의견 : 
                     	<span 
                     		<c:if test="${resultData.INVEST_OPINION == '매수'}">style="color: red;"</c:if>
@@ -375,8 +434,31 @@
 		            	</div>
                     </div>
                     <div class="dropdown-divider"></div>
-                    <div class="dropdown-header" style="font-size: 15px; padding: 8px 0px 8px 0px;">
-                    	현재 PER : <span style="color: black;"><c:out value="${resultData.CURRENT_PER }"/></span>
+                    <div class="dropdown-header" style="font-size: 15px; padding: 8px 0px 8px 0px; display: -webkit-inline-box;">
+                    	PER : <span id="perSpan"><c:out value="${resultData.CURRENT_PER }"/></span> / <span style="color: black;"><c:out value="${resultData.AVR_PER }"/></span>
+                    	<div class="dropdown no-arrow" style="right: -10px;">
+			                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+			                </a>
+			                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+			                    <div class="dropdown-header" style="font-size: 11px;">
+			                    	- 평균 PER -
+			                    	<button class="btn btn-outline-primary" style="height: 29px; font-size: 11px; width: 50px; margin-left: 30px;" id="btn_DEPOSIT_AMOUNT" onclick="updatePortfolio('per'); return false;">
+					                    	등록
+					                </button>
+			                    </div>
+			                    <div class="dropdown-divider"></div>
+			                    <div style="padding: 5px 10px 5px 10px;">
+			                    <form name="opinionForm">
+				                    <div class="dropdown-item" style="padding: 10px 10px 10px 10px; text-align: right;">
+					                    평균 PER :
+					                    <input type="text" name="AVR_PER" id="AVR_PER" style="width : 120px; margin-left: 15px;" value='<c:out value="${resultData.AVR_PER}"/>' title="평균 PER" placeholder="평균 PER">
+				                    </div>
+				                    <div class="dropdown-divider"></div>
+				                </form>
+			                    </div>
+			                </div>
+		            	</div>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-header" style="font-size: 15px; padding: 8px 0px 8px 0px;">

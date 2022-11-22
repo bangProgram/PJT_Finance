@@ -4,7 +4,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>﻿
 <script type="text/javascript">
 	var toggleChk = true;
-	alert("JB 20221121 저녁 업데이트해본다");
 	document.addEventListener("DOMContentLoaded", function () {
 		
 		const datas = [
@@ -73,6 +72,46 @@
 		  				}else{
 		  					data = "없음";
 		  				}
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": '', 
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+	  					if(type === 'display'){
+	  						var style = '';
+	  						if(row.CURRENT_PER > row.AVR_PER){
+	  							style = "style='color: blue;'";
+	  						}else if(row.CURRENT_PER == row.AVR_PER){
+	  							style = "style='color: black;'";
+	  						}else {
+	  							style = "style='color: red;'";
+	  						}
+		  	                data = '<span '+style+'>'+row.CURRENT_PER+'</span> / '+row.AVR_PER;
+		  	            }		  					
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": '',
+		  			"defaultContent" : '',
+		  			"render": function(data, type, row, meta){
+	  					if(type === 'display'){
+	  						var style = '';
+	  						var cagr = row.ESTIMATE_CAGR*1;
+	  						
+	  						if(cagr >= 15){
+	  							style = "style='color: red;'";
+	  						}else if(15 > cagr && cagr >= 5){
+	  							style = "style='color: palevioletred;'";
+	  						}else if( 5 > cagr && cagr > 0 ){
+	  							style = "style='color: cornflowerblue;'";
+	  						}else {
+	  							style = "style='color: black;'";
+	  						}
+		  	                data = '<span '+style+'>'+row.ESTIMATE_CAGR+'</span>';
+		  	            }		  					
 
 		  	            return data;
 		  	         }	
@@ -432,6 +471,8 @@
 			            <tr>
 			            	<td></td>
 							<td>투자의견</td>
+							<td>PER</td>
+							<td>CAGR</td>
 							<td>사업장명</td>
 							<td>전일종가</td>
 							<td>평균단가</td>
