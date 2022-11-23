@@ -258,6 +258,47 @@
 		   		and a.USER_ID = #{curUserId}
 		   	;
 		   	
+		   	UPDATE  TB_PORTFOLIO_CORP a SET ESTIMATE_CAGR = (
+				SELECT 
+				    DECODE((SELECT ESTIMATE_CAGR FROM TB_PORTFOLIO_CORP WHERE CORP_CODE = #{CORP_CODE} and USER_ID = #{curUserId}),
+				    NULL,
+				    ROUND(POWER((SUM(MAX_ACC_NET_AMOUNT)/SUM(MIN_ACC_NET_AMOUNT)),(1/(MAX_RNK-MIN_RNK)))-1,4)*100,
+				    (SELECT ESTIMATE_CAGR FROM TB_PORTFOLIO_CORP WHERE CORP_CODE = #{CORP_CODE} and USER_ID = #{curUserId})
+				    ) AS CAGR
+				FROM (
+				    SELECT 
+				        DISTINCT STOCK_CODE, CORP_CODE, CORP_NAME,
+				        MIN(RNK) OVER(PARTITION BY CORP_CODE ) AS MIN_RNK, 
+				        MAX(RNK) OVER(PARTITION BY CORP_CODE ) AS MAX_RNK, 
+				        FIRST_VALUE(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY CORP_CODE) AS MIN_ACC_NET_AMOUNT,
+				        LAST_VALUE(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY CORP_CODE) AS MAX_ACC_NET_AMOUNT
+				    FROM (
+				        SELECT 
+				            A.CORP_CODE AS STOCK_CODE, B.CORP_CODE , B.CORP_NAME,
+				            DENSE_RANK() OVER(PARTITION BY A.CORP_CODE ORDER BY A.CORP_CODE, BSNS_YEAR) AS RNK,
+				            NVL(ACCUMULATED_NET_AMOUNT,0) AS ACCUMULATED_NET_AMOUNT  
+				        FROM TB_BPLC_CIS A, TB_BPLC B
+				        WHERE 1=1
+				        AND A.CORP_CODE = B.STOCK_CODE
+				        AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+				        ( 
+				            'ifrs-full_BasicEarningsLossPerShare'
+				        )
+				        AND REPRT_CODE = '11011'
+				    )
+				)
+				WHERE 1=1
+				AND MAX_RNK > 1
+				AND MIN_ACC_NET_AMOUNT > 0
+				AND MAX_ACC_NET_AMOUNT > 0 
+				AND CORP_CODE = #{CORP_CODE}
+				GROUP BY STOCK_CODE, CORP_CODE, CORP_NAME, MIN_RNK, MAX_RNK
+			)
+			WHERE
+		   		a.CORP_CODE = #{CORP_CODE}
+		   		and a.USER_ID = #{curUserId}
+		   	;
+		   	
 		END;
 	</insert>
 	
