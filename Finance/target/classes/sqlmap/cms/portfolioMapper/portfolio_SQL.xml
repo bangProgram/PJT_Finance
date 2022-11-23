@@ -258,12 +258,22 @@
 		   		and a.USER_ID = #{curUserId}
 		   	;
 		   	
+		   	
 		   	UPDATE  TB_PORTFOLIO_CORP a SET ESTIMATE_CAGR = (
 				SELECT 
-				    DECODE((SELECT ESTIMATE_CAGR FROM TB_PORTFOLIO_CORP WHERE CORP_CODE = #{CORP_CODE} and USER_ID = #{curUserId}),
+				    DECODE(A.ESTIMATE_CAGR,
 				    NULL,
-				    ROUND(POWER((SUM(MAX_ACC_NET_AMOUNT)/SUM(MIN_ACC_NET_AMOUNT)),(1/(MAX_RNK-MIN_RNK)))-1,4)*100,
-				    (SELECT ESTIMATE_CAGR FROM TB_PORTFOLIO_CORP WHERE CORP_CODE = #{CORP_CODE} and USER_ID = #{curUserId})
+				    <![CDATA[ 
+				    CASE 
+                        WHEN SUM(MAX_ACC_NET_AMOUNT) > 0 AND SUM(MIN_ACC_NET_AMOUNT) > 0 AND (MAX_RNK-MIN_RNK) > 0
+                        THEN ROUND(POWER((SUM(MAX_ACC_NET_AMOUNT)/SUM(MIN_ACC_NET_AMOUNT)),(1/(MAX_RNK-MIN_RNK)))-1,4)*100
+                        WHEN SUM(MAX_ACC_NET_AMOUNT) < 0 AND SUM(MIN_ACC_NET_AMOUNT) < 0 AND (MAX_RNK-MIN_RNK) > 0
+                        THEN ROUND(POWER((SUM(MAX_ACC_NET_AMOUNT)/SUM(MIN_ACC_NET_AMOUNT)),(1/(MAX_RNK-MIN_RNK)))-1,4)*100
+                        ELSE 0
+                    END
+                    ]]> 
+                    ,
+				    A.ESTIMATE_CAGR
 				    ) AS CAGR
 				FROM (
 				    SELECT 
@@ -288,9 +298,6 @@
 				    )
 				)
 				WHERE 1=1
-				AND MAX_RNK > 1
-				AND MIN_ACC_NET_AMOUNT > 0
-				AND MAX_ACC_NET_AMOUNT > 0 
 				AND CORP_CODE = #{CORP_CODE}
 				GROUP BY STOCK_CODE, CORP_CODE, CORP_NAME, MIN_RNK, MAX_RNK
 			)
