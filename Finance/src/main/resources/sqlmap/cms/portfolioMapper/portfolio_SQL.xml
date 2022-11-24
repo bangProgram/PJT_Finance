@@ -258,7 +258,6 @@
 		   		and a.USER_ID = #{curUserId}
 		   	;
 		   	
-		   	
 		   	UPDATE  TB_PORTFOLIO_CORP a SET ESTIMATE_CAGR = (
 				SELECT 
 				    DECODE(A.ESTIMATE_CAGR,
@@ -304,6 +303,11 @@
 			WHERE
 		   		a.CORP_CODE = #{CORP_CODE}
 		   		and a.USER_ID = #{curUserId}
+		   	;
+		   	
+		   	DELETE TB_INTEREST
+		   	WHERE CORP_CODE = #{CORP_CODE}
+		   	and USER_ID = #{curUserId}
 		   	;
 		   	
 		END;

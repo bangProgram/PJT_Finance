@@ -26,6 +26,16 @@
 		}
 		$('#chkYearList').append(html);
 		
+		$("#chkGrowthGb").change(function(){
+			var chkGrowthGb = $(this).val();
+			if(chkGrowthGb == "01"){
+				$(".div01").show();
+			}else{
+				$(".div01").hide();
+			}
+		});
+		
+		
 		$("input[name=pReportCd]").change(function(){
 			$('#chkYearList').empty();
 			var reprtCd = $(this).val();
@@ -93,7 +103,8 @@
 				pReportCd : reprtCd,
 				chkAccRate : $("#chkAccRate").val(),
 				chkYearList : $("#chkYearList").val(),
-				pAccountIds : $("#pAccountIds").val()
+				pAccountIds : $("#pAccountIds").val(),
+				chkGrowthGb : $("#chkGrowthGb").val()
 			},    
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수        
@@ -187,7 +198,7 @@
 				  			"render": function(data, type, row, meta){
 				  	            if(type === 'display'){
 				  	            	//console.log('row : '+row.CORP_CODE+" / "+row.CORP_NAME);
-				  	                data = '<a href="" onclick="addInterest(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	                data = '<a href="" onclick="goSave(\'interest\',\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
 				  	            }
 
 				  	            return data;
@@ -198,7 +209,7 @@
 				  			"render": function(data, type, row, meta){
 				  	            if(type === 'display'){
 				  	            	//console.log('row : '+row.CORP_CODE+" / "+row.CORP_NAME);
-				  	                data = '<a href="" onclick="addPortfolio(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" style="background : cornflowerblue; border-color : cornflowerblue;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
+				  	                data = '<a href="" onclick="goSave(\'portfolio\',\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\',\''+row.STOCK_CODE+'\'); return false;" style="background : cornflowerblue; border-color : cornflowerblue;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>';
 				  	            }
 
 				  	            return data;
@@ -225,11 +236,16 @@
         window.open(url, name, option);
     }
 	
-	function addInterest(corpCd,corpNm,stockCd){
-		var url = "/interest/add/cud";
+	function goSave(gubn, corpCd,corpNm,stockCd){
 		$('#bodyList').css("animation-name","");
-		
-		if(!confirm('\''+corpNm+'\'을 관심목록에 등록하시겠습니까?')) return;
+		var url = "";
+		if(gubn == 'interest'){
+			url = "/interest/add/cud";
+			if(!confirm('\''+corpNm+'\'을 관심목록에 등록하시겠습니까?')) return;
+		}else{
+			url = "/portfolio/add/cud";
+			if(!confirm('\''+corpNm+'\'을 포트폴리오에 추가하시겠습니까?')) return;
+		}
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    
@@ -241,8 +257,14 @@
 			},    
 			dataType : 'json',    
 			success : function(data) { // 결과 성공 콜백함수
-				$('#bodyList').css("animation-name","add1");
-				$('#bodyList').css("animation-duration","2s");
+				if(gubn == 'interest'){
+					$('#bodyList').css("animation-name","add1");
+					$('#bodyList').css("animation-duration","2s");
+				}else{
+					$('#bodyList').css("animation-name","add2");
+					$('#bodyList').css("animation-duration","2s");
+				}
+				
 			},    
 			error : function(request, status, error) {       
 				console.log(error)    
@@ -250,29 +272,6 @@
 		})
 	}
 	
-	function addPortfolio(corpCd,corpNm,stockCd){
-		var url = "/portfolio/add/cud";
-		
-		if(!confirm('\''+corpNm+'\'을 포트폴리오에 추가하시겠습니까?')) return;
-		
-		$.ajax({    
-			type : 'post',           // 타입 (get, post, put 등등)    
-			url : url,           // 요청할 서버url    
-			data : {
-				CORP_CODE 	: corpCd,
-				CORP_NAME	: corpNm,
-				STOCK_CODE 	: stockCd,
-			},    
-			dataType : 'json',    
-			success : function(data) { // 결과 성공 콜백함수        
-				$('#bodyList').css("animation-name","add2");
-				$('#bodyList').css("animation-duration","2.5s");
-			},    
-			error : function(request, status, error) {       
-				console.log(error)    
-			}
-		})
-	}
 </script>
 <style>
 
@@ -327,6 +326,14 @@
                     	<tr>
                             <td>사업장명</td>
 							<td><input type="text" name="pCorpName" id="pCorpName" value="" title="사업장명">  </td>
+							<td>성장률 구분</td>
+							<td>
+								<select name="chkGrowthGb" id="chkGrowthGb" title="성장률 구분 선택" style="width: 200px;"> 
+									<option value = "">선택</option>
+									<option value = "01">재무제표 기준</option>
+									<option value = "02">CAGR 기준</option>
+								</select>
+							</td>
                         </tr>
                         <tr>
                             <td>기준 성장률</td>
@@ -339,8 +346,8 @@
 							</td>
                         </tr>
                         <tr>
-                            <td>조회 계정</td>
-							<td>
+                            <td class="div01">조회 계정</td>
+							<td class="div01">
 								<input type="hidden" name="pAccountIds" id="pAccountIds" value="" title="계정 목록">
 								<input type="checkbox" name="pAccountId" id="pAccountId" value="ifrs-full_Revenue" title="매출액"> 매출액 
 								<input type="checkbox" name="pAccountId" id="pAccountId" value="dart_OperatingIncomeLoss" title="영업이익"> 영업이익

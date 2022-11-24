@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 public class CommonController {
 	
 	public Map<String, Object> init( Map<String, Object> map) throws Exception{
+		System.out.println("JB commandMap Param: \n"+map.toString());
 		Set<String> set = map.keySet();
 		Iterator<String> it = set.iterator();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
