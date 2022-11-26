@@ -47,6 +47,9 @@
 		var curPer = '<c:out value="${resultData.CURRENT_PER }"/>';
 		var avrPer = '<c:out value="${resultData.AVR_PER }"/>';
 		
+		curPer = curPer * 1;
+		avrPer = avrPer * 1;
+		
 		if(curPer > avrPer){
 			$("#perSpan").css("color","blue");
 		}else if(curPer == avrPer){
