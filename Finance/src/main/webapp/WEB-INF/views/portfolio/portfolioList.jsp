@@ -7,9 +7,9 @@
 	document.addEventListener("DOMContentLoaded", function () {
 		
 		const datas = [
-			<c:out value=" ${portAmount.INVEST_AMOUNT}"/>,
 			<c:out value=" ${portAmount.DEPOSIT_AMOUNT}"/>,
-			<c:out value=" ${portAmount.RESERVE_AMOUNT}"/>
+			<c:out value=" ${portAmount.RESERVE_AMOUNT}"/>,
+			<c:out value=" ${portAmount.INVEST_AMOUNT}"/>
 		];
 		
 		const ctx = document.getElementById('myPieChart');
@@ -18,9 +18,9 @@
 			  type: 'pie',
 			  
 			  data: {
-				  labels: ['투자금', '예수금', '예비금'],
+				  labels: ['예수금', '예비금','투자금'],
 			    datasets: [{
-			    	labels: ['투자금', '예수금', '예비금'],
+			    	labels: ['예수금', '예비금','투자금'],
 			      data: datas,
 			    }]
 			  },
@@ -162,6 +162,15 @@
 		  				}else{
 		  					data = "없음";
 		  				}
+
+		  	            return data;
+		  	         }	
+		  		},
+		  		{ "data": 'CHANGE_DT', 
+		  			"render": function(data, type, row, meta){
+	  					if(type === 'display'){
+		  	                data = row.CHANGE_DT;
+		  	            }		  					
 
 		  	            return data;
 		  	         }	
@@ -477,8 +486,9 @@
 							<td>전일종가</td>
 							<td>평균단가</td>
 							<td>보유수량</td>
+							<td>수정일</td>
 							<td>최근공시명</td>
-							<td>공시목록</td>
+							<td>공시</td>
 							<td>정보</td>
 							<td>상세</td>
 							<td>메모</td>

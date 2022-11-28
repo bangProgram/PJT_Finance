@@ -107,7 +107,7 @@
 	    WHERE 1=1
 	    	<include refid = "wherePortfolio"/>
 	    ORDER BY 
-	    	NVL(TO_NUMBER(HOLD_QUANTITY),0) DESC 
+	    	(select NVL(AVR_PRICE*HOLD_QUANTITY,0) from TB_PORTFOLIO_CORP where CORP_CODE = A.CORP_CODE) DESC , NVL(ESTIMATE_CAGR,0) DESC
 	</select>
 	
 	<select id="getPortCorpDetailList" parameterType="Map" resultType="HashMap">  
@@ -362,12 +362,26 @@
 					<if test="MEMO != null and MEMO != '' ">
 						#{MEMO},
 					</if>
-				    'SYSTEM_JB', TO_CHAR(SYSDATE,'YYYY-MM-DD'), 'SYSTEM_JB', TO_CHAR(SYSDATE,'YYYY-MM-DD') 
+				     #{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD') 
 				)
 	    
 	</insert>
 	
 	<delete id="deletePortfolioCorp" parameterType="hashMap"  >  
+	BEGIN
+		UPDATE TB_PORTFOLIO A SET DEPOSIT_AMOUNT =
+		(
+			SELECT (A.DEPOSIT_AMOUNT+SUM(ROUND((HOLD_QUANTITY*AVR_PRICE),0))) FROM TB_PORTFOLIO_CORP WHERE 1=1
+			CORP_CODE IN 
+			<foreach collection="delCorpList" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+			AND USER_ID = #{curUserId}
+		)
+		WHERE 1=1
+		AND USER_ID = #{curUserId}
+		;
+	    
 	    DELETE  TB_PORTFOLIO_CORP 
 	    WHERE 1=1
 	    <if test="delCorpCnt != 0 ">
@@ -376,7 +390,19 @@
 				#{item}
 			</foreach>
 		</if>
-	    AND USER_ID = 'SYSTEM_JB'
+	    AND USER_ID = #{curUserId}
+	    ;
+	    
+	    UPDATE TB_PORTFOLIO SET INVEST_AMOUNT = (
+			SELECT SUM(HOLD_QUANTITY*AVR_PRICE) FROM TB_PORTFOLIO_CORP
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
+		)
+		WHERE 1=1
+		AND USER_ID = #{curUserId}
+		;
+	    
+	END;
 	</delete>
 	
 	<insert id="addPortfolioDetail" parameterType="hashMap"  >  
@@ -428,9 +454,13 @@
 			AND USER_ID = #{curUserId}
 			;
 		
-			UPDATE TB_PORTFOLIO SET INVEST_AMOUNT = (
+			UPDATE TB_PORTFOLIO A SET INVEST_AMOUNT = (
 				SELECT SUM(HOLD_QUANTITY*AVR_PRICE) FROM TB_PORTFOLIO_CORP
+			),DEPOSIT_AMOUNT = (
+				SELECT  A.DEPOSIT_AMOUNT - SUM(NVL(#{BUY_AMOUNT},0)-NVL(#{SELL_AMOUNT},0)) FROM DUAL
 			)
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
 			;
 			
 		END;
@@ -438,6 +468,20 @@
 	
 	<delete id="delPortfolioDetail" parameterType="hashMap"  >  
 		BEGIN
+			UPDATE TB_PORTFOLIO A SET DEPOSIT_AMOUNT = (
+				SELECT A.DEPOSIT_AMOUNT + SUM((BUY_AMOUNT-SELL_AMOUNT)) FROM TB_PORTFOLIO_CORP_DETAIL
+				WHERE 1=1
+				AND CORP_CODE = #{CORP_CODE}
+			    AND USER_ID = #{curUserId}
+			    AND SEQ IN 
+				<foreach collection="delSEQs" item="item" open="(" close=")" separator=",">
+					#{item}
+				</foreach>
+			)
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
+			;
+		
 		    DELETE  TB_PORTFOLIO_CORP_DETAIL 
 		    WHERE 1=1
 		    AND CORP_CODE = #{CORP_CODE}

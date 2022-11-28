@@ -8,10 +8,10 @@
 	document.addEventListener("DOMContentLoaded", function () {
 		
 		const datas = [
+			<c:out value=" ${portAmount.DEPOSIT_AMOUNT}"/>,
+			<c:out value=" ${portAmount.RESERVE_AMOUNT}"/>,
 			<c:out value=" ${portAmount.DIFF_INVEST_AMOUNT}"/>,
 			<c:out value=" ${portAmount.CORP_INVEST_AMOUNT}"/>,
-			<c:out value=" ${portAmount.RESERVE_AMOUNT}"/>,
-			<c:out value=" ${portAmount.DEPOSIT_AMOUNT}"/>
 		];
 		
 		const ctx = document.getElementById('myPieChart');
@@ -20,9 +20,9 @@
 			  type: 'pie',
 			  
 			  data: {
-				  labels: ['타사투자금', '당사투자금', '예수금', '예비금'],
+				  labels: ['예수금', '예비금','타사투자금', '당사투자금'],
 			    datasets: [{
-			    	labels: ['타사투자금', '당사투자금', '예수금', '예비금'],
+			    	labels: ['예수금', '예비금','타사투자금', '당사투자금'],
 			      data: datas,
 			    }]
 			  },
