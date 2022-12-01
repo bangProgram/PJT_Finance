@@ -31,204 +31,8 @@
 	});
 	
 	$(document).ready(function(){
-		
 		$("#portCorpList").dataTable({
-			lengthMenu: [ 12, 18, 24, 30, 36 ],
-		 	data: ${getPortCorpJson},
-		 	destroy: true,
-		 	columns: [
-		  		{ "data": '',
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-		  	            if(type === 'display'){
-		  	            	data = '<input type="checkbox" name="del_chk" id="del_chk" value="'+row.CORP_CODE+'" title="삭제 체크박스">';
-		  	            }
-
-		  	            return data;
-		  	         }	 
-		  		},
-		  		{ "data": 'INVEST_OPINION', 
-		  			"render": function(data, type, row, meta){
-		  				if(row.INVEST_OPINION != null && row.INVEST_OPINION != ''){
-		  					if(type === 'display'){
-		  						var style = '';
-		  						if(row.INVEST_OPINION == '매수'){
-		  							style = "style='color: red;'";
-		  						}else if(row.INVEST_OPINION == '비중확대'){
-		  							style = "style='color: palevioletred;'";
-		  						}else if(row.INVEST_OPINION == '중립'){
-		  							style = "style='color: black;'";
-		  						}
-		  						else if(row.INVEST_OPINION == '비중축소'){
-		  							style = "style='color: cornflowerblue;'";
-		  						}
-		  						else if(row.INVEST_OPINION == '매도'){
-		  							style = "style='color: blue;'";
-		  						}else{
-		  							style = "";
-		  						}
-			  	                data = '<span '+style+'>'+row.INVEST_OPINION+'( ~ '+row.INVEST_OPINION_AMOUNT+' )</span>';
-			  	            }		  					
-		  				}else{
-		  					data = "없음";
-		  				}
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": '', 
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-	  					if(type === 'display'){
-	  						var style = '';
-	  						if(row.CURRENT_PER > row.AVR_PER){
-	  							style = "style='color: blue;'";
-	  						}else if(row.CURRENT_PER == row.AVR_PER){
-	  							style = "style='color: black;'";
-	  						}else {
-	  							style = "style='color: red;'";
-	  						}
-		  	                data = '<span '+style+'>'+row.CURRENT_PER+'</span> / '+row.AVR_PER;
-		  	            }		  					
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": '',
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-	  					if(type === 'display'){
-	  						var style = '';
-	  						var cagr = row.ESTIMATE_CAGR*1;
-	  						
-	  						if(cagr >= 15){
-	  							style = "style='color: red;'";
-	  						}else if(15 > cagr && cagr >= 5){
-	  							style = "style='color: palevioletred;'";
-	  						}else if( 5 > cagr && cagr > 0 ){
-	  							style = "style='color: cornflowerblue;'";
-	  						}else {
-	  							style = "style='color: black;'";
-	  						}
-		  	                data = '<span '+style+'>'+row.ESTIMATE_CAGR+'</span>';
-		  	            }		  					
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ data: 'CORP_NAME' },
-		  		{ "data": 'BEF_CLS_PRICE', 
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-		  				if(row.BEF_CLS_PRICE != null && row.BEF_CLS_PRICE != ''){
-		  					if(type === 'display'){
-			  	                data = row.BEF_CLS_PRICE;
-			  	            }		  					
-		  				}else{
-		  					data = "없음";
-		  				}
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": 'AVR_PRICE', 
-		  			"render": function(data, type, row, meta){
-		  				if(row.AVR_PRICE != null && row.AVR_PRICE != ''){
-		  					if(type === 'display'){
-		  						var style = '';
-		  						if(row.AVR_PRICE < row.BEF_CLS_PRICE){
-		  							style = "style='color: palevioletred;'";
-		  						}else if(row.AVR_PRICE > row.BEF_CLS_PRICE){
-		  							style = "style='color: cornflowerblue;'";
-		  						}
-		  						else{
-		  							style = "";
-		  						}
-			  	                data = '<span '+style+'>'+row.AVR_PRICE+'</span>';
-			  	            }		  					
-		  				}else{
-		  					data = "없음";
-		  				}
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": 'HOLD_QUANTITY', 
-		  			"render": function(data, type, row, meta){
-		  				if(row.HOLD_QUANTITY != null && row.HOLD_QUANTITY != ''){
-		  					if(type === 'display'){
-			  	                data = row.HOLD_QUANTITY;
-			  	            }		  					
-		  				}else{
-		  					data = "없음";
-		  				}
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": 'CHANGE_DT', 
-		  			"render": function(data, type, row, meta){
-	  					if(type === 'display'){
-		  	                data = row.CHANGE_DT;
-		  	            }		  					
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": '', 
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-		  	            if(type === 'display'){
-		  	                data = '<a href="#" onclick="openReportPop(\''+row.REPRT_NO+'\',\''+row.REPRT_NM+'\'); return false;" >'+row.REPRT_NM+'</a>';
-		  	            }
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": '',
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-		  	            if(type === 'display'){
-		  	            	 data = '<a href="#" onclick="openReportList(\''+row.CORP_CODE+'\',\''+row.CORP_NAME+'\'); return false;" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>';
-		  	            }
-
-		  	            return data;
-		  	         }	 
-		  		},
-		  		{ "data": '', 
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-		  	            if(type === 'display'){
-		  	            	data = '<a href="#" onclick="openNaverFinancePop(\''+row.STOCK_CODE+'\'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
-		  	            }
-
-		  	            return data;
-		  	         }	
-		  		},
-		  		{ "data": '',
-		  			"defaultContent" : '',
-		  			"render": function(data, type, row, meta){
-		  	            if(type === 'display'){
-		  	            	data = '<a href="#" onclick="goPortfolioDetail(\''+row.CORP_CODE+'\'); return false;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>';
-		  	            }
-
-		  	            return data;
-		  	         }	 
-		  		},
-		  		{ "data": 'MEMO', 
-		  			"render": function(data, type, row, meta){
-		  				if(row.MEMO != null && row.MEMO != ''){
-		  					if(type === 'display'){
-		  						data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #FFD232; background: #FFD232;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
-			  	            }		  					
-		  				}else{
-		  					data = '<a href="#" onclick="openMemoPop(\''+row.CORP_CODE+'\'); return false;" style="border-color: #aeafb9; background: #aeafb9;" class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>';
-		  				}
-
-		  	            return data;
-		  	         }	
-		  		}
-		  	]
+			lengthMenu: [ 12, 18, 24, 30, 36 ]
 		});
 		
 	});
@@ -490,11 +294,88 @@
 							<td>최근공시명</td>
 							<td>공시</td>
 							<td>정보</td>
-							<td>상세</td>
+							<!-- <td>상세</td> -->
 							<td>메모</td>
 						</tr>
 			        </thead>
 			        <tbody id="bodyList">
+			        	<c:forEach items="${getPortCorpList}" var="ls" >
+				        	<tr>
+				        		<td><input type="checkbox" name="del_chk" id="del_chk" value="${ls.CORP_CODE}" title="삭제 체크박스"></td>
+				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+				        			<span 
+				        				<c:if test="${ls.INVEST_OPINION == '매수'}">style='color: red;'</c:if>
+										<c:if test="${ls.INVEST_OPINION == '비중확대'}">style='color: palevioletred;'</c:if>
+										<c:if test="${ls.INVEST_OPINION == '증립'}">style='color: black;'</c:if>
+										<c:if test="${ls.INVEST_OPINION == '비중축소'}">style='color: cornflowerblue;'</c:if>
+										<c:if test="${ls.INVEST_OPINION == '매도'}">style='color: blue;'</c:if>			        			
+				        			>
+				        				<c:out value="${ls.INVEST_OPINION}"/>
+				        				( ~ <c:out value="${ls.INVEST_OPINION_AMOUNT}"/>)
+				        			</span>
+				        		</td>
+				        		
+				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+				        			<span 
+				        				<fmt:parseNumber value="${ls.CURRENT_PER}" var="CURRENT_PER"/>
+				        				<fmt:parseNumber value="${ls.AVR_PER}" var="AVR_PER"/>
+				        				<c:if test="${CURRENT_PER > AVR_PER}">style='color: blue;'</c:if>
+										<c:if test="${CURRENT_PER == AVR_PER}">style='color: black;'</c:if>
+										<c:if test="${CURRENT_PER < AVR_PER}">style='color: red;'</c:if>
+				        			>
+				        				<c:out value="${ls.CURRENT_PER}"/>
+				        			</span> / <c:out value="${ls.AVR_PER}"/>
+				        		</td>
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+									<span 
+										<fmt:parseNumber value="${ls.ESTIMATE_CAGR}" var="ESTIMATE_CAGR"/>
+				        				<c:if test="${ESTIMATE_CAGR >= 15}">style='color: red;'</c:if>
+										<c:if test="${15 > ESTIMATE_CAGR && ESTIMATE_CAGR >= 5}">style='color: palevioletred;'</c:if>
+										<c:if test="${5 > ESTIMATE_CAGR && ESTIMATE_CAGR > 0 }">style='color: cornflowerblue;'</c:if>
+										<c:if test="${ESTIMATE_CAGR <= 0}">style='color: black;'</c:if>
+				        			>
+				        				<c:out value="${ls.ESTIMATE_CAGR}"/>
+				        			</span>
+								</td>
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+									<c:out value="${ls.CORP_NAME}"/>
+								</td>	
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+									<c:out value="${ls.BEF_CLS_PRICE}"/>
+								</td>	
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+				        			<span
+				        				<fmt:parseNumber value="${ls.AVR_PRICE}" var="AVR_PRICE"/> 
+				        				<fmt:parseNumber value="${ls.BEF_CLS_PRICE}" var="BEF_CLS_PRICE"/> 
+				        				<c:if test="${AVR_PRICE < BEF_CLS_PRICE}">style='color: palevioletred;'</c:if>
+										<c:if test="${AVR_PRICE >= BEF_CLS_PRICE}">style='color: cornflowerblue;'</c:if>
+				        			>
+				        				<c:out value="${ls.AVR_PRICE}"/>
+				        			</span>
+				        		</td>
+				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+									<c:out value="${ls.HOLD_QUANTITY}"/>
+								</td>
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;"  >
+									<c:out value="${ls.CHANGE_DT}"/>
+								</td>
+								<td>
+									<a href="#" onclick="openReportPop('${ls.REPRT_NO}','${ls.REPRT_NM}'); return false;" ><c:out value="${ls.REPRT_NM}"/></a>
+								</td>
+								<td>
+									<a href="#" onclick="openReportList('${ls.CORP_CODE}','${ls.CORP_NAME}'); return false;" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-flag"></i></span></a>
+								</td>
+								<td>
+									<a href="#" onclick="openNaverFinancePop('${ls.STOCK_CODE}'); return false;" class="btn btn-success btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
+								</td>
+								<td>
+									<a href="#" onclick="openMemoPop('${ls.CORP_CODE}'); return false;" 
+										<c:if test="${!empty ls.MEMO}">style="border-color: #FFD232; background: #FFD232;"</c:if> 
+										<c:if test="${!empty ls.MEMO}">style="border-color: #aeafb9; background: #aeafb9;"</c:if>
+									class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>
+								</td>	
+							</tr>
+						</c:forEach>
 			        </tbody>
                 </table>
             </div>

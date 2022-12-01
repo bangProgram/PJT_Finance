@@ -90,7 +90,7 @@
 			                A.CORP_CODE AS STOCK_CODE, B.CORP_CODE , B.CORP_NAME,
 			                DENSE_RANK() OVER(PARTITION BY A.CORP_CODE ORDER BY A.CORP_CODE, BSNS_YEAR) AS RNK,
 			                NVL(ACCUMULATED_NET_AMOUNT,0) AS ACCUMULATED_NET_AMOUNT  
-			            FROM TB_BPLC_CIS A, TB_BPLC B
+			            FROM TB_BPLC_CIS A, TB_BPLC_DETAIL B
 			            WHERE 1=1
 			            AND A.CORP_CODE = B.STOCK_CODE
 			            AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
@@ -120,7 +120,7 @@
 						        NVL(A.BEF_NET_AMOUNT,0) AS BEF_NET_AMOUNT,  LEAD(NVL(A.BEF_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_NET_AMOUNT,
 						        NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0) AS BEF_ACC_NET_AMOUNT, LEAD(NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_ACC_NET_AMOUNT,
 						        a.corp_code , b.corp_name , REPLACE(a.ACCOUNT_ID,'ifrs_','ifrs-full_') as ACCOUNT_ID, a.bsns_year, a.reprt_code 
-						from tb_Bplc_cis a inner join tb_Bplc b
+						from tb_Bplc_cis a inner join TB_BPLC_DETAIL b
 						on a.corp_code = b.stock_code
 						where 1=1
 						<include refid = "whereReport"/>
@@ -189,7 +189,7 @@
 			                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
 			                             bsns_year DESC, reprt_code ASC ) as lead_bsns_year
 			                    FROM
-			                        tb_bplc_cis A INNER JOIN TB_BPLC B 
+			                        tb_bplc_cis A INNER JOIN TB_BPLC_DETAIL B 
 			                    ON A.CORP_CODE = B.STOCK_CODE
 			                    WHERE
 			                        1 = 1

@@ -102,6 +102,7 @@ public class PortfolioController {
 	    String resultURL = "portfolio/portfolioList.jsp";
 	    mav.addObject("getPortfolio", getPortfolio);
 	    mav.addObject("portAmount", portAmount);
+	    mav.addObject("getPortCorpList", getPortCorpList);
 	    mav.addObject("getPortCorpJson", getPortCorpJson);
 	    mav.setViewName(resultURL);
 	    
