@@ -5,6 +5,14 @@
 <script type="text/javascript">
 	var toggleChk = true;
 	document.addEventListener("DOMContentLoaded", function () {
+		$(".jb-main").mouseover(function(){
+			$(this).find(".jb-sub").css("display","block");
+		});
+		
+		$(".jb-main").mouseout(function(){
+			$(this).find(".jb-sub").css("display","none");
+		});
+		
 		
 		const datas = [
 			<c:out value=" ${portAmount.DEPOSIT_AMOUNT}"/>,
@@ -201,6 +209,21 @@
 	to{background : transparent;}
 }
 
+.jb-sub {
+  padding: 15px 20px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position: absolute;
+  display: none;
+ /*  display: block; */
+  
+}
+
+.jb-main:hover {
+  background: #d4d9ff;
+}
+
 </style>
 <html>
 <head>
@@ -277,31 +300,49 @@
 				</button>                	
 			</div>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="font-size: 14px;">
             <div class="table-responsive" >
                 <table id="portCorpList" class="table table-bordered" id="dataTable" width="100%" >
+                	<colgroup>
+                		<col width="1%"/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width=""/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width="7%"/>
+                		<col width="5%"/>
+                		<col width="5%"/>
+                		<col width="5%"/>
+                	</colgroup>
                     <thead id="tableHead">
 			            <tr>
-			            	<td></td>
-							<td>투자의견</td>
-							<td>PER</td>
-							<td>CAGR</td>
-							<td>사업장명</td>
-							<td>전일종가</td>
-							<td>평균단가</td>
-							<td>보유수량</td>
-							<td>수정일</td>
-							<td>최근공시명</td>
-							<td>공시</td>
-							<td>정보</td>
-							<!-- <td>상세</td> -->
-							<td>메모</td>
+			            	<th></th>
+							<th>투자의견</th>
+							<th>PER</th>
+							<th>CAGR</th>
+							<th>사업장명</th>
+							<th>전일종가</th>
+							<th>평단</th>
+							<th>수량</th>
+							<th>손익</th>
+							<th>수정일</th>
+							<th>최근공시</th>
+							<th>공시</th>
+							<th>정보</th>
+							<th>메모</th>
 						</tr>
 			        </thead>
-			        <tbody id="bodyList">
+			        <tbody id="bodyList" >
 			        	<c:forEach items="${getPortCorpList}" var="ls" >
-				        	<tr>
-				        		<td><input type="checkbox" name="del_chk" id="del_chk" value="${ls.CORP_CODE}" title="삭제 체크박스"></td>
+				        	<tr class="jb-main">
+				        		<td style="padding: 23px 14px 23px 14px;">
+				        			<input type="checkbox" name="del_chk" id="del_chk" value="${ls.CORP_CODE}" title="삭제 체크박스">
+				        		</td>
 				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
 				        			<span 
 				        				<c:if test="${ls.INVEST_OPINION == '매수'}">style='color: red;'</c:if>
@@ -311,11 +352,10 @@
 										<c:if test="${ls.INVEST_OPINION == '매도'}">style='color: blue;'</c:if>			        			
 				        			>
 				        				<c:out value="${ls.INVEST_OPINION}"/>
-				        				( ~ <c:out value="${ls.INVEST_OPINION_AMOUNT}"/>)
+				        				<br/>( ~ <c:out value="${ls.INVEST_OPINION_AMOUNT}"/>)
 				        			</span>
 				        		</td>
-				        		
-				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; font-size: 13px; padding: 24px 10px 23px 10px;" >
 				        			<span 
 				        				<fmt:parseNumber value="${ls.CURRENT_PER}" var="CURRENT_PER"/>
 				        				<fmt:parseNumber value="${ls.AVR_PER}" var="AVR_PER"/>
@@ -326,7 +366,7 @@
 				        				<c:out value="${ls.CURRENT_PER}"/>
 				        			</span> / <c:out value="${ls.AVR_PER}"/>
 				        		</td>
-								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;" >
 									<span 
 										<fmt:parseNumber value="${ls.ESTIMATE_CAGR}" var="ESTIMATE_CAGR"/>
 				        				<c:if test="${ESTIMATE_CAGR >= 15}">style='color: red;'</c:if>
@@ -337,13 +377,14 @@
 				        				<c:out value="${ls.ESTIMATE_CAGR}"/>
 				        			</span>
 								</td>
-								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;" >
 									<c:out value="${ls.CORP_NAME}"/>
+									<span class="jb-sub"><c:out value="${ls.INDUTY_NAME}"/></span>
 								</td>	
-								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;" >
 									<c:out value="${ls.BEF_CLS_PRICE}"/>
 								</td>	
-								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;" >
 				        			<span
 				        				<fmt:parseNumber value="${ls.AVR_PRICE}" var="AVR_PRICE"/> 
 				        				<fmt:parseNumber value="${ls.BEF_CLS_PRICE}" var="BEF_CLS_PRICE"/> 
@@ -353,10 +394,19 @@
 				        				<c:out value="${ls.AVR_PRICE}"/>
 				        			</span>
 				        		</td>
-				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;" >
+				        		<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;"" >
 									<c:out value="${ls.HOLD_QUANTITY}"/>
 								</td>
-								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer;"  >
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;""  >
+									<span
+				        				<fmt:parseNumber value="${ls.RETURN_AMOUNT}" var="RETURN_AMOUNT"/> 
+				        				<c:if test="${RETURN_AMOUNT > 0}">style='color: palevioletred;'</c:if>
+										<c:if test="${RETURN_AMOUNT < 0}">style='color: cornflowerblue;'</c:if>
+				        			>
+				        				<c:out value="${ls.RETURN_AMOUNT}"/>
+				        			</span>
+								</td>
+								<td onclick="goPortfolioDetail('${ls.CORP_CODE}'); return false;" style="cursor: pointer; padding: 20px 10px 20px 10px;"" >
 									<c:out value="${ls.CHANGE_DT}"/>
 								</td>
 								<td>
@@ -373,7 +423,7 @@
 										<c:if test="${!empty ls.MEMO}">style="border-color: #FFD232; background: #FFD232;"</c:if> 
 										<c:if test="${!empty ls.MEMO}">style="border-color: #aeafb9; background: #aeafb9;"</c:if>
 									class="btn btn-info btn-circle btn-sm"><i class="fas fa-clipboard-list"></i></a>
-								</td>	
+								</td>
 							</tr>
 						</c:forEach>
 			        </tbody>
