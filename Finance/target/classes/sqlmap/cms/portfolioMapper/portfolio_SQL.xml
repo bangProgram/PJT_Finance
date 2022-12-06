@@ -111,7 +111,7 @@
 		    TB_PORTFOLIO_CORP_DETAIL C
 		WHERE
 		        1 = 1
-		    AND A.CORP_CODE = B.CORP_CODE
+		    AND A.CORP_CODE = B.CORP_CODE (+)
 		    AND A.CORP_CODE = C.CORP_CODE (+)
 		    AND A.USER_ID = C.USER_ID (+)
 	    	<include refid = "wherePortfolio"/>
