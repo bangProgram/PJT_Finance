@@ -65,6 +65,8 @@
         <!-- add more job here -->
     </task:scheduled-tasks> 
 	 
+	 
+	 
 	<!--  
 	<context:component-scan base-package="com.schedule.jobScheduler"/>
 	<task:scheduler id="jobScheduler" pool-size="10" />
@@ -74,5 +76,11 @@
 		<task:scheduled ref="scheduler" method="autoUpdate" cron="*/30 * * * * *" />
 	</task:scheduled-tasks>
 	 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760" />
+		<property name="defaultEncoding" value="utf-8" />
+	</bean> 
+	 
+	 
 </beans>
 

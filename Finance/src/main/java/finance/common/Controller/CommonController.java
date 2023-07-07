@@ -1,5 +1,7 @@
 package finance.common.Controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -7,34 +9,20 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
-@Repository("CommonController")
+@Controller
 public class CommonController {
 	
-	public Map<String, Object> init( Map<String, Object> map) throws Exception{
-		System.out.println("JB commandMap Param: \n"+map.toString());
-		Set<String> set = map.keySet();
-		Iterator<String> it = set.iterator();
-		Map<String, Object> returnMap = new HashMap<String, Object>();
-		
-		while(it.hasNext()) {
-			String key = it.next();
-			if(map.get(key) == null) {
-				returnMap.put(key, "");
-			}else {
-				returnMap.put(key, map.get(key).toString().replace("<", "&lt;").replace(">", "&gt;").toString());
-			}
-		}
-		//로그인 기능 만들기 전까지 사용하도록
-		returnMap.put("curUserId", "SYSTEM_JB");
-		return returnMap;
-	}
-
+	
 	public static JSONArray convertListToJson(List<Map<String, Object>> list) {
 		JSONArray jsonArray = new JSONArray();
 		for(Map<String, Object> map : list) {
@@ -59,5 +47,15 @@ public class CommonController {
 			jsonArray.add(list2.get(i));
 		}
 		return jsonArray;
+	}
+	
+	protected final ModelAndView getMessageModel(String msgType, String msg, String redirectUrl ) {
+		
+		ModelAndView model = new ModelAndView("common/messagePage");
+		model.addObject("msgType", msgType);
+		model.addObject("msg", msg);
+		model.addObject("redirectUrl", redirectUrl);
+		 
+		return model;
 	}
 }

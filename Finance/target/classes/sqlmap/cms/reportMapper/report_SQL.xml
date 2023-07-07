@@ -15,17 +15,6 @@
 			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
 		</if>
 		
-		<if test="chkCorpList != null and chkCorpList != '' ">
-			AND A.CORP_CODE IN 
-			(
-			<foreach collection="chkCorpList" item="item" separator=",">
-				#{item}
-			</foreach>
-			)
-		</if>
-		<if test="(pStartYear != null and pStartYear != '') or (pEndYear != null and pEndYear != '') ">
-			AND A.BSNS_YEAR BETWEEN #{pStartYear} AND #{pEndYear}
-		</if>
 		<if test="pCorpName != null and pCorpName != '' ">
 			AND B.CORP_NAME like '%'|| #{pCorpName} ||'%'
 		</if>
@@ -40,29 +29,30 @@
 	
 	<select id="getBsnsYearList"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
-		     ROWNUM, BSNS_YEAR, REPRT_CODE, DECODE(REPRT_CODE,'11011','Q4_','11012','Q2_')||BSNS_YEAR AS HAEDER_NM
-		FROM (
-		    SELECT 
-		        BSNS_YEAR, REPRT_CODE
-		    FROM TB_BPLC_CIS
-		    WHERE 1=1
-		    	<if test="pReportCd == '11011' ">
-		    		and reprt_code = '11011'
-		    	</if>
-		    GROUP BY 
+		    RNUM, BSNS_YEAR, REPRT_CODE, DECODE(#{pReportCd},'0302',DECODE(REPRT_CODE,'0301','Q4_','0302','Q2_'))||BSNS_YEAR AS HAEDER_NM
+		FROM(
+		    SELECT
+		        ROW_NUMBER() OVER(
+		                    ORDER BY BSNS_YEAR DESC, REPRT_CODE ASC) RNUM,
 		        BSNS_YEAR, REPRT_CODE 
-		    ORDER BY 
-		        BSNS_YEAR DESC
+		    FROM TB_BPLC_REPORT
+		    WHERE 1=1
+		    AND SJ_DIV = '0401'
+		    <if test="pReportCd == '0301' ">
+	    		AND REPRT_CODE = '0301'
+	    	</if>
+		    GROUP BY BSNS_YEAR, REPRT_CODE
+		    ORDER BY BSNS_YEAR DESC, REPRT_CODE ASC
 		)
 		WHERE 1=1
 		<![CDATA[
-		     AND ROWNUM <= 5
+		     AND ROWNUM <= 6
 		]]>
 		
 	</select>
 	
 	
-	<select id="getReprtCorpCode" parameterType="hashMap" resultType="HashMap">  
+	<!-- <select id="getReprtCorpCode" parameterType="hashMap" resultType="HashMap">  
 		<if test="chkGrowthGb == '02' ">
 			SELECT 
 			    CORP_CODE, CORP_NAME, YEAR_CNT, CAGR
@@ -90,14 +80,12 @@
 			                A.CORP_CODE AS STOCK_CODE, B.CORP_CODE , B.CORP_NAME,
 			                DENSE_RANK() OVER(PARTITION BY A.CORP_CODE ORDER BY A.CORP_CODE, BSNS_YEAR) AS RNK,
 			                NVL(ACCUMULATED_NET_AMOUNT,0) AS ACCUMULATED_NET_AMOUNT  
-			            FROM TB_BPLC_CIS A, TB_BPLC_DETAIL B
+			           FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
 			            WHERE 1=1
 			            AND A.CORP_CODE = B.STOCK_CODE
-			            AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
-			            ( 
-			                'ifrs-full_BasicEarningsLossPerShare'
-			            )
-			            AND REPRT_CODE = '11011'
+			            AND A.ACCOUNT_ID IN ('ifrs-full_BasicEarningsLossPerShare')
+			            AND A.REPRT_CODE = '0301'
+			            AND A.SJ_DIV = '0401'
 			        )
 			    )
 			    GROUP BY STOCK_CODE, CORP_CODE, CORP_NAME, MIN_RNK, MAX_RNK
@@ -106,7 +94,7 @@
 			AND CAGR >= #{chkAccRate}
 		</if>
 	
-		<if test="pReportCd == '11011' and chkGrowthGb != '02' ">
+		<if test="pReportCd == '0301' and chkGrowthGb != '02' ">
 			SELECT * FROM (
 				select rank () over(partition by corp_code order by account_id) as rnk, a.* from (
 					SELECT 
@@ -227,10 +215,323 @@
 				and rnk = 3
 			</if>
 		</if>
+	</select> -->
+	
+	<select id="getReportList" parameterType="hashMap" resultType="HashMap">  
+		<if test="chkGrowthGb == '02' ">
+			WITH V_TB_CORPCODE AS (
+				SELECT 
+				    CORP_CODE, CORP_NAME, YEAR_CNT, CAGR
+				FROM (
+				    SELECT 
+				        STOCK_CODE AS CORP_CODE, CORP_NAME, MAX_RNK-MIN_RNK AS YEAR_CNT, MAX_RNK,
+				        CASE 
+				            WHEN SUM(MAX_ACC_NET_AMOUNT) > 0 AND SUM(MIN_ACC_NET_AMOUNT) > 0 AND (MAX_RNK-MIN_RNK) > 0
+				            THEN ROUND(POWER((SUM(MAX_ACC_NET_AMOUNT)/SUM(MIN_ACC_NET_AMOUNT)),(1/(MAX_RNK-MIN_RNK)))-1,4)*100
+				            ELSE 0
+				        END
+				         AS CAGR
+				    FROM (
+				        SELECT 
+				            DISTINCT
+		                       STOCK_CODE, CORP_CODE, CORP_NAME, 
+				            MIN(RNK) OVER(PARTITION BY CORP_CODE ORDER BY RNK ) AS MIN_RNK, 
+				            MAX(RNK) OVER(PARTITION BY CORP_CODE ORDER BY RNK ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING ) AS MAX_RNK, 
+				            FIRST_VALUE(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY CORP_CODE ORDER BY RNK) AS MIN_ACC_NET_AMOUNT,
+				            LAST_VALUE(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY CORP_CODE ORDER BY RNK ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING ) AS MAX_ACC_NET_AMOUNT
+				        FROM (
+				            SELECT 
+				                A.CORP_CODE AS STOCK_CODE, B.CORP_CODE , B.CORP_NAME, A.BSNS_YEAR,
+				                DENSE_RANK() OVER(PARTITION BY A.CORP_CODE ORDER BY A.CORP_CODE, BSNS_YEAR) AS RNK,
+				                NVL(ACCUMULATED_NET_AMOUNT,0) AS ACCUMULATED_NET_AMOUNT  
+				            FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+				            WHERE 1=1
+		                       AND A.SJ_DIV = '0401'
+				            AND A.CORP_CODE = B.STOCK_CODE
+				            AND A.ACCOUNT_ID IN ( 'ifrs-full_BasicEarningsLossPerShare' )
+				            AND A.REPRT_CODE = '0301'
+				            <if test="(pStartYear != null and pStartYear != '') or (pEndYear != null and pEndYear != '') ">
+								AND A.BSNS_YEAR BETWEEN #{pStartYear} AND #{pEndYear}
+							</if>
+				        )
+				    )
+				    GROUP BY STOCK_CODE, CORP_CODE, CORP_NAME, MIN_RNK, MAX_RNK
+				)
+				WHERE 1=1
+				<if test="chkAccRate != null and chkAccRate != '' ">
+					AND CAGR >= #{chkAccRate}
+				</if>
+				<if test="(pStartYear != null and pStartYear != '') or (pEndYear != null and pEndYear != '') ">
+					AND MAX_RNK = (TO_NUMBER(#{pEndYear}) - TO_NUMBER(#{pStartYear}) + 1 )
+				</if>
+			)
+		</if>
+		
+		<if test="chkGrowthGb == '01' ">
+			<if test="pReportCd == '0301'" >
+				WITH V_TB_CORPCODE AS (
+					SELECT 
+					    CORP_CODE
+					FROM (
+					    SELECT * FROM (
+							select rank () over(partition by corp_code order by account_id) as rnk, a.* from (
+								SELECT 
+									<foreach collection="pYearList" item="item" >
+										sum(DECODE(bsns_year ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))) AS RATE_${item},
+									</foreach>
+								    corp_code , corp_name , account_id
+								FROM (
+									select NVL(A.NET_AMOUNT,0) AS NET_AMOUNT, LEAD(NVL(A.NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_NET_AMOUNT,
+									        NVL(A.ACCUMULATED_NET_AMOUNT,0) AS ACC_NET_AMOUNT, LEAD(NVL(A.ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_ACC_NET_AMOUNT,
+									        NVL(A.BEF_NET_AMOUNT,0) AS BEF_NET_AMOUNT,  LEAD(NVL(A.BEF_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_NET_AMOUNT,
+									        NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0) AS BEF_ACC_NET_AMOUNT, LEAD(NVL(A.BEF_ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_BEF_ACC_NET_AMOUNT,
+									        a.corp_code , b.corp_name , REPLACE(a.ACCOUNT_ID,'ifrs_','ifrs-full_') as ACCOUNT_ID, a.bsns_year, a.reprt_code 
+									from tb_Bplc_report a, TB_BPLC_DETAIL b
+									where 1=1
+			                        and a.corp_code = b.stock_code
+									<include refid = "whereReport"/>
+									AND A.REPRT_CODE = #{pReportCd}
+									AND SJ_DIV = '0401'
+								) A
+								group by corp_code , corp_name , account_id
+							) a
+							where  1=1 
+							<if test="chkYearList != '' and chkYearList != null and chkAccRate != '' and chkAccRate != null">
+									<foreach collection="chkYearList" item="item" >
+										AND RATE_${item} > #{chkAccRate}
+									</foreach>
+							</if>
+						)
+						where 1=1
+						<if test="pAccountCnt != null and pAccountCnt != 0 ">
+							and rnk = #{pAccountCnt}
+						</if>
+					)
+					WHERE 1=1
+					GROUP BY CORP_CODE
+				)
+			</if>
+			<if test="pReportCd == '0302'">
+				WITH V_TB_CORPCODE AS (
+						SELECT 
+						    CORP_CODE
+						FROM (
+							SELECT
+								    *
+							FROM
+							    (
+								    SELECT
+								        RANK()
+								        OVER(PARTITION BY corp_code
+								        ORDER BY
+								         account_id
+								        ) AS rnk,
+								        a.*
+								    FROM
+								    (
+								        SELECT
+								        	<foreach collection="pQuaterList" item="item" index="index">
+												sum(DECODE(HADER_NM ,#{item},ROUND(((ACC_NET_AMOUNT - LEAD_ACC_NET_AMOUNT) / DECODE(LEAD_ACC_NET_AMOUNT, 0, NULL, LEAD_ACC_NET_AMOUNT) * 100), 2))) AS RATE_${item},
+											</foreach>
+								            corp_code,
+								            corp_name,
+								            account_id
+								        FROM (
+								            SELECT 
+								                rnk, corp_code, corp_NAME, bsns_year, reprt_code, reprt_nm, account_id, acc_net_amount, DECODE(REPRT_CODE,'0301','Q4_','0302','Q2_')||BSNS_YEAR AS HADER_NM,
+								                LEAD(nvl(acc_net_amount, 0))
+								                OVER(PARTITION BY corp_code, account_id
+								                 ORDER BY corp_code, account_id, bsns_year DESC, reprt_code ASC ) AS LEAD_acc_net_amount
+								            FROM (
+								                SELECT
+								                    dense_rank() over(PARTITION BY corp_code,account_id  ORDER BY account_id, bsns_year DESC, reprt_code ASC) as rnk,
+								                    corp_code, CORP_NAME, bsns_year, reprt_code, reprt_nm, account_id, lead_acc_net_amount, lead_bsns_year,
+								                    NVL(DECODE(reprt_code,'0301', decode(bsns_year,lead_bsns_year,(acc_net_amount-lead_acc_net_amount),null),acc_net_amount),0) as acc_net_amount
+								                FROM (
+								                    SELECT
+								                        A.corp_code, bsns_year, reprt_code, reprt_nm, B.CORP_NAME,
+								                        replace(account_id, 'ifrs_', 'ifrs-full_') as account_id,
+								                        accumulated_net_amount as acc_net_amount,
+								                        LEAD(nvl(accumulated_net_amount, 0))
+								                        OVER(PARTITION BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_')
+								                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
+								                             bsns_year DESC, reprt_code ASC ) as lead_acc_net_amount,
+								                        LEAD(nvl(bsns_year, 0))
+								                        OVER(PARTITION BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_')
+								                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
+								                             bsns_year DESC, reprt_code ASC ) as lead_bsns_year
+								                    FROM tb_Bplc_report a, TB_BPLC_DETAIL b
+														where 1=1
+								                        and a.corp_code = b.stock_code
+														<include refid = "whereReport"/>
+								                )
+								                ORDER BY
+								                    corp_code,
+								                    account_id,
+								                    bsns_year DESC,
+								                    reprt_code ASC
+								            )   WHERE 1=1
+								            <![CDATA[
+								            	                AND RNK < 6
+								            ]]>
+								        )
+								        GROUP BY
+								        corp_code,
+								        corp_name,
+								        account_id
+								    ) a
+								    WHERE
+								    1 = 1
+									<if test="chkYearList != '' and chkYearList != null and chkAccRate != '' and chkAccRate != null">
+										<foreach collection="chkYearList" item="item" >
+											AND RATE_${item} > #{chkAccRate}
+										</foreach>
+									</if>  
+							    )
+							WHERE
+					        1 = 1
+							<if test="pAccountCnt != null and pAccountCnt != 0 ">
+								and rnk = #{pAccountCnt}
+							</if>
+						)
+						WHERE 1=1
+						GROUP BY CORP_CODE
+					)
+			</if>
+		</if>
+	
+	
+		SELECT * FROM (
+		    SELECT 
+		        DENSE_RANK() OVER(ORDER BY CORP_CODE) AS RNUM, ORDR, 1 AS SEQ,
+		        STOCK_CODE, CORP_CODE, CORP_NAME, SJ_DIV,  MAX(SJ_NM) AS SJ_NM, ACCOUNT_ID, MAX(ACCOUNT_NM) AS ACCOUNT_NM,
+		        SUM(DECODE(RNUM,1,ACC_NET_AMOUNT,0)) AS AMOUNT1,
+		        SUM(DECODE(RNUM,2,ACC_NET_AMOUNT,0)) AS AMOUNT2,
+		        SUM(DECODE(RNUM,3,ACC_NET_AMOUNT,0)) AS AMOUNT3,
+		        SUM(DECODE(RNUM,4,ACC_NET_AMOUNT,0)) AS AMOUNT4,
+		        SUM(DECODE(RNUM,5,ACC_NET_AMOUNT,0)) AS AMOUNT5,
+		        SUM(DECODE(RNUM,6,ACC_NET_AMOUNT,0)) AS AMOUNT6
+		    FROM (
+		        SELECT 
+		            RNUM, ORDR, 
+		            STOCK_CODE, CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, NVL(round(ACC_NET_AMOUNT/100000000,3),0) AS ACC_NET_AMOUNT
+		        FROM (
+		            SELECT 
+		            ROW_NUMBER() OVER(
+		                PARTITION BY A.corp_code,A.account_id
+		                ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC) RNUM,
+		            C.ORDR, B.CORP_NAME,
+		            A.CORP_CODE AS STOCK_CODE, B.CORP_CODE,A. BSNS_YEAR, A.REPRT_CODE, A.REPRT_NM, A.SJ_DIV, A.SJ_NM, A.ACCOUNT_ID, A.ACCOUNT_NM, 
+		            A.ACCUMULATED_NET_AMOUNT AS ACCUMULATED_NET_AMOUNT, 
+		            LEAD(nvl(A.accumulated_net_amount, 0))
+		                                                        OVER(PARTITION BY A.corp_code,A.account_id
+		                                                             ORDER BY
+		                                                                 A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC
+		                                                        ) AS LEAD_ACCUMULATED_NET_AMOUNT,
+		            ACCUMULATED_NET_AMOUNT 
+		            - DECODE( REPRT_CODE,'0301',DECODE(
+		                    NVL(#{pReportCd},'0301'),'0302',CASE  WHEN LEAD(nvl(A.accumulated_net_amount, 0)) OVER(PARTITION BY A.corp_code,A.account_id ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC )>0 
+		                                        THEN LEAD(nvl(A.accumulated_net_amount, 0)) OVER(PARTITION BY A.corp_code,A.account_id ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC ) 
+		                                        ELSE -LEAD(nvl(A.accumulated_net_amount, 0))OVER(PARTITION BY A.corp_code,A.account_id ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC ) 
+		                                  END,0),0) AS ACC_NET_AMOUNT
+		            FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B, TB_CODE_ACCOUNT C
+		            WHERE 1=1
+		            AND A.CORP_CODE = B.STOCK_CODE
+		            AND A.ACCOUNT_ID = C.CODE
+		            AND SJ_DIV = '0401'
+		            <if test="pReportCd == '0301' ">
+	                	AND REPRT_CODE = '0301'
+	                </if>
+	                <if test="pCorpName != null and pCorpName != '' ">
+	                	AND B.CORP_NAME LIKE '%' || #{pCorpName} || '%'
+	                </if>
+		            <if test="pAccountCnt != 0 ">
+						AND ACCOUNT_ID IN 
+						<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+							#{item}
+						</foreach>
+					</if>
+					AND A.CORP_CODE IN (
+		                SELECT CORP_CODE FROM V_TB_CORPCODE
+		            )
+		            ORDER BY C.ORDR,A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC
+		        )
+		    )
+		    GROUP BY STOCK_CODE, CORP_CODE, ORDR, CORP_NAME, SJ_DIV, ACCOUNT_ID
+		    UNION ALL
+		    SELECT 
+		        DENSE_RANK() OVER(ORDER BY CORP_CODE) AS RNUM, ORDR, 2 AS SEQ,
+		        STOCK_CODE, CORP_CODE, CORP_NAME, SJ_DIV,  MAX(SJ_NM) AS SJ_NM, ACCOUNT_ID, MAX(ACCOUNT_NM) AS ACCOUNT_NM,
+		        SUM(DECODE(RNUM,1,ACC_NET_RATE,0)) AS AMOUNT1,
+		        SUM(DECODE(RNUM,2,ACC_NET_RATE,0)) AS AMOUNT2,
+		        SUM(DECODE(RNUM,3,ACC_NET_RATE,0)) AS AMOUNT3,
+		        SUM(DECODE(RNUM,4,ACC_NET_RATE,0)) AS AMOUNT4,
+		        SUM(DECODE(RNUM,5,ACC_NET_RATE,0)) AS AMOUNT5,
+		        SUM(DECODE(RNUM,6,ACC_NET_RATE,0)) AS AMOUNT6
+		    FROM (
+		        SELECT 
+		            RNUM, ORDR, 
+		                STOCK_CODE, CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACC_NET_AMOUNT, LEAD_ACC_NET_AMOUNT,
+		                NVL(round(((acc_net_amount - lead_acc_net_amount) / decode(lead_acc_net_amount, 0, NULL, lead_acc_net_amount) * 100),2),0)  AS ACC_NET_RATE
+		        FROM(
+		            SELECT 
+		                RNUM, ORDR, 
+		                STOCK_CODE, CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACC_NET_AMOUNT,
+		                LEAD(nvl(ACC_NET_AMOUNT, 0))
+		                                                            OVER(PARTITION BY corp_code,account_id
+		                                                                 ORDER BY
+		                                                                     corp_code,account_id,bsns_year DESC,reprt_code ASC
+		                                                            ) AS LEAD_ACC_NET_AMOUNT
+		            FROM (
+		                SELECT 
+		                ROW_NUMBER() OVER(
+		                    PARTITION BY A.corp_code,A.account_id
+		                    ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC) RNUM,
+		                C.ORDR, B.CORP_NAME,
+		                A.CORP_CODE AS STOCK_CODE, B.CORP_CODE,A. BSNS_YEAR, A.REPRT_CODE, A.REPRT_NM, A.SJ_DIV, A.SJ_NM, A.ACCOUNT_ID, A.ACCOUNT_NM, 
+		                A.ACCUMULATED_NET_AMOUNT AS ACCUMULATED_NET_AMOUNT, 
+		                LEAD(nvl(A.accumulated_net_amount, 0))
+		                                                            OVER(PARTITION BY A.corp_code,A.account_id
+		                                                                 ORDER BY
+		                                                                     A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC
+		                                                            ) AS LEAD_ACCUMULATED_NET_AMOUNT,
+		                ACCUMULATED_NET_AMOUNT 
+		                - DECODE( REPRT_CODE,'0301',DECODE(
+		                        NVL(#{pReportCd},'0301'),'0302',CASE  WHEN LEAD(nvl(A.accumulated_net_amount, 0)) OVER(PARTITION BY A.corp_code,A.account_id ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC )>0 
+		                                            THEN LEAD(nvl(A.accumulated_net_amount, 0)) OVER(PARTITION BY A.corp_code,A.account_id ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC ) 
+		                                            ELSE -LEAD(nvl(A.accumulated_net_amount, 0))OVER(PARTITION BY A.corp_code,A.account_id ORDER BY A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC ) 
+		                                      END,0),0) AS ACC_NET_AMOUNT
+		                FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B, TB_CODE_ACCOUNT C
+		                WHERE 1=1
+		                AND A.CORP_CODE = B.STOCK_CODE
+		                AND A.ACCOUNT_ID = C.CODE
+		                AND SJ_DIV = '0401'
+		                <if test="pReportCd == '0301' ">
+		                	AND REPRT_CODE = '0301'
+		                </if>
+		                <if test="pCorpName != null and pCorpName != '' ">
+		                	AND B.CORP_NAME LIKE '%' || #{pCorpName} || '%'
+		                </if>
+			            <if test="pAccountCnt != 0 ">
+							AND ACCOUNT_ID IN 
+							<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+								#{item}
+							</foreach>
+						</if>
+						AND A.CORP_CODE IN (
+			                SELECT CORP_CODE FROM V_TB_CORPCODE
+			            )
+		                ORDER BY C.ORDR,A.corp_code,A.account_id,A.bsns_year DESC,A.reprt_code ASC
+		            )
+		        )ORDER BY ORDR, RNUM
+		    )
+		    GROUP BY STOCK_CODE, CORP_CODE, ORDR, CORP_NAME, SJ_DIV, ACCOUNT_ID
+		)
+		ORDER BY CORP_NAME, ORDR, SEQ
 	</select>
 	
 	
-	<select id="getReportList" parameterType="hashMap" resultType="HashMap">  
+	<select id="getReportList_TEST" parameterType="hashMap" resultType="HashMap">  
 		<if test="pReportCd == '11011' ">
 		    SELECT 	
 		    		<foreach collection="pYearList" item="item" index="index">

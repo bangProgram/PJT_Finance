@@ -23,7 +23,7 @@
 
     <!-- Custom styles for this page -->
     <link href="/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+	
 </head>
 
 <body id="page-top">
@@ -87,7 +87,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="/cms/admin/exUp"><span>엑셀 업로드</span></a>
                         <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
@@ -137,13 +137,13 @@
             <!-- Nav Item - Tables -->
             
             <li class="nav-item">
-                <a class="nav-link" href="/report">
+                <a class="nav-link" href="/cms/report">
                     <i class="fas fa-fw fa-table"></i>
                     <span>종목찾기</span></a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="/interest">
+                <a class="nav-link" href="/cms/interest">
                     <i class="fas fa-fw fa-table"></i>
                     <span>관심기업</span></a>
             </li>
@@ -156,7 +156,7 @@
 	            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 					    <h6 class="collapse-header">포트폴리오:</h6>
-					    <a class="collapse-item" href="/portfolio">메인화면</a>
+					    <a class="collapse-item" href="/cms/portfolio">메인화면</a>
 					    <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
 					    <a class="collapse-item" href="">전문가상담</a>
@@ -189,20 +189,6 @@
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
                     </form>
 
                     <!-- Topbar Navbar -->

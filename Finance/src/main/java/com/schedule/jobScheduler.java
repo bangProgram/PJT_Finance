@@ -70,7 +70,7 @@ public class jobScheduler {
 		}
 		String befDate = format.format(cal.getTime());
 		Map<String, Object> paramtest = new HashMap<String, Object> ();
-		System.out.println("test1111");
+		System.out.println("test1111 : " + befDate);
 		paramtest.put("test", "test");
 		List<Map<String,Object>> getPortListForSchedule = dartService.getPortListForSchedule(paramtest);
 		

@@ -6,22 +6,22 @@
 	$(document).ready(function(){
 		
 		var chkYear = pEndYear;
-		var yearString = $("#pYearList").val();
+		var yearString = '${yearString}';
 		var pYearList = yearString.split(',');
-		var quaterString = $("#pQuaterList").val();
+		var quaterString = '${quaterString}';
 		var pQuaterList = quaterString.split(',');
 		
 		var pEndYear = $("#pEndYear").val();
 		
 		var html = ''
 		var chkYearList = ''
-		for(var i=0; i<5; i++){
+		for(var i=0; i<6; i++){
 			if(i==0){
 				chkYearList += pYearList[i];
 				html += '<option value="'+chkYearList+'">'+ pYearList[i] +' </option>'
 			}else{
 				chkYearList += ','+pYearList[i];
-				html += '<option value="'+chkYearList+'">'+ (pEndYear-1)+' ~ '+ pYearList[i]  +' </option>'
+				html += '<option value="'+chkYearList+'">'+ pYearList[0] +' ~ '+ pYearList[i] +' </option>'
 			}
 		}
 		$('#chkYearList').append(html);
@@ -36,30 +36,31 @@
 		});
 		
 		
+		
 		$("input[name=pReportCd]").change(function(){
 			$('#chkYearList').empty();
 			var reprtCd = $(this).val();
 			html = '<option value = "">개년 선택</option>'
 			chkYearList = '';
-			if(reprtCd == "11011"){
-				for(var i=0; i<5; i++){
+			if(reprtCd == "0301"){
+				for(var i=0; i<6; i++){
 					if(i==1){
 						chkYearList += pYearList[i];
 						html += '<option value="'+chkYearList+'">'+ pYearList[i] +' </option>'
 					}else{
 						chkYearList += ','+pYearList[i];
-						html += '<option value="'+chkYearList+'">'+ pEndYear+' ~ '+ pYearList[i]  +' </option>'
+						html += '<option value="'+chkYearList+'">'+ pYearList[0] +' ~ '+ pYearList[i] +' </option>'
 					}
 				}
 				$('#chkYearList').append(html);
 			}else{
-				for(var i=0; i<5; i++){
+				for(var i=0; i<6; i++){
 					if(i==0){
 						chkYearList += pQuaterList[i];
 						html += '<option value="'+chkYearList+'">'+ pQuaterList[i] +' </option>'
 					}else{
 						chkYearList += ','+pQuaterList[i];
-						html += '<option value="'+chkYearList+'">'+ pQuaterList[0]+' ~ '+ pQuaterList[i]  +' </option>'
+						html += '<option value="'+chkYearList+'">'+ pQuaterList[0] +' ~ '+ pQuaterList[i]  +' </option>'
 					}
 				}
 				$('#chkYearList').append(html);
@@ -72,6 +73,7 @@
 		var frm = document.searchForm;
 		var pAccountIds = [];
 		
+		
 		$('#dataTables').css("animation-name","");
 		$('#bodyList').css("animation-name","");
 		
@@ -81,7 +83,7 @@
 		$("#pAccountIds").val(pAccountIds);
 		
 		var reprtCd = $("input[name=pReportCd]:checked").val();
-		if(reprtCd == '11011'){
+		if(reprtCd == '0301'){
 			$("#yearHaeder").css('display', 'table-row');
 			$("#quaterHaeder").css('display', 'none');
 		}else{
@@ -89,7 +91,6 @@
 			$("#quaterHaeder").css('display', 'table-row');
 		}
 		
-		console.log("JB : "+pAccountIds+" / "+$("#pAccountIds").val());
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    
@@ -118,7 +119,7 @@
 				  		{ data: 'RNUM' },
 				  		{ data: 'CORP_NAME' },
 				  		{ data: 'ACCOUNT_NM' },
-				  		{ "data": 'RATE_0', 
+				  		{ "data": 'AMOUNT1', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
 				  				if(type === 'display'){
@@ -131,7 +132,7 @@
 				  	            return data;
 				  	         }	
 				  		},
-				  		{ "data": 'RATE_1', 
+				  		{ "data": 'AMOUNT2', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
 				  				if(type === 'display'){
@@ -144,7 +145,7 @@
 				  	            return data;
 				  	         }	
 				  		},
-				  		{ "data": 'RATE_2', 
+				  		{ "data": 'AMOUNT3', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
 				  				if(type === 'display'){
@@ -157,7 +158,7 @@
 				  	            return data;
 				  	         }	
 				  		},
-				  		{ "data": 'RATE_3', 
+				  		{ "data": 'AMOUNT4', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
 				  				if(type === 'display'){
@@ -170,7 +171,20 @@
 				  	            return data;
 				  	         }	
 				  		},
-				  		{ "data": 'RATE_4', 
+				  		{ "data": 'AMOUNT5', 
+				  			"render": function(data, type, row, meta){
+				  				var index = row.SEQ;
+				  				if(type === 'display'){
+				  					if(index == 1){
+				  						data += "<span style='float:right;'>(억원)</span>";				  						
+				  					}else{
+				  						data += "<span style='float:right;'>(%)</span>";
+				  					}
+				  	            }
+				  	            return data;
+				  	         }	
+				  		},
+				  		{ "data": 'AMOUNT6', 
 				  			"render": function(data, type, row, meta){
 				  				var index = row.SEQ;
 				  				if(type === 'display'){
@@ -272,6 +286,11 @@
 		})
 	}
 	
+	function yearTrans(obj){
+		var value = obj.value.split(',');
+		$("#pStartYear").val(value[(value.length-1)]);
+		$("#pEndYear").val(value[0]);
+	}
 </script>
 <style>
 
@@ -300,8 +319,8 @@
 	<form name="searchForm" method="post">
 	<input type="hidden" name="pYearList" id="pYearList" value="${yearString}" title="조회 년도 목록">
 	<input type="hidden" name="pQuaterList" id="pQuaterList" value="${quaterString}" title="조회 년도 목록">
-	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="${pStartYear}" title="조회 시작년도">
-	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="${pEndYear}" title="조회 시작년도">
+	<input type="hidden" name="pStartYear" id="pStartYear" class="pSearchYear" value="" title="조회 시작년도">
+	<input type="hidden" name="pEndYear" id="pEndYear" class="pSearchYear" value="" title="조회 시작년도">
 	
 	<!-- Page Heading -->
 	<h1 class="h3 mb-2 text-gray-800">종목찾기</h1>
@@ -329,8 +348,7 @@
 							<td>성장률 구분</td>
 							<td>
 								<select name="chkGrowthGb" id="chkGrowthGb" title="성장률 구분 선택" style="width: 200px;"> 
-									<option value = "">선택</option>
-									<option value = "01">재무제표 기준</option>
+									<option value = "01" selected="selected">재무제표 기준</option>
 									<option value = "02">CAGR 기준</option>
 								</select>
 							</td>
@@ -340,7 +358,7 @@
 							<td><input type="text" name="chkAccRate" id="chkAccRate" value="" title="기준 성장률">  </td>
 							<td>기준 개년</td>
 							<td>
-								<select name="chkYearList" id="chkYearList" title="기준 년도 선택" style="width: 200px;"> 
+								<select name="chkYearList" id="chkYearList" title="기준 년도 선택" style="width: 200px;" onchange="yearTrans(this); return false;" > 
 									<option value = "">개년 선택</option>
 								</select> 
 							</td>
@@ -354,7 +372,7 @@
 								<input type="checkbox" name="pAccountId" id="pAccountId" value="ifrs-full_ProfitLoss" title="당기순이익"> 당기순이익 
 							</td>
 							<td>보고서 구분</td>
-							<td><input type="radio" name="pReportCd" id="pReportCd" value="11011" title="보고서 구분" checked="checked"> 년도 <input type="radio" name="pReportCd" id="pReportCd" value="11012" title="보고서 구분"> 반기 </td>
+							<td><input type="radio" name="pReportCd" id="pReportCd" value="0301" title="보고서 구분" checked="checked"> 년도 <input type="radio" name="pReportCd" id="pReportCd" value="0302" title="보고서 구분"> 반기 </td>
                         </tr>
                     </tbody>
                 </table>
@@ -390,11 +408,12 @@
                 		<col width="3%"/>
                 		<col width="10%"/>
                 		<col width="10%"/>
-                		<col width="12%"/>
-                		<col width="12%"/>
-                		<col width="12%"/>
-                		<col width="12%"/>
-                		<col width="12%"/>
+                		<col width=""/>
+                		<col width=""/>
+                		<col width=""/>
+                		<col width=""/>
+                		<col width=""/>
+                		<col width=""/>
                 		<col width="5%"/>
                 		<col width="5%"/>
                 		<col width="5%"/>

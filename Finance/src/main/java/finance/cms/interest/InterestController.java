@@ -29,11 +29,12 @@ import org.springframework.web.servlet.ModelAndView;
 import finance.cms.interest.service.InterestService;
 import finance.cms.report.service.ReportService;
 import finance.common.Controller.CommonController;
+import finance.common.Controller.DefaultController;
 import finance.common.mapper.CommonMapper;
 
 
 @Controller
-public class InterestController {
+public class InterestController extends DefaultController{
 	
 	@Autowired
 	private ReportService reportService;
@@ -41,11 +42,8 @@ public class InterestController {
 	@Autowired
 	private InterestService interestService;
 	
-	@Resource(name="CommonController")
-	private CommonController commonController;
-
-	@RequestMapping(value={"/interest"} , method = RequestMethod.GET)
-	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/interest"} , method = RequestMethod.GET)
+	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
 		int curMonth = now.getMonthValue();
@@ -85,11 +83,11 @@ public class InterestController {
 		System.out.println("JB : "+quaterList.toString());
 		System.out.println("JB : "+yearString);
 		
-		JSONArray quaterReprtJson =  commonController.convertListToJson(quaterReprtList);
-		JSONArray yearReprtJson = commonController.convertListToJson(yearReprtList);
+		JSONArray quaterReprtJson =  convertListToJson(quaterReprtList);
+		JSONArray yearReprtJson = convertListToJson(yearReprtList);
 		
 		ModelAndView mav = new ModelAndView();
-	    String resultURL = "interest/interestList.jsp";
+	    String resultURL = "cms/interest/interestList.jsp";
 	    mav.addObject("yearReprtList", yearReprtList);
 	    mav.addObject("quaterReprtList", quaterReprtList);
 	    mav.addObject("yearReprtJson", yearReprtJson);
@@ -106,8 +104,8 @@ public class InterestController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value={"/interest/add/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> addInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/interest/add/cud"} , method = RequestMethod.POST)
+	public Map<String, Object> addInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -121,8 +119,8 @@ public class InterestController {
 	    return result;
 	}
 	
-	@RequestMapping(value={"/interest/del/cud"} , method = RequestMethod.POST)
-	public ModelAndView delInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/interest/del/cud"} , method = RequestMethod.POST)
+	public ModelAndView delInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022

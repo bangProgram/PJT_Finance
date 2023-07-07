@@ -29,21 +29,19 @@ import finance.cms.dart.service.DartService;
 import finance.cms.interest.service.InterestService;
 import finance.cms.portfolio.service.PortfolioService;
 import finance.common.Controller.CommonController;
+import finance.common.Controller.DefaultController;
 
 @Controller
-public class popupController {
+public class popupController extends DefaultController{
 	
 	@Autowired
 	private PortfolioService portfolioService;
 	
 	@Autowired
 	private InterestService interestService;
-	
-	@Resource(name="CommonController")
-	private CommonController commonController;
-	
+		
 	@RequestMapping(value={"/popup/dart/report/list"} , method = RequestMethod.GET)
-	public ModelAndView getDartReportList(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
+	public ModelAndView getDartReportList(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		
@@ -92,7 +90,7 @@ public class popupController {
 			e.printStackTrace();
 		}
 			 
-		JSONArray getDartReportJson = commonController.convertListToJson(getDartReportList);
+		JSONArray getDartReportJson = convertListToJson(getDartReportList);
 		
 		
 		
@@ -105,7 +103,7 @@ public class popupController {
 	}
 	
 	@RequestMapping(value={"/popup/{webPath}/memo"} , method = RequestMethod.GET)
-	public ModelAndView getMemoPopup(@PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
+	public ModelAndView getMemoPopup(@PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
 		
 		Map<String, Object> resultData = new HashMap<String, Object> ();
 		
@@ -128,7 +126,7 @@ public class popupController {
 	
 	@ResponseBody
 	@RequestMapping(value={"/popup/memo/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> regMemoCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+	public Map<String, Object> regMemoCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		
 		String webPath = commandMap.get("webPath").toString();
 		

@@ -32,10 +32,11 @@ import org.springframework.web.servlet.ModelAndView;
 import finance.cms.corporation.service.CorporationService;
 import finance.cms.portfolio.service.PortfolioService;
 import finance.common.Controller.CommonController;
+import finance.common.Controller.DefaultController;
 
 
 @Controller
-public class PortfolioController {
+public class PortfolioController extends DefaultController{
 	
 	@Autowired
 	private PortfolioService portfolioService;
@@ -43,12 +44,10 @@ public class PortfolioController {
 	@Autowired
 	private CorporationService corporationService;
 	
-	@Resource(name="CommonController")
-	private CommonController commonController;
 
 	
-	@RequestMapping(value={"/portfolio"})
-	public ModelAndView goPortFolio(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio"})
+	public ModelAndView goPortFolio(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		String curDate = format.format(now);
@@ -92,14 +91,11 @@ public class PortfolioController {
 			 
 		}
 		
-		JSONArray getPortCorpJson = commonController.convertListToJson(getPortCorpList);
-		
-		System.out.println("JB 끝 : "+ getPortCorpJson.toString());
-		
+		JSONArray getPortCorpJson = convertListToJson(getPortCorpList);
 		
 		
 	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "portfolio/portfolioList.jsp";
+	    String resultURL = "cms/portfolio/portfolioList.jsp";
 	    mav.addObject("getPortfolio", getPortfolio);
 	    mav.addObject("portAmount", portAmount);
 	    mav.addObject("getPortCorpList", getPortCorpList);
@@ -111,8 +107,8 @@ public class PortfolioController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value={"/portfolio/add/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> addPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio/add/cud"} , method = RequestMethod.POST)
+	public Map<String, Object> addPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -145,8 +141,8 @@ public class PortfolioController {
 	    return result;
 	}
 	
-	@RequestMapping(value={"/portfolio/del/cud"} , method = RequestMethod.POST)
-	public ModelAndView delPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio/del/cud"} , method = RequestMethod.POST)
+	public ModelAndView delPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -175,8 +171,8 @@ public class PortfolioController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value={"/portfolio/regasset/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> regPortfolioAsset(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio/regasset/cud"} , method = RequestMethod.POST)
+	public Map<String, Object> regPortfolioAsset(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		
@@ -192,8 +188,8 @@ public class PortfolioController {
 	    return result;
 	}
 	
-	@RequestMapping(value={"/portfolio/detail"})
-	public ModelAndView portfolioDetail(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio/detail"})
+	public ModelAndView portfolioDetail(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date now = new Date();
@@ -207,7 +203,7 @@ public class PortfolioController {
 	    Map<String, Object> result = new HashMap<String, Object>();
 	    
 	    ModelAndView mav = new ModelAndView();
-	    String resultURL = "portfolio/portfolioDetail.jsp";
+	    String resultURL = "cms/portfolio/portfolioDetail.jsp";
 	    mav.setViewName(resultURL);
 	    mav.addObject("curDate", curDate);
 	    mav.addObject("resultData", resultData);
@@ -217,8 +213,8 @@ public class PortfolioController {
 	    return mav;
 	}
 	
-	@RequestMapping(value={"/portfolio/detail/cud"} , method = RequestMethod.POST)
-	public ModelAndView portfolioDetailCUD(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio/detail/cud"} , method = RequestMethod.POST)
+	public ModelAndView portfolioDetailCUD(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		
@@ -243,8 +239,8 @@ public class PortfolioController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value={"/portfolio/update/ajax"} , method = RequestMethod.POST)
-	public Map<String, Object> regOpinonAmt(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = commonController.init(commandMap);
+	@RequestMapping(value={"/cms/portfolio/update/ajax"} , method = RequestMethod.POST)
+	public Map<String, Object> regOpinonAmt(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
 		
 		LocalDate now = LocalDate.now();
 		

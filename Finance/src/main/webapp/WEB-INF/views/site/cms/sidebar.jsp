@@ -2,11 +2,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">사이드바 제목</div>
             </a>
 
             <!-- Divider -->
@@ -54,7 +54,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="/cms/admin/exUp"><span>엑셀 업로드</span></a>
                         <a class="collapse-item" href="utilities-border.html">Borders</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
@@ -67,16 +67,18 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                메뉴
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <!-- 20221025 메뉴 > 토글메뉴 사용 법 궁금하면 주석 해제하고 확인하기 -시작-
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
+            
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
@@ -89,8 +91,9 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
-
+			</li>
+			20221025 메뉴 > 토글메뉴 사용 법 궁금하면 주석 해제하고 확인하기 -종료- -->
+			
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
@@ -99,12 +102,35 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-                <a class="nav-link" href="tables.html">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/cms/report">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>종목찾기</span></a>
             </li>
-
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/cms/interest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>관심기업</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>포트폴리오</span>
+                </a>
+	            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+					    <h6 class="collapse-header">포트폴리오:</h6>
+					    <a class="collapse-item" href="/cms/portfolio">메인화면</a>
+					    <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+					    <a class="collapse-item" href="">전문가상담</a>
+					    <a class="collapse-item" href="">게시판</a>
+					</div>
+	            </div>
+             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

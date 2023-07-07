@@ -31,19 +31,17 @@ import finance.cms.dart.service.DartService;
 import finance.cms.interest.service.InterestService;
 import finance.cms.portfolio.service.PortfolioService;
 import finance.common.Controller.CommonController;
+import finance.common.Controller.DefaultController;
 
 @Controller
-public class DartController {
+public class DartController extends DefaultController {
 
 	@Autowired
 	private DartService dartService;
 	
 	@Autowired
 	private PortfolioService portfolioService;
-	
-	@Resource(name="CommonController")
-	private CommonController commonController;
-	
+		
 	public boolean updateKRX() throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
@@ -73,7 +71,7 @@ public class DartController {
 		JSONObject object2 = (JSONObject)JSONValue.parse(isr2);
 		JSONArray infoList2 = (JSONArray) object2.get("OutBlock_1");
 		
-		JSONArray mergeList = commonController.mergeJsonArray(infoList1,infoList2);
+		JSONArray mergeList = mergeJsonArray(infoList1,infoList2);
 		
 		int resultInt = 0;
 		for(int i=0; i< getPortListForSchedule.size(); i++) {
