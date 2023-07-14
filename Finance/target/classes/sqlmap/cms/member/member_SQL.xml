@@ -2,6 +2,21 @@
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 	
+	<insert id="insertMember" parameterType="hashMap">
+		INSERT INTO TB_USER (
+		    USER_ID, PASSWORD, USER_NICK, CERTIFIED, 
+		    USER_GROUP, GROUP_AUTHOR, 
+		    USE_AT, PW_CHANGE_DATE, 
+		    EMAIL,
+		    CREATE_DATE, CHANGE_DATE
+		) VALUES (
+			#{userId}, #{password}, #{userNick}, 'N', 
+		    '0405', '0505', 
+		    'Y', SYSDATE, 
+		    #{email}, 
+		    SYSDATE, SYSDATE
+		)
+	</insert>
 	
 	
 </mapper>

@@ -17,6 +17,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import finance.cms.interest.service.InterestService;
+import finance.cms.member.service.MemberService;
 import finance.cms.report.service.ReportService;
 import finance.common.Controller.CommonController;
 import finance.common.Controller.DefaultController;
@@ -37,16 +39,29 @@ import finance.common.mapper.CommonMapper;
 public class MemberController extends DefaultController{
 	
 	@Autowired
-	private ReportService reportService;
+	private MemberService memberService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 		
-	@RequestMapping(value={"/web/member/cud"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/web/member/cud"})
 	public ModelAndView memberCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	
+		String passWd = commandMap.get("password").toString();
+		Integer resultInt = 0;
+		if(!passWd.equals("") && passWd != null) {
+
+			String passWd_encode = bCryptPasswordEncoder.encode(passWd);
+			commandMap.put("password", passWd_encode);
+			resultInt = memberService.insertMember(commandMap);
+		}
 		
-		ModelAndView mav = new ModelAndView();
-	    String resultURL = "main/main.jsp";
-	    mav.setViewName(resultURL);
+	    if(resultInt == 1) {
+	    	return getMessageModel("msgAndRedirect", "회원가입이 완료되었습니다.", "/main/main");
+	    }else {
+	    	return getMessageModel("msgAndRedirect", "회원가입에 실패했습니다", "/main/main");
+	    }
 	    
-	    return mav;
 	}
 	
 	@ResponseBody

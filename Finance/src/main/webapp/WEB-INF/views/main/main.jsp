@@ -80,6 +80,7 @@ function goSignUp(){
 		setTimeout(() => {$('.Input-Password').removeAttr("style");}, 2500);
 		
 		$('#errorDiv').append('<div id="errorMsg">비밀번호 다름</div>');
+		return;
 	}else{
 		$('.Input-Password').css({
 			  'border-color': 'rgb(113 236 98 / 50%)',
@@ -89,7 +90,6 @@ function goSignUp(){
 		setTimeout(() => {$('.Input-Password').removeAttr("style");}, 2500);
 	}
 	
-	return;
 	
 	frm.action = "/web/member/cud";
 	frm.submit();
@@ -224,17 +224,17 @@ function Login(){
 	                                    <input type="text" name="userId" id="userId" class="form-control form-control-user" id="exampleInputEmail" placeholder="User ID" required="required">
 	                                </div>
 	                                <div class="form-group">
-	                                    <input type="email" name="email" id="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+	                                    <input type="email" name="email" id="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address" required="required">
 	                                </div>
 	                                <div class="form-group">
-	                                    <input type="text" name="userNm" id="userNick" class="form-control form-control-user" id="exampleInputEmail" placeholder="User Nick Name">
+	                                    <input type="text" name="userNick" id="userNick" class="form-control form-control-user" id="exampleInputEmail" placeholder="User Nick Name" required="required">
 	                                </div>
 	                                <div class="form-group row">
 	                                    <div class="col-sm-6 mb-3 mb-sm-0">
-	                                        <input type="password" name="password" id="password" class="Input-Password form-control form-control-user" placeholder="Password">
+	                                        <input type="password" name="password" id="password" class="Input-Password form-control form-control-user" placeholder="Password" required="required">
 	                                    </div>
 	                                    <div class="col-sm-6">
-	                                        <input type="password" name="chkPassword" id="chkPassword" class="Input-Password form-control form-control-user" placeholder="Repeat Password">
+	                                        <input type="password" name="chkPassword" id="chkPassword" class="Input-Password form-control form-control-user" placeholder="Repeat Password" required="required">
 	                                    </div>
 	                                </div>
 	                                <a onclick="goSignUp(); return false;" class="btn btn-primary btn-user btn-block">

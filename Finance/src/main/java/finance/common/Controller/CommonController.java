@@ -51,7 +51,7 @@ public class CommonController {
 	
 	protected final ModelAndView getMessageModel(String msgType, String msg, String redirectUrl ) {
 		
-		ModelAndView model = new ModelAndView("common/messagePage");
+		ModelAndView model = new ModelAndView("common/messagePage.jsp");
 		model.addObject("msgType", msgType);
 		model.addObject("msg", msg);
 		model.addObject("redirectUrl", redirectUrl);

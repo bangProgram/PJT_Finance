@@ -19,11 +19,11 @@ public class MemberServiceImpl implements MemberService {
 	@Resource(name="CommonMapper")
 	private CommonMapper commonMapper;
 	
-	private String namespace = "corporationMapper.";
+	private String namespace = "memberMapper.";
 	
 	@Override
-	public Integer insertCorp(Map<String, Object> param) throws Exception{
-		param.put("mId", namespace+"insertCorp");
+	public Integer insertMember(Map<String, Object> param) throws Exception{
+		param.put("mId", namespace+"insertMember");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 

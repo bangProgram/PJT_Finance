@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface MemberService {
 
-	public Integer insertCorp(Map<String, Object> param) throws Exception;
+	public Integer insertMember(Map<String, Object> param) throws Exception;
 
 	public List<Map<String, Object>> getCorpList(Map<String, Object> param) throws Exception;
 
