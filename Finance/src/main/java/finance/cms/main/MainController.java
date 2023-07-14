@@ -16,7 +16,7 @@ import finance.common.Controller.DefaultController;
 @Controller
 public class MainController extends DefaultController{
 
-	@RequestMapping(value={"/main","/"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/main","/"})
 	public ModelAndView main(HttpServletRequest req, HttpServletResponse res, @RequestParam Map<String, Object> commandMap) {
 		
 		ModelAndView mav = new ModelAndView();

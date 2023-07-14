@@ -94,7 +94,7 @@
 		
 		$.ajax({    
 			type : 'post',           // 타입 (get, post, put 등등)    
-			url : '/report/select',           // 요청할 서버url    
+			url : '/cms/report/select',           // 요청할 서버url    
 			data : {
 				pYearList : $("#pYearList").val(),
 				pQuaterList : $("#pQuaterList").val(),
