@@ -5,6 +5,16 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <script>
+$(function(){
+	if(${not empty memberVO}){
+		$('#login-body').hide();
+		$('#user-body').show();
+	}else{
+		$('#login-body').show();
+		$('#user-body').hide();
+	}
+});
+
 function signUp(){
 	alert('회원가입 할까말까?');
 	LoadingWithMask();
@@ -97,7 +107,7 @@ function goSignUp(){
 
 function Login(){
 	var frm = document.loginForm;
-	frm.action = "/login";
+	frm.action = "/web/login";
 	frm.submit();
 }
 </script>
@@ -165,7 +175,7 @@ function Login(){
                        <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
-                                <div class="card-body">
+                                <div class="card-body" id="login-body">
                                 <form class="user" name="loginForm" id="loginForm" method="post">	
                                 	<div class="p-5">
 	                                    <div class="text-center">
@@ -176,7 +186,7 @@ function Login(){
 	                                            <input type="text" name="userId" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter User Id">
 	                                        </div>
 	                                        <div class="form-group">
-	                                            <input type="password" name="passWd" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+	                                            <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
 	                                        </div>
 	                                        <a href="" onclick="Login(); return false;" class="btn btn-primary btn-user btn-block">
 	                                            Login
@@ -199,6 +209,27 @@ function Login(){
 	                                </div>
                                 </form>	
                                 </div>
+                                <c:if test="${not empty member}">
+                                	<div class="card-body" id="user-body">
+	                                	<div class="text-center">
+	                                        <h1 class="h4 text-gray-900 mb-4">${member.USER_NICK}님 환영합니다.</h1>
+	                                    </div>
+	                                    <hr>
+	                                    <div class="card-header py-3 d-flex flex-column justify-content-around">
+	                                    	<div class="text-left">
+	                                    		예수금 : ${member.DEPOSIT_AMOUNT }
+	                                    	</div>
+	                                    	<hr>
+	                                    	<div class="text-left">
+	                                    		예비금 : ${member.RESERVE_AMOUNT }
+	                                    	</div>
+	                                    	<hr>
+	                                    	<div class="text-left">
+	                                    		투자금 : ${member.INVEST_AMOUNT }
+	                                    	</div>
+	                                    </div>
+	                                </div>
+                                </c:if>
                             </div>
                         </div>
 					</div>

@@ -23,7 +23,7 @@
 	    	
 	</select>
 	
-	<insert id="insertInterestCorp" parameterType="hashMap"  >  
+	<insert id="insertInterestCorp" parameterType="HashMap"  >  
 		MERGE 
 		 INTO TB_INTEREST a
 		USING dual
@@ -79,13 +79,13 @@
 	    
 	</insert>
 	
-	<insert id="deleteInterestCorp" parameterType="hashMap"  >  
+	<insert id="deleteInterestCorp" parameterType="HashMap"  >  
 	    DELETE  TB_INTEREST 
 	    WHERE CORP_CODE = #{CORP_CODE}
 	    AND USER_ID = #{curUserId}
 	</insert>
 	
-	<select id="getReportList" parameterType="hashMap" resultType="HashMap">  
+	<select id="getReportList" parameterType="HashMap" resultType="HashMap">  
 		<if test="pReportCd == '11011' ">
 			SELECT 	
 		    		<foreach collection="pYearList" item="item" index="index">

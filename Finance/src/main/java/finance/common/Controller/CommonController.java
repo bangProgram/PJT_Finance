@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class CommonController {
+public class CommonController implements CommonConstants {
 	
 	
 	public static JSONArray convertListToJson(List<Map<String, Object>> list) {
