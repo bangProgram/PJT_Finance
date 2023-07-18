@@ -57,9 +57,9 @@
 	 -->
 	 
     <!-- job bean -->
-    <context:component-scan base-package="com"/>
+    <context:component-scan base-package="finance, com"/>
     <context:annotation-config/>
-    <context:component-scan base-package="finance"/>
+    <bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <bean id="scheduleJob" class="com.schedule.jobScheduler" />
     <task:scheduled-tasks> <!-- scheduled job list -->
         <task:scheduled ref="scheduleJob" method="autoUpdate" cron="0 */10 * * * *"/>

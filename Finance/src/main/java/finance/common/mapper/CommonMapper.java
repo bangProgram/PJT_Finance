@@ -26,7 +26,13 @@ public class CommonMapper extends CommonDAO{
 	public Map<String,Object> get(Map<String,Object> param) throws Exception{
 		return get(mapperId(param),param);
 	}
-	
+
+	/**
+	 * 단건조회(object)
+	 */
+	public Object getObject(Map<String,Object> param) throws Exception{
+		return get(mapperId(param),param);
+	}
 	
 	/**
 	 * 리스트조회
