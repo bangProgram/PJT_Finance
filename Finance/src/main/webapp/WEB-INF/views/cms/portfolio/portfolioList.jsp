@@ -59,7 +59,7 @@
 	}
 	
 	function addPortfolio(corpCd,corpNm,stockCd){
-		var url = "/portfolio/add/cud";
+		var url = "/cms/portfolio/add/cud";
 		
 		if(!confirm('\''+corpNm+'\'을 포트폴리오에 추가하시겠습니까?')) return;
 		
@@ -83,7 +83,7 @@
 	}
 	
 	function openMemoPop(corpCd){
-        var url = "/popup/portfolio/memo?pCorpCd="+corpCd;
+        var url = "/cms/popup/portfolio/memo?pCorpCd="+corpCd;
         var name = "포트폴리오 메모 팝업";
         var option = "width = 505, height = 780, top = 100, left = 200, location = no"
         window.open(url, name, option);
@@ -97,7 +97,7 @@
     }
 	
 	function openReportList(corpCd,corpNm){
-        var url = "/popup/dart/report/list?corpCd="+corpCd;
+        var url = "/cms/popup/dart/report/list?corpCd="+corpCd;
         var name = corpNm + " 공시 목록";
         var option = "width = 1000, height = 700, top = 100, left = 200, location = no"
         window.open(url, name, option);
@@ -128,12 +128,12 @@
 		
 		$("#corpCds").val(delChks);
 		
-		frm.action = "/portfolio/del/cud";
+		frm.action = "/cms/portfolio/del/cud";
 		frm.submit();
 	}
 	
 	function regAsset(gu){
-		var url = "/portfolio/regasset/cud";
+		var url = "/cms/portfolio/regasset/cud";
 		
 		var guTitle = "";
 		var guVal = "";
@@ -180,7 +180,7 @@
 		
 		$("#pCorpCd").val(corpCd);
 		
-		frm.action = "/portfolio/detail";
+		frm.action = "/cms/portfolio/detail";
 		frm.target = "_blank"
 		frm.submit();
 	}

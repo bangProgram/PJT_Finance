@@ -135,6 +135,9 @@
              available for use by the Realm.  -->
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
       </Realm>
+      
+      <Host name="test.co.kr"  appBase="webapps" unpackWARs="true" autoDeploy="true">
+      </Host>
 
       <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
 

@@ -40,7 +40,7 @@ public class popupController extends DefaultController{
 	@Autowired
 	private InterestService interestService;
 		
-	@RequestMapping(value={"/popup/dart/report/list"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/cms/popup/dart/report/list"} , method = RequestMethod.GET)
 	public ModelAndView getDartReportList(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
@@ -102,7 +102,7 @@ public class popupController extends DefaultController{
 	    return mav;
 	}
 	
-	@RequestMapping(value={"/popup/{webPath}/memo"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/cms/popup/{webPath}/memo"} , method = RequestMethod.GET)
 	public ModelAndView getMemoPopup(@PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
 		
 		Map<String, Object> resultData = new HashMap<String, Object> ();
@@ -125,7 +125,7 @@ public class popupController extends DefaultController{
 	}
 	
 	@ResponseBody
-	@RequestMapping(value={"/popup/memo/cud"} , method = RequestMethod.POST)
+	@RequestMapping(value={"/cms/popup/memo/cud"} , method = RequestMethod.POST)
 	public Map<String, Object> regMemoCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
 		
 		String webPath = commandMap.get("webPath").toString();
