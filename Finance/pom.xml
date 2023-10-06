@@ -285,6 +285,18 @@
 		    <artifactId>spring-security-config</artifactId>
 		    <version>5.3.3.RELEASE</version>
 		</dependency>
+		<!-- 20231006 플러터 사용자 Token 발급 인증방식 사용을 위해 의존성주입 -->
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		    <version>0.9.1</version>
+		</dependency>
+		<!-- 20231006 jsonWebToken 에서 사용중인 자바버전 9이상 지원되지 않는 JAXB 의존성주입 -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.2.11</version>
+		</dependency>
 		<!-- 스프링시큐리티 다시 종료 -->
 		
 	</dependencies>

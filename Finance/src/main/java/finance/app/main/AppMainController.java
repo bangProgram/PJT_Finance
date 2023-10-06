@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController // controller임을 알려주는 표시
-@RequestMapping("/appApi") // 이곳으로 들어오는 API주소를 mapping, /api주소로 받겠다(localhost:8080/api)
+@RequestMapping("/appApi/main") // 이곳으로 들어오는 API주소를 mapping, /api주소로 받겠다(localhost:8080/api)
 public class AppMainController {
 
-    @GetMapping("/example")
+    @GetMapping("/app/example")
     public ResponseEntity<String> getExample() {
         // HTTP 상태 코드와 응답 본문 데이터 설정
         String responseBody = "Hello, World!";
