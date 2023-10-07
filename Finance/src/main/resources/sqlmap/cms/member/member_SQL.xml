@@ -32,6 +32,20 @@
 		WHERE USER_ID = #{userId}
 	</select>
 	
+	<select id="getMemberToJson" parameterType="hashMap" resultType="hashMap">
+		SELECT 
+			USER_ID AS "userId", PASSWORD as "password", USER_NAME as "userName", USER_NICK as "userNick", 
+			CERTIFIED as "certified", USER_GROUP as "userGroup", GROUP_AUTHOR as "groupAuthor", USE_AT as "useAt", 
+			PHONE_NUMBER as "phoneNumber", EMAIL as "email", SESSION_ID as "sessionId", 
+			PW_CHANGE_DATE as "pwChangeDate", CREATE_DATE as "createDate", CHANGE_DATE as "changeDate", 
+			ERROR_TIME as "errorTime", ERROR_COUNT as "errorCount",
+			FILE_ID as "fileId",
+			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.USER_GROUP) AS "userGroupNm",
+			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.GROUP_AUTHOR) AS "groupAuthorNm"
+		FROM TB_USER A
+		WHERE USER_ID = #{userId}
+	</select>
+	
 	<update id="updateErrorCnt">
 		UPDATE TB_USER A SET ERROR_TIME = SYSDATE, ERROR_COUNT = (A.ERROR_COUNT+1)
 		WHERE USER_ID = #{userId}

@@ -19,7 +19,7 @@ public class JwtUtil {
     private final String SECURITY_KEY = "JB@secret";
 
     // 1000 => 1초
-    private final long VALIDATEIEM = 1000 * 60 ; // 1분
+    private final long VALIDATEIEM = 1000 * 60 * 7 ; // 7분
 
     // 토큰 생성
     public String generatorToken(String userId) {
@@ -56,16 +56,29 @@ public class JwtUtil {
     	
     	return claims.getExpiration();
     }
+    
+    // 토큰 유지시간 추출 (분단위 기준으로 추출 ex: 269124 -> 4.4854)
+    public long extractMaintain(String token) {
+    	final Claims claims = Jwts.parser().setSigningKey(SECURITY_KEY).
+    	        parseClaimsJws(token).getBody();
+    	
+    	long expTime = claims.getExpiration().getTime();
+    	long curTime = System.currentTimeMillis();
+    	long maintainTime = (expTime - curTime)/1000/60;
+    	
+    	return maintainTime;
+    }
 
-    // 유효시간 체크
-    public boolean isTokenNotExpired(String token) {
+    // 만료 여부 확인
+    public boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
-    // 토큰이 유효한지 체크
+    // 토큰 유효성 체크 ( 사용자 정합성 / 토큰만료 여부 )
     public boolean isTokenValidation(String token, String uid) {
         String userId = extractUserId(token);
-        if (userId.equals(uid) && isTokenNotExpired(token)) {
+        System.out.println("user chk : "+userId.equals(uid) + " / token chk : " + isTokenExpired(token));
+        if (userId.equals(uid) && !isTokenExpired(token)) {
             return true;
         }
         return false;

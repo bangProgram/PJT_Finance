@@ -41,8 +41,8 @@ public class AppMemberServiceImpl implements AppMemberService {
 	}
 	
 	@Override
-	public Map<String, Object> getMemberForJson(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"getMemberVO");
+	public Map<String, Object> getMemberToJson(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getMemberToJson");
 	    Map<String, Object> result = commonMapper.get(param);
 	    return result;
 
