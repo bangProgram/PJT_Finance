@@ -44,6 +44,7 @@
 			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.GROUP_AUTHOR) AS "groupAuthorNm"
 		FROM TB_USER A
 		WHERE USER_ID = #{userId}
+		AND USE_AT = 'Y'
 	</select>
 	
 	<update id="updateErrorCnt">
