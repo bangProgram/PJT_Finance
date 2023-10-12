@@ -1,5 +1,9 @@
 package finance.app.member;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,14 +12,20 @@ import javax.crypto.SecretKey;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import finance.app.member.service.AppMemberService;
@@ -201,5 +211,57 @@ public class AppMemberController extends DefaultController {
 		return ResponseEntity.badRequest().body(null);
 	    
 	}
+	
+	@PostMapping("/uploadAvatar")
+	public ResponseEntity<Map<String, Object>> uploadAvatar(@RequestParam("file") MultipartFile file, @RequestParam("userId") String userId) throws Exception{ 
+		System.out.println("여기는 들어오나?");
+		 Map<String, Object> commandMap =  new HashMap<String, Object>();
+	
+		commandMap.put("userId", userId);
+		// 처리된 데이터를 응답으로 보내기
+		
+		System.out.println("파일 여부 확인 : " + (file != null));
+		if (file != null) {
+			System.out.println("사용자 명 : "+userId+ " / 파일 명 : "+file.getOriginalFilename());
+			String uploadDirectory = "C:\\PJT_Finance\\Finance\\src\\main\\webapp\\resources\\uploads\\members\\avatars\\";
+            System.out.println("파일 경로 : "+uploadDirectory);
+            String fileName = file.getOriginalFilename();
+            commandMap.put("fileName", fileName);
+
+            // 지정된 디렉토리가 없다면 생성
+            File uploadDir = new File(uploadDirectory);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+
+            // 파일을 저장할 경로 설정
+            File dest = new File(uploadDirectory + fileName);
+
+            try {
+                // 파일을 저장
+            	System.out.println("파일 실제 저장 전");
+                file.transferTo(dest);
+                System.out.println("파일 실제 저장 후");
+                appMemberService.updateMember(commandMap);
+        		return ResponseEntity.ok(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+        		return ResponseEntity.badRequest().body(null);
+            }
+        } else {
+    		return ResponseEntity.badRequest().body(null);
+        }
+	    
+	}
+	
+	@GetMapping("/downloadAvatar/{imageName}")
+    public ResponseEntity<Resource> downloadImage(@PathVariable String imageName) throws Exception{
+		System.out.println("JB : "+"resources/uploads/members/avatars/" + imageName);
+		Resource resource = new ClassPathResource("resources/uploads/members/avatars/" + imageName);
+
+        return ResponseEntity.ok()
+            .contentType(MediaType.IMAGE_JPEG)
+            .body(resource);
+    }
 		
 }
