@@ -12,5 +12,7 @@ public interface AppMemberService {
 
 	public Integer updateErrorCnt(Map<String, Object> param) throws Exception;
 	
+	public Integer updateMember(Map<String, Object> param) throws Exception;
+	
 	public Map<String, Object> getMemberToJson(Map<String, Object> param) throws Exception;
 }
