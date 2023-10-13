@@ -3,6 +3,7 @@ package finance.app.member;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,7 +14,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -224,8 +228,10 @@ public class AppMemberController extends DefaultController {
 		if (file != null) {
 			System.out.println("사용자 명 : "+userId+ " / 파일 명 : "+file.getOriginalFilename());
 			String uploadDirectory = "C:\\PJT_Finance\\Finance\\src\\main\\webapp\\resources\\uploads\\members\\avatars\\";
-            System.out.println("파일 경로 : "+uploadDirectory);
             String fileName = file.getOriginalFilename();
+            String fullPath = uploadDirectory + fileName;
+            System.out.println("파일 경로 : "+fullPath);
+            
             commandMap.put("fileName", fileName);
 
             // 지정된 디렉토리가 없다면 생성
@@ -235,11 +241,10 @@ public class AppMemberController extends DefaultController {
             }
 
             // 파일을 저장할 경로 설정
-            File dest = new File(uploadDirectory + fileName);
+            File dest = new File(fullPath);
 
             try {
                 // 파일을 저장
-            	System.out.println("파일 실제 저장 전");
                 file.transferTo(dest);
                 System.out.println("파일 실제 저장 후");
                 appMemberService.updateMember(commandMap);
@@ -256,12 +261,28 @@ public class AppMemberController extends DefaultController {
 	
 	@GetMapping("/downloadAvatar/{imageName}")
     public ResponseEntity<Resource> downloadImage(@PathVariable String imageName) throws Exception{
-		System.out.println("JB : "+"resources/uploads/members/avatars/" + imageName);
-		Resource resource = new ClassPathResource("resources/uploads/members/avatars/" + imageName);
+        
+        try {
 
-        return ResponseEntity.ok()
-            .contentType(MediaType.IMAGE_JPEG)
-            .body(resource);
+    		String directory = "C:\\PJT_Finance\\Finance\\src\\main\\webapp\\resources\\uploads\\members\\avatars\\";
+    		String fullPath = directory+imageName+".jpeg";
+    		System.out.println("JB fullPath : "+fullPath);
+    		FileSystemResource resource = new FileSystemResource(fullPath);
+
+    		System.out.println("JB resource.exists() : "+resource.exists());
+    		if (!resource.exists()) {
+                throw new Exception();
+            }
+    		
+            HttpHeaders header = new HttpHeaders();
+            Path filePath = null;
+            filePath = Paths.get(fullPath);
+            header.add("Content-Type", Files.probeContentType(filePath));
+            return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 		
 }
