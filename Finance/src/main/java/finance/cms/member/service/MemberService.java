@@ -7,7 +7,7 @@ import finance.cms.member.MemberVO;
 
 public interface MemberService {
 
-	public Integer insertMember(Map<String, Object> param) throws Exception;
+	public Integer createMember(Map<String, Object> param) throws Exception;
 	
 	public MemberVO getMemberVO(Map<String, Object> param) throws Exception;
 	

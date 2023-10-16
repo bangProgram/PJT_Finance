@@ -23,8 +23,8 @@ public class MemberServiceImpl implements MemberService {
 	private String namespace = "memberMapper.";
 	
 	@Override
-	public Integer insertMember(Map<String, Object> param) throws Exception{
-		param.put("mId", namespace+"insertMember");
+	public Integer createMember(Map<String, Object> param) throws Exception{
+		param.put("mId", namespace+"createMember");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 

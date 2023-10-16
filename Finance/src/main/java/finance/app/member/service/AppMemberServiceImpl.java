@@ -19,7 +19,7 @@ public class AppMemberServiceImpl implements AppMemberService {
 	
 	@Override
 	public Integer createMember(Map<String, Object> param) throws Exception{
-		param.put("mId", namespace+"insertMember");
+		param.put("mId", namespace+"createMember");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}
