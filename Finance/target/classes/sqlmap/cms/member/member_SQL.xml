@@ -2,19 +2,17 @@
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 	
-	<insert id="insertMember" parameterType="Map">
+	<insert id="createMember" parameterType="Map">
 		INSERT INTO TB_USER (
-		    USER_ID, PASSWORD, USER_NICK, CERTIFIED, 
-		    USER_GROUP, GROUP_AUTHOR, 
-		    USE_AT, PW_CHANGE_DATE, 
-		    EMAIL,
-		    CREATE_DATE, CHANGE_DATE
+		    USER_ID ,PASSWORD ,USER_NAME ,USER_NICK ,CERTIFIED
+			,USER_GROUP ,GROUP_AUTHOR ,USE_AT
+			,PW_CHANGE_DATE ,CREATE_DATE ,CHANGE_DATE ,ERROR_COUNT
+			,FILE_ID ,PLATFORM ,AVATAR_URL
 		) VALUES (
-			#{userId}, #{password}, #{userNick}, 'N', 
-		    '0405', '0505', 
-		    'Y', SYSDATE, 
-		    #{email}, 
-		    SYSDATE, SYSDATE
+			#{userId}, #{password}, #{userName}, '',  'N' 
+		    ,'0405', '0505', 'Y'
+		    ,SYSDATE ,SYSDATE ,SYSDATE , 0
+		    ,'', #{platform}, #{avatarUrl}
 		)
 	</insert>
 	
@@ -36,10 +34,10 @@
 		SELECT 
 			USER_ID AS "userId", PASSWORD as "password", USER_NAME as "userName", USER_NICK as "userNick", 
 			CERTIFIED as "certified", USER_GROUP as "userGroup", GROUP_AUTHOR as "groupAuthor", USE_AT as "useAt", 
-			PHONE_NUMBER as "phoneNumber", EMAIL as "email", SESSION_ID as "sessionId", 
+			PHONE_NUMBER as "phoneNumber", SESSION_ID as "sessionId", 
 			PW_CHANGE_DATE as "pwChangeDate", CREATE_DATE as "createDate", CHANGE_DATE as "changeDate", 
 			ERROR_TIME as "errorTime", ERROR_COUNT as "errorCount",
-			FILE_ID as "fileName",
+			FILE_ID as "fileName", PLATFORM as "platform", AVATAR_URL as "avatarUrl",
 			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.USER_GROUP) AS "userGroupNm",
 			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.GROUP_AUTHOR) AS "groupAuthorNm"
 		FROM TB_USER A

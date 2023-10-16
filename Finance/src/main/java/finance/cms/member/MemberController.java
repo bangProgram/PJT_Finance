@@ -57,7 +57,7 @@ public class MemberController extends DefaultController{
 
 			String passWd_encode = bCryptPasswordEncoder.encode(passWd);
 			commandMap.put("password", passWd_encode);
-			resultInt = memberService.insertMember(commandMap);
+			resultInt = memberService.createMember(commandMap);
 		}
 		
 	    if(resultInt == 1) {

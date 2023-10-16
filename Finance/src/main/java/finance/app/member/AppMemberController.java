@@ -70,9 +70,9 @@ public class AppMemberController extends DefaultController {
 			resultInt = appMemberService.createMember(commandMap);
 		}
 		// 처리된 데이터를 응답으로 보내기
-		String nickName = commandMap.get("userNick").toString();
+		String userName = commandMap.get("userName").toString();
         Map<String, Object> responseData = new HashMap<String, Object>();
-        responseData.put("message", "회원가입 되었습니다. "+nickName+"님 환영합니다!");
+        responseData.put("message", "회원가입 되었습니다. "+userName+"님 환영합니다!");
 		
 	    if(resultInt == 1) {
 	    	return ResponseEntity.ok(responseData);
@@ -124,14 +124,7 @@ public class AppMemberController extends DefaultController {
 	public ModelAndView logoutMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
 		commandMap = init(commandMap);
 	
-		String passWd = commandMap.get("password").toString();
 		Integer resultInt = 0;
-		if(!passWd.equals("") && passWd != null) {
-
-			String passWd_encode = bCryptPasswordEncoder.encode(passWd);
-			commandMap.put("password", passWd_encode);
-			resultInt = appMemberService.createMember(commandMap);
-		}
 		
 	    if(resultInt == 1) {
 	    	return getMessageModel("msgAndRedirect", "회원가입이 완료되었습니다.", "/main");
@@ -205,14 +198,22 @@ public class AppMemberController extends DefaultController {
 		commandMap = init(commandMap);
 	
 		String userId = commandMap.get("userId").toString();
-		
+
+        Map<String, Object> responseData = new HashMap<String, Object>();
 		// 처리된 데이터를 응답으로 보내기
         if(!userId.equals("") && userId != null) {
 
     		Map<String, Object> memberVO = appMemberService.getMemberToJson(commandMap);
-    		return ResponseEntity.ok(memberVO);
+    		if(memberVO != null) {
+    			return ResponseEntity.ok(memberVO);
+    		}else {
+    	        responseData.put("message", "사용자 정보가 존재하지 않습니다.");
+    		    return ResponseEntity.badRequest().body(responseData);
+    		}
+    		
         }
-		return ResponseEntity.badRequest().body(null);
+        responseData.put("message", "사용자 정보가 존재하지 않습니다.");
+		return ResponseEntity.badRequest().body(responseData);
 	    
 	}
 	
