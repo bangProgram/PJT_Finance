@@ -13,13 +13,13 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 // 토큰을 발행 및 정보추출용
 @Service
-public class JwtUtil {
+public class JwtUtilService {
 
     // final 은 상수 변경x
     private final String SECURITY_KEY = "JB@secret";
 
     // 1000 => 1초
-    private final long VALIDATEIEM = 1000 * 60 * 7 ; // 7분
+    private final long VALIDATEIEM = 1000 * 60 * 20 ; // 20분
 
     // 토큰 생성
     public String generatorToken(String userId) {

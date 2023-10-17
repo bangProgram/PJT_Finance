@@ -53,11 +53,48 @@
 	<update id="updateMember" parameterType="Map"> 
 		UPDATE TB_USER 
 		SET
+	      	<if test="userName != '' and userName != null">
+			    USER_NAME = #{userName},
+			</if>
+			<if test="userNick != '' and userNick != null">
+			    USER_NICK = #{userNick},
+			</if>
+			<if test="certified != '' and certified != null">
+				CERTIFIED = #{certified},
+			</if>
+			<if test="userGroup != '' and userGroup != null">
+				USER_GROUP = #{userGroup},
+			</if>
+			<if test="groupAuthor != '' and groupAuthor != null">
+				GROUP_AUTHOR = #{groupAuthor},
+			</if>
+			<if test="useAt != '' and useAt != null">
+				USE_AT = #{useAt},
+			</if>
+			<if test="phoneNumber != '' and phoneNumber != null">
+				PHONE_NUMBER = #{phoneNumber},
+			</if>
+			<if test="sessionId != '' and sessionId != null">
+				SESSION_ID = #{sessionId},
+			</if>
+			<if test="pwChangeDate != '' and pwChangeDate != null">
+				PW_CHANGE_DATE = #{pwChangeDate},
+			</if>
+			<if test="errorTime != '' and errorTime != null">
+				ERROR_TIME = #{errorTime},
+			</if>
+			<if test="errorCount != '' and errorCount != null">
+				ERROR_COUNT = #{errorCount},
+			</if>
 			<if test="fileName != '' and fileName != null">
-			    FILE_ID = #{fileName},
+				FILE_ID = #{fileName},
+			</if>
+			<if test="avatarUrl != '' and avatarUrl != null">
+				AVATAR_URL = #{avatarUrl},
 			</if>
 		    CHANGE_DATE = SYSDATE
-		WHERE USER_ID = #{userId}
+			WHERE
+				USER_ID = #{userId}
 	</update>
 	
 	<select id="getMember" parameterType="Map" resultType="HashMap">
