@@ -7,11 +7,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.crypto.SecretKey;
 import javax.servlet.http.HttpSession;
 
+import org.apache.taglibs.standard.lang.jstl.Literal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
@@ -36,7 +38,7 @@ import finance.app.member.service.AppMemberService;
 import finance.cms.member.MemberVO;
 import finance.cms.member.service.MemberService;
 import finance.common.Controller.DefaultController;
-import finance.common.Service.JwtUtil;
+import finance.common.Service.JwtUtilService;
 import freemarker.template.utility.StringUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -54,7 +56,7 @@ public class AppMemberController extends DefaultController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
-	private JwtUtil jwtUtil;
+	private JwtUtilService jwtUtil;
 	
 	@PostMapping("/create")
 	public ResponseEntity<Map<String, Object>> createMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
@@ -79,6 +81,49 @@ public class AppMemberController extends DefaultController {
 	    }else {
 	    	 return ResponseEntity.badRequest().body(null);
 	    }
+	    
+	}
+	
+	@PostMapping("/update")
+	public ResponseEntity<Map<String, Object>> updateMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(commandMap);
+
+        Map<String, Object> responseData = new HashMap<String, Object>();
+        
+		try {
+			System.out.println("App Update Member : "+commandMap.toString());
+			Integer resultInt = 0;
+			// 처리된 데이터를 응답으로 보내기
+			String updateCategory = "";
+			
+			if(!commandMap.containsKey("userId")) {
+		    	responseData.put("message", "사용자 정보가 없는 비정상적인 파라미터입니다");
+				return ResponseEntity.badRequest().body(responseData);
+			}
+			
+			if(!commandMap.isEmpty()) {
+				Iterator<String> keys = commandMap.keySet().iterator();
+				while(keys.hasNext()) {
+					updateCategory += keys.next() + " ";
+				}
+				resultInt = appMemberService.updateMember(commandMap);
+			}
+			
+			System.out.println("다음 카테고리의 사용자 정보가 변경되었습니다\n"+updateCategory);
+		    if(resultInt == 1) {
+		    	responseData.put("message", "다음 카테고리의 사용자 정보가 변경되었습니다\n"+updateCategory);
+				Map<String, Object> memberVO = appMemberService.getMemberToJson(commandMap);
+		    	responseData.put("memberData", memberVO);
+		    	return ResponseEntity.ok(responseData);
+		    }else {
+		    	responseData.put("message", "사용자 정보 수정에 실패했습니다.");
+		    	return ResponseEntity.badRequest().body(responseData);
+		    }
+		}catch(Exception e) {
+			responseData.put("message", "Server Error "+e.toString());
+			return ResponseEntity.badRequest().body(responseData);
+		}
+		
 	    
 	}
 	
