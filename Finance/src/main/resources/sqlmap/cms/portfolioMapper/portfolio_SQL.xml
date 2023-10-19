@@ -335,7 +335,7 @@
 		 	INTO TB_PORTFOLIO a
 		USING dual
 		   ON (
-		   		a.USER_ID = 'SYSTEM_JB' 
+		   		a.USER_ID = #{curUserId}
 		   	)
 		WHEN MATCHED THEN
 			UPDATE
@@ -347,7 +347,7 @@
 						RESERVE_AMOUNT		=	#{RESERVE_AMOUNT},
 					</if>
 					CHANGE_DT 		=	SYSDATE,
-					CHANGE_ID		=	'SYSTEM_JB'
+					CHANGE_ID		=	#{curUserId}
 				</set>
 		WHEN NOT MATCHED THEN
 				INSERT (

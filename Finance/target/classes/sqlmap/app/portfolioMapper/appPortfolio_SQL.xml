@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="portfolioMapper">
+<mapper namespace="appPortfolioMapper">
 	
 	<sql id="wherePortfolio">
 		<if test=" pCorpCd != null and pCorpCd != '' ">
@@ -340,11 +340,11 @@
 		WHEN MATCHED THEN
 			UPDATE
 				<set>
-					<if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
-						DEPOSIT_AMOUNT		=	#{DEPOSIT_AMOUNT},
+					<if test="depositAmount != null and depositAmount != '' ">
+						DEPOSIT_AMOUNT		=	#{depositAmount},
 					</if>
-					<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
-						RESERVE_AMOUNT		=	#{RESERVE_AMOUNT},
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						RESERVE_AMOUNT		=	#{reserveAmount},
 					</if>
 					CHANGE_DT 		=	SYSDATE,
 					CHANGE_ID		=	#{curUserId}
@@ -352,13 +352,13 @@
 		WHEN NOT MATCHED THEN
 				INSERT (
 				    USER_ID, 
-				    <if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
+				    <if test="depositAmount != null and depositAmount != '' ">
 						DEPOSIT_AMOUNT,
 					</if>
-					<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
+					<if test="reserveAmount != null and reserveAmount != '' ">
 						RESERVE_AMOUNT,
 					</if>
-				    <if test="INVEST_AMOUNT != null and INVEST_AMOUNT != '' ">
+				    <if test="investAmount != null and investAmount != '' ">
 						INVEST_AMOUNT,
 					</if>
 					<if test="MEMO != null and MEMO != '' ">
@@ -367,14 +367,14 @@
 				    CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
 				) VALUES (
 					'SYSTEM_JB', 
-					<if test="DEPOSIT_AMOUNT != null and DEPOSIT_AMOUNT != '' ">
-						#{DEPOSIT_AMOUNT},
+					<if test="depositAmount != null and depositAmount != '' ">
+						#{depositAmount},
 					</if>
-					<if test="RESERVE_AMOUNT != null and RESERVE_AMOUNT != '' ">
-						#{RESERVE_AMOUNT},
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						#{reserveAmount},
 					</if>
-				    <if test="INVEST_AMOUNT != null and INVEST_AMOUNT != '' ">
-						#{INVEST_AMOUNT},
+				    <if test="investAmount != null and investAmount != '' ">
+						#{investAmount},
 					</if>
 					<if test="MEMO != null and MEMO != '' ">
 						#{MEMO},

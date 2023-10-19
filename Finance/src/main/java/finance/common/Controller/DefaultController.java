@@ -25,7 +25,11 @@ public class DefaultController extends CommonController{
 			}
 		}
 		//로그인 기능 만들기 전까지 사용하도록
-		returnMap.put("curUserId", "SYSTEM_JB");
+		String userId = "jeontesu0@gmail.com";
+		if(!map.containsKey("userId")) {
+			userId = map.get("userId").toString();
+		}
+		returnMap.put("curUserId", userId);
 		return returnMap;
 	}
 }
