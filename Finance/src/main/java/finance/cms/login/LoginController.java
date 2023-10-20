@@ -37,7 +37,8 @@ public class LoginController extends DefaultController {
 		
 	
 	@RequestMapping(value={"/web/login"})
-	public ModelAndView login(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 		
 		Map<String, Object> param = new HashMap<String, Object>();
 		HttpSession session = request.getSession(true);
@@ -67,7 +68,7 @@ public class LoginController extends DefaultController {
 	}
 	
 	@RequestMapping(value={"/web/logout"})
-	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		Map<String, Object> param = new HashMap<String, Object>();
 		HttpSession session = request.getSession(true);

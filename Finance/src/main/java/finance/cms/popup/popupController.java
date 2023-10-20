@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -41,7 +43,7 @@ public class popupController extends DefaultController{
 	private InterestService interestService;
 		
 	@RequestMapping(value={"/cms/popup/dart/report/list"} , method = RequestMethod.GET)
-	public ModelAndView getDartReportList(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
+	public ModelAndView getDartReportList(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(request, commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		
@@ -103,7 +105,7 @@ public class popupController extends DefaultController{
 	}
 	
 	@RequestMapping(value={"/cms/popup/{webPath}/memo"} , method = RequestMethod.GET)
-	public ModelAndView getMemoPopup(@PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
+	public ModelAndView getMemoPopup(HttpServletRequest request, HttpServletResponse response , @PathVariable String webPath, @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(request, commandMap);
 		
 		Map<String, Object> resultData = new HashMap<String, Object> ();
 		
@@ -126,7 +128,7 @@ public class popupController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/cms/popup/memo/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> regMemoCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public Map<String, Object> regMemoCUD(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		String webPath = commandMap.get("webPath").toString();
 		

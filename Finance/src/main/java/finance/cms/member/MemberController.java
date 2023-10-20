@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -49,7 +51,7 @@ public class MemberController extends DefaultController{
 		
 	
 	@RequestMapping(value={"/web/member/cud"})
-	public ModelAndView memberCUD(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView memberCUD(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 	
 		String passWd = commandMap.get("password").toString();
 		Integer resultInt = 0;
@@ -70,7 +72,7 @@ public class MemberController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/web/member/passwordChk"} , method = RequestMethod.POST)
-	public Map<String, Object> passwordChk(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public Map<String, Object> passwordChk(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		String password = "";
 		String chkPassword = "";

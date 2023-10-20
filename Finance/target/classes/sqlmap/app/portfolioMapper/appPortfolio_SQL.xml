@@ -19,11 +19,14 @@
 	</select>
 	
 	<select id="getPortAmount" parameterType="Map" resultType="HashMap">  
-	    SELECT 
-		    B.DEPOSIT_AMOUNT, B.RESERVE_AMOUNT, 
-		    ROUND(NVL(B.INVEST_AMOUNT,0),0) AS INVEST_AMOUNT,
-			ROUND(NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0),0) AS CORP_INVEST_AMOUNT,
-			ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0)),0) AS DIFF_INVEST_AMOUNT
+	    SELECT
+			B.DEPOSIT_AMOUNT as "depositAmount"
+		    , B.RESERVE_AMOUNT as "reserveAmount"
+		    , ROUND(NVL(B.INVEST_AMOUNT,0),0) AS INVEST_AMOUNT
+		    , ROUND(NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0),0) as "investAmount"
+		    , ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0)),0) as "diffInvestAmount"
+		    , ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * a.bef_cls_price),0)),0) as "evaluationProfit" 
+			, ROUND(NVL(SUM(A.HOLD_QUANTITY * A.AVR_PRICE),0),0) + ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * a.bef_cls_price),0)),0) as "evaluationAmount" 
 		FROM TB_PORTFOLIO_CORP A, TB_PORTFOLIO B
 		WHERE 1=1
 		AND A.USER_ID = B.USER_ID

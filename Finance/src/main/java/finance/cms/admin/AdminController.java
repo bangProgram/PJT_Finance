@@ -55,7 +55,7 @@ public class AdminController extends DefaultController {
 	
 	@RequestMapping(value={"/cms/admin/exUp"} , method = RequestMethod.GET)
 	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception{ 
-		commandMap = init(commandMap);
+		commandMap = init(request, commandMap);
 		Map<String, ?> flashMap =RequestContextUtils.getInputFlashMap(request);
 		
 		String exUpEnd = "false";
@@ -83,11 +83,11 @@ public class AdminController extends DefaultController {
 	}
 	
 	@RequestMapping(value={"/cms/admin/exUp/cud"} , method = RequestMethod.POST)
-	  public ModelAndView handleFileUpload(@RequestParam Map<String, Object> commandMap, @RequestParam("file") MultipartFile file, RedirectAttributes reAttr) throws Exception{ 
+	  public ModelAndView handleFileUpload(@RequestParam Map<String, Object> commandMap, @RequestParam("file") MultipartFile file, RedirectAttributes reAttr, HttpServletRequest request, HttpServletResponse response) throws Exception{ 
 		
 		try {
 			DataFormatter dataFormatter = new DataFormatter();
-			commandMap = init(commandMap);
+			commandMap = init(request, commandMap);
 			InputStream inputStream = file.getInputStream();
 			//Workbook workbook = WorkbookFactory.create(inputStream);
 			// 엑셀 파일 읽기 로직을 구현합니다.
