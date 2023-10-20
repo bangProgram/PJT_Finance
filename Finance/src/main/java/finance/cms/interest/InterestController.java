@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -43,7 +45,7 @@ public class InterestController extends DefaultController{
 	private InterestService interestService;
 	
 	@RequestMapping(value={"/cms/interest"} , method = RequestMethod.GET)
-	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView goReport(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
 		int curMonth = now.getMonthValue();
@@ -105,7 +107,7 @@ public class InterestController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/cms/interest/add/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> addInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public Map<String, Object> addInterestCorp(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -120,7 +122,7 @@ public class InterestController extends DefaultController{
 	}
 	
 	@RequestMapping(value={"/cms/interest/del/cud"} , method = RequestMethod.POST)
-	public ModelAndView delInterestCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView delInterestCorp(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022

@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import javax.crypto.SecretKey;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.taglibs.standard.lang.jstl.Literal;
@@ -59,8 +60,8 @@ public class AppMemberController extends DefaultController {
 	private JwtUtilService jwtUtil;
 	
 	@PostMapping("/create")
-	public ResponseEntity<Map<String, Object>> createMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> createMember(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 		
 		System.out.println("App Create Member : "+commandMap.toString());
 		String passWd = commandMap.get("password").toString();
@@ -85,8 +86,8 @@ public class AppMemberController extends DefaultController {
 	}
 	
 	@PostMapping("/update")
-	public ResponseEntity<Map<String, Object>> updateMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> updateMember(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 
         Map<String, Object> responseData = new HashMap<String, Object>();
         
@@ -128,8 +129,8 @@ public class AppMemberController extends DefaultController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<Map<String, Object>> LoginMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> LoginMember(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 	
 		String userId = commandMap.get("userId").toString();
 		String passWd = commandMap.get("password").toString();
@@ -166,8 +167,8 @@ public class AppMemberController extends DefaultController {
 	}
 	
 	@PostMapping("/logout")
-	public ModelAndView logoutMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ModelAndView logoutMember(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 	
 		Integer resultInt = 0;
 		
@@ -180,8 +181,8 @@ public class AppMemberController extends DefaultController {
 	}
 	
 	@PostMapping("/auth")
-	public ResponseEntity<Map<String, Object>> refreshMember(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> refreshMember(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 		// 처리된 데이터를 응답으로 보내기
         Map<String, Object> responseData = new HashMap<String, Object>();
 	
@@ -239,8 +240,8 @@ public class AppMemberController extends DefaultController {
 	}
 	
 	@PostMapping("/getMember")
-	public ResponseEntity<Map<String, Object>> getMemberForUserId(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> getMemberForUserId(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 	
 		String userId = commandMap.get("userId").toString();
 
@@ -263,7 +264,7 @@ public class AppMemberController extends DefaultController {
 	}
 	
 	@PostMapping("/uploadAvatar")
-	public ResponseEntity<Map<String, Object>> uploadAvatar(@RequestParam("file") MultipartFile file, @RequestParam("userId") String userId) throws Exception{ 
+	public ResponseEntity<Map<String, Object>> uploadAvatar(HttpServletRequest request, @RequestParam("file") MultipartFile file, @RequestParam("userId") String userId) throws Exception{ 
 		System.out.println("여기는 들어오나?");
 		 Map<String, Object> commandMap =  new HashMap<String, Object>();
 	

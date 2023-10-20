@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,7 @@ public class ReportController extends DefaultController{
 	
 
 	@RequestMapping(value={"/cms/report"} , method = RequestMethod.GET)
-	public ModelAndView goReport(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView goReport(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();
 		int curMonth = now.getMonthValue();
@@ -74,7 +76,7 @@ public class ReportController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/cms/report/select"} , method = RequestMethod.POST)
-	public Map<String, Object> getReportList(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public Map<String, Object> getReportList(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -131,7 +133,7 @@ public class ReportController extends DefaultController{
 	}
 	
 	@RequestMapping(value = "/cms/report/detail/view", method = RequestMethod.POST)
-	public ModelAndView getReportDetail(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
+	public ModelAndView getReportDetail(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(request, commandMap);
 
 	    List<Map<String, Object>> resultList = reportService.getReportDetailList(commandMap);
 	    

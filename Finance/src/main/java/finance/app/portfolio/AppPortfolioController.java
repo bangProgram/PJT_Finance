@@ -3,6 +3,8 @@ package finance.app.portfolio;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,8 +24,8 @@ public class AppPortfolioController extends DefaultController {
 	private AppPortfolioService appPortfolioService;
 	
 	@PostMapping("/getPortAmount")
-	public ResponseEntity<Map<String, Object>> getPortAmount(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> getPortAmount(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 	
 		String userId = commandMap.get("userId").toString();
 
@@ -47,8 +49,8 @@ public class AppPortfolioController extends DefaultController {
 	}
 	
 	@PostMapping("/updatePortfolio")
-	public ResponseEntity<Map<String, Object>> updatePortfolio(@RequestBody Map<String, Object> commandMap) throws Exception{ 
-		commandMap = init(commandMap);
+	public ResponseEntity<Map<String, Object>> updatePortfolio(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
+		commandMap = init(request, commandMap);
 	
 		String userId = commandMap.get("userId").toString();
 

@@ -16,6 +16,8 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -47,7 +49,7 @@ public class PortfolioController extends DefaultController{
 
 	
 	@RequestMapping(value={"/cms/portfolio"})
-	public ModelAndView goPortFolio(@RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(commandMap);
+	public ModelAndView goPortFolio(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception { commandMap = init(request, commandMap);
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date now = new Date();
 		String curDate = format.format(now);
@@ -108,7 +110,7 @@ public class PortfolioController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/cms/portfolio/add/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> addPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public Map<String, Object> addPortfolioCorp(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -142,7 +144,7 @@ public class PortfolioController extends DefaultController{
 	}
 	
 	@RequestMapping(value={"/cms/portfolio/del/cud"} , method = RequestMethod.POST)
-	public ModelAndView delPortfolioCorp(@RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(commandMap);
+	public ModelAndView delPortfolioCorp(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{ commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		int curYear = now.getYear();		//2022
@@ -172,7 +174,7 @@ public class PortfolioController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/cms/portfolio/regasset/cud"} , method = RequestMethod.POST)
-	public Map<String, Object> regPortfolioAsset(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
+	public Map<String, Object> regPortfolioAsset(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		
@@ -189,7 +191,7 @@ public class PortfolioController extends DefaultController{
 	}
 	
 	@RequestMapping(value={"/cms/portfolio/detail"})
-	public ModelAndView portfolioDetail(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
+	public ModelAndView portfolioDetail(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(request, commandMap);
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date now = new Date();
@@ -214,7 +216,7 @@ public class PortfolioController extends DefaultController{
 	}
 	
 	@RequestMapping(value={"/cms/portfolio/detail/cud"} , method = RequestMethod.POST)
-	public ModelAndView portfolioDetailCUD(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
+	public ModelAndView portfolioDetailCUD(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		
@@ -240,7 +242,7 @@ public class PortfolioController extends DefaultController{
 	
 	@ResponseBody
 	@RequestMapping(value={"/cms/portfolio/update/ajax"} , method = RequestMethod.POST)
-	public Map<String, Object> regOpinonAmt(@RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(commandMap);
+	public Map<String, Object> regOpinonAmt(HttpServletRequest request, HttpServletResponse response , @RequestParam Map<String, Object> commandMap) throws Exception{commandMap = init(request, commandMap);
 		
 		LocalDate now = LocalDate.now();
 		
