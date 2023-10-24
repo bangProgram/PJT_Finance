@@ -77,37 +77,45 @@
 	
 	<select id="getPortCorpList" parameterType="Map" resultType="HashMap">  
 	    select 
-	    	A.CORP_CODE,A.USER_ID,A.CORP_NAME,A.STOCK_CODE,A.GUBN,
-	    	A.CREATE_ID,A.CREATE_DT,A.CHANGE_ID,A.CHANGE_DT
-	    	,TO_CHAR(A.MEMO) AS MEMO,
-	    	NVL(A.INVEST_OPINION,'미추정') INVEST_OPINION,
-	    	TO_CHAR(A.HOLD_QUANTITY,'FM999,999,999,999') AS HOLD_QUANTITY,
-	    	TO_CHAR(ROUND(A.AVR_PRICE,2),'FM999,999,999,999') AS AVR_PRICE,
-	    	A.ESTIMATE_EPS,
-	    	nvl(A.AVG_REVENUE_GROWTH,'0') AVG_REVENUE_GROWTH,
-	    	nvl(A.AVG_OPERAT_GROWTH,'0') AVG_OPERAT_GROWTH,
-	    	nvl(A.AVG_PROFIT_GROWTH,'0') AVG_PROFIT_GROWTH,
-	    	TO_CHAR(ROUND(A.BEF_CLS_PRICE,2),'FM999,999,999,999') AS BEF_CLS_PRICE,
-	    	CASE WHEN 
+    	A.CORP_CODE as 																							corpCode
+	    	, A.USER_ID as 																						userId
+	    	, A.CORP_NAME as 																					corpName
+	    	, A.STOCK_CODE as 																					stockCode
+	    	, A.GUBN as 																						gubn
+	    	, A.CREATE_ID as 																					createId
+	    	, A.CREATE_DT as 																					createDt
+	    	, A.CHANGE_ID as 																					changeId
+	    	, A.CHANGE_DT as 																					changeDt
+			, TO_CHAR(A.MEMO) as 																				memo
+			, NVL(A.INVEST_OPINION,'미추정') as 																	investOpinion
+			, TO_CHAR(A.HOLD_QUANTITY,'FM999,999,999,999') as 													holdQuantity
+			, TO_CHAR(ROUND(A.AVR_PRICE,2),'FM999,999,999,999') as 												avrPrice
+			, A.ESTIMATE_EPS as 																				estimateEps
+			, nvl(A.AVG_REVENUE_GROWTH,'0') as 																	avgRevenueGrowth
+			, nvl(A.AVG_OPERAT_GROWTH,'0') as 																	avgOperatGrowth
+			, nvl(A.AVG_PROFIT_GROWTH,'0') as 																	avgProfitGrowth
+			, TO_CHAR(ROUND(A.BEF_CLS_PRICE,2),'FM999,999,999,999') as 											befClsPrice
+	    	, CASE WHEN 
     			<![CDATA[
-    					NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT1,0) )
-						THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT1,0), 'FM999,999,999,999')
-						WHEN NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT2,0) )
-						THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT2,0), 'FM999,999,999,999')
-						WHEN NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT3,0) )
-						THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT3,0), 'FM999,999,999,999')
-						WHEN NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
-						THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT4,0), 'FM999,999,999,999')
-						WHEN NVL(A.BEF_CLS_PRICE,0) >= ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT5,0) )
-						THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT5,0), 'FM999,999,999,999')
-						ELSE '0'
+    					NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT1,0)) 
+				        THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT1,0), 'FM999,999,999,999') 
+				        WHEN NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT2,0) ) 
+				        THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT2,0), 'FM999,999,999,999') 
+				        WHEN NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT3,0)) 
+				        THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT3,0), 'FM999,999,999,999') 
+				        WHEN NVL(A.BEF_CLS_PRICE,0) < ( NVL(A.ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) ) 
+				        THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT4,0), 'FM999,999,999,999') 
+				        WHEN NVL(A.BEF_CLS_PRICE,0) >= ( NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT5,0)) 
+				        THEN to_char(NVL(A.ESTIMATE_EPS,0)* NVL(A.OPINION_AMOUNT5,0), 'FM999,999,999,999') 
+				    	ELSE '0' 
 				]]>
-			END as INVEST_OPINION_AMOUNT,
-	    	A.SHARES_AMOUNT,
-	    	ROUND(nvl((A.bef_cls_price / A.estimate_eps),0),2) AS CURRENT_PER, nvl(A.AVR_PER,0) as AVR_PER,
-	    	nvl(A.ESTIMATE_CAGR,0) as ESTIMATE_CAGR,
-	    	fun_getIndutyNm(B.INDUTY_CODE) AS INDUTY_NAME,
-		    sum(nvl(c.RETURN_AMOUNT,0))                   AS return_amount
+			END as 																								investOpinionAmount
+	    	, A.SHARES_AMOUNT as 																				sharesAmount
+	    	, ROUND(nvl((A.bef_cls_price / A.estimate_eps),0),2) as 											currentPer
+			, nvl(A.AVR_PER,0) as 																				avrPer
+			, nvl(A.ESTIMATE_CAGR,0) as 																		estimateCagr
+			, fun_getIndutyNm(B.INDUTY_CODE) as 																indutyName
+			, sum(nvl(c.RETURN_AMOUNT,0)) as 																	returnAmount
 	    FROM
 		    TB_PORTFOLIO_CORP A,
 		    TB_BPLC_DETAIL    B,
