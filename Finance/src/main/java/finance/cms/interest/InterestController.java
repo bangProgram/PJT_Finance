@@ -54,8 +54,9 @@ public class InterestController extends DefaultController{
 		String quaterString = "";
 		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("pReportCd", "0302");
 		List<Map<String, Object>> quaterList = reportService.getBsnsYearList(paramMap);
-		paramMap.put("pReportCd", "11011");
+		paramMap.put("pReportCd", "0301");
 		List<Map<String, Object>> yearList = reportService.getBsnsYearList(paramMap);
 		String[] pYearList = new String [5];
 		String[] pQuaterList = new String [5];
