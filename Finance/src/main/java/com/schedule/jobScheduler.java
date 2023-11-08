@@ -76,7 +76,7 @@ public class jobScheduler {
 		
 		String infoKospi = "http://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd.json?" ;
 		String infoKodaq = "http://data-dbg.krx.co.kr/svc/apis/sto/ksq_bydd_trd.json?" ;
-		String AUTH_KEY = "41FFA4AE82714836B6246480F25D11C1B2A090D0";
+		String AUTH_KEY = "2F2D8C752DAF451FBAC7583689CDD51C127F4236";
 		
 		URL url1 = new URL(infoKospi+"AUTH_KEY="+AUTH_KEY+"&basDd="+befDate );
 		InputStreamReader isr1 = new InputStreamReader(url1.openConnection().getInputStream(), "UTF-8");
