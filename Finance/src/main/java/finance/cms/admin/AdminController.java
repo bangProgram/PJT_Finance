@@ -116,7 +116,7 @@ public class AdminController extends DefaultController {
 				if (row != null) {
 					String accountNm = row.getCell(10).getStringCellValue().replace("ifrs_", "ifrs-full_");
 					if(	//20230705 EPS 넣으려고 임시로 주석처리
-							//accountNm.equals("ifrs-full_Revenue") || accountNm.equals("dart_OperatingIncomeLoss") || accountNm.equals("ifrs-full_ProfitLoss") || 
+							accountNm.equals("ifrs-full_Revenue") || accountNm.equals("dart_OperatingIncomeLoss") || accountNm.equals("ifrs-full_ProfitLoss") || 
 							accountNm.equals("ifrs-full_BasicEarningsLossPerShare")
 						) {
 						int cells = row.getPhysicalNumberOfCells();
