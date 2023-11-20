@@ -1,21 +1,31 @@
 package finance.app.login;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import finance.app.member.service.AppMemberService;
 import finance.common.Controller.DefaultController;
 import finance.common.Service.JwtUtilService;
+import finance.common.Service.TokenService;
 import io.jsonwebtoken.ExpiredJwtException;
 
 
@@ -24,6 +34,12 @@ import io.jsonwebtoken.ExpiredJwtException;
 public class AppLoginController extends DefaultController {
 	@Autowired
 	private AppMemberService appMemberService;
+	
+	@Autowired
+	private TokenService tokenService;
+
+	
+
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -47,6 +63,12 @@ public class AppLoginController extends DefaultController {
 		Map<String, Object> memberVO = appMemberService.getMemberToJson(commandMap);
 		//사용자 정보 있을경우 진입
 		if(memberVO != null) {
+			
+			//서버애 kisToken이 있을경우 재발급 X 
+			if(!tokenService.isKisDevToken()) {
+				setTokenForKisDev();
+			}
+			
 			//입력받은 비밀번호와 사용자 비밀번호가 일치 할 경우 진입
 			System.out.println(passWd +" : 입력 / 저장 : "+memberVO.get("password"));
 			if(bCryptPasswordEncoder.matches(passWd, memberVO.get("password").toString())) {
@@ -152,5 +174,57 @@ public class AppLoginController extends DefaultController {
 		}
 		
 	}
+	
+	public void setTokenForKisDev() {
+        RestTemplate restTemplate = new RestTemplate();
+        ObjectMapper objectMapper = new ObjectMapper();
+        
+        String apiUrl = "https://openapi.koreainvestment.com:9443/oauth2/tokenP";
+        
+        // 헤더 설정
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        
+        // 요청 바디 설정
+        String requestBody = "{\"grant_type\": \"client_credentials\", \"appkey\": \""+kisDeveloperAppKey + "\", \"appsecret\": \""+kisDeveloperAppSecretKey+"\"}";
+
+        HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
+
+        // POST 요청 보내기
+        ResponseEntity<String> response = restTemplate.exchange(
+            apiUrl,
+            HttpMethod.POST,
+            requestEntity,
+            String.class
+        );
+        
+                
+        try {
+	        if (response.getStatusCodeValue() == 200) {
+	            String responseBody = response.getBody();
+	            
+	            System.out.println("responseBody : "+responseBody);
+	            Map<String, Object> data = objectMapper.readValue(responseBody, new TypeReference<Map<String, Object>>() {});
+	            
+	            // 값 추출
+	            Object value = data.get("access_token");
+	            // 토큰 처리 등 성공적인 작업 수행
+	            if(value != null) {
+	            	
+	            	System.out.println("정보 가져오기 성공: " + value);
+	            	
+	            	// 토큰 저장
+	            	tokenService.setKisDevToken(value.toString());
+	            	System.out.println("test : "+tokenService.getKisDevToken());
+	            }
+	        } else {
+	            // 요청이 실패했을 때의 처리
+	            System.out.println("KIS 토큰 발급 실패");
+	        }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("KIS 토큰 발급 실패 : "+e.toString());
+        }
+    }
 	
 }
