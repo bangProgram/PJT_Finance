@@ -50,8 +50,7 @@ public class AppDartController extends DefaultController {
 		}
 		
 		String infoURL = "https://opendart.fss.or.kr/api/list.json?";
-		String crtfcKey = "fb1e1e5223c66ce1175f545ddd0ea9a15984528a";
-		String params = "crtfc_key="+crtfcKey+"&corp_code="+corpCd+"&bgn_de="+bgndate+"&end_de="+endDate+"&page_no=1&page_count=100";
+		String params = "crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCd+"&bgn_de="+bgndate+"&end_de="+endDate+"&page_no=1&page_count=100";
 		if(!reportTy.equals("")) {
 			params += "&pblntf_ty="+reportTy;
 		}
