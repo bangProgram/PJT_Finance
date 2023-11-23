@@ -45,7 +45,7 @@ public class AppReportController extends DefaultController{
         String apiUrl = "https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-daily-itemchartprice";
 
         // 파라미터 설정
-        String parameters = "?fid_cond_mrkt_div_code=J&fid_input_iscd=005930&fid_input_date_1=20230401&fid_input_date_2=20230501&fid_period_div_code=D&fid_org_adj_prc=0";
+        String parameters = "?fid_cond_mrkt_div_code=J&fid_input_iscd=005930&fid_input_date_1=20230301&fid_input_date_2=20230501&fid_period_div_code=D&fid_org_adj_prc=0";
 
         // URL과 파라미터 조합
         String uri = apiUrl + parameters;
