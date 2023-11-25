@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appUtilMapper">
+	
+	<sql id="whereUtil">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
+		</if>
+		
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND B.CORP_NAME like '%'|| #{pCorpName} ||'%'
+		</if>
+		 -->
+	</sql>
+	<select id="getYearList"  parameterType="hashMap" resultType="HashMap">
+		SELECT bsns_year, COUNT(1)+1 AS reprt_cnt FROM (
+			SELECT bsns_year, reprt_code FROM tb_bplc_report
+			GROUP BY bsns_year, reprt_code
+		)
+		GROUP BY bsns_year
+		ORDER BY bsns_year DESC
+	</select>
+	
+	
+	
+	
+</mapper>
