@@ -30,7 +30,7 @@ public class AppUtilController extends DefaultController {
 	private AppUtilService appUtilService;
 	
 	@GetMapping("/yearList")
-    public ResponseEntity<Map<String, Object>> downloadImage() throws Exception{
+    public ResponseEntity<Map<String, Object>> getYearList() throws Exception{
         
         try {
         	 Map<String, Object> param = new HashMap<String, Object>();
