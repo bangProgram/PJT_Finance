@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appCorporationMapper">
+	
+	<sql id="whereCorporation">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
+		</if>
+		
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND B.CORP_NAME like '%'|| #{pCorpName} ||'%'
+		</if>
+		 -->
+	</sql>
+	<select id="getCorpListYear"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		corp_code, corp_name
+		,bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		,curr_amount, lead_amount
+		,(POWER(nvl(curr_amount/decode(lead_amount, 0, NULL, lead_amount),0),(1/(bsns_year-lead_year)))-1)*100 AS avg_net_amount
+		FROM (
+		    SELECT A.corp_code, B.corp_name, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm, accumulated_net_amount AS curr_amount
+		    ,LEAD(accumulated_net_amount) OVER(PARTITION BY A.corp_code, account_id ORDER BY A.corp_code, account_id, bsns_year DESC , reprt_code ASC) AS lead_amount
+		    ,LEAD(bsns_year) OVER(PARTITION BY A.corp_code, account_id ORDER BY  A.corp_code, account_id, bsns_year DESC , reprt_code ASC) AS lead_year
+		    FROM tb_bplc_report A, tb_bplc_detail B
+		    WHERE 1=1
+		    AND A.corp_code = B.stock_code
+		    AND B.corp_name LIKE '%삼성전자%'         -- 기업 파라미터
+		    AND A.reprt_code = '0301'               -- 고정 
+		    AND A.bsns_year IN ('2022','2023')      -- 년도 파라미터 
+		    ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC
+		    ) A
+		    WHERE curr_amount > 0
+		    AND lead_amount > 0
+		    AND corp_code IN (
+		        SELECT corp_code FROM (
+		            SELECT corp_code, corp_name,bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm
+		            ,nvl(SUM(round(decode(account_id,'ifrs-full_Revenue',avg_net_amount),2)),0) AS avg_1
+		            ,nvl(SUM(round(decode(account_id,'dart_OperatingIncomeLoss',avg_net_amount),2)),0) AS avg_2
+		            ,nvl(SUM(round(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount),2)),0) AS avg_3
+		            ,nvl(SUM(round(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount),2)),0) AS avg_4
+		            FROM (
+		                SELECT corp_code, corp_name, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		                ,(POWER(nvl(accumulated_net_amount/decode(lead_data, 0, NULL, lead_data),0),(1/(bsns_year-lead_year)))-1)*100 AS avg_net_amount
+		                FROM (
+		                    SELECT A.corp_code, B.corp_name, A.bsns_year, A.reprt_code, A.reprt_nm, A.closing_date, A.sj_div, A.sj_nm, A.account_id, A.account_nm, A.accumulated_net_amount
+		                    ,LEAD(A.accumulated_net_amount) OVER(PARTITION BY A.corp_code, A.account_id ORDER BY A.corp_code, A.account_id, A.bsns_year DESC , A.reprt_code ASC) AS lead_data
+		                    ,LEAD(A.bsns_year) OVER(PARTITION BY A.corp_code, A.account_id ORDER BY  A.corp_code, A.account_id, A.bsns_year DESC , A.reprt_code ASC) AS lead_year
+		                    FROM tb_bplc_report A, tb_bplc_detail B
+		                    WHERE 1=1
+		                    AND A.corp_code = B.stock_code
+		                    AND B.corp_name LIKE '%삼성전%'     -- 기업 파라미터 
+		                    AND A.reprt_code = '0301'          -- 고정
+		                    AND A.bsns_year IN ('2022','2023') -- 년도 파라미터 
+		                    ORDER BY A.corp_code, A.account_id, A.bsns_year DESC , A.reprt_code ASC
+		                )
+		                WHERE accumulated_net_amount > 0   -- 고정
+		                AND lead_data > 0                  -- 고정
+		            )
+		            GROUP BY corp_code, corp_name, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm
+		        )
+		        WHERE 1=1
+		        --and avg_1 > 10            -- 매출 성장률 파라미터
+		        --and avg_2 > 10            -- 영업이익 성장률 파라미터
+		        --and avg_3 > 10            -- 순이익 성장률 파라미터
+		        --and avg_4 > 10            -- 주당 순이익 성장률 파라미터
+		)
+	</select>
+	
+	
+	<select id="getCorpListHalf"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		corp_code,corp_name
+		,bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		,curr_amount, bef_amount
+		,(POWER(nvl(curr_amount/decode(bef_amount, 0, NULL, bef_amount),0),(1/
+		(
+		    (TO_NUMBER(TO_NUMBER(bsns_year)+TO_NUMBER(decode(reprt_code,'0301',0.5,0))) - TO_NUMBER(TO_NUMBER(bef_year)+TO_NUMBER(decode(bef_reprt,'0301',0.5,0)))
+		)/0.5)
+		))-1)*100 AS avg_net_amount
+		FROM (
+		    SELECT 
+		    corp_code, corp_name
+		    ,bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		    ,accumulated_net_amount AS curr_amount
+		    ,LEAD(accumulated_net_amount) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_amount
+		    ,LEAD(bsns_year) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_year
+		    ,LEAD(reprt_code) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_reprt
+		    FROM (
+		        SELECT 
+		        corp_code, corp_name,
+		        bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		        , CASE WHEN bsns_year = bef_year THEN
+		            decode(reprt_code, '0301', 
+		                CASE WHEN accumulated_net_amount > 0 AND bef_amount > 0 THEN
+		                        accumulated_net_amount-bef_amount
+		                ELSE    accumulated_net_amount+bef_amount
+		                END
+		            , accumulated_net_amount)
+		            ELSE accumulated_net_amount
+		        END AS accumulated_net_amount
+		        FROM (
+		            SELECT A.corp_code, B.corp_name, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm, accumulated_net_amount
+		            ,LEAD(accumulated_net_amount) OVER(PARTITION BY A.corp_code, account_id ORDER BY A.corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_amount
+		            ,LEAD(bsns_year) OVER(PARTITION BY A.corp_code, account_id ORDER BY  A.corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_year
+		            FROM tb_bplc_report A, tb_bplc_detail B
+		            WHERE A.corp_code = B.stock_code
+		            ORDER BY A.corp_code, account_id, bsns_year DESC , reprt_code ASC
+		        )
+		        WHERE 1=1
+		--        and corp_code ='005930'
+		        AND corp_name LIKE '%삼성전자%'
+		        AND (bsns_year,reprt_code) IN (    
+		            ('2020','0302'),('2022','0301')
+		        )
+		        ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC
+		    )
+		    WHERE 1=1
+		    ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC
+		)
+		WHERE curr_amount > 0
+		AND bef_amount > 0
+		    AND corp_code IN (
+		        SELECT corp_code FROM (
+		                SELECT corp_code, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm
+		                ,nvl(SUM(round(decode(account_id,'ifrs-full_Revenue',avg_net_amount),2)),0) AS avg_1
+		                ,nvl(SUM(round(decode(account_id,'dart_OperatingIncomeLoss',avg_net_amount),2)),0) AS avg_2
+		                ,nvl(SUM(round(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount),2)),0) AS avg_3
+		                ,nvl(SUM(round(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount),2)),0) AS avg_4
+		                FROM (
+		                    SELECT corp_code,bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		                    ,curr_amount, bef_amount
+		                    ,(POWER(nvl(curr_amount/decode(bef_amount, 0, NULL, bef_amount),0),(1/
+		                    (
+		                        (TO_NUMBER(TO_NUMBER(bsns_year)+TO_NUMBER(decode(reprt_code,'0301',0.5,0))) - TO_NUMBER(TO_NUMBER(bef_year)+TO_NUMBER(decode(bef_reprt,'0301',0.5,0)))
+		                    )/0.5)
+		                    ))-1)*100 AS avg_net_amount
+		                    FROM (
+		                        SELECT 
+		                        corp_code, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		                        ,accumulated_net_amount AS curr_amount
+		                        ,LEAD(accumulated_net_amount) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_amount
+		                        ,LEAD(bsns_year) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_year
+		                        ,LEAD(reprt_code) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_reprt
+		                        FROM (
+		                            SELECT 
+		                            corp_code, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		                            , CASE WHEN bsns_year = bef_year THEN
+		                                decode(reprt_code, '0301', CASE WHEN accumulated_net_amount > 0 AND bef_amount > 0 THEN
+		                                            accumulated_net_amount-bef_amount
+		                                    ELSE    accumulated_net_amount+bef_amount
+		                                    END , accumulated_net_amount)
+		                                ELSE accumulated_net_amount
+		                            END AS accumulated_net_amount
+		                            FROM (
+		                                SELECT A.corp_code, B.corp_name, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm, accumulated_net_amount
+		                                ,LEAD(accumulated_net_amount) OVER(PARTITION BY A.corp_code, account_id ORDER BY A.corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_amount
+		                                ,LEAD(bsns_year) OVER(PARTITION BY A.corp_code, account_id ORDER BY  A.corp_code, account_id, bsns_year DESC , reprt_code ASC) AS bef_year
+		                                FROM tb_bplc_report A, tb_bplc_detail B
+		                                WHERE A.corp_code = B.stock_code
+		                                ORDER BY A.corp_code, account_id, bsns_year DESC , reprt_code ASC
+		                            )
+		                            WHERE 1=1
+		--                            and corp_code ='005930'
+		                            AND corp_name LIKE '%삼성전자%'
+		                            AND (bsns_year,reprt_code) IN (    
+		                                ('2020','0302'),('2022','0301')
+		                            )
+		                            ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC
+		                        )
+		                        WHERE 1=1
+		                        ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC
+		                    )
+		                    WHERE curr_amount > 0
+		                    AND bef_amount > 0
+		                )
+		                GROUP BY corp_code, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm
+		        )
+		        WHERE 1=1
+		    --    and avg_1 > 9             -- 매출 성장률 파라미터
+		    --    and avg_2 > 9             -- 영업이익 성장률 파라미터
+		    --    and avg_3 > 10            -- 순이익 성장률 파라미터
+		    --    and avg_4 > 10            -- 주당 순이익 성장률 파라미터
+		)
+	</select>
+	
+	
+	
+</mapper>

@@ -22,7 +22,7 @@
 		 -->
 	</sql>
 	<select id="getYearList"  parameterType="hashMap" resultType="HashMap">
-		SELECT bsns_year, COUNT(1)+1 AS reprt_cnt FROM (
+		SELECT BSNS_YEAR, COUNT(1)+1 AS REPRT_CNT FROM (
 			SELECT bsns_year, reprt_code FROM tb_bplc_report
 			GROUP BY bsns_year, reprt_code
 		)
