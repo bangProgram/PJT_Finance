@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appInterestMapper">
+	
+	<sql id="whereInterest">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
+		</if>
+		 -->
+		 
+		
+		        
+		
+	</sql>
+	<select id="getInterListYear"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		a.CORP_CODE as "corpCode", a.CORP_NAME as "corpName"
+		,sum(decode(account_id,'ifrs-full_Revenue',cur_amount)) as "curAmount1" ,sum(decode(account_id,'ifrs-full_Revenue',bef_amount)) as "befAmount1" ,round(sum(decode(account_id,'ifrs-full_Revenue',avg_net_amount)),2) as "avgAmount1"
+		,sum(decode(account_id,'dart_OperatingIncomeLoss',cur_amount)) as "curAmount2" ,sum(decode(account_id,'dart_OperatingIncomeLoss',bef_amount)) as "befAmount2" ,round(sum(decode(account_id,'dart_OperatingIncomeLoss',avg_net_amount)),2) as "avgAmount2"
+		,sum(decode(account_id,'ifrs-full_ProfitLoss',cur_amount)) as "curAmount3" ,sum(decode(account_id,'ifrs-full_ProfitLoss',bef_amount)) as "befAmount3" ,round(sum(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount)),2) as "avgAmount3"
+		,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',cur_amount)) as "curAmount4" ,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',bef_amount)) as "befAmount4" ,round(sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount)),2) as "avgAmount4"
+		,b.stock_code as "isInterest", c.stock_code as "isPortfolio"
+		FROM(
+		    SELECT 
+		    CORP_CODE, CORP_NAME
+		    ,BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		    ,cur_amount, bef_amount
+		    ,(power(NVL(cur_amount/DECODE(bef_amount, 0, NULL, bef_amount),0),(1/(BSNS_YEAR-bef_year)))-1)*100 as avg_net_amount
+		    FROM (
+		        SELECT a.CORP_CODE, b.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT as cur_amount
+		        ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(partition by a.CORP_CODE, account_id order by a.CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_amount
+		        ,LEAD(BSNS_YEAR) OVER(partition by a.CORP_CODE, account_id order by  a.CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_year
+		        from TB_BPLC_REPORT a, tb_bplc_detail b
+		        WHERE 1=1
+		        AND a.corp_code = b.stock_code
+		        AND A.REPRT_CODE = '0301'               <!--  고정 --> 
+				<if test="pCorpName != null and pCorpName != '' ">
+					AND b.CORP_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+				</if>
+				<if test="(pStYear != null and pStYear != '') and (pEdYear != null and pEdYear != '') ">
+					AND A.BSNS_YEAR IN (#{pStYear},#{pEdYear})      <!--  년도 파라미터 --> 
+				</if>
+		        order by CORP_CODE, account_id, bsns_year desc , reprt_code asc
+		        ) a
+		    WHERE cur_amount > 0
+		    AND bef_amount > 0
+		    AND corp_code in (
+		        SELECT corp_code from (
+		            SELECT CORP_CODE, CORP_NAME,BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM
+		            ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'ifrs-full_Revenue',AVG_NET_AMOUNT),2)),0) AS AVG_1
+		            ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'dart_OperatingIncomeLoss',AVG_NET_AMOUNT),2)),0) AS AVG_2
+		            ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'ifrs-full_ProfitLoss',AVG_NET_AMOUNT),2)),0) AS AVG_3
+		            ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'ifrs-full_BasicEarningsLossPerShare',AVG_NET_AMOUNT),2)),0) AS AVG_4
+		            FROM (
+		                SELECT CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		                ,(POWER(NVL(ACCUMULATED_NET_AMOUNT/DECODE(LEAD_DATA, 0, NULL, LEAD_DATA),0),(1/(BSNS_YEAR-LEAD_YEAR)))-1)*100 AS AVG_NET_AMOUNT
+		                FROM (
+		                    SELECT A.CORP_CODE, B.CORP_NAME, A.BSNS_YEAR, A.REPRT_CODE, A.REPRT_NM, A.CLOSING_DATE, A.SJ_DIV, A.SJ_NM, A.ACCOUNT_ID, A.ACCOUNT_NM, A.ACCUMULATED_NET_AMOUNT
+		                    ,LEAD(A.ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC) AS LEAD_DATA
+		                    ,LEAD(A.BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY  A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC) AS LEAD_YEAR
+		                    FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+		                    WHERE 1=1
+		                    AND A.CORP_CODE = B.STOCK_CODE
+		                    AND A.REPRT_CODE = '0301'          <!-- 고정 -->
+							<if test="pCorpName != null and pCorpName != '' ">
+								AND b.CORP_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+							</if>
+							<if test="(pStYear != null and pStYear != '') and (pEdYear != null and pEdYear != '') ">
+								AND A.BSNS_YEAR IN (#{pStYear},#{pEdYear})      <!--  년도 파라미터 --> 
+							</if>
+		                    ORDER BY A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC
+		                )
+		                WHERE ACCUMULATED_NET_AMOUNT > 0   <!--  고정 -->
+		                AND LEAD_DATA > 0                  <!--  고정 -->
+		            )
+		            GROUP BY CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM
+		        )
+		        where 1=1
+		        <if test="pAvgType1 != null and pAvgType1 != '' ">
+		        	 and avg_1 > nvl(#{pAvgValue},0)	<!--  매출 성장률 파라미터 -->
+		        </if>
+		        <if test="pAvgType2 != null and pAvgType2 != '' ">
+		         	and avg_2 > nvl(#{pAvgValue},0)            <!--  영업이익 성장률 파라미터 -->
+		        </if>
+		        <if test="pAvgType3 != null and pAvgType3 != '' ">
+		         	and avg_3 > nvl(#{pAvgValue},0)            <!--  순이익 성장률 파라미터 -->
+		        </if>
+		        <if test="pAvgType4 != null and pAvgType4 != '' ">
+		         	and avg_4 > nvl(#{pAvgValue},0)            <!--  주당 순이익 성장률 파라미터 -->
+		        </if>
+		    )
+		) a, (select stock_code from tb_interest where user_id = #{curUserId}) b , (select stock_code from tb_portfolio_corp where user_id = #{curUserId}) c
+		where 1=1
+		and a.corp_code = b.stock_code(+)
+		and a.corp_code = c.stock_code(+)
+		group by a.CORP_CODE, a.CORP_NAME, b.stock_code, c.stock_code
+		order by a.CORP_NAME asc
+	</select>
+	
+	
+	<select id="getInterListHalf"  parameterType="hashMap" resultType="HashMap">
+		SELECT
+		a.CORP_CODE as "corpCode", a.CORP_NAME as "corpName"
+		,sum(decode(account_id,'ifrs-full_Revenue',cur_amount)) as "curAmount1" ,sum(decode(account_id,'ifrs-full_Revenue',bef_amount)) as "befAmount1" ,round(sum(decode(account_id,'ifrs-full_Revenue',avg_net_amount)),2) as "avgAmount1"
+		,sum(decode(account_id,'dart_OperatingIncomeLoss',cur_amount)) as "curAmount2" ,sum(decode(account_id,'dart_OperatingIncomeLoss',bef_amount)) as "befAmount2" ,round(sum(decode(account_id,'dart_OperatingIncomeLoss',avg_net_amount)),2) as "avgAmount2"
+		,sum(decode(account_id,'ifrs-full_ProfitLoss',cur_amount)) as "curAmount3" ,sum(decode(account_id,'ifrs-full_ProfitLoss',bef_amount)) as "befAmount3" ,round(sum(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount)),2) as "avgAmount3"
+		,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',cur_amount)) as "curAmount4" ,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',bef_amount)) as "befAmount4" ,round(sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount)),2) as "avgAmount4"
+		,b.stock_code as "isInterest", c.stock_code as "isPortfolio"
+		FROM (
+		    SELECT 
+		    CORP_CODE,CORP_NAME
+		    ,BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		    ,CUR_AMOUNT, BEF_AMOUNT
+		    ,(POWER(NVL(CUR_AMOUNT/DECODE(BEF_AMOUNT, 0, NULL, BEF_AMOUNT),0),(1/
+		    (
+		        (TO_NUMBER(TO_NUMBER(BSNS_YEAR)+TO_NUMBER(DECODE(REPRT_CODE,'0301',0.5,0))) - TO_NUMBER(TO_NUMBER(BEF_YEAR)+TO_NUMBER(DECODE(BEF_REPRT,'0301',0.5,0)))
+		    )/0.5)
+		    ))-1)*100 AS AVG_NET_AMOUNT
+		    FROM (
+		        SELECT 
+		        CORP_CODE, CORP_NAME
+		        ,BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		        ,ACCUMULATED_NET_AMOUNT AS CUR_AMOUNT
+		        ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY CORP_CODE, ACCOUNT_ID ORDER BY  CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
+		        ,LEAD(BSNS_YEAR) OVER(PARTITION BY CORP_CODE, ACCOUNT_ID ORDER BY  CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
+		        ,LEAD(REPRT_CODE) OVER(PARTITION BY CORP_CODE, ACCOUNT_ID ORDER BY  CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_REPRT
+		        FROM (
+		            SELECT 
+		            CORP_CODE, CORP_NAME,
+		            BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		            , CASE WHEN BSNS_YEAR = BEF_YEAR THEN
+		                DECODE(REPRT_CODE, '0301', 
+		                    CASE WHEN ACCUMULATED_NET_AMOUNT > 0 AND BEF_AMOUNT > 0 THEN
+		                            ACCUMULATED_NET_AMOUNT-BEF_AMOUNT
+		                    ELSE    ACCUMULATED_NET_AMOUNT+BEF_AMOUNT
+		                    END
+		                , ACCUMULATED_NET_AMOUNT)
+		                ELSE ACCUMULATED_NET_AMOUNT
+		            END AS ACCUMULATED_NET_AMOUNT
+		            FROM (
+		                SELECT A.CORP_CODE, B.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
+		                ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
+		                ,LEAD(BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY  A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
+		                FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+		                WHERE A.CORP_CODE = B.STOCK_CODE
+		                ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC
+		            )
+		            WHERE 1=1
+		            <if test="pCorpName != null and pCorpName != '' ">
+						AND CORP_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+					</if>
+					<if test="(pStYear != null and pStYear != '' and pStHalf != null and pStHalf != '') and (pEdYear != null and pEdYear != '' and pEdHalf != null and pEdHalf != '')">
+			            and (bsns_year,reprt_code) in (    
+			                (#{pStYear},#{pStHalf}),(#{pEdYear},#{pEdHalf})
+			            )      <!--  기간 파라미터 --> 
+					</if>
+		            ORDER BY CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC
+		        )
+		        WHERE 1=1
+		        ORDER BY CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC
+		    )
+		    WHERE CUR_AMOUNT > 0		<!--  고정 -->
+		    AND BEF_AMOUNT > 0			<!--  고정 -->
+		        and corp_code in (
+		            select corp_code from (
+		                    SELECT CORP_CODE, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM
+		                    ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'ifrs-full_Revenue',AVG_NET_AMOUNT),2)),0) AS AVG_1
+		                    ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'dart_OperatingIncomeLoss',AVG_NET_AMOUNT),2)),0) AS AVG_2
+		                    ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'ifrs-full_ProfitLoss',AVG_NET_AMOUNT),2)),0) AS AVG_3
+		                    ,NVL(SUM(ROUND(DECODE(ACCOUNT_ID,'ifrs-full_BasicEarningsLossPerShare',AVG_NET_AMOUNT),2)),0) AS AVG_4
+		                    FROM (
+		                        select CORP_CODE,BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		                        ,curr_amount, bef_amount
+		                        ,(power(NVL(curr_amount/DECODE(bef_amount, 0, NULL, bef_amount),0),(1/
+		                        (
+		                            (to_number(to_number(BSNS_YEAR)+to_number(decode(REPRT_CODE,'0301',0.5,0))) - to_number(to_number(bef_YEAR)+to_number(decode(bef_REPRT,'0301',0.5,0)))
+		                        )/0.5)
+		                        ))-1)*100 as avg_net_amount
+		                        from (
+		                            select 
+		                            CORP_CODE, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		                            ,ACCUMULATED_NET_AMOUNT as curr_amount
+		                            ,lead(ACCUMULATED_NET_AMOUNT) over(partition by CORP_CODE, account_id order by  CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_amount
+		                            ,lead(BSNS_YEAR) over(partition by CORP_CODE, account_id order by  CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_YEAR
+		                            ,lead(REPRT_CODE) over(partition by CORP_CODE, account_id order by  CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_REPRT
+		                            from (
+		                                select 
+		                                CORP_CODE, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
+		                                , case when BSNS_YEAR = bef_year then
+		                                    decode(REPRT_CODE, '0301', case when ACCUMULATED_NET_AMOUNT > 0 and bef_amount > 0 then
+		                                                ACCUMULATED_NET_AMOUNT-bef_amount
+		                                        else    ACCUMULATED_NET_AMOUNT+bef_amount
+		                                        end , ACCUMULATED_NET_AMOUNT)
+		                                    else ACCUMULATED_NET_AMOUNT
+		                                end as ACCUMULATED_NET_AMOUNT
+		                                from (
+		                                    SELECT A.CORP_CODE, B.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
+		                                    ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
+		                                    ,LEAD(BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY  A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
+		                                    FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+		                                    WHERE A.CORP_CODE = B.STOCK_CODE
+		                                    ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC
+		                                )
+		                                where 1=1
+		                                <if test="pCorpName != null and pCorpName != '' ">
+											AND CORP_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+										</if>
+										<if test="(pStYear != null and pStYear != '' and pStHalf != null and pStHalf != '') and (pEdYear != null and pEdYear != '' and pEdHalf != null and pEdHalf != '')">
+								            and (bsns_year,reprt_code) in (    
+								                (#{pStYear},#{pStHalf}),(#{pEdYear},#{pEdHalf})
+								            )      <!--  기간 파라미터 --> 
+										</if>
+		                                order by CORP_CODE, account_id, bsns_year desc , reprt_code asc
+		                            )
+		                            where 1=1
+		                            order by CORP_CODE, account_id, bsns_year desc , reprt_code asc
+		                        )
+		                        where curr_amount > 0		<!--  고정 -->
+		                        and bef_amount > 0			<!--  고정 -->
+		                    )
+		                    GROUP BY CORP_CODE, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM
+		            )
+		            where 1=1
+			        <if test="pAvgType1 != null and pAvgType1 != '' ">
+			        	 and avg_1 > nvl(#{pAvgValue},0)	<!--  매출 성장률 파라미터 -->
+			        </if>
+			        <if test="pAvgType2 != null and pAvgType2 != '' ">
+			         	and avg_2 > nvl(#{pAvgValue},0)            <!--  영업이익 성장률 파라미터 -->
+			        </if>
+			        <if test="pAvgType3 != null and pAvgType3 != '' ">
+			         	and avg_3 > nvl(#{pAvgValue},0)            <!--  순이익 성장률 파라미터 -->
+			        </if>
+			        <if test="pAvgType4 != null and pAvgType4 != '' ">
+			         	and avg_4 > nvl(#{pAvgValue},0)            <!--  주당 순이익 성장률 파라미터 -->
+			        </if>
+		    )
+		)a, (select stock_code from tb_interest where user_id = #{curUserId}) b , (select stock_code from tb_portfolio_corp where user_id = #{curUserId}) c
+		where 1=1
+		and a.corp_code = b.stock_code(+)
+		and a.corp_code = c.stock_code(+)
+		group by a.CORP_CODE, a.CORP_NAME, b.stock_code, c.stock_code
+		order by a.CORP_NAME asc
+	</select>
+	
+	
+	
+</mapper>
