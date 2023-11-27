@@ -7,7 +7,7 @@
 			AND A.CORP_CODE = #{pCorpCd}
 		</if>
 		<if test=" curUserId != null and curUserId != ''  ">
-			AND A.USER_ID = #{curUserId}
+			AND A.USER_ID = 'jeontesu0@gmail.com'
 		</if>
 	</sql>
 	
