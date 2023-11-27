@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-@Service
 public interface AppCorporationService {
-	public List<Map<String, Object>> getCorpList(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getCorpListYear(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getCorpListHalf(Map<String, Object> param) throws Exception;
 }

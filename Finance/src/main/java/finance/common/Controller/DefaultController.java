@@ -10,10 +10,16 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import finance.app.login.service.AppLoginService;
 
 @Controller
 public class DefaultController extends CommonController{
+
+	@Autowired
+	private AppLoginService appLoginService;
 
 	public Map<String, Object> init(HttpServletRequest request, Map<String, Object> map) throws Exception{
 		// 적절한 방법으로 HttpServletRequest 객체를 얻어옵니다.
@@ -33,14 +39,14 @@ public class DefaultController extends CommonController{
 			}
 		}
 		
-		String userId = "jeontesu0@gmail.com";
+		String userId = "";
 		//(웹용)로그인 사용자 체크
-		Map<String, Object> memberVO = (Map<String, Object>) session.getAttribute(SESSION_MEMBER);
-		if(memberVO != null) {
-			userId = memberVO.get("userId").toString();
+		
+		if(appLoginService.isLogin()) {
+			userId = appLoginService.getCurUserId();
 			System.out.println("현재 로그인 된 ID : "+userId);
+			returnMap.put("curUserId", userId);
 		}
-		returnMap.put("curUserId", userId);
 		return returnMap;
 	}
 }

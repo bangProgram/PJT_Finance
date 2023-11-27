@@ -36,12 +36,31 @@ public class AppCorporationController extends DefaultController{
         	Map<String, Object> param = new HashMap<String, Object>();
 
         	List<Map<String, Object>> yearList = appUtilService.getYearList(param);
+//        	(#{pStYear},#{pStHalf}),(#{pEdYear},#{pEdHalf})
         	String stYear = ""; 
         	String edYear = "";
+        	String stHalf = ""; 
+        	String edHalf = "";
         	
-        	if(commandMap.get("stYear") != null && commandMap.get("edYear") != null) {
-        		stYear =  commandMap.get("stYear").toString();
-        		edYear =  commandMap.get("edYear").toString();
+
+            Map<String, Object> responseData = new HashMap<String, Object>();
+        	
+        	if(commandMap.get("pStYear") != null && commandMap.get("pEdYear") != null) {
+				stYear =  commandMap.get("pStYear").toString();
+				edYear =  commandMap.get("pEdYear").toString();
+        		if(commandMap.get("pStHalf") != null && commandMap.get("pEdHalf") != null) {
+        			stHalf =  commandMap.get("pStHalf").toString();
+        			edHalf =  commandMap.get("pEdHalf").toString();
+                	List<Map<String,Object>> corpList = appCorporationService.getCorpListHalf(commandMap);
+                    System.out.println("stYear / stHalf : "+stYear+" / "+stHalf+" ~ edYear / edHalf : "+edYear+" / "+edHalf+"\n corpList : "+corpList.size());
+                	responseData.put("corpList", corpList);
+        		}else {
+        			List<Map<String,Object>> corpList = appCorporationService.getCorpListYear(commandMap);
+                    System.out.println("stYear : "+stYear+" ~ edYear : "+edYear+"\n corpList : "+corpList.size());
+        			responseData.put("corpList", corpList);
+        		}
+
+        		return ResponseEntity.ok(responseData);
         	}else {
         		for(int i=0; i<yearList.size(); i++) {
         			int curYear = Integer.parseInt(yearList.get(i).get("BSNS_YEAR").toString());
@@ -49,17 +68,19 @@ public class AppCorporationController extends DefaultController{
         			if(halfCnt.equals("3")) {
         				stYear =  Integer.toString(curYear-1);
         				edYear =  Integer.toString(curYear);
+        				
+
+            			param.put("pStYear", stYear);
+            			param.put("pEdYear", edYear);
+            			
+            			List<Map<String,Object>> corpList = appCorporationService.getCorpListYear(commandMap);
+                        System.out.println("stYear : "+stYear+" ~ edYear : "+edYear+"\n corpList : "+corpList.size());
+            			responseData.put("corpList", corpList);
+            			return ResponseEntity.ok(responseData);
         			}
-            		
         		}
         	}
-        	
-        	List<Map<String,Object>> corpList = appCorporationService.getCorpList(commandMap);
-
-            Map<String, Object> responseData = new HashMap<String, Object>();
-            System.out.println("corpList : "+corpList.toString());
-            responseData.put("corpList", corpList);
-            return ResponseEntity.ok(responseData);
+    		return ResponseEntity.badRequest().body(null);
         } catch (Exception e) {
         	System.out.println("error occured : "+e);
             return ResponseEntity.badRequest().body(null);
