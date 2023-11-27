@@ -22,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import finance.app.login.service.AppLoginService;
 import finance.app.member.service.AppMemberService;
 import finance.common.Controller.DefaultController;
 import finance.common.Service.JwtUtilService;
@@ -37,6 +38,9 @@ public class AppLoginController extends DefaultController {
 	
 	@Autowired
 	private TokenService tokenService;
+	
+	@Autowired
+	private AppLoginService appLoginService;
 
 	
 
@@ -79,16 +83,19 @@ public class AppLoginController extends DefaultController {
 				responseData.put("memberData", memberVO);
 				responseData.put("token", token);
 				responseData.put("message", userId+"님 환영합니다.");
+				appLoginService.setCurUserId(userId);
 				return ResponseEntity.ok(responseData);
 			}else{
 				appMemberService.updateErrorCnt(commandMap);
 		        responseData.put("message", "사용자 정보가 일치하지 않습니다.");
 		        responseData.put("token", null);
+		        appLoginService.setLogoutUser();
 		    	return ResponseEntity.badRequest().body(responseData);
 			}
 		}else {
 	        responseData.put("message", "사용자 정보가 존재하지 않습니다.");
 	        responseData.put("token", null);
+	        appLoginService.setLogoutUser();
 	    	return ResponseEntity.badRequest().body(responseData);
 		}
 	    
@@ -102,6 +109,7 @@ public class AppLoginController extends DefaultController {
         Map<String, Object> responseData = new HashMap<String, Object>();
 	
         responseData.put("token", null);
+        appLoginService.setLogoutUser();
 		return ResponseEntity.ok(responseData);
 	    
 	}
