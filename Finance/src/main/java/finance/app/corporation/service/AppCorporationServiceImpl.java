@@ -31,4 +31,12 @@ public class AppCorporationServiceImpl implements AppCorporationService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public List<Map<String, Object>> getCorpPerform(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getCorpPerform");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
 }

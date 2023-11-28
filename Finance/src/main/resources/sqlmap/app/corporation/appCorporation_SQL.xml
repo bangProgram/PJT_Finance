@@ -39,7 +39,7 @@
 		    ,cur_amount, bef_amount
 		    ,(power(NVL(cur_amount/DECODE(bef_amount, 0, NULL, bef_amount),0),(1/(BSNS_YEAR-bef_year)))-1)*100 as avg_net_amount
 		    FROM (
-		        SELECT a.CORP_CODE, b.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT as cur_amount
+		        SELECT a.CORP_CODE, b.STOCK_NAME AS CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT as cur_amount
 		        ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(partition by a.CORP_CODE, account_id order by a.CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_amount
 		        ,LEAD(BSNS_YEAR) OVER(partition by a.CORP_CODE, account_id order by  a.CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_year
 		        from TB_BPLC_REPORT a, tb_bplc_detail b
@@ -47,7 +47,7 @@
 		        AND a.corp_code = b.stock_code
 		        AND A.REPRT_CODE = '0301'               <!--  고정 --> 
 				<if test="pCorpName != null and pCorpName != '' ">
-					AND b.CORP_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+					AND b.STOCK_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
 				</if>
 				<if test="(pStYear != null and pStYear != '') and (pEdYear != null and pEdYear != '') ">
 					AND A.BSNS_YEAR IN (#{pStYear},#{pEdYear})      <!--  년도 파라미터 --> 
@@ -67,7 +67,7 @@
 		                SELECT CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM
 		                ,(POWER(NVL(ACCUMULATED_NET_AMOUNT/DECODE(LEAD_DATA, 0, NULL, LEAD_DATA),0),(1/(BSNS_YEAR-LEAD_YEAR)))-1)*100 AS AVG_NET_AMOUNT
 		                FROM (
-		                    SELECT A.CORP_CODE, B.CORP_NAME, A.BSNS_YEAR, A.REPRT_CODE, A.REPRT_NM, A.CLOSING_DATE, A.SJ_DIV, A.SJ_NM, A.ACCOUNT_ID, A.ACCOUNT_NM, A.ACCUMULATED_NET_AMOUNT
+		                    SELECT A.CORP_CODE, B.STOCK_NAME AS CORP_NAME, A.BSNS_YEAR, A.REPRT_CODE, A.REPRT_NM, A.CLOSING_DATE, A.SJ_DIV, A.SJ_NM, A.ACCOUNT_ID, A.ACCOUNT_NM, A.ACCUMULATED_NET_AMOUNT
 		                    ,LEAD(A.ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC) AS LEAD_DATA
 		                    ,LEAD(A.BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY  A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC) AS LEAD_YEAR
 		                    FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
@@ -75,7 +75,7 @@
 		                    AND A.CORP_CODE = B.STOCK_CODE
 		                    AND A.REPRT_CODE = '0301'          <!-- 고정 -->
 							<if test="pCorpName != null and pCorpName != '' ">
-								AND b.CORP_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+								AND b.STOCK_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
 							</if>
 							<if test="(pStYear != null and pStYear != '') and (pEdYear != null and pEdYear != '') ">
 								AND A.BSNS_YEAR IN (#{pStYear},#{pEdYear})      <!--  년도 파라미터 --> 
@@ -151,7 +151,7 @@
 		                ELSE ACCUMULATED_NET_AMOUNT
 		            END AS ACCUMULATED_NET_AMOUNT
 		            FROM (
-		                SELECT A.CORP_CODE, B.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
+		                SELECT A.CORP_CODE, B.STOCK_NAME AS CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
 		                ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
 		                ,LEAD(BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY  A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
 		                FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
@@ -207,7 +207,7 @@
 		                                    else ACCUMULATED_NET_AMOUNT
 		                                end as ACCUMULATED_NET_AMOUNT
 		                                from (
-		                                    SELECT A.CORP_CODE, B.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
+		                                    SELECT A.CORP_CODE, B.STOCK_NAME AS CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
 		                                    ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
 		                                    ,LEAD(BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY  A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
 		                                    FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
@@ -255,6 +255,36 @@
 		order by a.CORP_NAME asc
 	</select>
 	
+	<select id="getCorpPerform"  parameterType="hashMap" resultType="HashMap">
+	SELECT 
+	CORP_CODE AS "corpCode", BSNS_YEAR as "bsnsYear", REPRT_CODE as "reprtCode"
+	, SUM(DECODE(ACCOUNT_ID,'ifrs-full_Revenue',NVL(ACCUMULATED_NET_AMOUNT,0))) AS "amount1"
+	, SUM(DECODE(ACCOUNT_ID,'dart_OperatingIncomeLoss',NVL(ACCUMULATED_NET_AMOUNT,0))) AS "amount2"
+	, SUM(DECODE(ACCOUNT_ID,'ifrs-full_ProfitLoss',NVL(ACCUMULATED_NET_AMOUNT,0))) AS "amount3"
+	, SUM(DECODE(ACCOUNT_ID,'ifrs-full_BasicEarningsLossPerShare',NVL(ACCUMULATED_NET_AMOUNT,0))) AS "amount4"
+	FROM (
+		SELECT 
+		corp_code, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm
+		, CASE WHEN bsns_year = lead_year THEN
+		    decode(reprt_code, '0301', accumulated_net_amount-lead_amount , accumulated_net_amount)
+		    ELSE accumulated_net_amount
+		END AS accumulated_net_amount
+		FROM (
+			SELECT corp_code, bsns_year, reprt_code, reprt_nm, closing_date, sj_div, sj_nm, account_id, account_nm, accumulated_net_amount
+			,LEAD(accumulated_net_amount) OVER(PARTITION BY corp_code, account_id ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC) AS lead_amount
+			,LEAD(bsns_year) OVER(PARTITION BY corp_code, account_id ORDER BY  corp_code, account_id, bsns_year DESC , reprt_code ASC) AS lead_year
+			FROM tb_bplc_report A
+			ORDER BY corp_code, account_id, bsns_year DESC , reprt_code ASC
+		)
+		WHERE 1=1
+		<if test="pCorpCode != null and pCorpCode != '' ">
+			AND corp_code = #{pCorpCode} <!--  기업 파라미터 -->
+		</if>
+		ORDER BY corp_code, bsns_year DESC , reprt_code ASC
+	)
+	GROUP BY corp_code, bsns_year, reprt_code
+	ORDER BY corp_code, bsns_year DESC , reprt_code ASC
+	</select>
 	
 	
 </mapper>

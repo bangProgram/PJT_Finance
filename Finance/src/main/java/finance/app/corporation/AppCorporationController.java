@@ -89,5 +89,27 @@ public class AppCorporationController extends DefaultController{
             return ResponseEntity.badRequest().body(null);
         }
     }
+	
+	@PostMapping("/perform")
+    public ResponseEntity<Map<String, Object>> getCorpPerform(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+        	String corpCode = commandMap.get("pCorpCode").toString();
+
+        	
+
+            Map<String, Object> responseData = new HashMap<String, Object>();
+            
+            List<Map<String,Object>> performList = appCorporationService.getCorpPerform(commandMap);
+        	responseData.put("performList", performList);
+			responseData.put("performCnt", performList.size());
+    		return ResponseEntity.ok(responseData);
+                    	
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 
 }
