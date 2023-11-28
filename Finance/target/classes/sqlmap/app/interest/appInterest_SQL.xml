@@ -28,7 +28,8 @@
 		,sum(decode(account_id,'dart_OperatingIncomeLoss',cur_amount)) as "curAmount2" ,sum(decode(account_id,'dart_OperatingIncomeLoss',bef_amount)) as "befAmount2" ,round(sum(decode(account_id,'dart_OperatingIncomeLoss',avg_net_amount)),2) as "avgAmount2"
 		,sum(decode(account_id,'ifrs-full_ProfitLoss',cur_amount)) as "curAmount3" ,sum(decode(account_id,'ifrs-full_ProfitLoss',bef_amount)) as "befAmount3" ,round(sum(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount)),2) as "avgAmount3"
 		,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',cur_amount)) as "curAmount4" ,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',bef_amount)) as "befAmount4" ,round(sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount)),2) as "avgAmount4"
-		,b.stock_code as "isInterest", c.stock_code as "isPortfolio"
+		,c.stock_code as "isPortfolio"
+		,#{pStYear} as "stYear", #{pEdYear} as "edYear"
 		FROM(
 		    SELECT 
 		    CORP_CODE, CORP_NAME
@@ -39,7 +40,7 @@
 		        SELECT a.CORP_CODE, b.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT as cur_amount
 		        ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(partition by a.CORP_CODE, account_id order by a.CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_amount
 		        ,LEAD(BSNS_YEAR) OVER(partition by a.CORP_CODE, account_id order by  a.CORP_CODE, account_id, bsns_year desc , reprt_code asc) as bef_year
-		        from TB_BPLC_REPORT a, tb_bplc_detail b
+		        from TB_BPLC_REPORT a, (select CORP_NAME, stock_code from tb_interest where user_id = #{curUserId}) b
 		        WHERE 1=1
 		        AND a.corp_code = b.stock_code
 		        AND A.REPRT_CODE = '0301'               <!--  고정 --> 
@@ -67,7 +68,7 @@
 		                    SELECT A.CORP_CODE, B.CORP_NAME, A.BSNS_YEAR, A.REPRT_CODE, A.REPRT_NM, A.CLOSING_DATE, A.SJ_DIV, A.SJ_NM, A.ACCOUNT_ID, A.ACCOUNT_NM, A.ACCUMULATED_NET_AMOUNT
 		                    ,LEAD(A.ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC) AS LEAD_DATA
 		                    ,LEAD(A.BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY  A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE ASC) AS LEAD_YEAR
-		                    FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+		                    FROM TB_BPLC_REPORT A, (select CORP_NAME, stock_code from tb_interest where user_id = #{curUserId}) b
 		                    WHERE 1=1
 		                    AND A.CORP_CODE = B.STOCK_CODE
 		                    AND A.REPRT_CODE = '0301'          <!-- 고정 -->
@@ -98,11 +99,10 @@
 		         	and avg_4 > nvl(#{pAvgValue},0)            <!--  주당 순이익 성장률 파라미터 -->
 		        </if>
 		    )
-		) a, (select stock_code from tb_interest where user_id = #{curUserId}) b , (select stock_code from tb_portfolio_corp where user_id = #{curUserId}) c
+		) a, (select stock_code from tb_portfolio_corp where user_id = #{curUserId}) c
 		where 1=1
-		and a.corp_code = b.stock_code(+)
 		and a.corp_code = c.stock_code(+)
-		group by a.CORP_CODE, a.CORP_NAME, b.stock_code, c.stock_code
+		group by a.CORP_CODE, a.CORP_NAME, c.stock_code
 		order by a.CORP_NAME asc
 	</select>
 	
@@ -114,7 +114,8 @@
 		,sum(decode(account_id,'dart_OperatingIncomeLoss',cur_amount)) as "curAmount2" ,sum(decode(account_id,'dart_OperatingIncomeLoss',bef_amount)) as "befAmount2" ,round(sum(decode(account_id,'dart_OperatingIncomeLoss',avg_net_amount)),2) as "avgAmount2"
 		,sum(decode(account_id,'ifrs-full_ProfitLoss',cur_amount)) as "curAmount3" ,sum(decode(account_id,'ifrs-full_ProfitLoss',bef_amount)) as "befAmount3" ,round(sum(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount)),2) as "avgAmount3"
 		,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',cur_amount)) as "curAmount4" ,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',bef_amount)) as "befAmount4" ,round(sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount)),2) as "avgAmount4"
-		,b.stock_code as "isInterest", c.stock_code as "isPortfolio"
+		,c.stock_code as "isPortfolio"
+		,#{pStYear} as "stYear", #{pEdYear} as "edYear" ,#{pStHalf} as "stHalf", #{pEdHalf} as "edHalf"
 		FROM (
 		    SELECT 
 		    CORP_CODE,CORP_NAME
@@ -150,7 +151,7 @@
 		                SELECT A.CORP_CODE, B.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
 		                ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
 		                ,LEAD(BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY  A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
-		                FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+		                FROM TB_BPLC_REPORT A, (select CORP_NAME, stock_code from tb_interest where user_id = #{curUserId}) b
 		                WHERE A.CORP_CODE = B.STOCK_CODE
 		                ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC
 		            )
@@ -206,7 +207,7 @@
 		                                    SELECT A.CORP_CODE, B.CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM, ACCOUNT_ID, ACCOUNT_NM, ACCUMULATED_NET_AMOUNT
 		                                    ,LEAD(ACCUMULATED_NET_AMOUNT) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_AMOUNT
 		                                    ,LEAD(BSNS_YEAR) OVER(PARTITION BY A.CORP_CODE, ACCOUNT_ID ORDER BY  A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC) AS BEF_YEAR
-		                                    FROM TB_BPLC_REPORT A, TB_BPLC_DETAIL B
+		                                    FROM TB_BPLC_REPORT A, (select CORP_NAME, stock_code from tb_interest where user_id = #{curUserId}) b
 		                                    WHERE A.CORP_CODE = B.STOCK_CODE
 		                                    ORDER BY A.CORP_CODE, ACCOUNT_ID, BSNS_YEAR DESC , REPRT_CODE ASC
 		                                )
@@ -243,11 +244,10 @@
 			         	and avg_4 > nvl(#{pAvgValue},0)            <!--  주당 순이익 성장률 파라미터 -->
 			        </if>
 		    )
-		)a, (select stock_code from tb_interest where user_id = #{curUserId}) b , (select stock_code from tb_portfolio_corp where user_id = #{curUserId}) c
+		)a, (select stock_code from tb_portfolio_corp where user_id = #{curUserId}) c
 		where 1=1
-		and a.corp_code = b.stock_code(+)
 		and a.corp_code = c.stock_code(+)
-		group by a.CORP_CODE, a.CORP_NAME, b.stock_code, c.stock_code
+		group by a.CORP_CODE, a.CORP_NAME, c.stock_code
 		order by a.CORP_NAME asc
 	</select>
 	

@@ -70,8 +70,8 @@ public class AppInterestController extends DefaultController {
         				edYear =  Integer.toString(curYear);
         				
 
-            			param.put("pStYear", stYear);
-            			param.put("pEdYear", edYear);
+        				commandMap.put("pStYear", stYear);
+        				commandMap.put("pEdYear", edYear);
             			
             			List<Map<String,Object>> corpList = appInterestService.getInterListYear(commandMap);
                         System.out.println("stYear : "+stYear+" ~ edYear : "+edYear+"\n corpList : "+corpList.size());
