@@ -34,18 +34,20 @@ public class AppReportController extends DefaultController{
 	@Autowired
 	private TokenService tokenService;
 		
-	@GetMapping("/getCorpStockPrice")
-	public ResponseEntity<Map<String, Object>> getPortAmount(HttpServletRequest request) throws Exception{ 
+	@PostMapping("/getStockPrice")
+	public ResponseEntity<Map<String, Object>> getPortAmount(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{ 
 	
 		RestTemplate restTemplate = new RestTemplate();
         ObjectMapper objectMapper = new ObjectMapper();
         
         Map<String, Object> responseData = new HashMap<String, Object>();
+        
+        String stockCode = commandMap.get("corpCode").toString();
 
         String apiUrl = "https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-daily-itemchartprice";
 
         // 파라미터 설정
-        String parameters = "?fid_cond_mrkt_div_code=J&fid_input_iscd=005930&fid_input_date_1=20230101&fid_input_date_2=20231101&fid_period_div_code=D&fid_org_adj_prc=0";
+        String parameters = "?fid_cond_mrkt_div_code=J&fid_input_iscd="+stockCode+"&fid_input_date_1=20230101&fid_input_date_2=20231101&fid_period_div_code=D&fid_org_adj_prc=0";
 
         // URL과 파라미터 조합
         String uri = apiUrl + parameters;

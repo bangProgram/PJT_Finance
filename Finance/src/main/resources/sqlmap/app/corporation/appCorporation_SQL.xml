@@ -29,6 +29,9 @@
 		,sum(decode(account_id,'ifrs-full_ProfitLoss',cur_amount)) as "curAmount3" ,sum(decode(account_id,'ifrs-full_ProfitLoss',bef_amount)) as "befAmount3" ,round(sum(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount)),2) as "avgAmount3"
 		,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',cur_amount)) as "curAmount4" ,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',bef_amount)) as "befAmount4" ,round(sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount)),2) as "avgAmount4"
 		,b.stock_code as "isInterest", c.stock_code as "isPortfolio"
+		<if test="(pStYear != null and pStYear != '') and (pEdYear != null and pEdYear != '') ">
+		,#{pStYear} as "stYear", #{pEdYear} as "edYear"
+		</if>
 		FROM(
 		    SELECT 
 		    CORP_CODE, CORP_NAME
@@ -115,6 +118,7 @@
 		,sum(decode(account_id,'ifrs-full_ProfitLoss',cur_amount)) as "curAmount3" ,sum(decode(account_id,'ifrs-full_ProfitLoss',bef_amount)) as "befAmount3" ,round(sum(decode(account_id,'ifrs-full_ProfitLoss',avg_net_amount)),2) as "avgAmount3"
 		,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',cur_amount)) as "curAmount4" ,sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',bef_amount)) as "befAmount4" ,round(sum(decode(account_id,'ifrs-full_BasicEarningsLossPerShare',avg_net_amount)),2) as "avgAmount4"
 		,b.stock_code as "isInterest", c.stock_code as "isPortfolio"
+		,#{pStYear} as "stYear", #{pEdYear} as "edYear" ,#{pStHalf} as "stHalf", #{pEdHalf} as "edHalf" 
 		FROM (
 		    SELECT 
 		    CORP_CODE,CORP_NAME
