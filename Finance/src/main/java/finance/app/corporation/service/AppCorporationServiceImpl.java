@@ -39,4 +39,12 @@ public class AppCorporationServiceImpl implements AppCorporationService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public List<Map<String, Object>> getPerformYear(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getPerformYear");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
 }
