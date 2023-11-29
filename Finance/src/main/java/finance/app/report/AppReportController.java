@@ -1,5 +1,8 @@
 package finance.app.report;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,14 +43,25 @@ public class AppReportController extends DefaultController{
 		RestTemplate restTemplate = new RestTemplate();
         ObjectMapper objectMapper = new ObjectMapper();
         
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+		Date now = new Date();
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		cal.add(cal.YEAR, -1); //1년치 데이터
+		
+		String bgndate = sdf.format(cal.getTime());
+		String endDate = format.format(now);
+        
         Map<String, Object> responseData = new HashMap<String, Object>();
         
         String stockCode = commandMap.get("corpCode").toString();
 
         String apiUrl = "https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-daily-itemchartprice";
-
+        System.out.println("차트조회기간 : "+bgndate + " ~ " + endDate);
         // 파라미터 설정
-        String parameters = "?fid_cond_mrkt_div_code=J&fid_input_iscd="+stockCode+"&fid_input_date_1=20230101&fid_input_date_2=20231101&fid_period_div_code=D&fid_org_adj_prc=0";
+        String parameters = "?fid_cond_mrkt_div_code=J&fid_input_iscd="+stockCode+"&fid_input_date_1="+bgndate+"&fid_input_date_2="+endDate+"&fid_period_div_code=D&fid_org_adj_prc=0";
 
         // URL과 파라미터 조합
         String uri = apiUrl + parameters;

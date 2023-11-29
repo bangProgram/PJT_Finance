@@ -102,8 +102,9 @@ public class AppCorporationController extends DefaultController{
             Map<String, Object> responseData = new HashMap<String, Object>();
             
             List<Map<String,Object>> performList = appCorporationService.getCorpPerform(commandMap);
+            List<Map<String,Object>> performYear = appCorporationService.getPerformYear(commandMap);
         	responseData.put("performList", performList);
-			responseData.put("performCnt", performList.size());
+			responseData.put("performYear", performYear);
     		return ResponseEntity.ok(responseData);
                     	
         } catch (Exception e) {
