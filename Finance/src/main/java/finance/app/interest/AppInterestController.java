@@ -45,22 +45,24 @@ public class AppInterestController extends DefaultController {
         	
 
             Map<String, Object> responseData = new HashMap<String, Object>();
-        	
-        	if(commandMap.get("pStYear") != null && commandMap.get("pEdYear") != null) {
+            
+            if(commandMap.get("pStYear") != null && commandMap.get("pEdYear") != null) {
 				stYear =  commandMap.get("pStYear").toString();
 				edYear =  commandMap.get("pEdYear").toString();
-        		if(commandMap.get("pStHalf") != null && commandMap.get("pEdHalf") != null) {
+				System.out.println("반기 값이 있다고? " + (commandMap.get("pStHalf") != null) + " / " + (commandMap.get("pEdHalf") != null));
+				if(commandMap.get("searchType").equals("year")) {
+        			List<Map<String,Object>> corpList = appInterestService.getInterListYear(commandMap);
+                    System.out.println("stYear : "+stYear+" ~ edYear : "+edYear+"\n corpList : "+corpList.size());
+        			responseData.put("corpList", corpList);
+    				responseData.put("corpCnt", corpList.size());
+				}else {
         			stHalf =  commandMap.get("pStHalf").toString();
         			edHalf =  commandMap.get("pEdHalf").toString();
                 	List<Map<String,Object>> corpList = appInterestService.getInterListHalf(commandMap);
                     System.out.println("stYear / stHalf : "+stYear+" / "+stHalf+" ~ edYear / edHalf : "+edYear+" / "+edHalf+"\n corpList : "+corpList.size());
                 	responseData.put("corpList", corpList);
-        		}else {
-        			List<Map<String,Object>> corpList = appInterestService.getInterListYear(commandMap);
-                    System.out.println("stYear : "+stYear+" ~ edYear : "+edYear+"\n corpList : "+corpList.size());
-        			responseData.put("corpList", corpList);
-        		}
-
+    				responseData.put("corpCnt", corpList.size());
+				}
         		return ResponseEntity.ok(responseData);
         	}else {
         		for(int i=0; i<yearList.size(); i++) {
@@ -73,10 +75,11 @@ public class AppInterestController extends DefaultController {
 
         				commandMap.put("pStYear", stYear);
         				commandMap.put("pEdYear", edYear);
-            			
+
             			List<Map<String,Object>> corpList = appInterestService.getInterListYear(commandMap);
                         System.out.println("stYear : "+stYear+" ~ edYear : "+edYear+"\n corpList : "+corpList.size());
             			responseData.put("corpList", corpList);
+            			responseData.put("corpCnt", corpList.size());
             			return ResponseEntity.ok(responseData);
         			}
         		}
@@ -90,11 +93,34 @@ public class AppInterestController extends DefaultController {
 	
 	
 	@PostMapping("/add")
-    public ResponseEntity<Map<String, Object>> insertInterest(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+    public ResponseEntity<Map<String, Object>> addInterest(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
 		commandMap = init(request, commandMap);
 		
         try {
-    		Integer resultInt = appInterestService.insertInterest(commandMap);
+    		Integer resultInt = appInterestService.addInterest(commandMap);
+    		
+    	    
+            Map<String, Object> responseData = new HashMap<String, Object>();
+        	
+    	    if(resultInt > 0) {
+        		return ResponseEntity.ok(responseData);
+    	    }else {
+        		return ResponseEntity.badRequest().body(null);
+    	    }
+
+        	
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+	
+	@PostMapping("/del")
+    public ResponseEntity<Map<String, Object>> delInterest(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+    		Integer resultInt = appInterestService.delInterest(commandMap);
     		
     	    
             Map<String, Object> responseData = new HashMap<String, Object>();

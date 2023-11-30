@@ -32,15 +32,15 @@ public class AppInterestServiceImpl implements AppInterestService{
 	}
 	
 	@Override
-	public Integer insertInterest(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"insertInterest");
+	public Integer addInterest(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"addInterest");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}
 	
 	@Override
-	public Integer deleteInterest(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"deleteInterest");
+	public Integer delInterest(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"delInterest");
 	    Integer resultInt = (Integer) commonMapper.delete(param);
 	    return resultInt;
 	}

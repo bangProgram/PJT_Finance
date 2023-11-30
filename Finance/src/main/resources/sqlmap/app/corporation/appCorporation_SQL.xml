@@ -56,10 +56,8 @@
 		        order by CORP_CODE, account_id, bsns_year desc , REPRT_CODE DESC
 		        ) a
 		    WHERE 1=1
-		    <!-- 
 		    AND cur_amount > 0
 		    AND bef_amount > 0
-		     -->
 		    AND corp_code in (
 		        SELECT corp_code from (
 		            SELECT CORP_CODE, CORP_NAME,BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM
@@ -87,10 +85,8 @@
 		                    ORDER BY A.CORP_CODE, A.ACCOUNT_ID, A.BSNS_YEAR DESC , A.REPRT_CODE DESC
 		                )
 		                WHERE 1=1
-		                <!-- 
-		                ACCUMULATED_NET_AMOUNT > 0    고정
-		                AND LEAD_DATA > 0                   고정
-		                 -->
+		                and ACCUMULATED_NET_AMOUNT > 0    <!-- 고정 -->
+		                AND LEAD_DATA > 0                   <!-- 고정 -->
 		            )
 		            GROUP BY CORP_CODE, CORP_NAME, BSNS_YEAR, REPRT_CODE, REPRT_NM, CLOSING_DATE, SJ_DIV, SJ_NM
 		        )

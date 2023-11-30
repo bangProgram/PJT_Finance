@@ -125,7 +125,7 @@ public class AppCorporationController extends DefaultController{
     		Map<String,Object> recentReport = getRecentReport(stockCode);
         	String baseYear = recentReport.get("BSNS_YEAR").toString();
         	String reprtCode = recentReport.get("DART_REPRT_CODE").toString();
-        	int cnt = Integer.parseInt(recentReport.get("DART_REPRT_CODE").toString());
+        	int cnt = Integer.parseInt(recentReport.get("CNT").toString());
         	//배당정보 가져오기
         	
         	
@@ -151,10 +151,16 @@ public class AppCorporationController extends DefaultController{
 			            System.out.println("주당 배당수익률 : "+thstrm);
 					}else if(j == 11) {
 						JSONObject infoObject = (JSONObject) infoList.get(j);	
-			            System.out.println("주당 배당금1 : "+infoObject.get("thstrm").toString());					
-			            int thstrm = Integer.parseInt(infoObject.get("thstrm").toString().replace(",", ""));
-			            responseData.put("allocationAmount", thstrm);
-			            responseData.put("cnt", cnt);
+			            System.out.println("주당 배당금1 : "+infoObject.get("thstrm").toString());	
+			            if(infoObject.get("thstrm").toString().equals("-")) {
+			            	String thstrmStr = infoObject.get("thstrm").toString();
+				            responseData.put("allocationAmount", thstrmStr);
+			            }else {
+			            	int thstrm = Integer.parseInt(infoObject.get("thstrm").toString().replace(",", ""));
+				            String thstrmStr = Double.toString(Math.round(thstrm / cnt));
+				            responseData.put("allocationAmount", thstrmStr);
+			            }
+			            
 					}
 		        }
 			}
