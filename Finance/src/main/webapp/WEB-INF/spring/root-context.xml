@@ -62,7 +62,7 @@
     <bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <bean id="scheduleJob" class="com.schedule.jobScheduler" />
     <task:scheduled-tasks> <!-- scheduled job list -->
-        <task:scheduled ref="scheduleJob" method="autoUpdate" cron="0 */10 * * * *"/>
+        <task:scheduled ref="scheduleJob" method="autoUpdate" cron="0 0 17 * * *"/>
         <!-- add more job here -->
     </task:scheduled-tasks> 
 	 

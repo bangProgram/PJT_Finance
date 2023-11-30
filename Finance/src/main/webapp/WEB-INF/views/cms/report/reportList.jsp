@@ -42,7 +42,7 @@
 			var reprtCd = $(this).val();
 			html = '<option value = "">개년 선택</option>'
 			chkYearList = '';
-			if(reprtCd == "0301"){
+			if(reprtCd == "0304"){
 				for(var i=0; i<6; i++){
 					if(i==1){
 						chkYearList += pYearList[i];
@@ -83,7 +83,7 @@
 		$("#pAccountIds").val(pAccountIds);
 		
 		var reprtCd = $("input[name=pReportCd]:checked").val();
-		if(reprtCd == '0301'){
+		if(reprtCd == '0304'){
 			$("#yearHaeder").css('display', 'table-row');
 			$("#quaterHaeder").css('display', 'none');
 		}else{
@@ -372,7 +372,7 @@
 								<input type="checkbox" name="pAccountId" id="pAccountId" value="ifrs-full_ProfitLoss" title="당기순이익"> 당기순이익 
 							</td>
 							<td>보고서 구분</td>
-							<td><input type="radio" name="pReportCd" id="pReportCd" value="0301" title="보고서 구분" checked="checked"> 년도 <input type="radio" name="pReportCd" id="pReportCd" value="0302" title="보고서 구분"> 반기 </td>
+							<td><input type="radio" name="pReportCd" id="pReportCd" value="0304" title="보고서 구분" checked="checked"> 년도 <input type="radio" name="pReportCd" id="pReportCd" value="0302" title="보고서 구분"> 반기 </td>
                         </tr>
                     </tbody>
                 </table>

@@ -15,13 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.ModelAndView;
 
+import finance.app.util.service.AppUtilService;
+
 @Controller
 public class CommonController implements CommonConstants {
 	
+	@Autowired
+	private AppUtilService appUtilService;	
 	
 	public static JSONArray convertListToJson(List<Map<String, Object>> list) {
 		JSONArray jsonArray = new JSONArray();
@@ -57,5 +62,19 @@ public class CommonController implements CommonConstants {
 		model.addObject("redirectUrl", redirectUrl);
 		 
 		return model;
+	}
+	
+	public Map<String,Object> getCorpCode(String stockCode) throws Exception {
+		Map<String,Object> param = new HashMap<String, Object>();
+		param.put("pStockCode", stockCode);
+		Map<String,Object> result = appUtilService.getCorpCode(param);
+		return result;
+	}
+	
+	public Map<String,Object> getRecentReport(String stockCode) throws Exception {
+		Map<String,Object> param = new HashMap<String, Object>();
+		param.put("pStockCode", stockCode);
+		Map<String,Object> result = appUtilService.getRecentReport(param);
+		return result;
 	}
 }

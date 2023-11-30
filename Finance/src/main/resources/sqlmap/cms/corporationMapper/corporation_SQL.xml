@@ -38,7 +38,7 @@
 		        (
 		            SELECT
 		                DENSE_RANK() 
-		                OVER(PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_') ORDER BY REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_'), A.BSNS_YEAR DESC, A.REPRT_CODE ASC) 
+		                OVER(PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_') ORDER BY REPLACE(A.ACCOUNT_ID, 'ifrs_', 'ifrs-full_'), A.BSNS_YEAR DESC, A.REPRT_CODE DESC) 
 		                AS YEAR_CNT,
 		                NVL(A.ACCUMULATED_NET_AMOUNT, 0)             AS ACC_NET_AMOUNT,
 		                LEAD(NVL(A.ACCUMULATED_NET_AMOUNT, 0))
@@ -47,7 +47,7 @@
 		                     ORDER BY
 		                         A.CORP_CODE,
 		                         A.BSNS_YEAR DESC,
-		                         A.REPRT_CODE ASC
+		                         A.REPRT_CODE DESC
 		                )                                            AS LEAD_ACC_NET_AMOUNT,
 		                A.CORP_CODE                                  AS STOCK_CODE,
 		                B.CORP_NAME,
