@@ -251,7 +251,7 @@
 		order by a.CORP_NAME asc
 	</select>
 	
-	<insert id="insertInterest" parameterType="HashMap"  >  
+	<insert id="addInterest" parameterType="HashMap"  >  
 		INSERT INTO TB_INTEREST (
 				CORP_CODE ,
 				CORP_NAME ,
@@ -282,9 +282,9 @@
 	    
 	</insert>
 	
-	<insert id="deleteInterestCorp" parameterType="HashMap"  >  
+	<insert id="delInterest" parameterType="HashMap"  >  
 	    DELETE  TB_INTEREST 
-	    WHERE CORP_CODE = #{CORP_CODE}
+	    WHERE STOCK_CODE = #{STOCK_CODE}
 	    AND USER_ID = #{curUserId}
 	</insert>
 	

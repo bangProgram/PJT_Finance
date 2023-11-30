@@ -8,8 +8,8 @@ public interface AppInterestService {
 	
 	public List<Map<String, Object>> getInterListHalf(Map<String, Object> param) throws Exception;
 	
-	public Integer insertInterest(Map<String, Object> param) throws Exception;
+	public Integer addInterest(Map<String, Object> param) throws Exception;
 
-	public Integer deleteInterest(Map<String, Object> param) throws Exception;
+	public Integer delInterest(Map<String, Object> param) throws Exception;
 
 }
