@@ -47,4 +47,12 @@ public class AppCorporationServiceImpl implements AppCorporationService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public Map<String, Object> getCorpClsPrice(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getCorpClsPrice");
+	    Map<String, Object> result = commonMapper.get(param);
+	    return result;
+
+	}
 }

@@ -1,5 +1,6 @@
 package finance.app.interest;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,6 +82,30 @@ public class AppInterestController extends DefaultController {
         		}
         	}
     		return ResponseEntity.badRequest().body(null);
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+	
+	
+	@PostMapping("/add")
+    public ResponseEntity<Map<String, Object>> insertInterest(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+    		Integer resultInt = appInterestService.insertInterest(commandMap);
+    		
+    	    
+            Map<String, Object> responseData = new HashMap<String, Object>();
+        	
+    	    if(resultInt > 0) {
+        		return ResponseEntity.ok(responseData);
+    	    }else {
+        		return ResponseEntity.badRequest().body(null);
+    	    }
+
+        	
         } catch (Exception e) {
         	System.out.println("error occured : "+e);
             return ResponseEntity.badRequest().body(null);

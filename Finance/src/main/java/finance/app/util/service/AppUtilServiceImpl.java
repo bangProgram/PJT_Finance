@@ -24,5 +24,21 @@ public class AppUtilServiceImpl implements AppUtilService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public Map<String, Object> getCorpCode(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getCorpCode");
+	    Map<String, Object> result = commonMapper.get(param);
+	    return result;
+
+	}
+
+	@Override
+	public Map<String, Object> getRecentReport(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getRecentReport");
+	    Map<String, Object> result = commonMapper.get(param);
+	    return result;
+
+	}
 
 }

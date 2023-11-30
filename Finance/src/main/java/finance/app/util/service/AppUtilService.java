@@ -8,5 +8,7 @@ import org.springframework.stereotype.Service;
 
 public interface AppUtilService  {
 	public List<Map<String, Object>> getYearList(Map<String, Object> param) throws Exception;
+	public Map<String, Object> getCorpCode(Map<String, Object> param) throws Exception;
+	public Map<String, Object> getRecentReport(Map<String, Object> param) throws Exception;
 
 }

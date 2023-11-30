@@ -109,7 +109,7 @@
 					    stock_code , corp_name , account_id, corp_code, USER_ID
 					FROM (
 						select 
-						        NVL(A.ACCUMULATED_NET_AMOUNT,0) AS ACC_NET_AMOUNT, LEAD(NVL(A.ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE ASC) AS LEAD_ACC_NET_AMOUNT,
+						        NVL(A.ACCUMULATED_NET_AMOUNT,0) AS ACC_NET_AMOUNT, LEAD(NVL(A.ACCUMULATED_NET_AMOUNT,0)) OVER (PARTITION BY A.CORP_CODE, REPLACE(A.ACCOUNT_ID,'ifrs_','ifrs-full_') ORDER BY A.CORP_CODE, A.BSNS_YEAR DESC, A.REPRT_CODE DESC) AS LEAD_ACC_NET_AMOUNT,
 						        a.corp_code as stock_code, b.corp_name , REPLACE(a.ACCOUNT_ID,'ifrs_','ifrs-full_') as ACCOUNT_ID, a.bsns_year, b.corp_code, B.USER_ID
 						from 	tb_Bplc_cis a inner join TB_INTEREST b
 						on 		a.corp_code = b.stock_code
@@ -176,10 +176,10 @@
 			            SELECT 
 			                rnk, corp_code, corp_NAME, bsns_year, reprt_code, reprt_nm, account_id, STOCK_CODE, USER_ID , acc_net_amount, DECODE(REPRT_CODE,'11011','Q4_','11012','Q2_')||BSNS_YEAR AS HADER_NM,
 			                LEAD(nvl(acc_net_amount, 0))
-			                OVER(PARTITION BY corp_code, account_id ORDER BY corp_code, account_id, bsns_year DESC, reprt_code ASC ) AS LEAD_acc_net_amount
+			                OVER(PARTITION BY corp_code, account_id ORDER BY corp_code, account_id, bsns_year DESC, REPRT_CODE DESC ) AS LEAD_acc_net_amount
 			            FROM (
 			                SELECT
-			                    dense_rank() over(PARTITION BY corp_code,account_id  ORDER BY account_id, bsns_year DESC, reprt_code ASC) as rnk,
+			                    dense_rank() over(PARTITION BY corp_code,account_id  ORDER BY account_id, bsns_year DESC, REPRT_CODE DESC) as rnk,
 			                    corp_code, CORP_NAME, bsns_year, reprt_code, reprt_nm, account_id, STOCK_CODE, USER_ID , lead_acc_net_amount, lead_bsns_year, 
 			                    NVL(DECODE(reprt_code,'11011', decode(bsns_year,lead_bsns_year,(acc_net_amount-lead_acc_net_amount),null),acc_net_amount),0) as acc_net_amount
 			                FROM (
@@ -190,11 +190,11 @@
 			                        LEAD(nvl(accumulated_net_amount, 0))
 			                        OVER(PARTITION BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_')
 			                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
-			                             bsns_year DESC, reprt_code ASC ) as lead_acc_net_amount,
+			                             bsns_year DESC, REPRT_CODE DESC ) as lead_acc_net_amount,
 			                        LEAD(nvl(bsns_year, 0))
 			                        OVER(PARTITION BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_')
 			                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
-			                             bsns_year DESC, reprt_code ASC ) as lead_bsns_year
+			                             bsns_year DESC, REPRT_CODE DESC ) as lead_bsns_year
 			                    FROM
 			                        tb_bplc_cis A INNER JOIN TB_INTEREST B 
 			                    ON A.CORP_CODE = B.STOCK_CODE
@@ -212,7 +212,7 @@
 			                    corp_code,
 			                    account_id,
 			                    bsns_year DESC,
-			                    reprt_code ASC
+			                    REPRT_CODE DESC
 			            )   WHERE 1=1
 			                <![CDATA[
             	                AND RNK <= 6
@@ -232,7 +232,7 @@
 			                rnk, corp_code, corp_NAME, bsns_year, reprt_code, reprt_nm, account_id, STOCK_CODE, USER_ID, acc_net_amount, DECODE(REPRT_CODE,'11011','Q4_','11012','Q2_')||BSNS_YEAR AS HADER_NM
 			            FROM (
 			                SELECT
-			                    dense_rank() over(PARTITION BY corp_code,account_id  ORDER BY account_id, bsns_year DESC, reprt_code ASC) as rnk,
+			                    dense_rank() over(PARTITION BY corp_code,account_id  ORDER BY account_id, bsns_year DESC, REPRT_CODE DESC) as rnk,
 			                    corp_code, CORP_NAME, bsns_year, reprt_code, reprt_nm, account_id, STOCK_CODE, USER_ID,
 			                    NVL(DECODE(reprt_code,'11011', decode(bsns_year,lead_bsns_year,(acc_net_amount-lead_acc_net_amount),null),acc_net_amount),0) as acc_net_amount
 			                FROM (
@@ -243,11 +243,11 @@
 			                        LEAD(nvl(accumulated_net_amount, 0))
 			                        OVER(PARTITION BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_')
 			                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
-			                             bsns_year DESC, reprt_code ASC ) as lead_acc_net_amount,
+			                             bsns_year DESC, REPRT_CODE DESC ) as lead_acc_net_amount,
 			                        LEAD(nvl(bsns_year, 0))
 			                        OVER(PARTITION BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_')
 			                         ORDER BY A.corp_code, replace(account_id, 'ifrs_', 'ifrs-full_'),
-			                             bsns_year DESC, reprt_code ASC ) as lead_bsns_year
+			                             bsns_year DESC, REPRT_CODE DESC ) as lead_bsns_year
 			                    FROM
 			                        tb_bplc_cis A INNER JOIN TB_INTEREST B 
 			                    ON A.CORP_CODE = B.STOCK_CODE
@@ -265,7 +265,7 @@
 			                    corp_code,
 			                    account_id,
 			                    bsns_year DESC,
-			                    reprt_code ASC
+			                    REPRT_CODE DESC
 			            )   WHERE 1=1
 			                <![CDATA[
             	                AND RNK <= 6

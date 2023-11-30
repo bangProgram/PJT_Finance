@@ -6,10 +6,14 @@
 $(document).ready(function(){
 	$("select[name=REPRT_CODE]").change(function(){
 		var reprtCd = this.value;
-		if(reprtCd == "0301"){
+		if(reprtCd == "0304"){
 			$("input[name=REPRT_NM]").val("사업보고서");
-		}else{
+		}else if(reprtCd == "0303"){
+			$("input[name=REPRT_NM]").val("3분기보고서");
+		}else if(reprtCd == "0302"){
 			$("input[name=REPRT_NM]").val("반기보고서");
+		}else{
+			$("input[name=REPRT_NM]").val("1분기보고서");
 		}
 	});
 	
@@ -119,8 +123,10 @@ function goSave(){
 			<td>
 				<select name="REPRT_CODE" id="REPRT_CODE" class="requiredChk" title="보고서 구분 선택" style="width: 200px;" > 
 						<option value = "">선택</option>
-						<option value = "0301">사업보고서</option>
+						<option value = "0304">사업보고서</option>
+						<option value = "0303">3분기보고서</option>
 						<option value = "0302">반기보고서</option>
+						<option value = "0301">1분기보고서</option>
 				</select>
 			</td>
 			<td>

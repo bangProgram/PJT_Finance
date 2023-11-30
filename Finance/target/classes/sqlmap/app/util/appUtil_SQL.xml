@@ -31,6 +31,29 @@
 	</select>
 	
 	
+	<select id="getCorpCode"  parameterType="hashMap" resultType="HashMap">
+		SELECT CORP_CODE FROM TB_BPLC_DETAIL
+		WHERE 1=1
+		<if test="pStockCode != null and pStockCode != '' ">
+			AND STOCK_CODE = #{pStockCode}
+		</if>
+	</select>
 	
+	<select id="getRecentReport"  parameterType="hashMap" resultType="HashMap">
+		SELECT bsns_year, reprt_code, dart_reprt_code, cnt
+		FROM (
+			SELECT bsns_year, reprt_code
+			, decode(reprt_code,'0301','11013','0302','11012','0303','11014','0304','11011') AS dart_reprt_code
+			, decode(reprt_code,'0301',1,'0302',2,'0303',3,'0304',4) as cnt
+			FROM tb_bplc_report
+			WHERE 1=1
+			<if test="pStockCode != null and pStockCode != '' ">
+				AND CORP_CODE = #{pStockCode}
+			</if>
+			GROUP BY bsns_year,reprt_code
+			ORDER BY bsns_year DESC, reprt_code DESC
+		)
+		WHERE ROWNUM = 1
+	</select>
 	
 </mapper>

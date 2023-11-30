@@ -93,58 +93,53 @@ public class jobScheduler {
 		System.out.println("JB1 : "+url2);
 		
 		int resultInt = 0;
-		for(int i=0; i< getPortListForSchedule.size(); i++) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			String stockCd = getPortListForSchedule.get(i).get("STOCK_CODE").toString();
-			param.put("STOCK_CODE", stockCd);
-			try{
-				if(mergeList != null) {
-					for(int j=0; j < mergeList.size(); j++) {
-						
-			            JSONObject infoObject = (JSONObject) mergeList.get(j);
-			            
-			            //KRX 에서 가져온 STOCK_CODE
-			            String ISU_CD = infoObject.get("ISU_CD").toString();
-			            //KRX 에서 가져온 1. 종가 , 2. 상장 주식수
-		            	String TDD_CLSPRC = infoObject.get("TDD_CLSPRC").toString();
-			            String LIST_SHRS = infoObject.get("LIST_SHRS").toString();
-			            
-			            if(ISU_CD.equals(stockCd)) {
-			            	param.put("TDD_CLSPRC", TDD_CLSPRC);
-			            	param.put("LIST_SHRS", LIST_SHRS);
-			            	resultInt += dartService.updatePortForSchedule(param);
-			            }else {
-			            	continue;
-			            }
-			            
-			            /***
-			            **	OutBlock_1	Block	repeat: multi
-			        	**	BAS_DD			string()	기준일자
-			        	**	ISU_CD			string()	종목코드
-			        	**	ISU_NM			string()	종목명
-			        	**	MKT_NM			string()	시장구분
-			        	**	SECT_TP_NM		string()	소속부
-			        	**	TDD_CLSPRC		string()	종가
-			        	**	CMPPREVDD_PRC	string()	대비
-			        	**	FLUC_RT			string()	등락률
-			        	**	TDD_OPNPRC		string()	시가
-			        	**	TDD_HGPRC		string()	고가
-			        	**	TDD_LWPRC		string()	저가
-			        	**	ACC_TRDVOL		string()	거래량
-			        	**	ACC_TRDVAL		string()	거래대금
-			        	**	MKTCAP			string()	시가총액
-			        	**	LIST_SHRS		string()	상장주식수
-			            ***/
-			            System.out.println("JB : "+resultInt+" 건 수정 완료");
-			        }
-				}
-				
-			}catch(Exception e) {
-				e.printStackTrace();
+		Map<String, Object> param = new HashMap<String, Object>();
+		try{
+			if(mergeList != null) {
+				for(int j=0; j < mergeList.size(); j++) {
+					
+		            JSONObject infoObject = (JSONObject) mergeList.get(j);
+		            
+		            //KRX 에서 가져온 STOCK_CODE
+		            String ISU_CD = infoObject.get("ISU_CD").toString();
+		            //KRX 에서 가져온 1. 종가 , 2. 상장 주식수
+	            	String TDD_CLSPRC = infoObject.get("TDD_CLSPRC").toString();
+		            String LIST_SHRS = infoObject.get("LIST_SHRS").toString();
+		            String MKTCAP = infoObject.get("MKTCAP").toString();
+		            
+
+	            	param.put("TDD_CLSPRC", TDD_CLSPRC);
+	            	param.put("LIST_SHRS", LIST_SHRS);
+	            	param.put("MARKET_CAPITAL", MKTCAP);
+	            	param.put("STOCK_CODE",ISU_CD);
+	            	resultInt += dartService.updatePortForSchedule(param);
+	            	
+		            
+		            /***
+		            **	OutBlock_1	Block	repeat: multi
+		        	**	BAS_DD			string()	기준일자
+		        	**	ISU_CD			string()	종목코드
+		        	**	ISU_NM			string()	종목명
+		        	**	MKT_NM			string()	시장구분
+		        	**	SECT_TP_NM		string()	소속부
+		        	**	TDD_CLSPRC		string()	종가
+		        	**	CMPPREVDD_PRC	string()	대비
+		        	**	FLUC_RT			string()	등락률
+		        	**	TDD_OPNPRC		string()	시가
+		        	**	TDD_HGPRC		string()	고가
+		        	**	TDD_LWPRC		string()	저가
+		        	**	ACC_TRDVOL		string()	거래량
+		        	**	ACC_TRDVAL		string()	거래대금
+		        	**	MKTCAP			string()	시가총액
+		        	**	LIST_SHRS		string()	상장주식수
+		            ***/
+		        }
 			}
-			 
+            System.out.println("JB : "+resultInt+" 건 수정 완료");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
-		
 		return true;
 
 	}
