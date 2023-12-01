@@ -18,6 +18,13 @@ public class AppInterestServiceImpl implements AppInterestService{
 	private String namespace = "appInterestMapper.";
 	
 	@Override
+	public List<Map<String, Object>> initInterList(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"initInterList");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+	}
+	
+	@Override
 	public List<Map<String, Object>> getInterListYear(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getInterListYear");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
@@ -44,4 +51,5 @@ public class AppInterestServiceImpl implements AppInterestService{
 	    Integer resultInt = (Integer) commonMapper.delete(param);
 	    return resultInt;
 	}
+	
 }

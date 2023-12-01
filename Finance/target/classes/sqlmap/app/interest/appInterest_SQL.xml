@@ -21,6 +21,17 @@
 		        
 		
 	</sql>
+	
+	
+	
+	<select id="initInterList" parameterType="hashMap" resultType="HashMap">  
+	    SELECT 
+	    	STOCK_CODE
+	    FROM TB_INTEREST
+	    WHERE 1=1
+	    AND USER_ID = #{curUserId}
+	</select>
+	
 	<select id="getInterListYear"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
 		a.CORP_CODE as "corpCode", a.CORP_NAME as "corpName"
