@@ -52,5 +52,20 @@ public class AdminServiceImpl implements AdminService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public List<Map<String, Object>> getCorpListForMerge(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getCorpListForMerge");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
 
+	}
+	
+	@Override
+	public Integer mergeCorpDetail(Map<String, Object> param) throws Exception{
+		param.put("mId", namespace+"mergeCorpDetail");
+	    Integer resultInt = (Integer) commonMapper.insert(param);
+	    return resultInt;
+
+	}
 }

@@ -1,7 +1,9 @@
 package finance.cms.admin;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -25,6 +27,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -190,4 +194,91 @@ public class AdminController extends DefaultController {
 //	    	mav.setViewName(resultURL);
 //	    	return mav;
 	  	}
+	
+	
+	
+	@RequestMapping(value={"/cms/admin/mergeCorp"} , method = RequestMethod.GET)
+	public ModelAndView mergeCorpDetail(@RequestParam Map<String, Object> commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception{ 
+		commandMap = init(request, commandMap);
+
+		List<Map<String,Object>> getCorpList = adminService.getCorpListForMerge(commandMap);
+		
+		String apiUrl = "https://opendart.fss.or.kr/api/company.json";
+	    // 파라미터 설정
+		
+		if(getCorpList != null) {
+			for(int i=0; i<getCorpList.size(); i++) {
+				String corpCode = getCorpList.get(i).get("CORP_CODE").toString();
+				String parameters = "?crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCode;
+
+			    // URL과 파라미터 조합
+			    String uri = apiUrl + parameters;
+			    System.out.println("uri : "+uri);
+			    URL url = new URL(uri);
+				InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
+				JSONObject object = (JSONObject)JSONValue.parse(isr);
+				Map<String, Object> paramMap = new HashMap<String, Object>();
+				
+				/*
+				 * corp_code 기업코드
+				 * corp_name 정식회사명칭  
+				 * corp_name_eng 영문명칭 영문정식회사명칭 
+				 * stock_name 종목명(상장사) 또는 약식명칭(기타법인) 
+				 * stock_code 상장회사인 경우 주식의 종목코드 상장회사의 종목코드(6자리) 
+				 * ceo_nm 대표자명 대표자명 
+				 * corp_cls 법인구분 법인구분 : Y(유가), K(코스닥), N(코넥스), E(기타) 
+				 * jurir_no 법인등록번호  
+				 * bizr_no 사업자등록번호 
+				 * adres 주소  
+				 * hm_url 홈페이지  
+				 * ir_url IR홈페이지
+				 * phn_no 전화번호  
+				 * fax_no 팩스번호  
+				 * induty_code 업종코드  
+				 * est_dt 설립일(YYYYMMDD) 
+				 * acc_mt 결산월(MM) 
+				 */
+				
+				String CORP_CODE = object.get("corp_code").toString();
+				String CORP_NAME = object.get("corp_name").toString();
+				String STOCK_NAME = object.get("stock_name").toString();
+				String STOCK_CODE = object.get("stock_code").toString();
+				String CEO_NM = object.get("ceo_nm").toString();
+				String CORP_CLS = object.get("corp_cls").toString();
+				String JURIR_NO = object.get("jurir_no").toString();
+				String BIZR_NO = object.get("bizr_no").toString();
+				String ADRES = object.get("adres").toString();
+				String HM_URL = object.get("hm_url").toString();
+				String IR_URL = object.get("ir_url").toString();
+				String PHN_NO = object.get("phn_no").toString();
+				String FAX_NO = object.get("fax_no").toString();
+				String INDUTY_CODE = object.get("induty_code").toString();
+				String EST_DT = object.get("est_dt").toString();
+				String ACC_MT = object.get("acc_mt").toString();
+				paramMap.put("CORP_CODE", CORP_CODE);
+				paramMap.put("CORP_NAME", CORP_NAME);
+				paramMap.put("STOCK_NAME", STOCK_NAME);
+				paramMap.put("STOCK_CODE", STOCK_CODE);
+				paramMap.put("CEO_NM", CEO_NM);
+				paramMap.put("CORP_CLS", CORP_CLS);
+				paramMap.put("JURIR_NO", JURIR_NO);
+				paramMap.put("BIZR_NO", BIZR_NO);
+				paramMap.put("ADRES", ADRES);
+				paramMap.put("HM_URL", HM_URL);
+				paramMap.put("IR_URL", IR_URL);
+				paramMap.put("PHN_NO", PHN_NO);
+				paramMap.put("FAX_NO", FAX_NO);
+				paramMap.put("INDUTY_CODE", INDUTY_CODE);
+				paramMap.put("EST_DT", EST_DT);
+				paramMap.put("ACC_MT", ACC_MT);
+				
+				adminService.mergeCorpDetail(paramMap);
+
+			}
+		}
+	    
+		return getMessageModel("msgAndRedirect", "엑셀업로드가 완료되었습니다.", "/cms/admin/exUp");
+	}
+	
+	
 }

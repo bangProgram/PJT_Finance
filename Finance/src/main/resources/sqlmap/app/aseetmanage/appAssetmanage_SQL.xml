@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appAssetmanageMapper">
+	
+	<sql id="whereUtil">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
+		</if>
+		
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND B.CORP_NAME like '%'|| #{pCorpName} ||'%'
+		</if>
+		 -->
+	</sql>
+	
+	<select id="getAssetList"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		CORP_CODE as "corpCode", USER_ID as "userId", CORP_NAME as "corpName", STOCK_CODE as "stockCode"
+		,CREATE_ID as "createId",CREATE_DT as "createDt", CHANGE_ID as "changeId", CHANGE_DT as "changeDt"
+		,HOLD_QUANTITY as "holdQuantity", AVG_PRICE as "avgPrice", to_number(BEF_CLS_PRICE) as "befClsPrice"
+		,decode(HOLD_QUANTITY,0,0,(BEF_CLS_PRICE - AVG_PRICE)) as "valPrice"
+		FROM (
+		    SELECT
+		    corp_code,user_id,corp_name,stock_code,create_id,create_dt,change_id,change_dt
+		    ,nvl(hold_quantity,0) AS hold_quantity
+   			,nvl(round(AVG_PRICE,0),0) AS AVG_PRICE
+		    ,nvl((SELECT bef_cls_price FROM tb_bplc_detail WHERE stock_code = A.stock_code),0) AS bef_cls_price
+		    FROM tb_portfolio_corp A
+		    WHERE user_id = 'jeontesu0@gmail.com'
+		)
+	</select>
+	
+	<!-- 
+	<select id="getCorpCode"  parameterType="hashMap" resultType="HashMap">
+		SELECT CORP_CODE FROM TB_BPLC_DETAIL
+		WHERE 1=1
+		<if test="pStockCode != null and pStockCode != '' ">
+			AND STOCK_CODE = #{pStockCode}
+		</if>
+	</select>
+	 -->
+</mapper>

@@ -67,6 +67,158 @@
 		   	
 		END;
 	</insert>
-		
 	
+	<select id="getCorpListForMerge" parameterType="Map" resultType="HashMap">
+		SELECT corp_code FROM tb_bplc
+		WHERE stock_code IN (
+			SELECT corp_code FROM tb_bplc_report
+			GROUP BY corp_code
+		)
+	</select>
+		
+	<insert id="mergeCorpDetail" parameterType="Map"  >  
+		MERGE 
+		 	INTO TB_BPLC_DETAIL a
+		USING dual
+		   ON (
+		   		a.CORP_CODE = #{CORP_CODE}
+		   	)
+		WHEN MATCHED THEN
+			UPDATE
+				<set>
+					<if test="CORP_NAME != null and CORP_NAME != '' ">
+						CORP_NAME		=	#{CORP_NAME},
+					</if>
+					<if test="STOCK_NAME != null and STOCK_NAME != '' ">
+						STOCK_NAME		=	#{STOCK_NAME},
+					</if>
+					<if test="CEO_NM != null and CEO_NM != '' ">
+						CEO_NM		=	#{CEO_NM},
+					</if>
+					<if test="CORP_CLS != null and CORP_CLS != '' ">
+						CORP_CLS		=	#{CORP_CLS},
+					</if>
+					<if test="JURIR_NO != null and JURIR_NO != '' ">
+						JURIR_NO		=	#{JURIR_NO},
+					</if>
+					<if test="BIZR_NO != null and BIZR_NO != '' ">
+						BIZR_NO		=	#{BIZR_NO},
+					</if>
+					<if test="ADRES != null and ADRES != '' ">
+						ADRES		=	#{ADRES},
+					</if>
+					<if test="HM_URL != null and HM_URL != '' ">
+						HM_URL		=	#{HM_URL},
+					</if>
+					<if test="IR_URL != null and IR_URL != '' ">
+						IR_URL		=	#{IR_URL},
+					</if>
+					<if test="PHN_NO != null and PHN_NO != '' ">
+						PHN_NO		=	#{PHN_NO},
+					</if>
+					<if test="FAX_NO != null and FAX_NO != '' ">
+						FAX_NO		=	#{FAX_NO},
+					</if>
+					<if test="INDUTY_CODE != null and INDUTY_CODE != '' ">
+						INDUTY_CODE		=	#{INDUTY_CODE},
+					</if>
+					<if test="EST_DT != null and EST_DT != '' ">
+						EST_DT		=	#{EST_DT},
+					</if>
+					<if test="ACC_MT != null and ACC_MT != '' ">
+						ACC_MT		=	#{ACC_MT},
+					</if>
+					STOCK_CODE		=	#{STOCK_CODE}
+				</set>
+		WHEN NOT MATCHED THEN
+				INSERT (
+				    <if test="CORP_NAME != null and CORP_NAME != '' ">
+						CORP_NAME,
+					</if>
+					<if test="STOCK_NAME != null and STOCK_NAME != '' ">
+						STOCK_NAME,
+					</if>
+					<if test="CEO_NM != null and CEO_NM != '' ">
+						CEO_NM,
+					</if>
+					<if test="CORP_CLS != null and CORP_CLS != '' ">
+						CORP_CLS,
+					</if>
+					<if test="JURIR_NO != null and JURIR_NO != '' ">
+						JURIR_NO,
+					</if>
+					<if test="BIZR_NO != null and BIZR_NO != '' ">
+						BIZR_NO,
+					</if>
+					<if test="ADRES != null and ADRES != '' ">
+						ADRES,
+					</if>
+					<if test="HM_URL != null and HM_URL != '' ">
+						HM_URL,
+					</if>
+					<if test="IR_URL != null and IR_URL != '' ">
+						IR_URL,
+					</if>
+					<if test="PHN_NO != null and PHN_NO != '' ">
+						PHN_NO,
+					</if>
+					<if test="FAX_NO != null and FAX_NO != '' ">
+						FAX_NO,
+					</if>
+					<if test="INDUTY_CODE != null and INDUTY_CODE != '' ">
+						INDUTY_CODE	,
+					</if>
+					<if test="EST_DT != null and EST_DT != '' ">
+						EST_DT,
+					</if>
+					<if test="ACC_MT != null and ACC_MT != '' ">
+						ACC_MT,
+					</if>
+					CORP_CODE, STOCK_CODE
+				) VALUES (
+					<if test="CORP_NAME != null and CORP_NAME != '' ">
+						#{CORP_NAME},
+					</if>
+					<if test="STOCK_NAME != null and STOCK_NAME != '' ">
+						#{STOCK_NAME},
+					</if>
+					<if test="CEO_NM != null and CEO_NM != '' ">
+						#{CEO_NM},
+					</if>
+					<if test="CORP_CLS != null and CORP_CLS != '' ">
+						#{CORP_CLS},
+					</if>
+					<if test="JURIR_NO != null and JURIR_NO != '' ">
+						#{JURIR_NO},
+					</if>
+					<if test="BIZR_NO != null and BIZR_NO != '' ">
+						#{BIZR_NO},
+					</if>
+					<if test="ADRES != null and ADRES != '' ">
+						#{ADRES},
+					</if>
+					<if test="HM_URL != null and HM_URL != '' ">
+						#{HM_URL},
+					</if>
+					<if test="IR_URL != null and IR_URL != '' ">
+						#{IR_URL},
+					</if>
+					<if test="PHN_NO != null and PHN_NO != '' ">
+						#{PHN_NO},
+					</if>
+					<if test="FAX_NO != null and FAX_NO != '' ">
+						#{FAX_NO},
+					</if>
+					<if test="INDUTY_CODE != null and INDUTY_CODE != '' ">
+						#{INDUTY_CODE},
+					</if>
+					<if test="EST_DT != null and EST_DT != '' ">
+						#{EST_DT},
+					</if>
+					<if test="ACC_MT != null and ACC_MT != '' ">
+						#{ACC_MT},
+					</if>
+					#{CORP_CODE}, #{STOCK_CODE} 
+				)
+	</insert>
 </mapper>
