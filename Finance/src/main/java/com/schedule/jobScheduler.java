@@ -107,7 +107,9 @@ public class jobScheduler {
 		            String LIST_SHRS = infoObject.get("LIST_SHRS").toString();
 		            String MKTCAP = infoObject.get("MKTCAP").toString();
 		            
-
+		            if(ISU_CD.equals("067160")) {
+		            	System.out.println("아프리카 없다고???");
+		            }
 	            	param.put("TDD_CLSPRC", TDD_CLSPRC);
 	            	param.put("LIST_SHRS", LIST_SHRS);
 	            	param.put("MARKET_CAPITAL", MKTCAP);

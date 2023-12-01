@@ -107,7 +107,9 @@ public class AppCorporationController extends DefaultController{
         try {
         	String stockCode = commandMap.get("pCorpCode").toString();
 
-			
+        	SimpleDateFormat format = new SimpleDateFormat("yyyy");
+    		Date now = new Date();
+    		int curYear = Integer.parseInt(format.format(now));
         	
             Map<String, Object> responseData = new HashMap<String, Object>();
             
@@ -118,21 +120,22 @@ public class AppCorporationController extends DefaultController{
         	//배당정보 API 관련 파라미터
     		String corpCode = getCorpCode(stockCode).get("CORP_CODE").toString();
         	/*
-			 * 	가장최근분기 기준
+			 * 	작년 사업보고서 기준
 			 *	배당수익률 	= thstrm 그대로 표시
-			 *	배당금 	= thstrm / 분기수 
+			 *	배당금 	= thstrm / 4 
 			*/
     		Map<String,Object> recentReport = getRecentReport(stockCode);
-        	String baseYear = recentReport.get("BSNS_YEAR").toString();
-        	String reprtCode = recentReport.get("DART_REPRT_CODE").toString();
-        	int cnt = Integer.parseInt(recentReport.get("CNT").toString());
+        	//String baseYear = recentReport.get("BSNS_YEAR").toString();
+        	//String reprtCode = recentReport.get("DART_REPRT_CODE").toString();
+    		String baseYear = Integer.toString(curYear-1);
+        	int cnt = 1;
         	//배당정보 가져오기
         	
         	
 
             String apiUrl = "https://opendart.fss.or.kr/api/alotMatter.json";
             // 파라미터 설정
-            String parameters = "?crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCode+"&bsns_year="+baseYear+"&reprt_code="+reprtCode;
+            String parameters = "?crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCode+"&bsns_year="+baseYear+"&reprt_code=11011";
 
             // URL과 파라미터 조합
             String uri = apiUrl + parameters;

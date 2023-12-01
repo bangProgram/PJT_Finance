@@ -101,6 +101,13 @@ function goSave(){
 	frm.action = '/cms/admin/exUp/cud';
 	frm.submit();
 }
+
+function goMerge(){
+	var frm = document.corpForm;
+	imageView('loading');
+	frm.action = '/cms/admin/mergeCorp';
+	frm.submit();
+}
 </script>
 <style>
 
@@ -143,9 +150,16 @@ function goSave(){
 		<tr>
 			<td><a href="" onclick="goSave();return false;" >엑셀 업로드</a></td>
 		</tr>
-	
+	</table>
   
-	
+</form>
+
+
+<form name="corpForm" id="corpForm" method="GET">
+	<table>
+		<tr>
+			<td><a href="" onclick="goMerge();return false;" >사업장 최신화</a></td>
+		</tr>
 	</table>
   
 </form>
