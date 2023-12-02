@@ -16,4 +16,6 @@ public interface AdminService {
 	public List<Map<String, Object>> getCorpListForMerge(Map<String, Object> param) throws Exception;
 
 	public Integer mergeCorpDetail(Map<String, Object> param) throws Exception;
+	
+	public Integer mergeMainBplc(Map<String, Object> param) throws Exception;
 }

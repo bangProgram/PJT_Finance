@@ -35,8 +35,38 @@
    			,nvl(round(AVG_PRICE,0),0) AS AVG_PRICE
 		    ,nvl((SELECT bef_cls_price FROM tb_bplc_detail WHERE stock_code = A.stock_code),0) AS bef_cls_price
 		    FROM tb_portfolio_corp A
-		    WHERE user_id = 'jeontesu0@gmail.com'
+		    WHERE user_id = #{curUserId}
 		)
+	</select>
+	
+	<select id="getAssetRecord"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    seq as "seq"
+		    , corp_code as "corpCode"
+		    , (select stock_name from tb_bplc_detail where corp_code = a.corp_code) AS "corpName"
+    		, stock_code                        AS "stockCode"
+		    , user_id as "userId"
+		    , gubn as "gubn"
+		    , memo as "memo"
+		    ,nvl(BUY_QUANTITY,0) as "buyQuantity"
+		    , nvl(SELL_QUANTITY,0) as "sellQuantity"
+		    , nvl(BUY_AMOUNT,0) as "buyAmount"
+		    , nvl(SELL_AMOUNT,0) as "sellAmount"
+		    , to_number(nvl(RETURN_AMOUNT,0)) as "returnAmount"
+		    , to_number(nvl(TRADE_PRICE,0)) as "tradePrice"
+		    , TRADE_DATE2 as "tradeDate"
+		    , CHANGE_ID as "changeId"
+		    , CHANGE_DT as "changeDate"
+		FROM tb_portfolio_corp_detail a
+		WHERE 1=1
+		AND user_id = #{curUserId}
+		<if test="pStDate != null and pStDate != '' ">
+			AND TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
+		</if>
+		<if test="pEdDate != null and pEdDate != '' ">
+			AND TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
+		</if>
+		ORDER BY trade_date DESC
 	</select>
 	
 	<!-- 

@@ -46,6 +46,13 @@ import finance.common.Controller.CommonController;
 import finance.common.Controller.DefaultController;
 import freemarker.template.utility.StringUtil;
 
+
+import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+
 @Controller
 public class AdminController extends DefaultController {
 	
@@ -196,16 +203,66 @@ public class AdminController extends DefaultController {
 	  	}
 	
 	
+	@RequestMapping(value={"/cms/admin/xml/cud"} , method = RequestMethod.POST)
+	  public ModelAndView handleXMLUpload(@RequestParam Map<String, Object> commandMap, @RequestParam("file") MultipartFile file, RedirectAttributes reAttr, HttpServletRequest request, HttpServletResponse response) throws Exception{ 
+		
+		try {
+            // XML 파일 로드
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(file.getInputStream());
+
+            // 루트 요소 얻기
+            Element root = document.getDocumentElement();
+            
+
+            // "list" 요소 가져오기
+            NodeList list = root.getElementsByTagName("list");
+            for (int i = 0; i < list.getLength(); i++) {
+                Node node = list.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                	Map<String,Object> param = new HashMap<String, Object>();
+                    Element element = (Element) node;
+                    String corpCode = element.getElementsByTagName("corp_code").item(0).getTextContent();
+                    String corpName = element.getElementsByTagName("corp_name").item(0).getTextContent();
+                    String stockCode = element.getElementsByTagName("stock_code").item(0).getTextContent();
+                    String modifyDate = element.getElementsByTagName("modify_date").item(0).getTextContent();
+
+                    // 파싱한 데이터 활용 또는 출력
+                    System.out.print("Corp Code: " + corpCode);
+                    System.out.print(" Corp Name: " + corpName);
+                    System.out.print(" Stock Code: " + stockCode);
+                    System.out.print(" Modify Date: " + modifyDate + "\n");
+                    param.put("CORP_CODE", corpCode);
+                    param.put("CORP_NAME", corpName);
+                    param.put("STOCK_CODE", stockCode);
+                    param.put("MODIFY_DATE", modifyDate);
+                    
+                    adminService.mergeMainBplc(param);
+                }
+            }
+			return getMessageModel("msgAndRedirect", "XML업로드가 완료되었습니다.", "/cms/admin/exUp");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return getMessageModel("msgAndRedirect", e.toString(), "/cms/admin/exUp");
+        }
+  	}
+	
+	
 	
 	@RequestMapping(value={"/cms/admin/mergeCorp"} , method = RequestMethod.GET)
 	public ModelAndView mergeCorpDetail(@RequestParam Map<String, Object> commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception{ 
 		commandMap = init(request, commandMap);
+		
+		String gubn = commandMap.get("GUBN").toString();
+		String stLimit = commandMap.get("stLimit").toString();
+		String edLimit = commandMap.get("edLimit").toString();
 
 		List<Map<String,Object>> getCorpList = adminService.getCorpListForMerge(commandMap);
 		
 		String apiUrl = "https://opendart.fss.or.kr/api/company.json";
 	    // 파라미터 설정
-		
+		System.out.println("사업장 : "+getCorpList.size()+" ( "+stLimit +" ~ "+edLimit+" ) 작업시작");
 		if(getCorpList != null) {
 			for(int i=0; i<getCorpList.size(); i++) {
 				String corpCode = getCorpList.get(i).get("CORP_CODE").toString();

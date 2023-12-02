@@ -68,12 +68,54 @@
 		END;
 	</insert>
 	
+	<insert id="mergeMainBplc" parameterType="hashMap"  >  
+		MERGE INTO 
+		    TB_BPLC a 
+		USING dual ON (
+		    a.CORP_CODE = #{CORP_CODE}
+	    ) 
+		WHEN MATCHED THEN 
+		    UPDATE SET 
+		    	a.CORP_NAME = #{CORP_NAME}
+		    <if test="STOCK_CODE != null and STOCK_CODE != '' ">
+		    , 	a.STOCK_CODE = #{STOCK_CODE}
+		    </if>
+		    , 	a.MODIFY_DATE = #{MODIFY_DATE} 
+		WHEN NOT MATCHED THEN 
+		    INSERT (CORP_CODE, CORP_NAME
+		    <if test="STOCK_CODE != null and STOCK_CODE != '' ">
+		    	 , STOCK_CODE
+		    </if>
+		    , MODIFY_DATE) 
+		    VALUES (#{CORP_CODE},#{CORP_NAME}
+		    <if test="STOCK_CODE != null and STOCK_CODE != '' ">
+		    	, #{STOCK_CODE}
+		    </if>
+		    ,#{MODIFY_DATE})
+	</insert>
+	
 	<select id="getCorpListForMerge" parameterType="Map" resultType="HashMap">
-		SELECT corp_code FROM tb_bplc
-		WHERE stock_code IN (
-			SELECT corp_code FROM tb_bplc_report
-			GROUP BY corp_code
-		)
+		<if test="GUBN == '01' ">	
+			SELECT CORP_CODE FROM (
+			    SELECT ROWNUM AS RNUM, corp_code FROM tb_bplc
+			    WHERE stock_code IN (
+			        SELECT corp_code FROM tb_bplc_report
+			        GROUP BY corp_code
+			    )
+			    ORDER BY corp_code
+			)
+			WHERE RNUM BETWEEN #{stLimit} AND #{edLimit}
+		</if>
+		<if test="GUBN == '02' ">
+			SELECT corp_code FROM (
+			    select ROWNUM AS RNUM, A.CORP_CODE from tb_bplc a, tb_bplc_detail b
+			        where a.corp_code = b.corp_code(+)
+			        and trim(a.stock_code) is not null
+			        and trim(b.stock_code) is null
+			    ORDER BY corp_code
+			)
+			WHERE RNUM BETWEEN #{stLimit} AND #{edLimit}
+		</if>
 	</select>
 		
 	<insert id="mergeCorpDetail" parameterType="Map"  >  

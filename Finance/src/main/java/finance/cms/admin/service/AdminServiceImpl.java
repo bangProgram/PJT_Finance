@@ -68,4 +68,12 @@ public class AdminServiceImpl implements AdminService {
 	    return resultInt;
 
 	}
+	
+	@Override
+	public Integer mergeMainBplc(Map<String, Object> param) throws Exception{
+		param.put("mId", namespace+"mergeMainBplc");
+	    Integer resultInt = (Integer) commonMapper.insert(param);
+	    return resultInt;
+
+	}
 }
