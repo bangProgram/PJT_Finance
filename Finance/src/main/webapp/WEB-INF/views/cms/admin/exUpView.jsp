@@ -108,6 +108,14 @@ function goMerge(){
 	frm.action = '/cms/admin/mergeCorp';
 	frm.submit();
 }
+
+function goXMLSave(){
+	var frm = document.xmlForm;
+	imageView('loading');
+	frm.action = '/cms/admin/xml/cud';
+	frm.submit();
+}
+
 </script>
 <style>
 
@@ -119,7 +127,7 @@ function goMerge(){
 <body>
 <div class="container-fluid">
 업로드
-<form name="exform" id="exform" method="POST" enctype="multipart/form-data">
+<form name="exform" id="exform" method="POST" enctype="multipart/form-data" style="margin: 30px;">
 	<input type="hidden" name="REPRT_NM" value=""/>
 	<input type="hidden" name="SJ_NM" value=""/>
 	<table>
@@ -154,11 +162,47 @@ function goMerge(){
   
 </form>
 
-
-<form name="corpForm" id="corpForm" method="GET">
+사업장 현행화
+<form name="corpForm" id="corpForm" method="GET" style="margin: 30px;">
 	<table>
 		<tr>
+			<td>
+				<select name="GUBN" id="GUBN" class="" title="최신화사업장 대상 구분선택" style="width: 200px;" > 
+						<option value = "">선택</option>
+						<option value = "01">재무제표 기준</option>
+						<option value = "02">상장기업 기준</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" name="CORP_CLS1" value="Y">코스피
+				<input type="checkbox" name="CORP_CLS2" value="K">코스닥
+				<input type="checkbox" name="CORP_CLS3" value="N">코넥스
+				<input type="checkbox" name="CORP_CLS4" value="E">기타
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="text" name="stLimit" id="stLimit" value="" class="" title="시작 번호"> - 
+				<input type="text" name="edLimit" id="edLimit" value="" class="" title="종료 번호">
+			</td>
+		</tr>
+		<tr>
 			<td><a href="" onclick="goMerge();return false;" >사업장 최신화</a></td>
+		</tr>
+	</table>
+  
+</form>
+
+XML 파일 업로드
+<form name="xmlForm" id="xmlForm" method="POST" enctype="multipart/form-data" style="margin: 30px;">
+	<table>
+		<tr>
+			<td colspan="2"><input type="file" name="file" /></td>
+		</tr>
+		<tr>
+			<td><a href="" onclick="goXMLSave();return false;" >XML 업로드</a></td>
 		</tr>
 	</table>
   
