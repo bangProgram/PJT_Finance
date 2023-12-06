@@ -103,38 +103,47 @@ public class jobScheduler {
 		            //KRX 에서 가져온 STOCK_CODE
 		            String ISU_CD = infoObject.get("ISU_CD").toString();
 		            //KRX 에서 가져온 1. 종가 , 2. 상장 주식수
-	            	String TDD_CLSPRC = infoObject.get("TDD_CLSPRC").toString();
+		            String TDD_CLSPRC = infoObject.get("TDD_CLSPRC").toString();
 		            String LIST_SHRS = infoObject.get("LIST_SHRS").toString();
 		            String MKTCAP = infoObject.get("MKTCAP").toString();
-		            
-		            if(ISU_CD.equals("067160")) {
-		            	System.out.println("아프리카 없다고???");
-		            }
-	            	param.put("TDD_CLSPRC", TDD_CLSPRC);
-	            	param.put("LIST_SHRS", LIST_SHRS);
-	            	param.put("MARKET_CAPITAL", MKTCAP);
-	            	param.put("STOCK_CODE",ISU_CD);
-	            	resultInt += dartService.updatePortForSchedule(param);
-	            	
-		            
+		            String ACC_TRDVOL = infoObject.get("ACC_TRDVOL").toString();
+		            String ACC_TRDVAL = infoObject.get("ACC_TRDVAL").toString();
+		            String CMPPREVDD_PRC = infoObject.get("CMPPREVDD_PRC").toString();
+		            String FLUC_RT = infoObject.get("FLUC_RT").toString();
+		            String TDD_OPNPRC = infoObject.get("TDD_OPNPRC").toString();
+		            String TDD_HGPRC = infoObject.get("TDD_HGPRC").toString();
+		            String TDD_LWPRC = infoObject.get("TDD_LWPRC").toString();
+		            		            
 		            /***
 		            **	OutBlock_1	Block	repeat: multi
 		        	**	BAS_DD			string()	기준일자
 		        	**	ISU_CD			string()	종목코드
-		        	**	ISU_NM			string()	종목명
-		        	**	MKT_NM			string()	시장구분
-		        	**	SECT_TP_NM		string()	소속부
 		        	**	TDD_CLSPRC		string()	종가
+		        	**	LIST_SHRS		string()	상장주식수
+		        	**	MKTCAP			string()	시가총액
+		        	**	ACC_TRDVOL		string()	거래량
+		        	**	ACC_TRDVAL		string()	거래대금
 		        	**	CMPPREVDD_PRC	string()	대비
 		        	**	FLUC_RT			string()	등락률
 		        	**	TDD_OPNPRC		string()	시가
 		        	**	TDD_HGPRC		string()	고가
 		        	**	TDD_LWPRC		string()	저가
-		        	**	ACC_TRDVOL		string()	거래량
-		        	**	ACC_TRDVAL		string()	거래대금
-		        	**	MKTCAP			string()	시가총액
-		        	**	LIST_SHRS		string()	상장주식수
+		        	**	ISU_NM			string()	종목명
+		        	**	MKT_NM			string()	시장구분
+		        	**	SECT_TP_NM		string()	소속부
 		            ***/
+	            	param.put("STOCK_CODE",ISU_CD);
+	            	param.put("TDD_CLSPRC", TDD_CLSPRC);
+	            	param.put("LIST_SHRS", LIST_SHRS);
+	            	param.put("MKTCAP", MKTCAP);
+	            	param.put("ACC_TRDVOL", ACC_TRDVOL);
+	            	param.put("ACC_TRDVAL", ACC_TRDVAL);
+	            	param.put("CMPPREVDD_PRC", CMPPREVDD_PRC);
+	            	param.put("FLUC_RT", FLUC_RT);
+	            	param.put("TDD_OPNPRC", TDD_OPNPRC);
+	            	param.put("TDD_HGPRC", TDD_HGPRC);
+	            	param.put("TDD_LWPRC", TDD_LWPRC);
+	            	resultInt += dartService.updatePortForSchedule(param);
 		        }
 			}
             System.out.println("JB : "+resultInt+" 건 수정 완료");
