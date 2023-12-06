@@ -21,7 +21,12 @@
 	</select>
 	
 	<update id="updatePortForSchedule" parameterType="hashMap" >
-		UPDATE tb_bplc_detail SET BEF_CLS_PRICE = #{TDD_CLSPRC} , SHARES_AMOUNT = #{LIST_SHRS}, MARKET_CAPITAL = #{MARKET_CAPITAL}
+		UPDATE 
+			tb_bplc_detail 
+		SET 
+			BEF_CLS_PRICE = #{TDD_CLSPRC} , SHARES_AMOUNT = #{LIST_SHRS}, MARKET_CAPITAL = #{MKTCAP}
+			,TRADE_VOLUME = #{ACC_TRDVOL} , TRADE_AMOUNT = #{ACC_TRDVAL}, COMPARE_AMOUNT = #{CMPPREVDD_PRC}, FLUCTUATE_RATE = #{FLUC_RT} 
+			, ST_PRICE = #{TDD_OPNPRC}, HG_PRICE = #{TDD_HGPRC} ,LW_PRICE = #{TDD_LWPRC} 
 		WHERE STOCK_CODE = #{STOCK_CODE}
 	</update>
 	
