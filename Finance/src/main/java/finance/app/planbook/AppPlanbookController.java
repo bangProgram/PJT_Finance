@@ -79,11 +79,11 @@ public class AppPlanbookController extends DefaultController {
 		
         try {
 
-            Map<String,Object> planbookList = appPlanbookService.getPlanbookDetail(commandMap);
+            Map<String,Object> planbookDetail = appPlanbookService.getPlanbookDetail(commandMap);
         	
 
             Map<String, Object> responseData = new HashMap<String, Object>();
-            responseData.put("planbookList", planbookList);
+            responseData.put("planbookDetail", planbookDetail);
 
 			return ResponseEntity.ok(responseData);
         } catch (Exception e) {
