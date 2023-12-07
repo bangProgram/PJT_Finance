@@ -51,7 +51,7 @@
 	    </if>
 	</select>
 	
-	<select id="getPlanbookDetail"  parameterType="hashMap" resultType="HashMap">
+	<select id="getPlanDetailInfo"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
 		    A.Corp_Code As "corpCode", A.Corp_Name As "corpName", A.Stock_Code As "stockCode", A.User_Id As "userId"
 		    , A.Create_Id As "createId", A.Create_Dt As "createDt", A.Change_Id As "changeId", A.Change_Dt As "changeDt"
@@ -83,36 +83,38 @@
 	    </if>
 	</select>
 	
+	<select id="getPlanDetailMemo"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    A.Corp_Code As "corpCode", A.Corp_Name As "corpName", A.Stock_Code As "stockCode", A.User_Id As "userId"
+            , B.SEQ AS "seq", B.GUBN as "gubn", B.MEMO as "memo", B.CREATE_DT as "createDt", B.CHANGE_DT as "changeDt"
+		FROM TB_INTEREST A, TB_INTEREST_MEMO B
+		WHERE 1=1
+		AND A.CORP_CODE = B.CORP_CODE
+        AND A.USER_ID = B.USER_ID
+	    AND A.USER_ID = #{curUserId}
+	    <if test="pCorpCode != null and pCorpCode != '' ">
+	    	AND A.CORP_CODE = #{pCorpCode}
+	    </if>
+	</select>
 	
 	
 	
-	<insert id="addInterest" parameterType="HashMap"  >  
-		INSERT INTO TB_INTEREST (
-				CORP_CODE ,
-				CORP_NAME ,
-			<if test="STOCK_CODE != null and STOCK_CODE != '' ">
-				STOCK_CODE ,
-			</if>
-			<if test="curUserId != null and curUserId != '' ">
-				USER_ID ,
-			</if>
-			<if test="MEMO != null and MEMO != '' ">
-				MEMO ,
-			</if>
-		    CREATE_ID ,CREATE_DT ,CHANGE_ID ,CHANGE_DT	
+	
+	<insert id="addPlanMemo" parameterType="HashMap"  >  
+		INSERT INTO TB_INTEREST_MEMO (
+			CORP_CODE, STOCK_CODE, USER_ID, SEQ 
+			<if test="pMemo != null and pMemo != '' ">
+				, MEMO 
+			</if>, CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
 		) VALUES (
-			(SELECT CORP_CODE FROM TB_BPLC_DETAIL WHERE STOCK_CODE = ${STOCK_CODE}),
-			(SELECT STOCK_NAME FROM TB_BPLC_DETAIL WHERE STOCK_CODE = ${STOCK_CODE}),
-			<if test="STOCK_CODE != null and STOCK_CODE != '' ">
-				#{STOCK_CODE} ,
-			</if>
-			<if test="curUserId != null and curUserId != '' ">
-				#{curUserId} ,
-			</if>
-			<if test="MEMO != null and MEMO != '' ">
-				#{MEMO},
-			</if>
-		    #{curUserId}  ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+			#{pCorpCode}
+			, (SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{pCorpCode})
+			, #{curUserId}
+			, (SELECT COUNT(*)+1 AS row_count
+				FROM tb_interest_memo where corp_code = #{pCorpCode} and user_id = #{curUserId} )
+			<if test="pMemo != null and pMemo != '' ">
+				, #{pMemo}
+			</if>, #{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
 		)
 	    
 	</insert>

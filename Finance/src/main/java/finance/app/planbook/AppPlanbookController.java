@@ -79,11 +79,31 @@ public class AppPlanbookController extends DefaultController {
 		
         try {
 
-            Map<String,Object> planbookDetail = appPlanbookService.getPlanbookDetail(commandMap);
+            Map<String,Object> planDetailInfo = appPlanbookService.getPlanDetailInfo(commandMap);
         	
 
             Map<String, Object> responseData = new HashMap<String, Object>();
-            responseData.put("planbookDetail", planbookDetail);
+            responseData.put("planDetailInfo", planDetailInfo);
+
+			return ResponseEntity.ok(responseData);
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+	
+	@PostMapping("/memo")
+    public ResponseEntity<Map<String, Object>> getPlanDetailMemo(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+
+        	List<Map<String,Object>> planDetailMemo = appPlanbookService.getPlanDetailMemo(commandMap);
+        	
+
+            Map<String, Object> responseData = new HashMap<String, Object>();
+            responseData.put("planDetailMemo", planDetailMemo);
+            responseData.put("planDetailMemoCnt", planDetailMemo.size());
 
 			return ResponseEntity.ok(responseData);
         } catch (Exception e) {
@@ -92,4 +112,29 @@ public class AppPlanbookController extends DefaultController {
         }
     }
 
+	@PostMapping("/memo/add")
+    public ResponseEntity<Map<String, Object>> addPlanMemo(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+    		Integer resultInt = appPlanbookService.addPlanMemo(commandMap);
+    	    
+            Map<String, Object> responseData = new HashMap<String, Object>();
+            
+        	
+    	    if(resultInt > 0) {
+    	    	List<Map<String,Object>> planDetailMemo = appPlanbookService.getPlanDetailMemo(commandMap);
+	            responseData.put("planDetailMemo", planDetailMemo);
+	            responseData.put("planDetailMemoCnt", planDetailMemo.size());
+        		return ResponseEntity.ok(responseData);
+    	    }else {
+        		return ResponseEntity.badRequest().body(null);
+    	    }
+
+        	
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 }
