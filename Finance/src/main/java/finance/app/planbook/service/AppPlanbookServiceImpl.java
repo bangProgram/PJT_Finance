@@ -24,22 +24,22 @@ public class AppPlanbookServiceImpl implements AppPlanbookService{
 	}
 	
 	@Override
-	public Map<String, Object> getPlanbookDetail(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"getPlanbookDetail");
+	public Map<String, Object> getPlanDetailInfo(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getPlanDetailInfo");
 	    Map<String, Object> result = commonMapper.get(param);
 	    return result;
 	}
 	
 	@Override
-	public List<Map<String, Object>> getInterListHalf(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"getInterListHalf");
+	public List<Map<String, Object>> getPlanDetailMemo(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getPlanDetailMemo");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
 	    return resultList;
 	}
 	
 	@Override
-	public Integer addInterest(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"addInterest");
+	public Integer addPlanMemo(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"addPlanMemo");
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}
