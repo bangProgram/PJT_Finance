@@ -95,12 +95,20 @@
 	    <if test="pCorpCode != null and pCorpCode != '' ">
 	    	AND A.CORP_CODE = #{pCorpCode}
 	    </if>
+	    ORDER BY B.CREATE_DT DESC
 	</select>
 	
 	
 	
 	
 	<insert id="addPlanMemo" parameterType="HashMap"  >  
+		<selectKey keyProperty="seq" resultType="int" order="BEFORE">
+	        (SELECT Max(seq)+1
+				FROM tb_interest_memo where corp_code = #{pCorpCode} and user_id = #{curUserId} )
+	    </selectKey>
+
+		
+	
 		INSERT INTO TB_INTEREST_MEMO (
 			CORP_CODE, STOCK_CODE, USER_ID, SEQ 
 			<if test="pMemo != null and pMemo != '' ">
@@ -110,19 +118,25 @@
 			#{pCorpCode}
 			, (SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{pCorpCode})
 			, #{curUserId}
-			, (SELECT COUNT(*)+1 AS row_count
-				FROM tb_interest_memo where corp_code = #{pCorpCode} and user_id = #{curUserId} )
+			<if test="seq != null and seq != '' ">
+				, #{seq}
+			</if>
+			<if test="seq == null or seq == '' ">
+				, 1
+			</if>
 			<if test="pMemo != null and pMemo != '' ">
 				, #{pMemo}
-			</if>, #{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+			</if>, #{curUserId}, SYSDATE ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
 		)
 	    
 	</insert>
 	
-	<insert id="delInterest" parameterType="HashMap"  >  
-	    DELETE  TB_INTEREST 
-	    WHERE STOCK_CODE = #{STOCK_CODE}
+	<insert id="delPlanMemo" parameterType="HashMap"  >  
+	    DELETE TB_INTEREST_MEMO
+		WHERE  1=1
+		AND CORP_CODE = #{pCorpCode}
 	    AND USER_ID = #{curUserId}
+		AND SEQ = #{pSeq}
 	</insert>
 	
 </mapper>
