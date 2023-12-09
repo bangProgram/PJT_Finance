@@ -45,8 +45,8 @@ public class AppPlanbookServiceImpl implements AppPlanbookService{
 	}
 	
 	@Override
-	public Integer delInterest(Map<String, Object> param) throws Exception {
-	    param.put("mId", namespace+"delInterest");
+	public Integer delPlanMemo(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"delPlanMemo");
 	    Integer resultInt = (Integer) commonMapper.delete(param);
 	    return resultInt;
 	}

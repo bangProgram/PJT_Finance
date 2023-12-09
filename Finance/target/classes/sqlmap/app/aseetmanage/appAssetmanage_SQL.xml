@@ -42,31 +42,38 @@
 	<select id="getAssetRecord"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
 		    seq as "seq"
-		    , corp_code as "corpCode"
-		    , (select stock_name from tb_bplc_detail where corp_code = a.corp_code) AS "corpName"
-    		, stock_code                        AS "stockCode"
-		    , user_id as "userId"
-		    , gubn as "gubn"
-		    , memo as "memo"
-		    ,nvl(BUY_QUANTITY,0) as "buyQuantity"
-		    , nvl(SELL_QUANTITY,0) as "sellQuantity"
-		    , nvl(BUY_AMOUNT,0) as "buyAmount"
-		    , nvl(SELL_AMOUNT,0) as "sellAmount"
-		    , to_number(nvl(RETURN_AMOUNT,0)) as "returnAmount"
-		    , to_number(nvl(TRADE_PRICE,0)) as "tradePrice"
-		    , TRADE_DATE2 as "tradeDate"
-		    , CHANGE_ID as "changeId"
-		    , CHANGE_DT as "changeDate"
-		FROM tb_portfolio_corp_detail a
+		    , a.corp_code as "corpCode"
+		    , b.stock_name AS "corpName"
+    		, a.stock_code                        AS "stockCode"
+		    , a.user_id as "userId"
+		    , a.gubn as "gubn"
+		    , a.memo as "memo"
+		    ,nvl(a.BUY_QUANTITY,0) as "buyQuantity"
+		    , nvl(a.SELL_QUANTITY,0) as "sellQuantity"
+		    , nvl(a.BUY_AMOUNT,0) as "buyAmount"
+		    , nvl(a.SELL_AMOUNT,0) as "sellAmount"
+		    , to_number(nvl(a.RETURN_AMOUNT,0)) as "returnAmount"
+		    , to_number(nvl(a.TRADE_PRICE,0)) as "tradePrice"
+		    , a.TRADE_DATE2 as "tradeDate"
+		    , a.CHANGE_ID as "changeId"
+		    , a.CHANGE_DT as "changeDate"
+		FROM tb_portfolio_corp_detail a, tb_bplc_detail b
 		WHERE 1=1
-		AND user_id = #{curUserId}
+		and a.corp_code = b.corp_code
+		AND a.user_id = #{curUserId}
 		<if test="pStDate != null and pStDate != '' ">
-			AND TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
+			AND a.TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
 		</if>
 		<if test="pEdDate != null and pEdDate != '' ">
-			AND TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
+			AND a.TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
 		</if>
-		ORDER BY trade_date DESC
+		<if test="pGubn != null and pGubn != '' ">
+			AND a.gubn = #{pGubn}
+		</if>
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND b.STOCK_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+		</if>
+		ORDER BY a.trade_date DESC
 	</select>
 	
 	<!-- 

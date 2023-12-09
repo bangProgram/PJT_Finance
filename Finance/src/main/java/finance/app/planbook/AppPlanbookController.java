@@ -137,4 +137,30 @@ public class AppPlanbookController extends DefaultController {
             return ResponseEntity.badRequest().body(null);
         }
     }
+	
+	@PostMapping("/memo/del")
+    public ResponseEntity<Map<String, Object>> delPlanMemo(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+    		Integer resultInt = appPlanbookService.delPlanMemo(commandMap);
+    	    
+            Map<String, Object> responseData = new HashMap<String, Object>();
+            
+        	
+    	    if(resultInt > 0) {
+    	    	List<Map<String,Object>> planDetailMemo = appPlanbookService.getPlanDetailMemo(commandMap);
+	            responseData.put("planDetailMemo", planDetailMemo);
+	            responseData.put("planDetailMemoCnt", planDetailMemo.size());
+        		return ResponseEntity.ok(responseData);
+    	    }else {
+        		return ResponseEntity.badRequest().body(null);
+    	    }
+
+        	
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 }
