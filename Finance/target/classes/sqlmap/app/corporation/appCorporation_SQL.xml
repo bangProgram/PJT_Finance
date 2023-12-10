@@ -316,5 +316,17 @@
 		</if>
 	</select>
 	
+	<select id="getPerformAccount"  parameterType="hashMap" resultType="HashMap">
+		SELECT A.ACCOUNT_ID, B.ORDR 
+		FROM TB_BPLC_REPORT A, TB_CODE_ACCOUNT B
+		WHERE 1=1
+		AND A.ACCOUNT_ID = B.CODE
+		<if test="pCorpCode != null and pCorpCode != '' ">
+			AND corp_code = #{pCorpCode} <!--  기업 파라미터 -->
+		</if>
+		GROUP BY A.ACCOUNT_ID, B.ORDR
+		ORDER BY B.ORDR
+	</select>
+	
 	
 </mapper>

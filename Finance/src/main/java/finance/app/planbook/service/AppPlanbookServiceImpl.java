@@ -50,4 +50,11 @@ public class AppPlanbookServiceImpl implements AppPlanbookService{
 	    Integer resultInt = (Integer) commonMapper.delete(param);
 	    return resultInt;
 	}
+	
+	@Override
+	public Integer mergePlaninfo(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"mergePlaninfo");
+	    Integer resultInt = (Integer) commonMapper.insert(param);
+	    return resultInt;
+	}
 }

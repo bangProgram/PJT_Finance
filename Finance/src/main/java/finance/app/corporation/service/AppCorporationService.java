@@ -11,4 +11,5 @@ public interface AppCorporationService {
 	public List<Map<String, Object>> getCorpPerform(Map<String, Object> param) throws Exception;
 	public List<Map<String, Object>> getPerformYear(Map<String, Object> param) throws Exception;
 	public Map<String, Object> getCorpClsPrice(Map<String, Object> param) throws Exception;
+	public List<Map<String, Object>> getPerformAccount(Map<String, Object> param) throws Exception;
 }

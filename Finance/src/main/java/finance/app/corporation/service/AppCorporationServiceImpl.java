@@ -55,4 +55,12 @@ public class AppCorporationServiceImpl implements AppCorporationService {
 	    return result;
 
 	}
+	
+	@Override
+	public List<Map<String, Object>> getPerformAccount(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getPerformAccount");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
 }

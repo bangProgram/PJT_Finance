@@ -73,7 +73,7 @@ public class AppPlanbookController extends DefaultController {
         }
     }
 	
-	@PostMapping("/detail")
+	@PostMapping("/info")
     public ResponseEntity<Map<String, Object>> getPlanbookDetail(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
 		commandMap = init(request, commandMap);
 		
@@ -153,6 +153,44 @@ public class AppPlanbookController extends DefaultController {
 	            responseData.put("planDetailMemo", planDetailMemo);
 	            responseData.put("planDetailMemoCnt", planDetailMemo.size());
         		return ResponseEntity.ok(responseData);
+    	    }else {
+        		return ResponseEntity.badRequest().body(null);
+    	    }
+
+        	
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+	
+	@PostMapping("/info/cud")
+    public ResponseEntity<Map<String, Object>> mergePlaninfoCUD(HttpServletRequest request, @RequestBody Map<String, Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+    		Integer resultInt = appPlanbookService.mergePlaninfo(commandMap);
+    		String pPeriodGubn = commandMap.get("periodGubn").toString();
+    		String initPeriodGubn = commandMap.get("initPeriodGubn").toString();
+    	    
+    	    System.out.println("pPeriodGubn 확인 : "+pPeriodGubn +" / "+initPeriodGubn);
+            Map<String, Object> responseData = new HashMap<String, Object>();
+                    	
+    	    if(resultInt > 0) {
+    	    	Map<String, Object> param = new HashMap<String, Object>();
+    	    	param.put("pPeriodGubn", pPeriodGubn);
+    	    	param.put("curUserId", appLoginservice.getCurUserId());
+    	    	List<Map<String,Object>> planbookList = appPlanbookService.getPlanbookList(param);
+
+    	    	param.put("pPeriodGubn", initPeriodGubn);
+    	    	List<Map<String,Object>> initPlanbookList = appPlanbookService.getPlanbookList(param);
+
+    	    	responseData.put("planbookList", planbookList);
+                responseData.put("planbookCnt", planbookList.size());
+                responseData.put("initPlanbookList", initPlanbookList);
+                responseData.put("initPlanbookCnt", initPlanbookList.size());
+
+    			return ResponseEntity.ok(responseData);
     	    }else {
         		return ResponseEntity.badRequest().body(null);
     	    }
