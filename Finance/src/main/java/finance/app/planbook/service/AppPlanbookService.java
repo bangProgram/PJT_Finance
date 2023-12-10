@@ -14,4 +14,6 @@ public interface AppPlanbookService {
 	public Integer addPlanMemo(Map<String, Object> param) throws Exception;
 
 	public Integer delPlanMemo(Map<String, Object> param) throws Exception;
+	
+	public Integer mergePlaninfo(Map<String, Object> param) throws Exception;
 }
