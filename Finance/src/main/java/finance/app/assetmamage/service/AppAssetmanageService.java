@@ -7,5 +7,7 @@ public interface AppAssetmanageService {
 	public List<Map<String, Object>> getAssetList(Map<String, Object> param) throws Exception;
 	
 	public List<Map<String, Object>> getAssetRecord(Map<String, Object> param) throws Exception;
+	
+	public List<Map<String, Object>> getAssetProportion(Map<String, Object> param) throws Exception;
 
 }
