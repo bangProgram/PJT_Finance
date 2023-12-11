@@ -76,6 +76,28 @@
 		ORDER BY a.trade_date DESC
 	</select>
 	
+	
+	<select id="getAssetProportion"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    INDUTY_CODE as "indutyCode"
+		    , INDUTY_NAME as "indutyName"
+		    , SUM(TOTAL_AMOUNT) as "totalAmount"
+		FROM (
+		    SELECT 
+		        a.corp_code, a.user_id, B.CORP_NAME
+		        , (SUM(NVL(a.BUY_AMOUNT,0)) - SUM(NVL(a.SELL_AMOUNT,0))) as total_amount
+		        ,SUBSTR(B.INDUTY_CODE,0,3) AS INDUTY_CODE
+		        ,FUN_GETINDUTYNM(SUBSTR(B.INDUTY_CODE,0,3)) AS INDUTY_NAME
+		    FROM tb_portfolio_corp_detail a, tb_bplc_detail b
+		    WHERE 1=1
+		    and a.corp_code = b.corp_code
+		    and USER_ID = #{curUserId}
+		    group by a.corp_code, a.user_id, B.CORP_NAME, B.INDUTY_CODE
+		)
+		GROUP BY INDUTY_CODE, INDUTY_NAME
+		ORDER BY SUM(TOTAL_AMOUNT) DESC
+	</select>
+	
 	<!-- 
 	<select id="getCorpCode"  parameterType="hashMap" resultType="HashMap">
 		SELECT CORP_CODE FROM TB_BPLC_DETAIL

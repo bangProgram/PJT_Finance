@@ -31,5 +31,13 @@ public class AppAssetmanageServiceImpl implements AppAssetmanageService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public List<Map<String, Object>> getAssetProportion(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getAssetProportion");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
 
 }
