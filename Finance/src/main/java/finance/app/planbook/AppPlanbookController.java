@@ -184,7 +184,14 @@ public class AppPlanbookController extends DefaultController {
 
     	    	param.put("pPeriodGubn", initPeriodGubn);
     	    	List<Map<String,Object>> initPlanbookList = appPlanbookService.getPlanbookList(param);
-
+    	    	
+    	    	param.put("pCorpCode", commandMap.get("corpCode").toString());
+    	    	Map<String,Object> planDetailInfo = appPlanbookService.getPlanDetailInfo(param);
+            	
+    	    	//목표관리상세화면 정보 상태 변경 데이터
+                responseData.put("planDetailInfo", planDetailInfo);
+                
+                //목표관리화면 리스트 상태 변경 데이터
     	    	responseData.put("planbookList", planbookList);
                 responseData.put("planbookCnt", planbookList.size());
                 responseData.put("initPlanbookList", initPlanbookList);

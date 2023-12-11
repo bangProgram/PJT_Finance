@@ -145,10 +145,10 @@
 					and A.reprt_code = '0304'
 					order by A.CORP_CODE, A.account_id, A.BSNS_YEAR DESC
 				)
-				WHERE 1=1
+				WHERE 1=1 
 				AND BEF_AMOUNT IS NOT null
-				AND BEF_AMOUNT > 0
-				AND ACCUMULATED_NET_AMOUNT > 0
+				AND BEF_AMOUNT <![CDATA[ > ]]>  0
+				AND ACCUMULATED_NET_AMOUNT <![CDATA[ > ]]> 0
 			)
 			GROUP BY CORP_CODE, REPRT_CODE
 		) E
