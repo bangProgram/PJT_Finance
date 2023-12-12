@@ -22,6 +22,22 @@
 		 -->
 	</sql>
 	
+	<select id="getPortAmount" parameterType="Map" resultType="HashMap">  
+	    SELECT
+			B.DEPOSIT_AMOUNT as "depositAmount"
+		    , B.RESERVE_AMOUNT as "reserveAmount"
+		    , ROUND(NVL(B.INVEST_AMOUNT,0),0) AS INVEST_AMOUNT
+		    , ROUND(NVL(SUM(A.HOLD_QUANTITY * A.avg_price),0),0) as "investAmount"
+		    , ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * A.avg_price),0)),0) as "diffInvestAmount"
+		    , ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * a.bef_cls_price),0)),0) as "evaluationProfit" 
+			, ROUND(NVL(SUM(A.HOLD_QUANTITY * A.avg_price),0),0) + ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * a.bef_cls_price),0)),0) as "evaluationAmount" 
+		FROM TB_PORTFOLIO_CORP A, TB_PORTFOLIO B
+		WHERE 1=1
+		AND A.USER_ID = B.USER_ID
+		and a.user_id = #{curUserId}
+		GROUP BY B.DEPOSIT_AMOUNT,B.INVEST_AMOUNT,B.RESERVE_AMOUNT
+	</select>
+	
 	<select id="getAssetList"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
 		CORP_CODE as "corpCode", USER_ID as "userId", CORP_NAME as "corpName", STOCK_CODE as "stockCode"

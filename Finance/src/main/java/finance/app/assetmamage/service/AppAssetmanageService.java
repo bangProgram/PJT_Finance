@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface AppAssetmanageService {
+	public Map<String, Object> getAssetAmount(Map<String, Object> param) throws Exception;
+	
 	public List<Map<String, Object>> getAssetList(Map<String, Object> param) throws Exception;
 	
 	public List<Map<String, Object>> getAssetRecord(Map<String, Object> param) throws Exception;
