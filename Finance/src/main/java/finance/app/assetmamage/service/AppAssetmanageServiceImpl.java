@@ -17,6 +17,13 @@ public class AppAssetmanageServiceImpl implements AppAssetmanageService {
 	private String namespace = "appAssetmanageMapper.";
 	
 	@Override
+	public Map<String, Object> getAssetAmount(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getAssetAmount");
+	    Map<String, Object> result = commonMapper.get(param);
+	    return result;
+	}
+	
+	@Override
 	public List<Map<String, Object>> getAssetList(Map<String, Object> param) throws Exception {
 	    param.put("mId", namespace+"getAssetList");
 	    List<Map<String, Object>> resultList = commonMapper.getList(param);
