@@ -91,7 +91,7 @@
 		    FROM tb_portfolio_corp_detail a, tb_bplc_detail b
 		    WHERE 1=1
 		    and a.corp_code = b.corp_code
-		    and USER_ID = #{curUserId}
+		    and USER_ID = 'jeontesu0@gmail.com'
 		    group by a.corp_code, a.user_id, B.CORP_NAME, B.INDUTY_CODE
 		)
 		GROUP BY INDUTY_CODE, INDUTY_NAME
