@@ -102,26 +102,6 @@ public class AppAssetmanageController extends DefaultController{
     }
 	
 	
-	
-	@PostMapping("/record")
-    public ResponseEntity<Map<String, Object>> getAssetRecord(HttpServletRequest request, @RequestBody Map<String,Object> commandMap) throws Exception{
-		commandMap = init(request, commandMap);
-		
-        try {
-
-        	List<Map<String, Object>> assetRecord = appAssetmanageService.getAssetRecord(commandMap);
-
-            Map<String, Object> responseData = new HashMap<String, Object>();
-            responseData.put("assetRecord", assetRecord);
-            responseData.put("assetRecordCnt", assetRecord.size());
-
-    		return ResponseEntity.ok(responseData);
-        } catch (Exception e) {
-        	System.out.println("error occured : "+e);
-            return ResponseEntity.badRequest().body(null);
-        }
-    }
-	
 	@PostMapping("/proportion")
     public ResponseEntity<Map<String, Object>> getAssetProportion(HttpServletRequest request, @RequestBody Map<String,Object> commandMap) throws Exception{
 		commandMap = init(request, commandMap);
