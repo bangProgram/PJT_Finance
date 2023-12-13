@@ -63,22 +63,21 @@ public class AppAssetmanageController extends DefaultController{
 	@PostMapping("/merge")
     public ResponseEntity<Map<String, Object>> mergeAssetAmount(HttpServletRequest request, @RequestBody Map<String,Object> commandMap) throws Exception{
 		commandMap = init(request, commandMap);
-		
+
         Map<String, Object> responseData = new HashMap<String, Object>();
-		
-        try {
-			/* 20231212 포트폴리오 메인 자산 입력 로직 만들어야함
-			 * List<Map<String, Object>> assetProportion =
-			 * appAssetmanageService.getAssetProportion(commandMap);
-			 * 
-			 * responseData.put("assetProportion", assetProportion);
-			 * responseData.put("assetProportionCnt", assetProportion.size());
-			 */
-    		return ResponseEntity.ok(responseData);
-        } catch (Exception e) {
-        	System.out.println("error occured : "+e);
-            return ResponseEntity.badRequest().body(null);
+		// 처리된 데이터를 응답으로 보내기
+        if(appLoginService.isLogin()) {
+    		int resultInt = appAssetmanageService.mergeAssetAmount(commandMap);
+    		if(resultInt == 1) {
+        		Map<String, Object> portAmountData = appAssetmanageService.getAssetAmount(commandMap);
+    			responseData.put("portAmountData", portAmountData);
+    			return ResponseEntity.ok(responseData);
+    		}else {
+    		    return ResponseEntity.badRequest().body(null);
+    		}
+    		
         }
+		return ResponseEntity.badRequest().body(responseData);
     }
 	
 	@GetMapping("/list")
