@@ -126,6 +126,15 @@ public class AppPlanbookController extends DefaultController {
     	    	List<Map<String,Object>> planDetailMemo = appPlanbookService.getPlanDetailMemo(commandMap);
 	            responseData.put("planDetailMemo", planDetailMemo);
 	            responseData.put("planDetailMemoCnt", planDetailMemo.size());
+	            
+
+    	    	Map<String, Object> param = new HashMap<String, Object>();
+    	    	param.put("curUserId", appLoginservice.getCurUserId());
+    	    	List<Map<String,Object>> planbookList = appPlanbookService.getPlanbookList(param);
+    	    	//목표관리화면 리스트 최신 메세지 상태 변경
+    	    	responseData.put("planbookList", planbookList);
+                responseData.put("planbookCnt", planbookList.size());
+                
         		return ResponseEntity.ok(responseData);
     	    }else {
         		return ResponseEntity.badRequest().body(null);
@@ -152,6 +161,14 @@ public class AppPlanbookController extends DefaultController {
     	    	List<Map<String,Object>> planDetailMemo = appPlanbookService.getPlanDetailMemo(commandMap);
 	            responseData.put("planDetailMemo", planDetailMemo);
 	            responseData.put("planDetailMemoCnt", planDetailMemo.size());
+	            
+	            Map<String, Object> param = new HashMap<String, Object>();
+    	    	param.put("curUserId", appLoginservice.getCurUserId());
+    	    	List<Map<String,Object>> planbookList = appPlanbookService.getPlanbookList(param);
+    	    	//목표관리화면 리스트 최신 메세지 상태 변경
+    	    	responseData.put("planbookList", planbookList);
+                responseData.put("planbookCnt", planbookList.size());
+                
         		return ResponseEntity.ok(responseData);
     	    }else {
         		return ResponseEntity.badRequest().body(null);
@@ -170,37 +187,21 @@ public class AppPlanbookController extends DefaultController {
 		
         try {
     		Integer resultInt = appPlanbookService.mergePlaninfo(commandMap);
-    		String pPeriodGubn = commandMap.get("periodGubn").toString();
-    		String initPeriodGubn = commandMap.get("initPeriodGubn").toString();
     	    
-    	    System.out.println("pPeriodGubn 확인 : "+pPeriodGubn +" / "+initPeriodGubn);
             Map<String, Object> responseData = new HashMap<String, Object>();
-                    	
-    	    if(resultInt > 0) {
-    	    	Map<String, Object> param = new HashMap<String, Object>();
-    	    	param.put("pPeriodGubn", pPeriodGubn);
-    	    	param.put("curUserId", appLoginservice.getCurUserId());
-    	    	List<Map<String,Object>> planbookList = appPlanbookService.getPlanbookList(param);
-
-    	    	param.put("pPeriodGubn", initPeriodGubn);
-    	    	List<Map<String,Object>> initPlanbookList = appPlanbookService.getPlanbookList(param);
-    	    	
-    	    	param.put("pCorpCode", commandMap.get("corpCode").toString());
-    	    	Map<String,Object> planDetailInfo = appPlanbookService.getPlanDetailInfo(param);
-            	
-    	    	//목표관리상세화면 정보 상태 변경 데이터
-                responseData.put("planDetailInfo", planDetailInfo);
-                
-                //목표관리화면 리스트 상태 변경 데이터
-    	    	responseData.put("planbookList", planbookList);
-                responseData.put("planbookCnt", planbookList.size());
-                responseData.put("initPlanbookList", initPlanbookList);
-                responseData.put("initPlanbookCnt", initPlanbookList.size());
-
-    			return ResponseEntity.ok(responseData);
-    	    }else {
-        		return ResponseEntity.badRequest().body(null);
-    	    }
+	    	Map<String, Object> param = new HashMap<String, Object>();
+	    	param.put("curUserId", appLoginservice.getCurUserId());
+	    	List<Map<String,Object>> planbookList = appPlanbookService.getPlanbookList(param);
+	    	param.put("pCorpCode", commandMap.get("corpCode").toString());
+	    	Map<String,Object> planDetailInfo = appPlanbookService.getPlanDetailInfo(param);
+	    	//목표관리상세화면 정보 상태 변경 데이터
+            responseData.put("planDetailInfo", planDetailInfo);
+            
+            //목표관리화면 리스트 상태 변경 데이터
+	    	responseData.put("planbookList", planbookList);
+            responseData.put("planbookCnt", planbookList.size());
+            
+			return ResponseEntity.ok(responseData);
 
         	
         } catch (Exception e) {

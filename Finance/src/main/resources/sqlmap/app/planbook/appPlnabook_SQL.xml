@@ -30,7 +30,7 @@
 			, A.Create_Id As "createId", A.Create_Dt As "createDt", A.Change_Id As "changeId", nvl(b.Change_Dt,a.change_dt) As "changeDt"
 			,to_number((Select Bef_Cls_Price From Tb_Bplc_Detail Where Corp_Code = A.Corp_Code)) As "befClsPrice"
 			, c.memo AS "memo"
-			, B.Invest_Opinion As "investOpinion"
+			, NVL(B.Invest_Opinion,'미추정') As "investOpinion"
 			, B.Opinion_Amount1 As "opinionAmount1"
 			, B.Opinion_Amount2 As "opinionAmount2"
 			, B.Opinion_Amount3 As "opinionAmount3"
@@ -55,10 +55,10 @@
 	    AND a.corp_code = c.corp_code (+)
 	    AND a.user_id = c.user_id (+)
 	    AND A.USER_ID = #{curUserId}
-	    <if test="pPeriodGubn != null and pPeriodGubn != '' and pPeriodGubnAll != '' ">
+	    <if test="pPeriodGubn != null and pPeriodGubn != '' ">
 	    	AND B.PERIOD_GUBN = #{pPeriodGubn}
 	    </if>
-	    <if test="pPeriodGubn == '' and pPeriodGubnAll != ''">
+	    <if test="pPeriodGubn == '' ">
 	    	AND B.PERIOD_GUBN is null
 	    </if>
 	</select>
@@ -77,7 +77,7 @@
 		    , TO_NUMBER(c.ST_PRICE)AS "stPrice"
 		    , TO_NUMBER(c.HG_PRICE)AS "hgPrice"
 		    , TO_NUMBER(c.LW_PRICE)AS "lwPrice"
-		    , B.Invest_Opinion As "investOpinion"
+		    , NVL(B.Invest_Opinion,'미추정') As "investOpinion"
 		    , B.Opinion_Amount1 As "opinionAmount1"
 		    , B.Opinion_Amount2 As "opinionAmount2"
 		    , B.Opinion_Amount3 As "opinionAmount3"
@@ -233,126 +233,162 @@
 	
 	
 	<insert id="mergePlaninfo" parameterType="hashMap">
-		MERGE INTO 
-		    TB_INTEREST_DETAIL A 
-		USING DUAL ON (
-		    A.CORP_CODE = #{corpCode}
-			AND A.USER_ID = #{curUserId}
-	    ) 
-		WHEN MATCHED THEN 
-		    UPDATE SET 
-                CHANGE_ID = #{curUserId}
-                , CHANGE_DT = SYSDATE
-                <if test="periodGubn != null">
-                	, PERIOD_GUBN = #{periodGubn}
-                </if>
-                <if test="estimateEps != null and estimateEps != '' ">
-                	, ESTIMATE_EPS = #{estimateEps}
-                </if>
-                <if test="estimatePer != null and estimatePer != '' ">
-                	, ESTIMATE_PER = #{estimatePer}
-                </if>
-                <if test="estimateCagr != null and estimateCagr != '' ">
-                	, ESTIMATE_CAGR = #{estimateCagr}
-                </if>
-                <if test="investOpinion != null and investOpinion != '' ">
-                	, INVEST_OPINION = #{investOpinion}
-                </if>
-                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
-               	 , OPINION_AMOUNT1 = #{opinionAmount1}
-                </if>
-                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
-                	, OPINION_AMOUNT2  = #{opinionAmount2}
-                </if>
-                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
-                	, OPINION_AMOUNT3 = #{opinionAmount3}
-                </if>
-                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
-                	, OPINION_AMOUNT4 = #{opinionAmount4}
-                </if>
-                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
-                	, OPINION_AMOUNT5 = #{opinionAmount5}
-                </if>
-		WHEN NOT MATCHED THEN 
-		    INSERT (
-		    	CORP_CODE
-                , STOCK_CODE
-                , USER_ID
-                , CORP_NAME
-                <if test="periodGubn != null">
-                	, PERIOD_GUBN
-                </if>
-                <if test="estimateEps != null and estimateEps != '' ">
-                	, ESTIMATE_EPS
-                </if>
-                <if test="estimatePer != null and estimatePer != '' ">
-                	, ESTIMATE_PER
-                </if>
-                <if test="estimateCagr != null and estimateCagr != '' ">
-                	, ESTIMATE_CAGR
-                </if>
-                <if test="investOpinion != null and investOpinion != '' ">
-                	, INVEST_OPINION
-                </if>
-                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
-               	 , OPINION_AMOUNT1
-                </if>
-                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
-                	, OPINION_AMOUNT2
-                </if>
-                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
-                	, OPINION_AMOUNT3
-                </if>
-                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
-                	, OPINION_AMOUNT4
-                </if>
-                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
-                	, OPINION_AMOUNT5
-                </if>
-                , CREATE_ID
-                , CREATE_DT
-                , CHANGE_ID
-                , CHANGE_DT
-            ) 
-		    VALUES (
-		    	#{corpCode}
-                , (SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{corpCode})
-                , #{curUserId}
-                , (SELECT STOCK_NAME FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{corpCode})
-                <if test="periodGubn != null">
-                	, #{periodGubn}
-                </if>
-                <if test="estimateEps != null and estimateEps != '' ">
-                	,  #{estimateEps}
-                </if>
-                <if test="estimatePer != null and estimatePer != '' ">
-                	, #{estimatePer}
-                </if>
-                <if test="estimateCagr != null and estimateCagr != '' ">
-                	,#{estimateCagr}
-                </if>
-                <if test="investOpinion != null and investOpinion != '' ">
-                	, #{investOpinion}
-                </if>
-                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
-               	 	, #{opinionAmount1}
-                </if>
-                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
-                	, #{opinionAmount2}
-                </if>
-                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
-                	, #{opinionAmount3}
-                </if>
-                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
-                	, #{opinionAmount4}
-                </if>
-                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
-                	, #{opinionAmount5}
-                </if>
-                , #{curUserId}
-                , SYSDATE
-                , #{curUserId}
-                , SYSDATE
-            )
+	
+	  
+		<selectKey keyProperty="BEF_CLS_PRICE" resultType="int" order="BEFORE">
+	        (SELECT BEF_CLS_PRICE
+				FROM TB_BPLC_DETAIL where corp_code = #{corpCode} )
+	    </selectKey>
+	
+		BEGIN
+			MERGE INTO 
+			    TB_INTEREST_DETAIL A 
+			USING DUAL ON (
+			    A.CORP_CODE = #{corpCode}
+				AND A.USER_ID = #{curUserId}
+		    ) 
+			WHEN MATCHED THEN 
+			    UPDATE SET 
+	                CHANGE_ID = #{curUserId}
+	                , CHANGE_DT = SYSDATE
+	                <if test="periodGubn != null">
+	                	, PERIOD_GUBN = #{periodGubn}
+	                </if>
+	                <if test="estimateEps != null and estimateEps != '' ">
+	                	, ESTIMATE_EPS = #{estimateEps}
+	                </if>
+	                <if test="estimatePer != null and estimatePer != '' ">
+	                	, ESTIMATE_PER = #{estimatePer}
+	                </if>
+	                <if test="estimateCagr != null and estimateCagr != '' ">
+	                	, ESTIMATE_CAGR = #{estimateCagr}
+	                </if>
+	                <if test="investOpinion != null and investOpinion != '' ">
+	                	, INVEST_OPINION = #{investOpinion}
+	                </if>
+	                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
+	               	 , OPINION_AMOUNT1 = #{opinionAmount1}
+	                </if>
+	                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
+	                	, OPINION_AMOUNT2  = #{opinionAmount2}
+	                </if>
+	                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
+	                	, OPINION_AMOUNT3 = #{opinionAmount3}
+	                </if>
+	                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
+	                	, OPINION_AMOUNT4 = #{opinionAmount4}
+	                </if>
+	                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
+	                	, OPINION_AMOUNT5 = #{opinionAmount5}
+	                </if>
+			WHEN NOT MATCHED THEN 
+			    INSERT (
+			    	CORP_CODE
+	                , STOCK_CODE
+	                , USER_ID
+	                , CORP_NAME
+	                <if test="periodGubn != null">
+	                	, PERIOD_GUBN
+	                </if>
+	                <if test="estimateEps != null and estimateEps != '' ">
+	                	, ESTIMATE_EPS
+	                </if>
+	                <if test="estimatePer != null and estimatePer != '' ">
+	                	, ESTIMATE_PER
+	                </if>
+	                <if test="estimateCagr != null and estimateCagr != '' ">
+	                	, ESTIMATE_CAGR
+	                </if>
+	                <if test="investOpinion != null and investOpinion != '' ">
+	                	, INVEST_OPINION
+	                </if>
+	                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
+	               	 , OPINION_AMOUNT1
+	                </if>
+	                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
+	                	, OPINION_AMOUNT2
+	                </if>
+	                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
+	                	, OPINION_AMOUNT3
+	                </if>
+	                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
+	                	, OPINION_AMOUNT4
+	                </if>
+	                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
+	                	, OPINION_AMOUNT5
+	                </if>
+	                , CREATE_ID
+	                , CREATE_DT
+	                , CHANGE_ID
+	                , CHANGE_DT
+	            ) 
+			    VALUES (
+			    	#{corpCode}
+	                , (SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{corpCode})
+	                , #{curUserId}
+	                , (SELECT STOCK_NAME FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{corpCode})
+	                <if test="periodGubn != null">
+	                	, #{periodGubn}
+	                </if>
+	                <if test="estimateEps != null and estimateEps != '' ">
+	                	,  #{estimateEps}
+	                </if>
+	                <if test="estimatePer != null and estimatePer != '' ">
+	                	, #{estimatePer}
+	                </if>
+	                <if test="estimateCagr != null and estimateCagr != '' ">
+	                	,#{estimateCagr}
+	                </if>
+	                <if test="investOpinion != null and investOpinion != '' ">
+	                	, #{investOpinion}
+	                </if>
+	                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
+	               	 	, #{opinionAmount1}
+	                </if>
+	                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
+	                	, #{opinionAmount2}
+	                </if>
+	                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
+	                	, #{opinionAmount3}
+	                </if>
+	                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
+	                	, #{opinionAmount4}
+	                </if>
+	                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
+	                	, #{opinionAmount5}
+	                </if>
+	                , #{curUserId}
+	                , SYSDATE
+	                , #{curUserId}
+	                , SYSDATE
+	            );
+	            
+	            
+	            UPDATE  TB_INTEREST_DETAIL a SET INVEST_OPINION = (
+					SELECT 
+						<![CDATA[ 
+						CASE WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT1,0) )
+							THEN '매수'
+							WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT2,0) )
+							THEN '비중확대'
+							WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT3,0) )
+							THEN '중립'
+							WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
+							THEN '비중축소'
+							WHEN NVL(#{BEF_CLS_PRICE},0) >= ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
+							THEN '매도'
+							ELSE '의견없음'
+						END
+						]]> 
+					FROM TB_INTEREST_DETAIL A WHERE 
+						a.CORP_CODE = #{corpCode}
+			   			and a.USER_ID = #{curUserId}
+				)
+				WHERE
+			   		a.CORP_CODE = #{corpCode}
+			   		and a.USER_ID = #{curUserId}
+			   	;
+	            
+		END;
 	</insert>
 </mapper>

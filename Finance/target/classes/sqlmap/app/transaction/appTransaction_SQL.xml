@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appTransactionMapper">
+	
+	<sql id="whereUtil">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		 -->
+	</sql>
+	
+	
+	<select id="getTransRecord"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    seq as "seq"
+		    , a.corp_code as "corpCode"
+		    , b.stock_name AS "corpName"
+    		, a.stock_code                        AS "stockCode"
+		    , a.user_id as "userId"
+		    , a.gubn as "gubn"
+		    , a.memo as "memo"
+		    ,nvl(a.BUY_QUANTITY,0) as "buyQuantity"
+		    , nvl(a.SELL_QUANTITY,0) as "sellQuantity"
+		    , nvl(a.BUY_AMOUNT,0) as "buyAmount"
+		    , nvl(a.SELL_AMOUNT,0) as "sellAmount"
+		    , to_number(nvl(a.RETURN_AMOUNT,0)) as "returnAmount"
+		    , to_number(nvl(a.TRADE_PRICE,0)) as "tradePrice"
+		    , a.TRADE_DATE2 as "tradeDate"
+		    , a.CHANGE_ID as "changeId"
+		    , a.CHANGE_DT as "changeDate"
+		FROM tb_portfolio_corp_detail a, tb_bplc_detail b
+		WHERE 1=1
+		and a.corp_code = b.corp_code
+		AND a.user_id = 'jeontesu0@gmail.com'
+		<if test="pStDate != null and pStDate != '' ">
+			AND a.TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
+		</if>
+		<if test="pEdDate != null and pEdDate != '' ">
+			AND a.TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
+		</if>
+		<if test="pGubn != null and pGubn != '' ">
+			AND a.gubn = #{pGubn}
+		</if>
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND b.STOCK_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+		</if>
+		ORDER BY a.trade_date DESC
+	</select>
+	
+	
+</mapper>
