@@ -29,7 +29,7 @@
 			A.Corp_Code As "corpCode", A.Corp_Name As "corpName", A.Stock_Code As "stockCode", A.User_Id As "userId"
 			, A.Create_Id As "createId", A.Create_Dt As "createDt", A.Change_Id As "changeId", nvl(b.Change_Dt,a.change_dt) As "changeDt"
 			,to_number((Select Bef_Cls_Price From Tb_Bplc_Detail Where Corp_Code = A.Corp_Code)) As "befClsPrice"
-			, A.Memo As "memo"
+			, c.memo AS "memo"
 			, B.Invest_Opinion As "investOpinion"
 			, B.Opinion_Amount1 As "opinionAmount1"
 			, B.Opinion_Amount2 As "opinionAmount2"
@@ -38,15 +38,27 @@
 			, B.Opinion_Amount5 As "opinionAmount5"
 			, B.Period_Gubn As "periodGubn", NVL((SELECT CODE_NM FROM TB_CODE WHERE CODE = B.Period_Gubn),'미정') As "periodNm"
 			,B.Estimate_Eps As "estimateEps", B.Estimate_Per As "estimatePer", B.Estimate_Cagr As "estimateCagr"
-		FROM TB_INTEREST A, TB_INTEREST_DETAIL B
+		FROM TB_INTEREST A, TB_INTEREST_DETAIL B, 
+	    (
+	        SELECT corp_code, user_id, memo FROM (
+	            SELECT
+	                corp_code, user_id, memo,
+	                rank() over(partition by corp_code, user_id order by seq desc) as rnum
+	            FROM tb_interest_memo
+	            group by corp_code, user_id , seq, memo
+	        )
+	        WHERE RNUM = 1
+	    ) C
 		WHERE 1=1
 		AND A.CORP_CODE = B.CORP_CODE(+)
 		AND A.USER_ID = B.USER_ID(+)
+	    AND a.corp_code = c.corp_code (+)
+	    AND a.user_id = c.user_id (+)
 	    AND A.USER_ID = #{curUserId}
-	    <if test="pPeriodGubn != null and pPeriodGubn != '' ">
+	    <if test="pPeriodGubn != null and pPeriodGubn != '' and pPeriodGubnAll != '' ">
 	    	AND B.PERIOD_GUBN = #{pPeriodGubn}
 	    </if>
-	    <if test="pPeriodGubn == '' ">
+	    <if test="pPeriodGubn == '' and pPeriodGubnAll != ''">
 	    	AND B.PERIOD_GUBN is null
 	    </if>
 	</select>

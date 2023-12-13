@@ -46,5 +46,12 @@ public class AppAssetmanageServiceImpl implements AppAssetmanageService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public Integer mergeAssetAmount(Map<String, Object> param) throws Exception{
+		param.put("mId", namespace+"mergeAssetAmount");
+	    Integer resultInt = (Integer) commonMapper.update(param);
+	    return resultInt;
+	}
 
 }

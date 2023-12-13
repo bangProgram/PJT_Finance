@@ -22,38 +22,112 @@
 		 -->
 	</sql>
 	
-	<select id="getPortAmount" parameterType="Map" resultType="HashMap">  
+	<select id="getAssetAmount" parameterType="Map" resultType="HashMap">  
 	    SELECT
-			B.DEPOSIT_AMOUNT as "depositAmount"
-		    , B.RESERVE_AMOUNT as "reserveAmount"
-		    , ROUND(NVL(B.INVEST_AMOUNT,0),0) AS INVEST_AMOUNT
-		    , ROUND(NVL(SUM(A.HOLD_QUANTITY * A.avg_price),0),0) as "investAmount"
-		    , ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * A.avg_price),0)),0) as "diffInvestAmount"
-		    , ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * a.bef_cls_price),0)),0) as "evaluationProfit" 
-			, ROUND(NVL(SUM(A.HOLD_QUANTITY * A.avg_price),0),0) + ROUND((NVL(B.INVEST_AMOUNT,0) - NVL(SUM(A.HOLD_QUANTITY * a.bef_cls_price),0)),0) as "evaluationAmount" 
-		FROM TB_PORTFOLIO_CORP A, TB_PORTFOLIO B
-		WHERE 1=1
-		AND A.USER_ID = B.USER_ID
-		and a.user_id = #{curUserId}
-		GROUP BY B.DEPOSIT_AMOUNT,B.INVEST_AMOUNT,B.RESERVE_AMOUNT
+		    a.deposit_amount AS "depositAmount",
+		    a.reserve_amount AS "reserveAmount",
+		    round(nvl(a.invest_amount, 0),
+		          0)         AS invest_amount,
+		    round(nvl(SUM(b.hold_quantity * b.avg_price),
+		              0),
+		          0)         AS "investAmount",
+		    round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.avg_price),
+		                                         0)),
+		          0)         AS "diffInvestAmount",
+		    round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.bef_cls_price),
+		                                         0)),
+		          0)         AS "evaluationProfit",
+		    round(nvl(SUM(b.hold_quantity * b.avg_price),
+		              0),
+		          0) + round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.bef_cls_price),
+		                                                    0)),
+		                     0)             AS "evaluationAmount"
+		FROM
+		    tb_portfolio a,
+		    tb_portfolio_corp b
+		WHERE 1 = 1
+		    AND a.user_id = b.user_id(+)
+			and b.hold_quantity > 0
+			and a.user_id = 'jeontesu0@gmail.com'
+		GROUP BY a.deposit_amount, a.invest_amount, a.reserve_amount
 	</select>
+	
 	
 	<select id="getAssetList"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
-		CORP_CODE as "corpCode", USER_ID as "userId", CORP_NAME as "corpName", STOCK_CODE as "stockCode"
-		,CREATE_ID as "createId",CREATE_DT as "createDt", CHANGE_ID as "changeId", CHANGE_DT as "changeDt"
-		,HOLD_QUANTITY as "holdQuantity", AVG_PRICE as "avgPrice", to_number(BEF_CLS_PRICE) as "befClsPrice"
-		,decode(HOLD_QUANTITY,0,0,(BEF_CLS_PRICE - AVG_PRICE)) as "valPrice"
+			CORP_CODE as "corpCode", USER_ID as "userId", CORP_NAME as "corpName", STOCK_CODE as "stockCode"
+			,CREATE_ID as "createId",CREATE_DT as "createDt", CHANGE_ID as "changeId", CHANGE_DT as "changeDt"
+			,HOLD_QUANTITY as "holdQuantity", AVG_PRICE as "avgPrice", to_number(BEF_CLS_PRICE) as "befClsPrice"
+			,decode(HOLD_QUANTITY,0,0,(BEF_CLS_PRICE - AVG_PRICE)) as "valPrice"
 		FROM (
 		    SELECT
-		    corp_code,user_id,corp_name,stock_code,create_id,create_dt,change_id,change_dt
-		    ,nvl(hold_quantity,0) AS hold_quantity
-   			,nvl(round(AVG_PRICE,0),0) AS AVG_PRICE
-		    ,nvl((SELECT bef_cls_price FROM tb_bplc_detail WHERE stock_code = A.stock_code),0) AS bef_cls_price
+			    corp_code,user_id,corp_name,stock_code,create_id,create_dt,change_id,change_dt
+			    ,nvl(hold_quantity,0) AS hold_quantity
+	   			,nvl(round(AVG_PRICE,0),0) AS AVG_PRICE
+			    ,nvl((SELECT bef_cls_price FROM tb_bplc_detail WHERE stock_code = A.stock_code),0) AS bef_cls_price
 		    FROM tb_portfolio_corp A
-		    WHERE user_id = #{curUserId}
+		    WHERE 1=1
+		    and user_id = 'jeontesu0@gmail.com'
+		    and a.hold_quantity > 0
 		)
+		ORDER BY CORP_NAME
 	</select>
+	
+	
+	<insert id="mergeAssetAmount" parameterType="Map"  >  
+		MERGE 
+		 	INTO TB_PORTFOLIO a
+		USING dual
+		   ON (
+		   		a.USER_ID = 'jeontesu0@gmail.com'
+		   	)
+		WHEN MATCHED THEN
+			UPDATE
+				<set>
+					<if test="depositAmount != null and depositAmount != '' ">
+						DEPOSIT_AMOUNT		=	#{depositAmount},
+					</if>
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						RESERVE_AMOUNT		=	#{reserveAmount},
+					</if>
+					CHANGE_DT 		=	SYSDATE,
+					CHANGE_ID		=	'jeontesu0@gmail.com'
+				</set>
+		WHEN NOT MATCHED THEN
+				INSERT (
+				    USER_ID, 
+				    <if test="depositAmount != null and depositAmount != '' ">
+						DEPOSIT_AMOUNT,
+					</if>
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						RESERVE_AMOUNT,
+					</if>
+				    <if test="investAmount != null and investAmount != '' ">
+						INVEST_AMOUNT,
+					</if>
+					<if test="MEMO != null and MEMO != '' ">
+						MEMO,
+					</if>
+				    CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
+				) VALUES (
+					'jeontesu0@gmail.com', 
+					<if test="depositAmount != null and depositAmount != '' ">
+						#{depositAmount},
+					</if>
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						#{reserveAmount},
+					</if>
+				    <if test="investAmount != null and investAmount != '' ">
+						#{investAmount},
+					</if>
+					<if test="MEMO != null and MEMO != '' ">
+						#{MEMO},
+					</if>
+				     'jeontesu0@gmail.com', TO_CHAR(SYSDATE,'YYYY-MM-DD'),'jeontesu0@gmail.com', TO_CHAR(SYSDATE,'YYYY-MM-DD') 
+				)
+	    
+	</insert>
+	
 	
 	<select id="getAssetRecord"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
@@ -95,23 +169,50 @@
 	
 	<select id="getAssetProportion"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
-		    INDUTY_CODE as "indutyCode"
-		    , INDUTY_NAME as "indutyName"
-		    , SUM(TOTAL_AMOUNT) as "totalAmount"
-		FROM (
-		    SELECT 
-		        a.corp_code, a.user_id, B.CORP_NAME
-		        , (SUM(NVL(a.BUY_AMOUNT,0)) - SUM(NVL(a.SELL_AMOUNT,0))) as total_amount
-		        ,SUBSTR(B.INDUTY_CODE,0,3) AS INDUTY_CODE
-		        ,FUN_GETINDUTYNM(SUBSTR(B.INDUTY_CODE,0,3)) AS INDUTY_NAME
-		    FROM tb_portfolio_corp_detail a, tb_bplc_detail b
-		    WHERE 1=1
-		    and a.corp_code = b.corp_code
-		    and USER_ID = 'jeontesu0@gmail.com'
-		    group by a.corp_code, a.user_id, B.CORP_NAME, B.INDUTY_CODE
-		)
-		GROUP BY INDUTY_CODE, INDUTY_NAME
-		ORDER BY SUM(TOTAL_AMOUNT) DESC
+		    indutyCode AS "indutyCode",
+		    indutyName AS "indutyName",
+		    totalAmount AS "totalAmount",
+		    a.INVEST_AMOUNT AS INVEST_AMOUNT,
+		    (totalAmount * 100 / INVEST_AMOUNT) as "amountRate"
+		FROM  TB_PORTFOLIO A,
+		(
+		    SELECT
+		        user_id AS user_id,
+		        induty_code       AS indutyCode,
+		        induty_name       AS indutyName,
+		        SUM(total_amount) AS totalAmount
+		    FROM
+		        (
+		            SELECT
+		                a.corp_code,
+		                a.user_id,
+		                b.corp_name,
+		                ROUND(SUM((a.hold_quantity * a.avg_price)),0)         AS total_amount,
+		                substr(b.induty_code, 0, 3)                  AS induty_code,
+		                fun_getindutynm(substr(b.induty_code, 0, 3)) AS induty_name
+		            FROM
+		                tb_portfolio_corp a,
+		                tb_bplc_detail    b
+		            WHERE
+		                    1 = 1
+		                AND a.corp_code = b.corp_code
+		                AND a.user_id = 'jeontesu0@gmail.com'
+		                AND a.hold_quantity > 0
+		            GROUP BY
+		                a.corp_code,
+		                a.user_id,
+		                b.corp_name,
+		                b.induty_code
+		        ) A
+		    GROUP BY
+		        user_id,
+		        induty_code,
+		        induty_name
+		) B
+		WHERE 1=1
+		AND A.USER_ID = B.USER_ID(+)
+		AND a.user_id = 'jeontesu0@gmail.com'
+		ORDER BY totalAmount DESC
 	</select>
 	
 	<!-- 
