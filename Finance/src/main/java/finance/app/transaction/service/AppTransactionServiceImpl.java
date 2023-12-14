@@ -23,4 +23,12 @@ public class AppTransactionServiceImpl implements AppTransactionService {
 	    return resultList;
 
 	}
+	
+	@Override
+	public List<Map<String, Object>> getTransCorpList(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getTransCorpList");
+	    List<Map<String, Object>> resultList = commonMapper.getList(param);
+	    return resultList;
+
+	}
 }

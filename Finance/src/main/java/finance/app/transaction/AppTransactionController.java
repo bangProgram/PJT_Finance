@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,27 @@ public class AppTransactionController extends DefaultController{
 	
 	@Autowired
 	private AppTransactionService appTransactionService;
+	
+	@GetMapping("/corpList")
+    public ResponseEntity<Map<String, Object>> getTransCorpList() throws Exception{
+		
+        try {
+        	Map<String, Object> param = new HashMap<String, Object>();
+			String userId = appLoginService.getCurUserId();
+        	param.put("curUserId", userId);
+
+        	List<Map<String, Object>> corpList = appTransactionService.getTransCorpList(param);
+
+            Map<String, Object> responseData = new HashMap<String, Object>();
+            responseData.put("corpList", corpList);
+            responseData.put("corpListCnt", corpList.size());
+
+    		return ResponseEntity.ok(responseData);
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 	
 	@PostMapping("/record")
     public ResponseEntity<Map<String, Object>> getTransRecord(HttpServletRequest request, @RequestBody Map<String,Object> commandMap) throws Exception{
