@@ -48,7 +48,7 @@
 		WHERE 1 = 1
 		    AND a.user_id = b.user_id(+)
 			and b.hold_quantity > 0
-			and a.user_id = 'jeontesu0@gmail.com'
+			and a.user_id = #{curUserId}
 		GROUP BY a.deposit_amount, a.invest_amount, a.reserve_amount
 	</select>
 	
@@ -67,7 +67,7 @@
 			    ,nvl((SELECT bef_cls_price FROM tb_bplc_detail WHERE stock_code = A.stock_code),0) AS bef_cls_price
 		    FROM tb_portfolio_corp A
 		    WHERE 1=1
-		    and user_id = 'jeontesu0@gmail.com'
+		    and user_id = #{curUserId}
 		    and a.hold_quantity > 0
 		)
 		ORDER BY CORP_NAME
@@ -79,7 +79,7 @@
 		 	INTO TB_PORTFOLIO a
 		USING dual
 		   ON (
-		   		a.USER_ID = 'jeontesu0@gmail.com'
+		   		a.USER_ID = #{curUserId}
 		   	)
 		WHEN MATCHED THEN
 			UPDATE
@@ -91,7 +91,7 @@
 						RESERVE_AMOUNT		=	#{reserveAmount},
 					</if>
 					CHANGE_DT 		=	SYSDATE,
-					CHANGE_ID		=	'jeontesu0@gmail.com'
+					CHANGE_ID		=	#{curUserId}
 				</set>
 		WHEN NOT MATCHED THEN
 				INSERT (
@@ -110,7 +110,7 @@
 					</if>
 				    CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
 				) VALUES (
-					'jeontesu0@gmail.com', 
+					#{curUserId}, 
 					<if test="depositAmount != null and depositAmount != '' ">
 						#{depositAmount},
 					</if>
@@ -123,7 +123,7 @@
 					<if test="MEMO != null and MEMO != '' ">
 						#{MEMO},
 					</if>
-				     'jeontesu0@gmail.com', TO_CHAR(SYSDATE,'YYYY-MM-DD'),'jeontesu0@gmail.com', TO_CHAR(SYSDATE,'YYYY-MM-DD') 
+				     #{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD') 
 				)
 	    
 	</insert>
@@ -196,7 +196,7 @@
 		            WHERE
 		                    1 = 1
 		                AND a.corp_code = b.corp_code
-		                AND a.user_id = 'jeontesu0@gmail.com'
+		                AND a.user_id = #{curUserId}
 		                AND a.hold_quantity > 0
 		            GROUP BY
 		                a.corp_code,
@@ -211,7 +211,7 @@
 		) B
 		WHERE 1=1
 		AND A.USER_ID = B.USER_ID(+)
-		AND a.user_id = 'jeontesu0@gmail.com'
+		AND a.user_id = #{curUserId}
 		ORDER BY totalAmount DESC
 	</select>
 	
