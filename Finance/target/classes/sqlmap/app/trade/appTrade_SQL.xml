@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appTradeMapper">
+	
+	<sql id="whereUtil">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		 -->
+	</sql>
+	
+	<select id="initTradeList" parameterType="hashMap" resultType="HashMap">  
+	    SELECT 
+	    	STOCK_CODE
+	    FROM TB_PORTFOLIO_CORP
+	    WHERE 1=1
+	    AND USER_ID = #{curUserId}
+	</select>
+	
+	<insert id="addTrade" parameterType="HashMap"  >  
+		INSERT INTO TB_PORTFOLIO_CORP (
+		    CORP_CODE,
+		    USER_ID,
+			CORP_NAME,
+			STOCK_CODE,
+		    GUBN,
+		    CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT	
+		) VALUES (
+			(SELECT CORP_CODE FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode}), 
+			#{curUserId},
+			(SELECT STOCK_NAME FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode}),
+			#{pStockCode},
+			'',
+		    #{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		)
+	    
+	</insert>
+	
+	<insert id="delTrade" parameterType="HashMap"  >  
+		BEGIN
+			UPDATE TB_PORTFOLIO A SET DEPOSIT_AMOUNT =
+			(
+				SELECT 
+					(A.DEPOSIT_AMOUNT+SUM(ROUND((HOLD_QUANTITY*avg_price),0))) FROM TB_PORTFOLIO_CORP 
+				WHERE 1=1
+				AND CORP_CODE = (SELECT CORP_CODE FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode})
+				AND USER_ID = #{curUserId}
+			)
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
+			;
+		    
+		    DELETE  TB_PORTFOLIO_CORP 
+		    WHERE 1=1
+			AND CORP_CODE = (SELECT CORP_CODE FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode})
+		    AND USER_ID = #{curUserId}
+		    ;
+		    
+		    UPDATE TB_PORTFOLIO SET INVEST_AMOUNT = (
+				SELECT SUM(HOLD_QUANTITY*avg_price) FROM TB_PORTFOLIO_CORP
+				WHERE 1=1
+				AND USER_ID = #{curUserId}
+			)
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
+			;
+		    
+		END;
+	</insert>
+	
+	
+	<select id="getTradeCorpList"  parameterType="hashMap" resultType="HashMap">
+		SELECT
+		    a.corp_code                                               AS "corpCode",
+		    a.user_id                                                 AS "userId",
+		    a.corp_name                                               AS "corpName",
+		    a.stock_code                                              AS "stockCode",
+		    a.create_id                                               AS "createId",
+		    a.create_dt                                               AS "createDt",
+		    a.change_id                                               AS "changeId",
+		    a.change_dt                                               AS "changeDt",
+		    a.hold_quantity                                           AS "holdQuantity",
+		    a.avg_price                                               AS "avgPrice",
+		    TO_NUMBER(a.bef_cls_price)                                AS "befClsPrice",
+		    decode(a.hold_quantity, 0, 0,(a.bef_cls_price - a.avg_price)) AS "valPrice",
+		    SUM(nvl(b.return_amount,0))                               AS "returnAmount"
+		FROM
+		    (
+		        SELECT
+		            corp_code,user_id,corp_name,stock_code,create_id,create_dt,change_id,change_dt,
+		            nvl(hold_quantity, 0) AS hold_quantity,
+		            nvl(round(avg_price, 0),
+		                0)                AS avg_price,
+		            nvl((
+		                SELECT
+		                    bef_cls_price
+		                FROM
+		                    tb_bplc_detail
+		                WHERE
+		                    stock_code = a.stock_code
+		            ), 0)                 AS bef_cls_price
+		        FROM
+		            tb_portfolio_corp a
+		        WHERE
+		                1 = 1
+            			AND user_id = #{curUserId}
+		    )                        a,
+		    tb_portfolio_corp_detail b
+		WHERE
+		        1 = 1
+		    AND a.corp_code = b.corp_code (+)
+		    AND a.user_id = b.user_id (+)
+		GROUP BY
+		    a.corp_code, a.user_id, a.corp_name, a.stock_code, a.create_id, 
+		    a.create_dt, a.change_id, a.change_dt, a.hold_quantity, a.avg_price, a.bef_cls_price
+		ORDER BY corp_name
+	</select>
+	
+	
+	<select id="getTradeRecord"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    seq as "seq"
+		    , a.corp_code as "corpCode"
+		    , b.stock_name AS "corpName"
+    		, a.stock_code                        AS "stockCode"
+		    , a.user_id as "userId"
+		    , a.gubn as "gubn"
+		    , a.memo as "memo"
+		    ,nvl(a.BUY_QUANTITY,0) as "buyQuantity"
+		    , nvl(a.SELL_QUANTITY,0) as "sellQuantity"
+		    , nvl(a.BUY_AMOUNT,0) as "buyAmount"
+		    , nvl(a.SELL_AMOUNT,0) as "sellAmount"
+		    , to_number(nvl(a.RETURN_AMOUNT,0)) as "returnAmount"
+		    , to_number(nvl(a.TRADE_PRICE,0)) as "tradePrice"
+		    , a.TRADE_DATE2 as "tradeDate"
+		    , a.CHANGE_ID as "changeId"
+		    , a.CHANGE_DT as "changeDate"
+		FROM tb_portfolio_corp_detail a, tb_bplc_detail b
+		WHERE 1=1
+		and a.corp_code = b.corp_code
+		AND a.user_id = #{curUserId}
+		<if test="pStDate != null and pStDate != '' ">
+			AND a.TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
+		</if>
+		<if test="pEdDate != null and pEdDate != '' ">
+			AND a.TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
+		</if>
+		<if test="pTradeGubn != null and pTradeGubn != '' ">
+			AND a.gubn = #{pTradeGubn}
+		</if>
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND b.STOCK_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+		</if>
+		<if test="sCorpCode != null and sCorpCode != '' ">
+			AND a.CORP_CODE = #{sCorpCode} <!--  기업 파라미터 -->
+		</if>
+		ORDER BY a.trade_date2 DESC
+	</select>
+	
+	<insert id="addTradeCorpDetail" parameterType="hashMap"  >  
+		<selectKey keyProperty="sAvgPrice" resultType="int" order="BEFORE">
+	        (SELECT nvl(round(a.AVG_PRICE,0),0)
+				FROM
+			                TB_PORTFOLIO_CORP A
+			            WHERE
+			                    a.CORP_CODE = #{pCorpCode}
+			                AND a.USER_ID = #{curUserId} )
+	    </selectKey>
+	
+		BEGIN
+			<if test="pTradeGubn == '0101'">
+				UPDATE TB_PORTFOLIO_CORP
+			    SET
+			        avg_price = (
+			            SELECT
+			                ( ( NVL(( nvl(round(a.AVG_PRICE,0),0) * A.HOLD_QUANTITY ),0) + ( TO_NUMBER(#{pTradePrice}) * TO_NUMBER(#{pQuantity}) )  ) / (NVL(A.HOLD_QUANTITY,0) + TO_NUMBER(#{pQuantity}) ) )
+			            FROM
+			                TB_PORTFOLIO_CORP A
+			            WHERE
+			                    CORP_CODE = #{pCorpCode}
+			                AND USER_ID = #{curUserId}
+			        )
+			    WHERE
+			            CORP_CODE = #{pCorpCode}
+			        AND USER_ID = #{curUserId}
+				;
+			</if>
+				
+		    INSERT INTO TB_PORTFOLIO_CORP_DETAIL (
+		    	SEQ,CORP_CODE,USER_ID,STOCK_CODE,
+		    	GUBN,
+		    	CREATE_ID,CREATE_DT,CHANGE_ID,CHANGE_DT,
+				<if test="pMemo != null and pMemo != '' ">
+		    		MEMO,
+				</if>
+				<if test="pTradeGubn == '0101'">
+		    		BUY_QUANTITY,BUY_AMOUNT,
+		    	</if>
+		    	<if test="pTradeGubn == '0102'">
+		    		SELL_QUANTITY,SELL_AMOUNT,RETURN_AMOUNT,
+		    	</if>
+		    	TRADE_DATE,TRADE_DATE2
+		    	, TRADE_PRICE
+		    ) VALUES (
+		    	(SELECT NVL(MAX(SEQ),0)+1 FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE=#{pCorpCode} AND USER_ID=#{curUserId}),
+		    	#{pCorpCode},#{curUserId},(SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{pCorpCode}),
+		    	#{pTradeGubn},
+		    	#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+				<if test="pMemo != null and pMemo != '' ">
+		    		#{pMemo},
+				</if>
+				<if test="pTradeGubn == '0101'">
+		    		#{pQuantity},
+		    		( TO_NUMBER(#{pTradePrice}) * TO_NUMBER(#{pQuantity}) ),
+		    	</if>
+				<if test="pTradeGubn == '0102'">
+		    		#{pQuantity},
+		    		( TO_NUMBER(#{pTradePrice}) * TO_NUMBER(#{pQuantity}) ),
+		    		(SELECT ( (to_number(#{pTradePrice}) - to_number(#{sAvgPrice})) * to_number(#{pQuantity}) )FROM TB_PORTFOLIO_CORP WHERE CORP_CODE = #{pCorpCode} AND USER_ID = #{curUserId}),
+				</if>
+		    	#{pTradeDate},SYSDATE
+		    	, #{pTradePrice}
+		    )
+		    ;
+			
+			UPDATE TB_PORTFOLIO_CORP SET 
+				HOLD_QUANTITY = (SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{pCorpCode} AND USER_ID = #{curUserId}) 
+			WHERE CORP_CODE = #{pCorpCode}
+			AND USER_ID = #{curUserId}
+			;
+		
+			UPDATE TB_PORTFOLIO A SET INVEST_AMOUNT = (
+				SELECT SUM(HOLD_QUANTITY*nvl(round(AVG_PRICE,0),0)) FROM TB_PORTFOLIO_CORP
+			),DEPOSIT_AMOUNT = (
+				SELECT  NVL(A.DEPOSIT_AMOUNT,0) 
+				<if test="pTradeGubn == '0101'">
+					- ( TO_NUMBER(#{pTradePrice}) * TO_NUMBER(#{pQuantity}) ) 
+				</if>
+				<if test="pTradeGubn == '0102'">
+					+ ( TO_NUMBER(#{pTradePrice}) * TO_NUMBER(#{pQuantity}) ) 
+				</if>
+				FROM DUAL
+			)
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
+			;
+			
+		END;
+	</insert>
+	
+	<delete id="delTradeCorpDetail" parameterType="hashMap"  >  
+		BEGIN
+		
+			UPDATE TB_PORTFOLIO A SET DEPOSIT_AMOUNT = (
+				SELECT NVL(A.DEPOSIT_AMOUNT,0) + SUM(nvl(buy_amount, 0) - NVL(sell_amount, 0) + NVL(RETURN_AMOUNT,0)) FROM TB_PORTFOLIO_CORP_DETAIL
+				WHERE 1=1
+				AND CORP_CODE = #{pCorpCode}
+			    AND USER_ID = #{curUserId}
+		    	AND SEQ = #{pSeq}
+			)
+			WHERE 1=1
+			AND USER_ID = #{curUserId}
+			;
+		
+		    DELETE  TB_PORTFOLIO_CORP_DETAIL 
+		    WHERE 1=1
+		    AND CORP_CODE = #{pCorpCode}
+		    AND USER_ID = #{curUserId}
+		    AND SEQ = #{pSeq}
+			;
+			
+			UPDATE TB_PORTFOLIO_CORP SET 
+				HOLD_QUANTITY = (SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{pCorpCode} AND USER_ID = #{curUserId}) 
+			WHERE CORP_CODE = #{pCorpCode}
+			AND USER_ID = #{curUserId}
+			;
+			
+			UPDATE TB_PORTFOLIO_CORP a SET 
+				avg_price =  ( SELECT (SUM(BUY_AMOUNT) / SUM(BUY_QUANTITY)) FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE = #{pCorpCode} AND USER_ID = #{curUserId} )
+			WHERE CORP_CODE = #{pCorpCode}
+			AND USER_ID = #{curUserId}
+			;
+			
+			UPDATE TB_PORTFOLIO SET INVEST_AMOUNT = (
+				SELECT SUM(HOLD_QUANTITY*nvl(round(AVG_PRICE,0),0)) FROM TB_PORTFOLIO_CORP
+			)
+			;
+		END;
+		
+	</delete>
+	
+</mapper>
