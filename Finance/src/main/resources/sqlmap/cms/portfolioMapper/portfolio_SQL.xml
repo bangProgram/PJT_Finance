@@ -16,6 +16,7 @@
 	    	USER_ID, DEPOSIT_AMOUNT, INVEST_AMOUNT, RESERVE_AMOUNT, CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT, MEMO
 	    from TB_PORTFOLIO
 	    WHERE 1=1
+	    and USER_ID = 'jeontesu0@gmail.com'
 	</select>
 	
 	<select id="getPortAmount" parameterType="Map" resultType="HashMap">  

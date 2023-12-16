@@ -148,14 +148,9 @@ public class AppInterestController extends DefaultController {
     		
     	    
             Map<String, Object> responseData = new HashMap<String, Object>();
-        	
-    	    if(resultInt > 0) {
-        		return ResponseEntity.ok(responseData);
-    	    }else {
-        		return ResponseEntity.badRequest().body(null);
-    	    }
+            
+    		return ResponseEntity.ok(responseData);
 
-        	
         } catch (Exception e) {
         	System.out.println("error occured : "+e);
             return ResponseEntity.badRequest().body(null);

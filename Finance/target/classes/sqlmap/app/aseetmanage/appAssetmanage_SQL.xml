@@ -34,20 +34,19 @@
 		    round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.avg_price),
 		                                         0)),
 		          0)         AS "diffInvestAmount",
-		    round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.bef_cls_price),
-		                                         0)),
-		          0)         AS "evaluationProfit",
+		    ROUND(( NVL(SUM(B.HOLD_QUANTITY * (SELECT BEF_CLS_PRICE FROM TB_BPLC_DETAIL WHERE CORP_CODE = B.CORP_CODE)),
+		                                         0)) - NVL(A.INVEST_AMOUNT, 0) ,
+		          0)          AS "evaluationProfit",
 		    round(nvl(SUM(b.hold_quantity * b.avg_price),
 		              0),
-		          0) + round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.bef_cls_price),
-		                                                    0)),
-		                     0)             AS "evaluationAmount"
+		          0) + ROUND(( NVL(SUM(B.HOLD_QUANTITY * (SELECT BEF_CLS_PRICE FROM TB_BPLC_DETAIL WHERE CORP_CODE = B.CORP_CODE)),
+		                                         0)) - NVL(A.INVEST_AMOUNT, 0) ,
+		          0)             AS "evaluationAmount"
 		FROM
 		    tb_portfolio a,
 		    tb_portfolio_corp b
 		WHERE 1 = 1
 		    AND a.user_id = b.user_id(+)
-			and b.hold_quantity > 0
 			and a.user_id = #{curUserId}
 		GROUP BY a.deposit_amount, a.invest_amount, a.reserve_amount
 	</select>
@@ -173,7 +172,7 @@
 		    indutyName AS "indutyName",
 		    totalAmount AS "totalAmount",
 		    a.INVEST_AMOUNT AS INVEST_AMOUNT,
-		    (totalAmount * 100 / INVEST_AMOUNT) as "amountRate"
+		    to_char( (totalamount * 100 / invest_amount), '99,999.99' ) as "amountRate"
 		FROM  TB_PORTFOLIO A,
 		(
 		    SELECT
