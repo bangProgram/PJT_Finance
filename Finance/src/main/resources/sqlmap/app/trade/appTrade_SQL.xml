@@ -53,6 +53,18 @@
 			WHERE 1=1
 			AND USER_ID = #{curUserId}
 			;
+			
+			DELETE TB_PORTFOLIO_CORP_DETAIL
+			WHERE 1=1
+			AND CORP_CODE = (SELECT CORP_CODE FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode})
+		    AND USER_ID = #{curUserId}
+		    ;
+		    
+		    DELETE TB_PORTFOLIO_CORP_MEMO
+			WHERE 1=1
+			AND CORP_CODE = (SELECT CORP_CODE FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode})
+		    AND USER_ID = #{curUserId}
+		    ;
 		    
 		    DELETE  TB_PORTFOLIO_CORP 
 		    WHERE 1=1
@@ -147,7 +159,7 @@
 			AND a.TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
 		</if>
 		<if test="pEdDate != null and pEdDate != '' ">
-			AND a.TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
+			AND a.TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate}||'23:59:59', 'YYYYMMDD hh24:mi:ss')
 		</if>
 		<if test="pTradeGubn != null and pTradeGubn != '' ">
 			AND a.gubn = #{pTradeGubn}
@@ -235,6 +247,8 @@
 		
 			UPDATE TB_PORTFOLIO A SET INVEST_AMOUNT = (
 				SELECT SUM(HOLD_QUANTITY*nvl(round(AVG_PRICE,0),0)) FROM TB_PORTFOLIO_CORP
+				WHERE 1=1
+				AND USER_ID = #{curUserId}
 			),DEPOSIT_AMOUNT = (
 				SELECT  NVL(A.DEPOSIT_AMOUNT,0) 
 				<if test="pTradeGubn == '0101'">

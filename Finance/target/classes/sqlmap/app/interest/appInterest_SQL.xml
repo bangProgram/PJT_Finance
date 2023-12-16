@@ -292,9 +292,26 @@
 	</insert>
 	
 	<insert id="delInterest" parameterType="HashMap"  >  
-	    DELETE  TB_INTEREST 
-	    WHERE STOCK_CODE = #{STOCK_CODE}
-	    AND USER_ID = #{curUserId}
+		BEGIN
+		
+			DELETE TB_INTEREST_DETAIL
+			WHERE 1=1
+			AND STOCK_CODE = #{STOCK_CODE}
+		    AND USER_ID = #{curUserId}
+			;
+			
+			DELETE TB_INTEREST_MEMO
+			WHERE 1=1
+			AND STOCK_CODE = #{STOCK_CODE}
+		    AND USER_ID = #{curUserId}
+			;
+		
+		    DELETE  TB_INTEREST 
+		    WHERE STOCK_CODE = #{STOCK_CODE}
+		    AND USER_ID = #{curUserId}
+		    ;
+		    
+		END;
 	</insert>
 	
 </mapper>
