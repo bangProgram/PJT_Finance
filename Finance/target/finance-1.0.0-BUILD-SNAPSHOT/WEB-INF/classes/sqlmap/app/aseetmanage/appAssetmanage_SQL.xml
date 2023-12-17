@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appAssetmanageMapper">
+	
+	<sql id="whereUtil">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
+		</if>
+		
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND B.CORP_NAME like '%'|| #{pCorpName} ||'%'
+		</if>
+		 -->
+	</sql>
+	
+	<select id="getAssetAmount" parameterType="Map" resultType="HashMap">  
+	    SELECT
+		    a.deposit_amount AS "depositAmount",
+		    a.reserve_amount AS "reserveAmount",
+		    round(nvl(a.invest_amount, 0),
+		          0)         AS invest_amount,
+		    round(nvl(SUM(b.hold_quantity * b.avg_price),
+		              0),
+		          0)         AS "investAmount",
+		    round((nvl(a.invest_amount, 0) - nvl(SUM(b.hold_quantity * b.avg_price),
+		                                         0)),
+		          0)         AS "diffInvestAmount",
+		    ROUND(( NVL(SUM(B.HOLD_QUANTITY * (SELECT BEF_CLS_PRICE FROM TB_BPLC_DETAIL WHERE CORP_CODE = B.CORP_CODE)),
+		                                         0)) - NVL(A.INVEST_AMOUNT, 0) ,
+		          0)          AS "evaluationProfit",
+		    round(nvl(SUM(b.hold_quantity * b.avg_price),
+		              0),
+		          0) + ROUND(( NVL(SUM(B.HOLD_QUANTITY * (SELECT BEF_CLS_PRICE FROM TB_BPLC_DETAIL WHERE CORP_CODE = B.CORP_CODE)),
+		                                         0)) - NVL(A.INVEST_AMOUNT, 0) ,
+		          0)             AS "evaluationAmount"
+		FROM
+		    tb_portfolio a,
+		    tb_portfolio_corp b
+		WHERE 1 = 1
+		    AND a.user_id = b.user_id(+)
+			and a.user_id = #{curUserId}
+		GROUP BY a.deposit_amount, a.invest_amount, a.reserve_amount
+	</select>
+	
+	
+	<select id="getAssetList"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+			CORP_CODE as "corpCode", USER_ID as "userId", CORP_NAME as "corpName", STOCK_CODE as "stockCode"
+			,CREATE_ID as "createId",CREATE_DT as "createDt", CHANGE_ID as "changeId", CHANGE_DT as "changeDt"
+			,HOLD_QUANTITY as "holdQuantity", AVG_PRICE as "avgPrice", to_number(BEF_CLS_PRICE) as "befClsPrice"
+			,decode(HOLD_QUANTITY,0,0,(BEF_CLS_PRICE - AVG_PRICE)) as "valPrice"
+		FROM (
+		    SELECT
+			    corp_code,user_id,corp_name,stock_code,create_id,create_dt,change_id,change_dt
+			    ,nvl(hold_quantity,0) AS hold_quantity
+	   			,nvl(round(AVG_PRICE,0),0) AS AVG_PRICE
+			    ,nvl((SELECT bef_cls_price FROM tb_bplc_detail WHERE stock_code = A.stock_code),0) AS bef_cls_price
+		    FROM tb_portfolio_corp A
+		    WHERE 1=1
+		    and user_id = #{curUserId}
+		    and a.hold_quantity > 0
+		)
+		ORDER BY CORP_NAME
+	</select>
+	
+	
+	<insert id="mergeAssetAmount" parameterType="Map"  >  
+		MERGE 
+		 	INTO TB_PORTFOLIO a
+		USING dual
+		   ON (
+		   		a.USER_ID = #{curUserId}
+		   	)
+		WHEN MATCHED THEN
+			UPDATE
+				<set>
+					<if test="depositAmount != null and depositAmount != '' ">
+						DEPOSIT_AMOUNT		=	#{depositAmount},
+					</if>
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						RESERVE_AMOUNT		=	#{reserveAmount},
+					</if>
+					CHANGE_DT 		=	SYSDATE,
+					CHANGE_ID		=	#{curUserId}
+				</set>
+		WHEN NOT MATCHED THEN
+				INSERT (
+				    USER_ID, 
+				    <if test="depositAmount != null and depositAmount != '' ">
+						DEPOSIT_AMOUNT,
+					</if>
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						RESERVE_AMOUNT,
+					</if>
+				    <if test="investAmount != null and investAmount != '' ">
+						INVEST_AMOUNT,
+					</if>
+					<if test="MEMO != null and MEMO != '' ">
+						MEMO,
+					</if>
+				    CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
+				) VALUES (
+					#{curUserId}, 
+					<if test="depositAmount != null and depositAmount != '' ">
+						#{depositAmount},
+					</if>
+					<if test="reserveAmount != null and reserveAmount != '' ">
+						#{reserveAmount},
+					</if>
+				    <if test="investAmount != null and investAmount != '' ">
+						#{investAmount},
+					</if>
+					<if test="MEMO != null and MEMO != '' ">
+						#{MEMO},
+					</if>
+				     #{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD') 
+				)
+	    
+	</insert>
+	
+	
+	<select id="getAssetRecord"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    seq as "seq"
+		    , a.corp_code as "corpCode"
+		    , b.stock_name AS "corpName"
+    		, a.stock_code                        AS "stockCode"
+		    , a.user_id as "userId"
+		    , a.gubn as "gubn"
+		    , a.memo as "memo"
+		    ,nvl(a.BUY_QUANTITY,0) as "buyQuantity"
+		    , nvl(a.SELL_QUANTITY,0) as "sellQuantity"
+		    , nvl(a.BUY_AMOUNT,0) as "buyAmount"
+		    , nvl(a.SELL_AMOUNT,0) as "sellAmount"
+		    , to_number(nvl(a.RETURN_AMOUNT,0)) as "returnAmount"
+		    , to_number(nvl(a.TRADE_PRICE,0)) as "tradePrice"
+		    , a.TRADE_DATE2 as "tradeDate"
+		    , a.CHANGE_ID as "changeId"
+		    , a.CHANGE_DT as "changeDate"
+		FROM tb_portfolio_corp_detail a, tb_bplc_detail b
+		WHERE 1=1
+		and a.corp_code = b.corp_code
+		AND a.user_id = #{curUserId}
+		<if test="pStDate != null and pStDate != '' ">
+			AND a.TRADE_DATE2 <![CDATA[ >= ]]>TO_DATE(#{pStDate},'YYYYMMDD')
+		</if>
+		<if test="pEdDate != null and pEdDate != '' ">
+			AND a.TRADE_DATE2 <![CDATA[ <= ]]>TO_DATE(#{pEdDate},'YYYYMMDD')
+		</if>
+		<if test="pGubn != null and pGubn != '' ">
+			AND a.gubn = #{pGubn}
+		</if>
+		<if test="pCorpName != null and pCorpName != '' ">
+			AND b.STOCK_NAME like '%'|| #{pCorpName} ||'%'	<!--  기업 파라미터 -->
+		</if>
+		ORDER BY a.trade_date DESC
+	</select>
+	
+	
+	<select id="getAssetProportion"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    indutyCode AS "indutyCode",
+		    indutyName AS "indutyName",
+		    totalAmount AS "totalAmount",
+		    a.INVEST_AMOUNT AS INVEST_AMOUNT,
+		    to_char( (totalamount * 100 / invest_amount), '99,999.99' ) as "amountRate"
+		FROM  TB_PORTFOLIO A,
+		(
+		    SELECT
+		        user_id AS user_id,
+		        induty_code       AS indutyCode,
+		        induty_name       AS indutyName,
+		        SUM(total_amount) AS totalAmount
+		    FROM
+		        (
+		            SELECT
+		                a.corp_code,
+		                a.user_id,
+		                b.corp_name,
+		                ROUND(SUM((a.hold_quantity * a.avg_price)),0)         AS total_amount,
+		                substr(b.induty_code, 0, 3)                  AS induty_code,
+		                fun_getindutynm(substr(b.induty_code, 0, 3)) AS induty_name
+		            FROM
+		                tb_portfolio_corp a,
+		                tb_bplc_detail    b
+		            WHERE
+		                    1 = 1
+		                AND a.corp_code = b.corp_code
+		                AND a.user_id = #{curUserId}
+		                AND a.hold_quantity > 0
+		            GROUP BY
+		                a.corp_code,
+		                a.user_id,
+		                b.corp_name,
+		                b.induty_code
+		        ) A
+		    GROUP BY
+		        user_id,
+		        induty_code,
+		        induty_name
+		) B
+		WHERE 1=1
+		AND A.USER_ID = B.USER_ID(+)
+		AND a.user_id = #{curUserId}
+		ORDER BY totalAmount DESC
+	</select>
+	
+	<!-- 
+	<select id="getCorpCode"  parameterType="hashMap" resultType="HashMap">
+		SELECT CORP_CODE FROM TB_BPLC_DETAIL
+		WHERE 1=1
+		<if test="pStockCode != null and pStockCode != '' ">
+			AND STOCK_CODE = #{pStockCode}
+		</if>
+	</select>
+	 -->
+</mapper>

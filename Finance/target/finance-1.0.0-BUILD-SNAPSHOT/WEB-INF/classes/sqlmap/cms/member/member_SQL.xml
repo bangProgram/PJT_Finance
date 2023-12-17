@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	
+	<insert id="createMember" parameterType="Map">
+		INSERT INTO TB_USER (
+		    USER_ID ,PASSWORD ,USER_NAME ,USER_NICK ,CERTIFIED
+			,USER_GROUP ,GROUP_AUTHOR ,USE_AT
+			,PW_CHANGE_DATE ,CREATE_DATE ,CHANGE_DATE ,ERROR_COUNT
+			,FILE_ID ,PLATFORM ,AVATAR_URL
+		) VALUES (
+			#{userId}, #{password}, #{userName}, '',  'N' 
+		    ,'0405', '0505', 'Y'
+		    ,SYSDATE ,SYSDATE ,SYSDATE , 0
+		    ,'', #{platform}, #{avatarUrl}
+		)
+	</insert>
+	
+	<select id="getMemberVO" parameterType="hashMap" resultType="memberVO">
+		SELECT 
+			USER_ID, PASSWORD, USER_NAME, USER_NICK, 
+			CERTIFIED, USER_GROUP, GROUP_AUTHOR, USE_AT, 
+			PHONE_NUMBER, EMAIL, SESSION_ID, 
+			PW_CHANGE_DATE, CREATE_DATE, CHANGE_DATE, 
+			ERROR_TIME, ERROR_COUNT,
+			FILE_ID,
+			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.USER_GROUP) AS USER_GROUP_NM,
+			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.GROUP_AUTHOR) AS GROUP_AUTHOR_NM
+		FROM TB_USER A
+		WHERE USER_ID = #{userId}
+	</select>
+	
+	<select id="getMemberToJson" parameterType="hashMap" resultType="hashMap">
+		SELECT 
+			USER_ID AS "userId", PASSWORD as "password", USER_NAME as "userName", USER_NICK as "userNick", 
+			CERTIFIED as "certified", USER_GROUP as "userGroup", GROUP_AUTHOR as "groupAuthor", USE_AT as "useAt", 
+			PHONE_NUMBER as "phoneNumber", SESSION_ID as "sessionId", 
+			PW_CHANGE_DATE as "pwChangeDate", CREATE_DATE as "createDate", CHANGE_DATE as "changeDate", 
+			ERROR_TIME as "errorTime", ERROR_COUNT as "errorCount",
+			FILE_ID as "fileName", PLATFORM as "platform", AVATAR_URL as "avatarUrl",
+			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.USER_GROUP) AS "userGroupNm",
+			(SELECT CODE_NM FROM TB_CODE WHERE CODE = A.GROUP_AUTHOR) AS "groupAuthorNm"
+		FROM TB_USER A
+		WHERE USER_ID = #{userId}
+		AND USE_AT = 'Y'
+	</select>
+	
+	<update id="updateErrorCnt">
+		UPDATE TB_USER A SET ERROR_TIME = SYSDATE, ERROR_COUNT = (A.ERROR_COUNT+1)
+		WHERE USER_ID = #{userId}
+	</update>
+	
+	<update id="updateMember" parameterType="Map"> 
+		UPDATE TB_USER 
+		SET
+	      	<if test="userName != '' and userName != null">
+			    USER_NAME = #{userName},
+			</if>
+			<if test="userNick != '' and userNick != null">
+			    USER_NICK = #{userNick},
+			</if>
+			<if test="certified != '' and certified != null">
+				CERTIFIED = #{certified},
+			</if>
+			<if test="userGroup != '' and userGroup != null">
+				USER_GROUP = #{userGroup},
+			</if>
+			<if test="groupAuthor != '' and groupAuthor != null">
+				GROUP_AUTHOR = #{groupAuthor},
+			</if>
+			<if test="useAt != '' and useAt != null">
+				USE_AT = #{useAt},
+			</if>
+			<if test="phoneNumber != '' and phoneNumber != null">
+				PHONE_NUMBER = #{phoneNumber},
+			</if>
+			<if test="sessionId != '' and sessionId != null">
+				SESSION_ID = #{sessionId},
+			</if>
+			<if test="pwChangeDate != '' and pwChangeDate != null">
+				PW_CHANGE_DATE = #{pwChangeDate},
+			</if>
+			<if test="errorTime != '' and errorTime != null">
+				ERROR_TIME = #{errorTime},
+			</if>
+			<if test="errorCount != '' and errorCount != null">
+				ERROR_COUNT = #{errorCount},
+			</if>
+			<if test="fileName != '' and fileName != null">
+				FILE_ID = #{fileName},
+			</if>
+			<if test="avatarUrl != '' and avatarUrl != null">
+				AVATAR_URL = #{avatarUrl},
+			</if>
+		    CHANGE_DATE = SYSDATE
+			WHERE
+				USER_ID = #{userId}
+	</update>
+	
+	<select id="getMember" parameterType="Map" resultType="HashMap">
+		SELECT 
+		    A.USER_ID, A.USER_NAME, A.USER_NICK,
+		    A.CERTIFIED, A.USER_GROUP, A.GROUP_AUTHOR, A.USE_AT, 
+			A.PHONE_NUMBER, A.EMAIL,
+			A.PW_CHANGE_DATE, A.CREATE_DATE, A.CHANGE_DATE, 
+			A.ERROR_TIME, A.ERROR_COUNT,
+		    (SELECT CODE_NM FROM TB_CODE WHERE CODE = A.USER_GROUP) AS USER_GROUP_NM,
+		    (SELECT CODE_NM FROM TB_CODE WHERE CODE = A.GROUP_AUTHOR) AS GROUP_AUTHOR_NM,
+		    B.DEPOSIT_AMOUNT, ROUND(B.INVEST_AMOUNT,0) AS INVEST_AMOUNT, B.RESERVE_AMOUNT,
+		    COUNT(C.CORP_CODE) AS PORT_CORP_CNT
+		FROM TB_USER A , TB_PORTFOLIO B, TB_PORTFOLIO_CORP C
+		WHERE 1=1
+		AND A.USER_ID = B.USER_ID
+		AND B.USER_ID = C.USER_ID
+		GROUP BY 	A.USER_ID, A.USER_NAME, A.USER_NICK,
+		     		A.CERTIFIED, A.USER_GROUP, A.GROUP_AUTHOR, A.USE_AT, 
+					A.PHONE_NUMBER, A.EMAIL,
+					A.PW_CHANGE_DATE, A.CREATE_DATE, A.CHANGE_DATE, 
+					A.ERROR_TIME, A.ERROR_COUNT,
+		    		B.DEPOSIT_AMOUNT, B.INVEST_AMOUNT, B.RESERVE_AMOUNT
+	</select>
+	
+</mapper>
