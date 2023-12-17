@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appPlanbookMapper">
+	
+	<sql id="wherePlanbook">
+		<!-- 
+		<if test="pAccountCnt != 0 ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		
+		<if test="pAccountCnt == 0  ">
+			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
+			( 'ifrs-full_Revenue' , 'dart_OperatingIncomeLoss' , 'ifrs-full_ProfitLoss')
+		</if>
+		 -->
+		 
+		
+		        
+		
+	</sql>
+	
+	
+	
+	<select id="getPlanbookList" parameterType="hashMap" resultType="HashMap">  
+	    SELECT
+			A.Corp_Code As "corpCode", A.Corp_Name As "corpName", A.Stock_Code As "stockCode", A.User_Id As "userId"
+			, A.Create_Id As "createId", A.Create_Dt As "createDt", A.Change_Id As "changeId", nvl(b.Change_Dt,a.change_dt) As "changeDt"
+			,to_number((Select Bef_Cls_Price From Tb_Bplc_Detail Where Corp_Code = A.Corp_Code)) As "befClsPrice"
+			, c.memo AS "memo"
+			, NVL(B.Invest_Opinion,'미추정') As "investOpinion"
+			, B.Opinion_Amount1 As "opinionAmount1"
+			, B.Opinion_Amount2 As "opinionAmount2"
+			, B.Opinion_Amount3 As "opinionAmount3"
+			, B.Opinion_Amount4 As "opinionAmount4"
+			, B.Opinion_Amount5 As "opinionAmount5"
+			, B.Period_Gubn As "periodGubn", NVL((SELECT CODE_NM FROM TB_CODE WHERE CODE = B.Period_Gubn),'미정') As "periodNm"
+			,B.Estimate_Eps As "estimateEps", B.Estimate_Per As "estimatePer", B.Estimate_Cagr As "estimateCagr"
+		FROM TB_INTEREST A, TB_INTEREST_DETAIL B, 
+	    (
+	        SELECT corp_code, user_id, memo FROM (
+	            SELECT
+	                corp_code, user_id, memo,
+	                rank() over(partition by corp_code, user_id order by seq desc) as rnum
+	            FROM tb_interest_memo
+	            group by corp_code, user_id , seq, memo
+	        )
+	        WHERE RNUM = 1
+	    ) C
+		WHERE 1=1
+		AND A.CORP_CODE = B.CORP_CODE(+)
+		AND A.USER_ID = B.USER_ID(+)
+	    AND a.corp_code = c.corp_code (+)
+	    AND a.user_id = c.user_id (+)
+	    AND A.USER_ID = #{curUserId}
+	    <if test="pPeriodGubn != null and pPeriodGubn != '' ">
+	    	AND B.PERIOD_GUBN = #{pPeriodGubn}
+	    </if>
+	    <if test="pPeriodGubn == '' ">
+	    	AND B.PERIOD_GUBN is null
+	    </if>
+	</select>
+	
+	<select id="getPlanDetailInfo"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    A.Corp_Code As "corpCode", A.Corp_Name As "corpName", A.Stock_Code As "stockCode", A.User_Id As "userId"
+		    , A.Create_Id As "createId", A.Create_Dt As "createDt", A.Change_Id As "changeId", A.Change_Dt As "changeDt"
+		    , TO_NUMBER(c.bef_cls_price) AS "befClsPrice"
+		    , TO_NUMBER(c.shares_amount) AS "sharesAmount"
+		    , TO_NUMBER(c.market_capital)AS "marketCapital"
+		    , TO_NUMBER(c.TRADE_VOLUME)AS "tradeVolume"
+		    , TO_NUMBER(c.TRADE_AMOUNT)AS "tradeAmount"
+		    , TO_NUMBER(c.COMPARE_AMOUNT)AS "compareAmount"
+		    , c.FLUCTUATE_RATE AS "fluctuateRate"
+		    , TO_NUMBER(c.ST_PRICE)AS "stPrice"
+		    , TO_NUMBER(c.HG_PRICE)AS "hgPrice"
+		    , TO_NUMBER(c.LW_PRICE)AS "lwPrice"
+		    , NVL(B.Invest_Opinion,'미추정') As "investOpinion"
+		    , B.Opinion_Amount1 As "opinionAmount1"
+		    , B.Opinion_Amount2 As "opinionAmount2"
+		    , B.Opinion_Amount3 As "opinionAmount3"
+		    , B.Opinion_Amount4 As "opinionAmount4"
+		    , B.Opinion_Amount5 As "opinionAmount5"
+		    , B.Period_Gubn As "periodGubn", NVL((SELECT CODE_NM FROM TB_CODE WHERE CODE = B.Period_Gubn),'미정') As "periodNm"
+		    ,B.Estimate_Eps As "estimateEps", B.Estimate_Per As "estimatePer", B.Estimate_Cagr As "estimateCagr"
+		    ,TO_CHAR(d.AVG_GROWTH1) as "avgGrowthArith1"
+		    ,TO_CHAR(d.AVG_GROWTH2) as "avgGrowthArith2"
+		    ,TO_CHAR(d.AVG_GROWTH3) as "avgGrowthArith3"
+		    ,TO_CHAR(d.AVG_GROWTH4) as "avgGrowthArith4"
+		    ,e.AVG_GROWTH1 as "avgGrowthGeo1"
+		    ,e.AVG_GROWTH2 as "avgGrowthGeo2"
+		    ,e.AVG_GROWTH3 as "avgGrowthGeo3"
+		    ,e.AVG_GROWTH4 as "avgGrowthGeo4"
+		    ,e.MIN_YEAR as "geoStYear"
+		    ,e.MAX_YEAR as "geoEdYear"
+		FROM TB_INTEREST A, TB_INTEREST_DETAIL B, tb_bplc_detail C,
+		(
+			SELECT
+				CORP_CODE, REPRT_CODE
+				, ROUND(SUM(AVG_GROWTH1),2) AS AVG_GROWTH1
+				, ROUND(SUM(AVG_GROWTH2),2) AS AVG_GROWTH2
+				, ROUND(SUM(AVG_GROWTH3),2) AS AVG_GROWTH3
+				, ROUND(SUM(AVG_GROWTH4),2) AS AVG_GROWTH4
+			FROM (
+				SELECT
+					CORP_CODE, REPRT_CODE
+					,DECODE(ACCOUNT_ID,'ifrs-full_Revenue',SUM(growth)/COUNT(GROWTH)) AS AVG_GROWTH1
+					,DECODE(ACCOUNT_ID,'dart_OperatingIncomeLoss',SUM(growth)/COUNT(GROWTH)) AS AVG_GROWTH2
+					,DECODE(ACCOUNT_ID,'ifrs-full_ProfitLoss',SUM(growth)/COUNT(GROWTH)) AS AVG_GROWTH3
+					,DECODE(ACCOUNT_ID,'ifrs-full_BasicEarningsLossPerShare',SUM(growth)/COUNT(GROWTH)) AS AVG_GROWTH4
+				FROM (
+					select
+						CORP_CODE, BSNS_YEAR, REPRT_CODE,  ACCOUNT_ID
+						,ACCUMULATED_NET_AMOUNT, BEF_ACCUMULATED_NET_AMOUNT
+						,((ACCUMULATED_NET_AMOUNT/decode(BEF_ACCUMULATED_NET_AMOUNT,0,null,BEF_ACCUMULATED_NET_AMOUNT))-1)*100 as growth
+					from tb_bplc_report
+					where 1=1
+					and reprt_code = '0304'
+					order by CORP_CODE, account_id, bsns_year desc
+				)
+				GROUP BY CORP_CODE, REPRT_CODE, ACCOUNT_ID
+			)
+			GROUP BY CORP_CODE, REPRT_CODE
+		) D,
+		(
+			SELECT
+				CORP_CODE, REPRT_CODE
+				,ROUND(SUM(DECODE(ACCOUNT_ID,'ifrs-full_Revenue',AVG_NET_AMOUNT)),2) AS AVG_GROWTH1
+				,ROUND(SUM(DECODE(ACCOUNT_ID,'dart_OperatingIncomeLoss',AVG_NET_AMOUNT)),2) AS AVG_GROWTH2
+				,ROUND(SUM(DECODE(ACCOUNT_ID,'ifrs-full_ProfitLoss',AVG_NET_AMOUNT)),2) AS AVG_GROWTH3
+				,ROUND(SUM(DECODE(ACCOUNT_ID,'ifrs-full_BasicEarningsLossPerShare',AVG_NET_AMOUNT)),2) AS AVG_GROWTH4
+				,MAX(MIN_YEAR) AS MIN_YEAR, MAX(MAX_YEAR) AS MAX_YEAR
+			FROM(
+				SELECT
+					CORP_CODE, REPRT_CODE, BSNS_YEAR, ACCOUNT_ID ,ACCUMULATED_NET_AMOUNT
+					,BEF_AMOUNT, MIN_YEAR, MAX_YEAR
+					,(POWER(NVL(ACCUMULATED_NET_AMOUNT/DECODE(BEF_AMOUNT, 0, null, BEF_AMOUNT),0),(1/(MAX_YEAR-MIN_YEAR+1)))-1)*100 AS AVG_NET_AMOUNT
+				FROM (
+					SELECT
+						A.CORP_CODE, A.REPRT_CODE, A.BSNS_YEAR, A.ACCOUNT_ID ,A.ACCUMULATED_NET_AMOUNT
+						,LEAD(BEF_ACCUMULATED_NET_AMOUNT) OVER (PARTITION BY A.CORP_CODE, A.ACCOUNT_ID ORDER BY A.CORP_CODE, A.account_id, A.BSNS_YEAR DESC) AS BEF_AMOUNT
+						,MIN_YEAR, MAX_YEAR
+					FROM tb_bplc_report A
+					INNER JOIN
+					(
+						SELECT CORP_CODE, REPRT_CODE, ACCOUNT_ID, MIN(BSNS_YEAR) AS MIN_YEAR, MAX(BSNS_YEAR) AS MAX_YEAR FROM TB_BPLC_REPORT
+						WHERE REPRT_CODE = '0304'
+						GROUP BY CORP_CODE, REPRT_CODE, ACCOUNT_ID
+					) B
+					ON A.CORP_CODE = B.CORP_CODE
+					AND A.REPRT_CODE = B.REPRT_CODE
+					AND A.ACCOUNT_ID = B.ACCOUNT_ID
+					AND A.BSNS_YEAR IN (B.MIN_YEAR, B.MAX_YEAR)
+					where 1=1
+					and A.reprt_code = '0304'
+					order by A.CORP_CODE, A.account_id, A.BSNS_YEAR DESC
+				)
+				WHERE 1=1 
+				AND BEF_AMOUNT IS NOT null
+				AND BEF_AMOUNT <![CDATA[ > ]]>  0
+				AND ACCUMULATED_NET_AMOUNT <![CDATA[ > ]]> 0
+			)
+			GROUP BY CORP_CODE, REPRT_CODE
+		) E
+		WHERE 1=1
+		AND A.CORP_CODE = B.CORP_CODE(+)
+    	AND A.CORP_CODE = C.CORP_CODE
+	    AND A.STOCK_CODE = D.CORP_CODE
+	    AND A.STOCK_CODE = E.CORP_CODE
+	    AND A.USER_ID = #{curUserId}
+	    <if test="pCorpCode != null and pCorpCode != '' ">
+	    	AND A.CORP_CODE = #{pCorpCode}
+	    </if>
+	</select>
+	
+	<select id="getPlanDetailMemo"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    A.Corp_Code As "corpCode", A.Corp_Name As "corpName", A.Stock_Code As "stockCode", A.User_Id As "userId"
+            , B.SEQ AS "seq", B.GUBN as "gubn", B.MEMO as "memo", B.CREATE_DT as "createDt", B.CHANGE_DT as "changeDt"
+		FROM TB_INTEREST A, TB_INTEREST_MEMO B
+		WHERE 1=1
+		AND A.CORP_CODE = B.CORP_CODE
+        AND A.USER_ID = B.USER_ID
+	    AND A.USER_ID = #{curUserId}
+	    <if test="pCorpCode != null and pCorpCode != '' ">
+	    	AND A.CORP_CODE = #{pCorpCode}
+	    </if>
+	    ORDER BY B.CREATE_DT DESC
+	</select>
+	
+	
+	
+	
+	<insert id="addPlanMemo" parameterType="HashMap"  >  
+		<selectKey keyProperty="seq" resultType="int" order="BEFORE">
+	        (SELECT Max(seq)+1
+				FROM tb_interest_memo where corp_code = #{pCorpCode} and user_id = #{curUserId} )
+	    </selectKey>
+
+		
+	
+		INSERT INTO TB_INTEREST_MEMO (
+			CORP_CODE, STOCK_CODE, USER_ID, SEQ 
+			<if test="pMemo != null and pMemo != '' ">
+				, MEMO 
+			</if>, CREATE_ID, CREATE_DT, CHANGE_ID, CHANGE_DT
+		) VALUES (
+			#{pCorpCode}
+			, (SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{pCorpCode})
+			, #{curUserId}
+			<if test="seq != null and seq != '' ">
+				, #{seq}
+			</if>
+			<if test="seq == null or seq == '' ">
+				, 1
+			</if>
+			<if test="pMemo != null and pMemo != '' ">
+				, #{pMemo}
+			</if>, #{curUserId}, SYSDATE ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		)
+	    
+	</insert>
+	
+	<insert id="delPlanMemo" parameterType="HashMap"  >  
+	    DELETE TB_INTEREST_MEMO
+		WHERE  1=1
+		AND CORP_CODE = #{pCorpCode}
+	    AND USER_ID = #{curUserId}
+		AND SEQ = #{pSeq}
+	</insert>
+	
+	
+	<insert id="mergePlaninfo" parameterType="hashMap">
+	
+	  
+		<selectKey keyProperty="BEF_CLS_PRICE" resultType="int" order="BEFORE">
+	        (SELECT BEF_CLS_PRICE
+				FROM TB_BPLC_DETAIL where corp_code = #{corpCode} )
+	    </selectKey>
+	
+		BEGIN
+			MERGE INTO 
+			    TB_INTEREST_DETAIL A 
+			USING DUAL ON (
+			    A.CORP_CODE = #{corpCode}
+				AND A.USER_ID = #{curUserId}
+		    ) 
+			WHEN MATCHED THEN 
+			    UPDATE SET 
+	                CHANGE_ID = #{curUserId}
+	                , CHANGE_DT = SYSDATE
+	                <if test="periodGubn != null">
+	                	, PERIOD_GUBN = #{periodGubn}
+	                </if>
+	                <if test="estimateEps != null and estimateEps != '' ">
+	                	, ESTIMATE_EPS = #{estimateEps}
+	                </if>
+	                <if test="estimatePer != null and estimatePer != '' ">
+	                	, ESTIMATE_PER = #{estimatePer}
+	                </if>
+	                <if test="estimateCagr != null and estimateCagr != '' ">
+	                	, ESTIMATE_CAGR = #{estimateCagr}
+	                </if>
+	                <if test="investOpinion != null and investOpinion != '' ">
+	                	, INVEST_OPINION = #{investOpinion}
+	                </if>
+	                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
+	               	 , OPINION_AMOUNT1 = #{opinionAmount1}
+	                </if>
+	                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
+	                	, OPINION_AMOUNT2  = #{opinionAmount2}
+	                </if>
+	                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
+	                	, OPINION_AMOUNT3 = #{opinionAmount3}
+	                </if>
+	                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
+	                	, OPINION_AMOUNT4 = #{opinionAmount4}
+	                </if>
+	                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
+	                	, OPINION_AMOUNT5 = #{opinionAmount5}
+	                </if>
+			WHEN NOT MATCHED THEN 
+			    INSERT (
+			    	CORP_CODE
+	                , STOCK_CODE
+	                , USER_ID
+	                , CORP_NAME
+	                <if test="periodGubn != null">
+	                	, PERIOD_GUBN
+	                </if>
+	                <if test="estimateEps != null and estimateEps != '' ">
+	                	, ESTIMATE_EPS
+	                </if>
+	                <if test="estimatePer != null and estimatePer != '' ">
+	                	, ESTIMATE_PER
+	                </if>
+	                <if test="estimateCagr != null and estimateCagr != '' ">
+	                	, ESTIMATE_CAGR
+	                </if>
+	                <if test="investOpinion != null and investOpinion != '' ">
+	                	, INVEST_OPINION
+	                </if>
+	                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
+	               	 , OPINION_AMOUNT1
+	                </if>
+	                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
+	                	, OPINION_AMOUNT2
+	                </if>
+	                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
+	                	, OPINION_AMOUNT3
+	                </if>
+	                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
+	                	, OPINION_AMOUNT4
+	                </if>
+	                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
+	                	, OPINION_AMOUNT5
+	                </if>
+	                , CREATE_ID
+	                , CREATE_DT
+	                , CHANGE_ID
+	                , CHANGE_DT
+	            ) 
+			    VALUES (
+			    	#{corpCode}
+	                , (SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{corpCode})
+	                , #{curUserId}
+	                , (SELECT STOCK_NAME FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{corpCode})
+	                <if test="periodGubn != null">
+	                	, #{periodGubn}
+	                </if>
+	                <if test="estimateEps != null and estimateEps != '' ">
+	                	,  #{estimateEps}
+	                </if>
+	                <if test="estimatePer != null and estimatePer != '' ">
+	                	, #{estimatePer}
+	                </if>
+	                <if test="estimateCagr != null and estimateCagr != '' ">
+	                	,#{estimateCagr}
+	                </if>
+	                <if test="investOpinion != null and investOpinion != '' ">
+	                	, #{investOpinion}
+	                </if>
+	                <if test="opinionAmount1 != null and opinionAmount1 != '' ">
+	               	 	, #{opinionAmount1}
+	                </if>
+	                <if test="opinionAmount2 != null and opinionAmount2 != '' ">
+	                	, #{opinionAmount2}
+	                </if>
+	                <if test="opinionAmount3 != null and opinionAmount3 != '' ">
+	                	, #{opinionAmount3}
+	                </if>
+	                <if test="opinionAmount4 != null and opinionAmount4 != '' ">
+	                	, #{opinionAmount4}
+	                </if>
+	                <if test="opinionAmount5 != null and opinionAmount5 != '' ">
+	                	, #{opinionAmount5}
+	                </if>
+	                , #{curUserId}
+	                , SYSDATE
+	                , #{curUserId}
+	                , SYSDATE
+	            );
+	            
+	            
+	            UPDATE  TB_INTEREST_DETAIL a SET INVEST_OPINION = (
+					SELECT 
+						<![CDATA[ 
+						CASE WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT1,0) )
+							THEN '매수'
+							WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT2,0) )
+							THEN '비중확대'
+							WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT3,0) )
+							THEN '중립'
+							WHEN NVL(#{BEF_CLS_PRICE},0) < ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
+							THEN '비중축소'
+							WHEN NVL(#{BEF_CLS_PRICE},0) >= ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
+							THEN '매도'
+							ELSE '의견없음'
+						END
+						]]> 
+					FROM TB_INTEREST_DETAIL A WHERE 
+						a.CORP_CODE = #{corpCode}
+			   			and a.USER_ID = #{curUserId}
+				)
+				WHERE
+			   		a.CORP_CODE = #{corpCode}
+			   		and a.USER_ID = #{curUserId}
+			   	;
+	            
+		END;
+	</insert>
+</mapper>
