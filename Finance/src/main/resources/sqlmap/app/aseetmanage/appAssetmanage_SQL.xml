@@ -3,7 +3,9 @@
 <mapper namespace="appAssetmanageMapper">
 	
 	<sql id="whereUtil">
-		<!-- 
+	
+		<!--
+		테스트 커밋용 
 		<if test="pAccountCnt != 0 ">
 			AND replace(account_id, 'ifrs_', 'ifrs-full_') IN 
 			<foreach collection="pAccountIds" item="item" open="(" close=")" separator=",">
