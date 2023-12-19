@@ -286,7 +286,7 @@
 			<if test="MEMO != null and MEMO != '' ">
 				#{MEMO},
 			</if>
-		    #{curUserId}  ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		    #{curUserId}  ,SYSDATE ,#{curUserId} ,SYSDATE
 		)
 	    
 	</insert>

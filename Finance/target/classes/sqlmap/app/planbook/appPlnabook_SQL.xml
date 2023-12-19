@@ -218,7 +218,7 @@
 			</if>
 			<if test="pMemo != null and pMemo != '' ">
 				, #{pMemo}
-			</if>, #{curUserId}, SYSDATE ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+			</if>, #{curUserId}, SYSDATE ,#{curUserId} ,SYSDATE
 		)
 	    
 	</insert>
