@@ -35,7 +35,7 @@
 			(SELECT STOCK_NAME FROM TB_BPLC_DETAIL WHERE STOCK_CODE = #{pStockCode}),
 			#{pStockCode},
 			'',
-		    #{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		    #{curUserId} ,SYSDATE ,#{curUserId} ,SYSDATE
 		)
 	    
 	</insert>
@@ -221,7 +221,7 @@
 		    	(SELECT NVL(MAX(SEQ),0)+1 FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE=#{pCorpCode} AND USER_ID=#{curUserId}),
 		    	#{pCorpCode},#{curUserId},(SELECT STOCK_CODE FROM TB_BPLC_DETAIL WHERE CORP_CODE = #{pCorpCode}),
 		    	#{pTradeGubn},
-		    	#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+		    	#{curUserId},SYSDATE,#{curUserId},SYSDATE,
 				<if test="pMemo != null and pMemo != '' ">
 		    		#{pMemo},
 				</if>

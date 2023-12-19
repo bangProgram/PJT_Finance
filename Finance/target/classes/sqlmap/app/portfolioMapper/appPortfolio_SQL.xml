@@ -206,7 +206,7 @@
 						ESTIMATE_CAGR		=	#{ESTIMATE_CAGR},
 					</if>
 		         	a.CHANGE_ID = #{curUserId},
-		          	a.CHANGE_DT = TO_CHAR(SYSDATE,'YYYY-MM-DD')
+		          	a.CHANGE_DT = SYSDATE
 					</set>
 			 WHEN NOT MATCHED THEN
 					INSERT (
@@ -247,7 +247,7 @@
 							#{AVG_PROFIT_GROWTH},
 						</if>
 						'',
-					    #{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD') ,#{curUserId} ,TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+					    #{curUserId} ,SYSDATE ,#{curUserId} ,SYSDATE,
 						(
 					        SELECT
 					            to_CLOB(memo) AS memo
@@ -390,7 +390,7 @@
 					<if test="MEMO != null and MEMO != '' ">
 						#{MEMO},
 					</if>
-				     #{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId}, TO_CHAR(SYSDATE,'YYYY-MM-DD') 
+				     #{curUserId}, SYSDATE ,#{curUserId}, SYSDATE
 				)
 	    
 	</insert>
@@ -467,7 +467,7 @@
 		    	(SELECT NVL(MAX(SEQ),0)+1 FROM TB_PORTFOLIO_CORP_DETAIL WHERE CORP_CODE=#{CORP_CODE} AND USER_ID=#{curUserId}),
 		    	#{CORP_CODE},#{curUserId},
 		    	#{gubn},
-		    	#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),#{curUserId},TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+		    	#{curUserId},SYSDATE,#{curUserId},SYSDATE,
 		    	#{MEMO},
 		    	#{BUY_QUANTITY},#{SELL_QUANTITY},
 		    	#{BUY_AMOUNT},#{SELL_AMOUNT},
