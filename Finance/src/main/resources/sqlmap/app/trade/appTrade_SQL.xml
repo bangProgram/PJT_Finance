@@ -310,14 +310,14 @@
 	
 	<select id="getTradeCorpDetailInfo"  parameterType="hashMap" resultType="HashMap">
 		SELECT 
-		    A.DEPOSIT_AMOUNT as "depositAmount"
-		    , B.HOLD_QUANTITY as "holdQuantity"
-		    , ROUND(B.AVG_PRICE,0) AS "avgPrice" 
-		FROM TB_PORTFOLIO A, TB_PORTFOLIO_CORP B 
+		    NVL(b.deposit_amount,0)      AS "depositAmount",
+		    NVL(a.hold_quantity,0)       AS "holdQuantity",
+		    NVL(round(a.avg_price, 0),0) AS "avgPrice" 
+		FROM TB_PORTFOLIO_CORP A, TB_PORTFOLIO B 
 		WHERE 1=1
 		AND A.USER_ID = B.USER_ID (+)
 		AND A.USER_ID = #{curUserId}
-		AND B.CORP_CODE = #{pCorpCode}
+		AND A.CORP_CODE = #{pCorpCode}
 	</select>
 	
 </mapper>
