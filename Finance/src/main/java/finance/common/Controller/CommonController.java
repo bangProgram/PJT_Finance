@@ -71,6 +71,13 @@ public class CommonController implements CommonConstants {
 		return result;
 	}
 	
+	public Map<String,Object> getStockCode(String corpCode) throws Exception {
+		Map<String,Object> param = new HashMap<String, Object>();
+		param.put("pCorpCode", corpCode);
+		Map<String,Object> result = appUtilService.getStockCode(param);
+		return result;
+	}
+	
 	public Map<String,Object> getRecentReport(String stockCode) throws Exception {
 		Map<String,Object> param = new HashMap<String, Object>();
 		param.put("pStockCode", stockCode);

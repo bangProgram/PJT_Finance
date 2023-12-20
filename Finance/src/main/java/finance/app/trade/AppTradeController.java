@@ -153,6 +153,11 @@ public class AppTradeController extends DefaultController{
             responseData.put("assetRecord", assetRecord);
             responseData.put("assetRecordCnt", assetRecord.size());
             
+            //거래일지 작성 후 기업상세 및 자산정보 가져오기
+        	Map<String, Object> detailInfo = appTradeactionService.getTradeCorpDetailInfo(commandMap);
+
+            responseData.put("detailInfo", detailInfo);
+            
     		return ResponseEntity.ok(responseData);
         } catch (Exception e) {
         	System.out.println("error occured : "+e);
@@ -178,6 +183,29 @@ public class AppTradeController extends DefaultController{
 
             responseData.put("assetRecord", assetRecord);
             responseData.put("assetRecordCnt", assetRecord.size());
+
+            //거래일지 작성 후 기업상세 및 자산정보 가져오기
+        	Map<String, Object> detailInfo = appTradeactionService.getTradeCorpDetailInfo(commandMap);
+
+            responseData.put("detailInfo", detailInfo);
+            
+    		return ResponseEntity.ok(responseData);
+        } catch (Exception e) {
+        	System.out.println("error occured : "+e);
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+	
+	@PostMapping("/corpDetail/info")
+    public ResponseEntity<Map<String, Object>> getTradeCorpDetailInfo(HttpServletRequest request, @RequestBody Map<String,Object> commandMap) throws Exception{
+		commandMap = init(request, commandMap);
+		
+        try {
+        	Map<String, Object> responseData = new HashMap<String, Object>();
+            
+        	Map<String, Object> detailInfo = appTradeactionService.getTradeCorpDetailInfo(commandMap);
+
+            responseData.put("detailInfo", detailInfo);
             
     		return ResponseEntity.ok(responseData);
         } catch (Exception e) {

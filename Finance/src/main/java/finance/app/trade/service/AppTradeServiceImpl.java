@@ -66,4 +66,12 @@ public class AppTradeServiceImpl implements AppTradeService {
 	    Integer resultInt = (Integer) commonMapper.insert(param);
 	    return resultInt;
 	}
+	
+	@Override
+	public Map<String, Object> getTradeCorpDetailInfo(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getTradeCorpDetailInfo");
+	   Map<String, Object> result = commonMapper.get(param);
+	    return result;
+
+	}
 }

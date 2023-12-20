@@ -241,6 +241,7 @@
 			
 			UPDATE TB_PORTFOLIO_CORP SET 
 				HOLD_QUANTITY = (SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{pCorpCode} AND USER_ID = #{curUserId}) 
+				,AVG_PRICE = DECODE((SELECT SUM(NVL(BUY_QUANTITY,0)) - SUM(NVL(SELL_QUANTITY,0)) FROM TB_PORTFOLIO_CORP_DETAIL  WHERE CORP_CODE = #{pCorpCode} AND USER_ID = #{curUserId}), 0, 0, AVG_PRICE)
 			WHERE CORP_CODE = #{pCorpCode}
 			AND USER_ID = #{curUserId}
 			;
@@ -306,5 +307,17 @@
 		END;
 		
 	</delete>
+	
+	<select id="getTradeCorpDetailInfo"  parameterType="hashMap" resultType="HashMap">
+		SELECT 
+		    A.DEPOSIT_AMOUNT as "depositAmount"
+		    , B.HOLD_QUANTITY as "holdQuantity"
+		    , ROUND(B.AVG_PRICE,0) AS "avgPrice" 
+		FROM TB_PORTFOLIO A, TB_PORTFOLIO_CORP B 
+		WHERE 1=1
+		AND A.USER_ID = B.USER_ID (+)
+		AND A.USER_ID = #{curUserId}
+		AND B.CORP_CODE = #{pCorpCode}
+	</select>
 	
 </mapper>
