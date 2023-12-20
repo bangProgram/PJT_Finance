@@ -241,6 +241,7 @@
 	    </selectKey>
 	
 		BEGIN
+		
 			MERGE INTO 
 			    TB_INTEREST_DETAIL A 
 			USING DUAL ON (
@@ -364,6 +365,8 @@
 	            );
 	            
 	            
+                
+	            
 	            UPDATE  TB_INTEREST_DETAIL a SET INVEST_OPINION = (
 					SELECT 
 						<![CDATA[ 
@@ -377,7 +380,7 @@
 							THEN '비중축소'
 							WHEN NVL(#{BEF_CLS_PRICE},0) >= ( NVL(ESTIMATE_EPS,0)* NVL(OPINION_AMOUNT4,0) )
 							THEN '매도'
-							ELSE '의견없음'
+							ELSE '미추정'
 						END
 						]]> 
 					FROM TB_INTEREST_DETAIL A WHERE 

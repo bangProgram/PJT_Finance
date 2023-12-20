@@ -17,4 +17,6 @@ public interface AppTradeService {
 	public Integer addTradeCorpDetail(Map<String, Object> param) throws Exception;
 	
 	public Integer delTradeCorpDetail(Map<String, Object> param) throws Exception;
+	
+	public Map<String, Object> getTradeCorpDetailInfo(Map<String, Object> param) throws Exception;
 }

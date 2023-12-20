@@ -40,5 +40,13 @@ public class AppUtilServiceImpl implements AppUtilService {
 	    return result;
 
 	}
+	
+	@Override
+	public Map<String, Object> getStockCode(Map<String, Object> param) throws Exception {
+	    param.put("mId", namespace+"getStockCode");
+	    Map<String, Object> result = commonMapper.get(param);
+	    return result;
+
+	}
 
 }

@@ -56,4 +56,12 @@
 		WHERE ROWNUM = 1
 	</select>
 	
+	
+	<select id="getStockCode"  parameterType="hashMap" resultType="HashMap">
+		SELECT STOCK_CODE FROM TB_BPLC_DETAIL
+		WHERE 1=1
+		<if test="pCorpCode != null and pCorpCode != '' ">
+			AND CORP_CODE = #{pCorpCode}
+		</if>
+	</select>
 </mapper>
