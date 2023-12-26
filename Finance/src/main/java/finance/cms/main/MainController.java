@@ -55,4 +55,9 @@ public class MainController extends DefaultController{
 	public ModelAndView goReport() {
 	    return new ModelAndView("report/reportView");
 	}
+	
+	@RequestMapping(value={"/main/privacyPolicy"} , method = RequestMethod.GET)
+	public ModelAndView goPrivacyPolicy() {
+	    return new ModelAndView("common/privacyPolicy.jsp");
+	}
 }
