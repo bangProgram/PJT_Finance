@@ -10,6 +10,9 @@
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2020</span>
                     </div>
+                    <div class="text-center">
+                        <a class="small" href="/main/privacyPolicy">개인정보 처리방침</a>
+                    </div>
                 </div>
             </footer>
             <!-- End of Footer -->
