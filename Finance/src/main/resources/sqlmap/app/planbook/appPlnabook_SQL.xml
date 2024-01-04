@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="appPlanbookMapper">
-<<<<<<< HEAD
-	
-=======
-	<!-- 작업완료 -->
->>>>>>> 67902cd259c0986a674543448cd8113f8711c4a7
 	<sql id="wherePlanbook">
 		<!-- 
 		<if test="pAccountCnt != 0 ">
@@ -170,10 +165,7 @@
 		) E
 		WHERE 1=1
 		AND A.CORP_CODE = B.CORP_CODE(+)
-<<<<<<< HEAD
-=======
 		AND A.USER_ID = B.USER_ID(+)
->>>>>>> 67902cd259c0986a674543448cd8113f8711c4a7
     	AND A.CORP_CODE = C.CORP_CODE
 	    AND A.STOCK_CODE = D.CORP_CODE
 	    AND A.STOCK_CODE = E.CORP_CODE
