@@ -9,6 +9,9 @@
 		<if test=" curUserId != null and curUserId != ''  ">
 			AND A.USER_ID = 'jeontesu0@gmail.com'
 		</if>
+		<if test=" curUserId == null || curUserId == ''  ">
+			AND A.USER_ID = 'junbyuonguk@gmail.com'
+		</if>
 	</sql>
 	
 	<select id="getPortfolio" parameterType="Map" resultType="HashMap">  

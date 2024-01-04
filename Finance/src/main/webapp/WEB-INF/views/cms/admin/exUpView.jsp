@@ -126,7 +126,7 @@ function goXMLSave(){
 </head>
 <body>
 <div class="container-fluid">
-업로드
+재무정보 업로드
 <form name="exform" id="exform" method="POST" enctype="multipart/form-data" style="margin: 30px;">
 	<input type="hidden" name="REPRT_NM" value=""/>
 	<input type="hidden" name="SJ_NM" value=""/>
@@ -162,7 +162,20 @@ function goXMLSave(){
   
 </form>
 
-사업장 현행화
+기업정보(xml) 업로드
+<form name="xmlForm" id="xmlForm" method="POST" enctype="multipart/form-data" style="margin: 30px;">
+	<table>
+		<tr>
+			<td colspan="2"><input type="file" name="file" /></td>
+		</tr>
+		<tr>
+			<td><a href="" onclick="goXMLSave();return false;" >XML 업로드</a></td>
+		</tr>
+	</table>
+
+</form>
+
+기업 상세정보 현행화
 <form name="corpForm" id="corpForm" method="GET" style="margin: 30px;">
 	<table>
 		<tr>
@@ -195,18 +208,7 @@ function goXMLSave(){
   
 </form>
 
-XML 파일 업로드
-<form name="xmlForm" id="xmlForm" method="POST" enctype="multipart/form-data" style="margin: 30px;">
-	<table>
-		<tr>
-			<td colspan="2"><input type="file" name="file" /></td>
-		</tr>
-		<tr>
-			<td><a href="" onclick="goXMLSave();return false;" >XML 업로드</a></td>
-		</tr>
-	</table>
-  
-</form>
+
 
 </div>
 
