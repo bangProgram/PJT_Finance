@@ -8,6 +8,12 @@
 		</if>
 		<if test=" curUserId != null and curUserId != ''  ">
 			AND A.USER_ID = 'jeontesu0@gmail.com'
+<<<<<<< HEAD
+=======
+		</if>
+		<if test=" curUserId == null || curUserId == ''  ">
+			AND A.USER_ID = 'junbyuonguk@gmail.com'
+>>>>>>> 67902cd259c0986a674543448cd8113f8711c4a7
 		</if>
 	</sql>
 	
