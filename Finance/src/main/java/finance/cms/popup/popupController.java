@@ -56,12 +56,11 @@ public class popupController extends DefaultController{
 		String corpCd = commandMap.get("corpCd").toString();
 		
 		String infoURL = "https://opendart.fss.or.kr/api/list.json?";
-		String crtfcKey = "fb1e1e5223c66ce1175f545ddd0ea9a15984528a";
 		
 		List<Map<String, Object>> getDartReportList = new ArrayList<Map<String, Object>> ();
 		try{
 			
-			URL url = new URL(infoURL+"crtfc_key="+crtfcKey+"&corp_code="+corpCd+"&bgn_de="+bgndate+"&end_de="+endDate+"&page_no=1&page_count=100");
+			URL url = new URL(infoURL+"crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCd+"&bgn_de="+bgndate+"&end_de="+endDate+"&page_no=1&page_count=100");
 			InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
 			JSONObject object = (JSONObject)JSONValue.parse(isr);
 			JSONArray infoList = (JSONArray) object.get("list");

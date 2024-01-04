@@ -107,4 +107,8 @@ local.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java
+=======
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,java
+>>>>>>> 67902cd259c0986a674543448cd8113f8711c4a7
