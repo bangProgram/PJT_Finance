@@ -69,14 +69,14 @@ public class AppReportController extends DefaultController{
         // 헤더 설정
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-type","application/json");
-        headers.add("authorization", "Bearer "+tokenService.getKisDevToken());
-		headers.add("appkey", kisDeveloperAppKey);
-		headers.add("appsecret", kisDeveloperAppSecretKey);
+        headers.add("authorization", "Bearer "+tokenService.getKDevToken());
+		headers.add("appkey", KdAk);
+		headers.add("appsecret", KdAsk);
 		headers.add("tr_id", "FHKST03010100");
         // 다른 헤더 필요시 추가
 		
 		System.out.println(
-				tokenService.getKisDevToken()+"\n"+kisDeveloperAppKey+"\n"+kisDeveloperAppSecretKey
+				tokenService.getKDevToken()+"\n"+KdAk+"\n"+KdAsk
 				);
 
         HttpEntity<String> entity = new HttpEntity<String>(headers);

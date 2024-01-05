@@ -266,7 +266,7 @@ public class AdminController extends DefaultController {
 		if(getCorpList != null) {
 			for(int i=0; i<getCorpList.size(); i++) {
 				String corpCode = getCorpList.get(i).get("CORP_CODE").toString();
-				String parameters = "?crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCode;
+				String parameters = "?crtfc_key="+Opk+"&corp_code="+corpCode;
 
 			    // URL과 파라미터 조합
 			    String uri = apiUrl + parameters;

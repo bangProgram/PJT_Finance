@@ -108,3 +108,4 @@ local.properties
 hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java
+Finance/src/main/java/finance/common/Controller/constinfo.xml
