@@ -249,7 +249,7 @@ public class AdminController extends DefaultController {
   	}
 	
 	
-	
+	//기업정보 현행화
 	@RequestMapping(value={"/cms/admin/mergeCorp"} , method = RequestMethod.GET)
 	public ModelAndView mergeCorpDetail(@RequestParam Map<String, Object> commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception{ 
 		commandMap = init(request, commandMap);
@@ -266,7 +266,7 @@ public class AdminController extends DefaultController {
 		if(getCorpList != null) {
 			for(int i=0; i<getCorpList.size(); i++) {
 				String corpCode = getCorpList.get(i).get("CORP_CODE").toString();
-				String parameters = "?crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCode;
+				String parameters = "?crtfc_key="+Opk+"&corp_code="+corpCode;
 
 			    // URL과 파라미터 조합
 			    String uri = apiUrl + parameters;

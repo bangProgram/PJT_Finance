@@ -135,7 +135,7 @@ public class AppCorporationController extends DefaultController{
 
             String apiUrl = "https://opendart.fss.or.kr/api/alotMatter.json";
             // 파라미터 설정
-            String parameters = "?crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCode+"&bsns_year="+baseYear+"&reprt_code=11011";
+            String parameters = "?crtfc_key="+Opk+"&corp_code="+corpCode+"&bsns_year="+baseYear+"&reprt_code=11011";
 
             // URL과 파라미터 조합
             String uri = apiUrl + parameters;
