@@ -5,17 +5,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class TokenService {
 	
-	private String kDevToken = "";
+	private String kisDevToken = "";
 
-    public String getKDevToken() {
-        return kDevToken;
+    public String getKisDevToken() {
+        return kisDevToken;
     }
 
-    public void setKDevToken(String newToken) {
-        this.kDevToken = newToken;
+    public void setKisDevToken(String newToken) {
+        this.kisDevToken = newToken;
     }
     
-    public Boolean isKDevToken() {
-    	return !kDevToken.equals("");
+    public Boolean isKisDevToken() {
+    	return !kisDevToken.equals("");
     }
 }

@@ -68,8 +68,8 @@ public class AppLoginController extends DefaultController {
 		//사용자 정보 있을경우 진입
 		if(memberVO != null) {
 			
-			//서버에 Token이 있을경우 재발급 X 
-			if(!tokenService.isKDevToken()) {
+			//서버애 kisToken이 있을경우 재발급 X 
+			if(!tokenService.isKisDevToken()) {
 				setTokenForKisDev();
 			}
 			
@@ -194,7 +194,7 @@ public class AppLoginController extends DefaultController {
         headers.add("Content-Type", "application/json; charset=utf-8");
         
         // 요청 바디 설정
-        String requestBody = "{\"grant_type\": \"client_credentials\", \"appkey\": \""+KdAk + "\", \"appsecret\": \""+KdAsk+"\"}";
+        String requestBody = "{\"grant_type\": \"client_credentials\", \"appkey\": \""+kisDeveloperAppKey + "\", \"appsecret\": \""+kisDeveloperAppSecretKey+"\"}";
 
         HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
 
@@ -222,16 +222,16 @@ public class AppLoginController extends DefaultController {
 	            	System.out.println("정보 가져오기 성공: " + value);
 	            	
 	            	// 토큰 저장
-	            	tokenService.setKDevToken(value.toString());
-	            	System.out.println("test : "+tokenService.getKDevToken());
+	            	tokenService.setKisDevToken(value.toString());
+	            	System.out.println("test : "+tokenService.getKisDevToken());
 	            }
 	        } else {
 	            // 요청이 실패했을 때의 처리
-	            System.out.println("토큰 발급 실패");
+	            System.out.println("KIS 토큰 발급 실패");
 	        }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("토큰 발급 실패 : "+e.toString());
+            System.out.println("KIS 토큰 발급 실패 : "+e.toString());
         }
     }
 	

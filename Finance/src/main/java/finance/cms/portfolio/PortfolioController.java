@@ -70,7 +70,7 @@ public class PortfolioController extends DefaultController{
 			try{
 				String corpCd = getPortCorpList.get(i).get("CORP_CODE").toString();
 				
-				URL url = new URL(infoURL+"crtfc_key="+Opk+"&corp_code="+corpCd+"&bgn_de=20220101&end_de="+curDate+"&pblntf_ty=A&page_no=1&page_count=1" );
+				URL url = new URL(infoURL+"crtfc_key="+openDartCertifiedKey+"&corp_code="+corpCd+"&bgn_de=20220101&end_de="+curDate+"&pblntf_ty=A&page_no=1&page_count=1" );
 				InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
 				JSONObject object = (JSONObject)JSONValue.parse(isr);
 				JSONArray infoList = (JSONArray) object.get("list");
