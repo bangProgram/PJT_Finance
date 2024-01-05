@@ -26,8 +26,10 @@
 	
 	<select id="getAssetAmount" parameterType="Map" resultType="HashMap">  
 	    SELECT
-		    a.deposit_amount AS "depositAmount",
-		    a.reserve_amount AS "reserveAmount",
+		    round(nvl(a.deposit_amount, 0),
+		          0) AS "depositAmount",
+		     round(nvl(a.reserve_amount, 0),
+		          0) AS "reserveAmount",
 		    round(nvl(a.invest_amount, 0),
 		          0)         AS invest_amount,
 		    round(nvl(SUM(b.hold_quantity * b.avg_price),
