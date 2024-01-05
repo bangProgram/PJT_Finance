@@ -249,7 +249,7 @@ public class AdminController extends DefaultController {
   	}
 	
 	
-	
+	//기업정보 현행화
 	@RequestMapping(value={"/cms/admin/mergeCorp"} , method = RequestMethod.GET)
 	public ModelAndView mergeCorpDetail(@RequestParam Map<String, Object> commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception{ 
 		commandMap = init(request, commandMap);
