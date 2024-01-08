@@ -3,12 +3,16 @@ package finance.cms.main;
 import java.util.HashMap;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Vector;
+import java.util.zip.InflaterInputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -73,26 +77,13 @@ public class MainController extends DefaultController{
 		try {
 			System.out.println("입력하세요 >> ");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			Scanner sc = new Scanner(System.in);
-			int cnt, min = 0, max = 0;
-			cnt = Integer.parseInt(br.readLine());
-			String[] numList = br.readLine().split(" ");
-			for(int i=0; i<cnt; i++) {
-				int num = Integer.parseInt(numList[i]);
-				if(i == 0) {
-					min = num;
-					max = num;
-				}else {
-					if(num > max) {
-						max = num;
-					}
-					if(num < min) {
-						min = num;
-					}
-				}
-			}
-			System.out.println(min+" "+max);
-			sc.close();
+	        String input = br.readLine();
+			int total = 0;
+	        for(int i=0; i<input.length(); i++) {
+	        	total += numChk(input.charAt(i));
+	        }
+	        System.out.println(total);
+	        
 		}
 		catch (Exception e) {
 			System.out.println("error : IOexception");
@@ -104,5 +95,28 @@ public class MainController extends DefaultController{
 		
 		return mav;
 		
+	}
+	
+	public Double maxScore(String[] scList) {
+		double max = 0.0;
+		for (int i = 0; i < scList.length; i++) {
+        	double score = Double.parseDouble(scList[i]);
+            if(max < score) {
+            	max = score;
+            }
+        }
+		return max;
+	}
+	
+	public static int numChk(Character input) {
+		Character[][] str = new Character[][] {{},{},{},{'A','B','C'},{'D','E','F'},{'G','H','I'},{'J','K','L'},{'M','N','O'},{'P','Q','R','S'},{'T','U','V'},{'W','X','Y','Z'},{}};
+		for(int i=0; i<str.length; i++) {
+			for(int j=0; j<str[i].length; j++) {
+				if(str[i][j] == input) {
+					return i;
+				}
+			}
+		}
+		return 0;
 	}
 }
